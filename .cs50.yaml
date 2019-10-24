@@ -1,4 +1,7 @@
 check50:
+  files:
+    - !exclude *
+    - include "binary.c"
   checks:
     make binary:
       - run: make binary
