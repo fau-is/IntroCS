@@ -1,5 +1,5 @@
 check50:
   files:
-    - !exclude *
-    - !require linear.c
+    - !exclude "*"
+    - !require "linear.c"
     
