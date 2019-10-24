@@ -15,6 +15,16 @@ def finds_10():
 def finds_100():
     """Finds 100 in the array"""
     check50.run("./binary 100").stdout("Number 100 is at index 9").exit(0)
+    
+@check50.check(compiles)
+def finds_50():
+    """Finds 50 in the array"""
+    check50.run("./binary 50").stdout("Number 50 is at index 4").exit(0)
+    
+@check50.check(compiles)
+def finds_60():
+    """Finds 60 in the array"""
+    check50.run("./binary 60").stdout("Number 60 is at index 5").exit(0)
 
 @check50.check(compiles)
 def cannot_find_5():
