@@ -1,6 +1,6 @@
 check50:
   files:
-    - !exclude *
+    - !exclude "*"
     - include "binary.c"
   checks:
     make binary:
