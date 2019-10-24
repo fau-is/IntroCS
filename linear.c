@@ -17,10 +17,10 @@ int main(int argc, char **argv)
     {
         if (to_search[i] == to_find)
         {
-            printf("The number %i was found at index %i\n", to_find, i);
+            printf("Number %i is at index %i\n", to_find, i);
             return 0;
         }
     }
-    printf("The number %i is not in the array\n", to_find);
+    printf("Number %i not found\n", to_find);
     return 1;
 }
