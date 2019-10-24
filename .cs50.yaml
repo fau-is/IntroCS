@@ -1,0 +1,5 @@
+check50:
+  files:
+    - !exclude *
+    - !require linear.c
+    
