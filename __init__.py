@@ -14,12 +14,12 @@ def finds_1():
 @check50.check(compiles)
 def finds_11():
     """Finds 11 in the array"""
-    check50.run("./linear 11").stdout("Number 11 is at index 2").exit(0)
+    check50.run("./linear 11").stdout("Number 11 is at index 1").exit(0)
     
 @check50.check(compiles)
 def finds_4():
     """Finds 4 in the array"""
-    check50.run("./linear 4").stdout("Number 4 is at index 3").exit(0)
+    check50.run("./linear 4").stdout("Number 4 is at index 2").exit(0)
     
 @check50.check(compiles)
 def finds_7():
