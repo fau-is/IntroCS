@@ -12,15 +12,5 @@ int main(int argc, char **argv)
     }
     int to_find = atoi(argv[1]);
     int array_length = sizeof(to_search)/sizeof(to_search[0]);
-    
-    for (int i = 0; i < array_length; i++)
-    {
-        if (to_search[i] == to_find)
-        {
-            printf("Number %i is at index %i\n", to_find, i);
-            return 0;
-        }
-    }
-    printf("Number %i not found\n", to_find);
-    return 1;
+    \\ TODO
 }
