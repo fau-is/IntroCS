@@ -19,4 +19,4 @@ def finds_100():
 @check50.check(compiles)
 def cannot_find_5():
     """Test not found message with 5"""
-    check50.run("./binary 5").stdout("Number 5 not found").exit(0)
+    check50.run("./binary 5").stdout("Number 5 not found").exit(1)
