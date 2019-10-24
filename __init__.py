@@ -24,4 +24,4 @@ def cannot_find_5():
 @check50.check(compiles)
 def usage():
     """Check usage message"""
-    check50.run("./binary").stdout("Usage: ./binary Number\n").exit(1)
+    check50.run("./binary").stdout("Usage: ./binary Number").exit(1)
