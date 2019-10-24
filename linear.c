@@ -20,5 +20,5 @@ int main(int argc, char **argv)
             printf("The number %i was found at index %i ", to_find, i);
         }
     }
-    printf("The number %i is not in the array", to_find, i);
+    printf("The number %i is not in the array", to_find);
 }
