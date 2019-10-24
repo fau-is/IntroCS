@@ -7,6 +7,6 @@ check50:
       - run: make binary
         exit: 0
     binary 10:
-      - run: ./binary 10
+      - run: "./binary 10"
         stdout: Number 10 is at index 0
         exit: 0
