@@ -13,7 +13,7 @@ def finds_10():
 
 @check50.check(compiles)
 def finds_100():
-    """Finds 10 in the array"""
+    """Finds 100 in the array"""
     check50.run("./binary 100").stdout("Number 100 is at index 9").exit(0)
 
 @check50.check(compiles)
