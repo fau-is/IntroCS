@@ -11,7 +11,7 @@ int main(int argc, char **argv)
         return 1;
     }
     int to_find = atoi(argv[1]);
-    array_length = sizeof(to_search)/sizeof(to_search[0]);
+    int array_length = sizeof(to_search)/sizeof(to_search[0]);
     
     for (int i = 0; i < array_length; i++)
     {
