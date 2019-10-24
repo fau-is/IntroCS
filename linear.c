@@ -12,5 +12,5 @@ int main(int argc, char **argv)
     }
     int to_find = atoi(argv[1]);
     int array_length = sizeof(to_search)/sizeof(to_search[0]);
-    \\ TODO
+    // TODO
 }
