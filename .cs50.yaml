@@ -1,0 +1,6 @@
+check50:
+  checks:
+    binary 10:
+      - run: ./binary 10
+        stdout: Number 10 is at index 0
+        exit: 0
