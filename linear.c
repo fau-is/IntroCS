@@ -7,7 +7,7 @@ int main(int argc, char **argv)
 {
     if (argc != 2)
     {
-        printf("Usage: ./linear Number");
+        printf("Usage: ./linear Number\n");
         return 1;
     }
     int to_find = atoi(argv[1]);
