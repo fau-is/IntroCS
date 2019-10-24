@@ -1,5 +1,8 @@
 check50:
   checks:
+    make binary:
+      - run: make binary
+        exit: 0
     binary 10:
       - run: ./binary 10
         stdout: Number 10 is at index 0
