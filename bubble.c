@@ -79,7 +79,13 @@ void pretty_printer(int *to_print)
     printf("[");
     for (int i = 0, j = sizeof(to_sort)/sizeof(to_sort[0]); i < j; i++)
     {
-        printf("%i, ", to_print[i]);
+        if (j - i > 1)
+        {
+            printf("%i, ", to_print[i]);
+        }
+        else
+        {
+            printf("%i", to_print[i]);
+        }
     }
     printf("]\n");
-}
