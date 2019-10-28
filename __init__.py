@@ -9,12 +9,12 @@ def compiles():
 @check50.check(compiles)
 def sorts_asc():
     """Sorts ascending"""
-    check50.run("./bubble asc").stdout("[2, 5, 8, 23, 33, 42, 78, 123, 2398, 4711]").exit(0)
+    check50.run("./bubble asc").stdout("[2, 5, 8, 23, 33, 42, 78, 123, 2398, 4711]", regex=False).exit(0)
 
 @check50.check(compiles)
 def sorts_dsc():
     """Sorts descending"""
-    check50.run("./bubble dsc").stdout("[4711, 2398, 123, 78, 42, 33, 23, 8, 5, 2]").exit(0)
+    check50.run("./bubble dsc").stdout("[4711, 2398, 123, 78, 42, 33, 23, 8, 5, 2]", regex=False).exit(0)
     
 @check50.check(compiles)
 def usage():
