@@ -38,18 +38,18 @@ int main(int argc, char **argv)
 
 }
 
-void pretty_printer(int *to_print)
+void pretty_printer(int *to_print, size_t size)
 {
     printf("[");
-    for (int i = 0, j = sizeof(to_sort)/sizeof(to_sort[0]); i < j; i++)
+    for (int i = 0; i < size; i++)
     {
-        if (j - i > 1)
+        if (i == size - 1)
         {
-            printf("%i, ", to_print[i]);
+            printf("%i", to_print[i])   
         }
         else
         {
-            printf("%i", to_print[i]);
+            printf("%i, ", to_print[i]);
         }
     }
     printf("]\n");
