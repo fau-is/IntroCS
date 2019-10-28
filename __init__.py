@@ -3,8 +3,8 @@ import check50.c
 
 @check50.check()
 def compiles():
-    """m_bubble.c compiles."""
-    check50.c.compile("m_bubble.c", lcs50=True)
+    """bubble.c compiles."""
+    check50.c.compile("bubble.c", lcs50=True)
 
 @check50.check(compiles)
 def sorts_asc():
