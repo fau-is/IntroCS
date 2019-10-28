@@ -17,8 +17,8 @@ def finds_2():
 @check50.check(compiles)
 def regards_pre_req():
     """Does not ignore the prerequisites"""
-    check50.run("./babylon -2 4").stdout("Try again...").exit(-1)
-    check50.run("./babylon 2 -4").stdout("Try again...").exit(-1)
+    check50.run("./babylon -2 4").stdout("Try again...").exit(1)
+    check50.run("./babylon 2 -4").stdout("Try again...").exit(1)
     check50.run("./babylon 3 -4").stdout("-1.58741").exit(0)
 
 
