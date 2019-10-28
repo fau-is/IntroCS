@@ -13,13 +13,13 @@ int main(int argc, char **argv)
     int to_find = atoi(argv[1]);
     int array_length = sizeof(to_search)/sizeof(to_search[0]);
     
-    int first = 0;
-    int last = array_length - 1;
-    int middle = last / 2; 
+    int start = 0;
+    int end = array_length - 1;
+    int middle = end / 2; 
     
     // As long as the last element to examine is equal 
     // or lower than the first element proceed 
-    while (last >= first)
+    while (start <= end)
     {
         if (to_find == to_search[middle])
         {
@@ -31,16 +31,16 @@ int main(int argc, char **argv)
         {
             // Set last as middle -1, persuing on the side with minor numbers
             // - 1 because we know it's not the number at present middle
-            last = middle - 1;
+            end = middle - 1;
         }
         else if (to_find > to_search[middle])
         {
             // Set first as middle +1, persuing on the side with major numbers
             // + 1 Because we know already it's not the number at present middle
-            first = middle + 1;
+            start = middle + 1;
         }
         // Reset the middle variable
-        middle = (first + last) / 2; 
+        middle = (start + end) / 2; 
     }
     
     printf("Number %i not found\n", to_find);
