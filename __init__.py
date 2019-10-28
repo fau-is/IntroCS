@@ -19,4 +19,4 @@ def sorts_dsc():
 @check50.check(compiles)
 def usage():
     """Prints Usage"""
-    check50.run("./bubble asdf").stdout("Usage: ./bubble [asc|dsc]\n").exit(1)
+    check50.run("./bubble asdf").stdout("Usage: ./bubble [asc|dsc]").exit(1)
