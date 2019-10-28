@@ -11,8 +11,8 @@ def compiles():
 @check50.check(compiles)
 def finds_usage():
     """returns usage without args"""
-    check50.run("./selsort").stdout("Usage: ./bubble [asc|dsc]", regex=False).exit(1)
-    check50.run("./selsort asdf").stdout("Usage: ./bubble [asc|dsc]", regex=False).exit(1)
+    check50.run("./selsort").stdout("Usage: ./selsort [asc|dsc]", regex=False).exit(1)
+    check50.run("./selsort asdf").stdout("Usage: ./selsort [asc|dsc]", regex=False).exit(1)
 
 
 @check50.check(compiles)
