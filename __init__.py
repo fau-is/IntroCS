@@ -3,20 +3,20 @@ import check50.c
 
 @check50.check()
 def compiles():
-    """binary.c compiles."""
-    check50.c.compile("binary.c", lcs50=True)
+    """m_bubble.c compiles."""
+    check50.c.compile("m_bubble.c", lcs50=True)
 
 @check50.check(compiles)
 def sorts_asc():
     """Finds 10 in the array"""
-    check50.run("./binary 10").stdout("Number 10 is at index 0").exit(0)
+    check50.run("./bubble asc").stdout("[2, 5, 8, 23, 33, 42, 78, 123, 2398, 4711]").exit(0)
 
 @check50.check(compiles)
 def sorts_dsc():
     """Finds 100 in the array"""
-    check50.run("./binary 100").stdout("Number 100 is at index 9").exit(0)
+    check50.run("./bubble dsc").stdout("[4711, 2398, 123, 78, 42, 33, 23, 8, 5, 2]").exit(0)
     
 @check50.check(compiles)
 def usage():
     """Finds 50 in the array"""
-    check50.run("./binary 50").stdout("Number 50 is at index 4").exit(1)
+    check50.run("./bubble ots").stdout("Usage: ./bubble [asc|dsc]\n").exit(1)
