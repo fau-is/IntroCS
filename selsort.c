@@ -5,15 +5,8 @@
 
 int to_sort[10] = {4711, 8, 2, 33, 5, 23, 42, 78, 123, 2398};
 
-void pretty_printer(int *to_print, int size)
-{
-    printf("[");
-    for (int i = 0; i < size; i++)
-    {
-        printf("%i, ", to_print[i]);
-    }
-    printf("]\n");
-}
+// Helper to print arrays
+void pretty_printer(int *to_print, int size);
 
 int main(int argc, char **argv)
 {
@@ -26,14 +19,15 @@ int main(int argc, char **argv)
     }
    
 
-    //same as in bubble sort
+    //TODO: check if sorting in asc (ascending) or dsc (descending) order
 
 
     //helpers
     int limit = sizeof(to_sort)/sizeof(to_sort[0]);
     int max;
     int maxIndex;
-    //why this way? :)
+    //TODO implement Selection Sort
+    // HINT: We are reducing the limit from the right side on
     for (int i = limit - 1; i > 0; i--)
     {
 
@@ -41,10 +35,23 @@ int main(int argc, char **argv)
         //TODO
 
     }
-
-
-    //TODO
-
-
+    pretty_printer(to_sort, 10)
     return 0;
+}
+
+void pretty_printer(int *to_print, size_t size)
+{
+    printf("[");
+    for (int i = 0; i < size; i++)
+    {
+        if (i == size - 1)
+        {
+            printf("%i", to_print[i])   
+        }
+        else
+        {
+            printf("%i, ", to_print[i]);
+        }
+    }
+    printf("]\n");
 }
