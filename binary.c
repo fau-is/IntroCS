@@ -15,11 +15,11 @@ int main(int argc, char **argv)
     
     // Helpers
     // Initial index of first element
-    int first = 0;
+    int start = 0;
     //Initial index of last element
-    int last = array_length - 1;
+    int end = array_length - 1;
     // Initial middle
-    int middle = last / 2; 
+    int middle = end / 2; 
     
     // TODO Iterative Binary Search 
     // Hint: Maybe a while loop helps
