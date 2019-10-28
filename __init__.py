@@ -3,7 +3,7 @@ import check50.c
 
 @check50.check()
 def compiles():
-    """bubble.c compiles."""
+    """heapSort.c compiles."""
     check50.c.compile("heapSort.c", lcs50=True)
 
 @check50.check(compiles)
