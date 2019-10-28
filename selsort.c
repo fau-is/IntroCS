@@ -5,10 +5,10 @@
 
 int to_sort[10] = {4711, 8, 2, 33, 5, 23, 42, 78, 123, 2398};
 
-void pretty_printer(int *to_print)
+void pretty_printer(int *to_print, int size)
 {
     printf("[");
-    for (int i = 0, j = sizeof(to_sort)/sizeof(to_sort[0]); i < j; i++)
+    for (int i = 0; i < size; i++)
     {
         printf("%i, ", to_print[i]);
     }
