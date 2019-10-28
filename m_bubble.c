@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 
 
     //TODO
-    //HINT: which loop to you need when swp = true, which one when swp = false?
+    //HINT: which loop do you need when swp = true, which one when swp = false?
 
 
     return 0;
