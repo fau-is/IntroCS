@@ -19,4 +19,4 @@ def sorts_dsc():
 @check50.check(compiles)
 def usage():
     """Finds 50 in the array"""
-    check50.run("./bubble ots").stdout("Usage: ./bubble [asc|dsc]\n").exit(1)
+    check50.run("./bubble ots").stdout("Usage: ./bubble [asc|dsc]").exit(1)
