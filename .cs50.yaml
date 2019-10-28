@@ -1,4 +1,4 @@
 check50:
   files:
     - !exclude "*"
-    - !require m_bubble.c
+    - !require bubble.c
