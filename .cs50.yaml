@@ -1,0 +1,4 @@
+check50:
+  files:
+    - !exclude "*"
+    - !require heapSort.c
