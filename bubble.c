@@ -3,18 +3,9 @@
 #include <string.h>
 #include <stdbool.h>
 
+void pretty_printer(int *to_print);
+
 int to_sort[10] = {4711, 8, 2, 33, 5, 23, 42, 78, 123, 2398};
-
-void pretty_printer(int *to_print)
-{
-    printf("[");
-    for (int i = 0, j = sizeof(to_sort)/sizeof(to_sort[0]); i < j; i++)
-    {
-        printf("%i, ", to_print[i]);
-    }
-    printf("]\n");
-}
-
 int main(int argc, char **argv)
 {
     int asc = 0;
@@ -81,4 +72,14 @@ int main(int argc, char **argv)
 
     pretty_printer(to_sort);
     return 0;
+}
+
+void pretty_printer(int *to_print)
+{
+    printf("[");
+    for (int i = 0, j = sizeof(to_sort)/sizeof(to_sort[0]); i < j; i++)
+    {
+        printf("%i, ", to_print[i]);
+    }
+    printf("]\n");
 }
