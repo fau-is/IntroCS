@@ -5,15 +5,8 @@
 
 int to_sort[10] = {4711, 8, 2, 33, 5, 23, 42, 78, 123, 2398};
 
-void pretty_printer(int *to_print)
-{
-    printf("[");
-    for (int i = 0, j = sizeof(to_sort)/sizeof(to_sort[0]); i < j; i++)
-    {
-        printf("%i, ", to_print[i]);
-    }
-    printf("]\n");
-}
+// Helper to print arrays
+void pretty_printer(int *to_print);
 
 int main(int argc, char **argv)
 {
@@ -24,7 +17,6 @@ int main(int argc, char **argv)
         printf("Usage: ./bubble [asc|dsc]\n");
         return 1;
     }
-
 
     //TODO: check if asc or dsc
     
@@ -42,4 +34,14 @@ int main(int argc, char **argv)
 
     return 0;
 
+}
+
+void pretty_printer(int *to_print)
+{
+    printf("[");
+    for (int i = 0, j = sizeof(to_sort)/sizeof(to_sort[0]); i < j; i++)
+    {
+        printf("%i, ", to_print[i]);
+    }
+    printf("]\n");
 }
