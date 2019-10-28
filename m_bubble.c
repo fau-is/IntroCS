@@ -18,20 +18,22 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    //TODO: check if asc or dsc
+    //TODO: check if sorting in asc (ascending) or dsc (descending) order
     
 
-    //helper variables
-    //was there a bubble?
-    bool swp = true;
-    //how long do i need to follow the bubbles?
+    // Some helpers
+    // Limit (length of the array - 1)
+    // HINT: You need to compare the ith element with the i+1th element
     int limit = sizeof(to_sort)/sizeof(to_sort[0]) - 1;
-
-
+    
+    // Was there a "bubble" before (Did the program swap at least two numbers), initially true
+    bool swp = true;
+    
     //TODO
-    //HINT: which loop do you need when swp = true, which one when swp = false?
-
-
+    //HINT: Do you need a do-while or while loop when swp = true initially?
+    //HINT: It might make sense to bubble values (up or down)  with a for loop
+    
+    
     return 0;
 
 }
