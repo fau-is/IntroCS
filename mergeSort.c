@@ -22,6 +22,13 @@ void pretty_printer(char **to_print, size_t size)
     printf("]\n");
 }
 
+int strCmp(const char* s1, const char* s2)
+{
+    
+    //TODO
+    
+}
+
 char** my_merge(char **to_sort_1, char **to_sort_2, int size1, int size2, char **ret)
 {
     int idx1 = 0;
