@@ -34,7 +34,7 @@ def finds_22_88():
 @check50.check(compiles)
 def finds_69_42():
     """Finds the right root for k = 69 and a = 42 """
-    check50.run("./babylon 69 42").stdout("1.10709").exit(0)
+    check50.run("./babylon 69 42").stdout("1.06151").exit(0)
 
 
 @check50.check(compiles)
