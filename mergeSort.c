@@ -22,6 +22,16 @@ void pretty_printer(char **to_print, size_t size)
     printf("]\n");
 }
 
+int strCmp(const char* s1, const char* s2)
+{
+    while(*s1 && (*s1 == *s2))
+    {
+        s1++;
+        s2++;
+    }
+    return *(const unsigned char*)s1 - *(const unsigned char*)s2;
+}
+
 char** my_merge(char **to_sort_1, char **to_sort_2, int size1, int size2, char **ret)
 {
     int idx1 = 0;
@@ -30,7 +40,7 @@ char** my_merge(char **to_sort_1, char **to_sort_2, int size1, int size2, char *
     {
         char *left = to_sort_1[idx1];
         char *right = to_sort_2[idx2];
-        if (strcmp(left, right) <= 0)
+        if (strCmp(left, right) <= 0)
         {
             ret[idx1 + idx2] = left;
             idx1++;
@@ -88,7 +98,7 @@ int main(int argc, char **argv)
         printf("Usage: ./mergeSort words to sort\n");
         return 1;
     }
-    
+
     int size = 0;
     for (int i = 1; argv[i] != NULL; i++, size++)
     {}
