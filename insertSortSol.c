@@ -66,6 +66,6 @@ int main(int argc, char **argv)
         to_sort[idx+1] = max;
     }
 
-    pretty_printer(to_sort, size);
+    printf("%s", to_sort);
     return 0;
 }
