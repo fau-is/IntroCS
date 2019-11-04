@@ -6,7 +6,7 @@
 char *to_sort = "zdvixqcuvd";
 //the same as "zdvixqcuvd"
 
-void pretty_printer(char *to_print, int size)
+void pretty_printer(char *to_print, size_t size)
 {
     printf("[");
     for (int i = 0; i < size; i++)
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     //helpers
     int size = strlen(to_sort);
     int max;
-    int idx;
+    int index;
     
     for (int i = 0 ; i < size; i++)
     {
