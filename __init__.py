@@ -12,7 +12,7 @@ def regards_pre_req():
     """Does not ignore the prerequisites"""
     check50.run("./insertSort asc some string ").stdout("Usage: ./insertSort [asc|dsc] to_sort\n", regex=False).exit(1)
     check50.run("./insertSort somestring").stdout("Usage: ./insertSort [asc|dsc] to_sort\n", regex=False).exit(1)
-    check50.run("./insertSort").stdout("Usage: ./insertSort [asc|dsc] to_sort\n", regex=False).exit(0)
+    check50.run("./insertSort").stdout("Usage: ./insertSort [asc|dsc] to_sort\n", regex=False).exit(1)
 
 @check50.check(compiles)
 def sort_introcs():
