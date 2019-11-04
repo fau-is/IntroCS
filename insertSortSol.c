@@ -3,26 +3,6 @@
 #include <string.h>
 #include <stdbool.h>
 
-char *to_sort = "zdvixqcuvd";
-//the same as "zdvixqcuvd"
-
-void pretty_printer(char *to_print, int size)
-{
-    printf("[");
-    for (int i = 0; i < size; i++)
-    {
-        if (size - i > 1)
-        {
-            printf("%c, ", to_print[i]);
-        }
-        else
-        {
-            printf("%c", to_print[i]);
-        }
-    }
-    printf("]\n");
-}
-
 int main(int argc, char **argv)
 {
     int asc = 0;
@@ -66,6 +46,6 @@ int main(int argc, char **argv)
         to_sort[idx+1] = max;
     }
 
-    printf("%s", to_sort);
+    printf("%s\n", to_sort);
     return 0;
 }
