@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 
     if (argc != 3)
     {
-        printf("Usage: ./insertSort [asc|dsc]\n");
+        printf("Usage: ./insertSort [asc|dsc] to_sort\n");
         return 1;
     }
     if (strcmp(argv[1], "asc") == 0)
@@ -26,7 +26,7 @@ int main(int argc, char **argv)
     }
     else
     {
-        printf("Usage: ./insertSort [asc|dsc]\n");
+        printf("Usage: ./insertSort [asc|dsc] to_sort\n");
         return 1;
     }
     to_sort = argv[2];
