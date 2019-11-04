@@ -3,25 +3,9 @@
 #include <string.h>
 #include <stdbool.h>
 
+void pretty_printer(char *to_print, size_t size);
 char *to_sort = "zdvixqcuvd";
 //the same as "zdvixqcuvd"
-
-void pretty_printer(char *to_print, size_t size)
-{
-    printf("[");
-    for (int i = 0; i < size; i++)
-    {
-        if (size - i > 1)
-        {
-            printf("%c, ", to_print[i]);
-        }
-        else
-        {
-            printf("%c", to_print[i]);
-        }
-    }
-    printf("]\n");
-}
 
 int main(int argc, char **argv)
 {
@@ -59,5 +43,22 @@ int main(int argc, char **argv)
 
     pretty_printer(to_sort, size);
     return 0;
+}
+
+void pretty_printer(char *to_print, size_t size)
+{
+    printf("[");
+    for (int i = 0; i < size; i++)
+    {
+        if (size - i > 1)
+        {
+            printf("%c, ", to_print[i]);
+        }
+        else
+        {
+            printf("%c", to_print[i]);
+        }
+    }
+    printf("]\n");
 }
 
