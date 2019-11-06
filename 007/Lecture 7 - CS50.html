@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://cs50.harvard.edu/college/notes/7/ -->
+<html lang="en-us" class="gr__cs50_harvard_edu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta property="og:description" content="Introduction to the intellectual enterprises of computer science and the art of programming. This course teaches students how to think algorithmically and solve problems efficiently. Topics include abstraction, algorithms, data structures, encapsulation, resource management, security, and software engineering. Languages include C, Python, and SQL plus students’ choice of: HTML, CSS, and JavaScript (for web development); Java or Swift (for mobile app development); or Lua (for game development). Problem sets inspired by the arts, humanities, social sciences, and sciences. Course culminates in a final project. Designed for concentrators and non-concentrators alike, with or without prior programming experience. Two thirds of CS50 students have never taken CS before. Among the overarching goals of this course are to inspire students to explore unfamiliar waters, without fear of failure, create an intensive, shared experience, accessible to all students, and build community among students.">
+
+<meta property="og:image" content=""><meta property="og:title" content="Lecture 7 - CS50">
+
+<meta property="og:url" content=""><link href="https://cs50.harvard.edu/college/favicon.ico?1573000452" rel="icon">
+
+<!-- https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use -->
+<link href="./Lecture 7 - CS50_files/all.min.css" rel="stylesheet">
+
+<link href="./Lecture 7 - CS50_files/page.css" rel="stylesheet">
+
+<!-- http://getbootstrap.com/docs/4.3/getting-started/introduction/ -->
+<script src="./Lecture 7 - CS50_files/jquery.min.js"></script>
+<script src="./Lecture 7 - CS50_files/popper.min.js"></script>
+<script src="./Lecture 7 - CS50_files/bootstrap.min.js"></script>
+
+<!-- https://github.com/pellepim/jstimezonedetect -->
+<script src="./Lecture 7 - CS50_files/jstz.min.js"></script>
+
+<script src="./Lecture 7 - CS50_files/jekyll-theme-cs50.js"></script>
+
+<title>Lecture 7 - CS50</title>
+</head>
+
+    <body data-gr-c-s-loaded="true">
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <aside class="col-md">
+ 
+                    <header><h1 data-id="this-is-cs50"><a href="https://cs50.harvard.edu/college/">This is CS50</a></h1>
+
+<p><a href="https://www.harvard.edu/">Harvard University</a><br>
+Fall 2019</p></header>
+
+                    <button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-md-none" data-target="aside &gt; nav" data-toggle="collapse">Menu</button>
+
+                    <nav class="collapse d-md-block"><hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/weeks/0/">Week 0</a> Scratch</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/weeks/1/">Week 1</a> C</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/weeks/2/">Week 2</a> Arrays</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/weeks/3/">Week 3</a> Algorithms</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/weeks/4/">Week 4</a> Memory</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/weeks/5/">Week 5</a> Data Structures</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/weeks/6/">Week 6</a> Python <em class="text-white">🐍</em></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/weeks/7/">Week 7</a> SQL</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>
+    <p><a href="https://cs50.harvard.edu/college/weeks/8/">Week 8</a> Information</p>
+  </li>
+</ul>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/tracks/">Tracks</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/project/">Final Project</a></li>
+</ul>
+
+<hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/ed">Q&amp;A</a></li>
+</ul>
+
+<hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://docs.google.com/forms/d/e/1FAIpQLSdtV5QRs_gS0cZ77GPHQSYgtvOTWc5jS_i0Oms2Hqd5q3PuWw/viewform?usp=pp_url&amp;entry.987014883=COMPSCI+50+at+Harvard+College">Anonymous Feedback</a></li>
+</ul>
+
+<hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/faqs/">FAQs</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://open.spotify.com/user/arubery/playlist/7juFEfDDYC3DBCoRq7W9Cp">Music</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/hours/">Office Hours</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/photos/">Photos</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/sections/">Sections</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/staff/">Staff</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/supersections/">Supersections</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/syllabus/">Syllabus</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/test/">Test</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.harvard.edu/college/tutorials/">Tutorials</a></li>
+</ul>
+
+<hr>
+
+<ul class="small fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://ide.cs50.io/">CS50 IDE</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://sandbox.cs50.io/">CS50 Sandbox</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://sqlitebrowser.org/">DB Browser for SQLite</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://harvard.cs50.me/">Gradebook</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://man.cs50.io/">Manual Pages</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://docs.python.org/3.7/search.html">Python Documentation</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://stackoverflow.com/search">Stack Overflow</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><a href="https://cs50.readthedocs.io/style/c/">Style Guide</a></li>
+</ul>
+
+<hr>
+
+<p style="font-size: initial">With <a href="https://cs50.harvard.edu/college/thanks/">thanks</a> to CS50’s alumni and friends</p></nav>
+
+                    <footer></footer>
+
+                </aside>
+
+                <main class="col-md markdown-body" style="margin-bottom: 282px;">
+
+                    <h1 class="no_toc" id="lecture-7"><a data-id="" href="https://cs50.harvard.edu/college/notes/7/#lecture-7">Lecture 7</a></h1>
+
+<ul id="markdown-toc">
+  <li><a href="https://cs50.harvard.edu/college/notes/7/#spreadsheets" id="markdown-toc-spreadsheets">Spreadsheets</a></li>
+  <li><a href="https://cs50.harvard.edu/college/notes/7/#sql" id="markdown-toc-sql">SQL</a></li>
+  <li><a href="https://cs50.harvard.edu/college/notes/7/#imdb" id="markdown-toc-imdb">IMDb</a></li>
+  <li><a href="https://cs50.harvard.edu/college/notes/7/#multiple-tables" id="markdown-toc-multiple-tables">Multiple tables</a></li>
+  <li><a href="https://cs50.harvard.edu/college/notes/7/#problems" id="markdown-toc-problems">Problems</a></li>
+</ul>
+
+<h2 id="spreadsheets"><a data-id="" href="https://cs50.harvard.edu/college/notes/7/#spreadsheets">Spreadsheets</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Most of us are familiar with spreadsheets, rows of data, with each column in a row having a different piece of data that relate to each other somehow.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>A database is an application that can store data, and we can think of Google Sheets as one such application.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>For example, we created a Google Form to ask students their favorite TV show and genre of it. We look thorugh the responses, and see that the spreadsheet has three columns: “Timestamp”, “title”, and “genres”:<br>
+<img src="./Lecture 7 - CS50_files/spreadsheet.png" alt="image of Google Sheets spreadsheet with row 1 having cells &quot;Timestamp&quot;, &quot;title&quot;, and &quot;genres&quot;, with row 2 having cells &quot;10/28/2019 15:03:45&quot;, &quot;Dynasty&quot;, &quot;Drama, Family&quot;, and so on"></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We can download a CSV file from the spreadsheet with “File &gt; Download”, upload it to our IDE, and see that it’s a text file with comma-separated values matching the spreadsheet’s data.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We’ll write <code class="highlighter-rouge">favorites.py</code>:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"CS50 2019 - Lecture 7 - Favorite TV Shows (Responses) - Form Responses 1.csv"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">"title"</span><span class="p">])</span>
+</code></pre></div>    </div>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We’re just going to open the file and make sure we can get the title of each row.</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Now we can use a dictionary to count the number of times we’ve seen each title, with the keys being the titles and the values for each key an integer, tracking how many times we’ve seen that title:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"CS50 2019 - Lecture 7 - Favorite TV Shows (Responses) - Form Responses 1.csv"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s">"title"</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">title</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">title</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">title</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">" | "</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>In each row, we can get the <code class="highlighter-rouge">title</code> with <code class="highlighter-rouge">row["title"]</code>.</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Here, if we’ve seen the title before (it’s in <code class="highlighter-rouge">counts</code>), we can just add 1 to the value. Otherwise, we need to set the initial value to 1.</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Finally, we can print out our dictionary’s keys and values with a separator so it’s a bit easier to read.</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We can change the way we iterate to <code class="highlighter-rouge">for title, count in sorted(counts.items()):</code>, and we’ll see our dictionary sorted by the keys, alphabetically.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>But we can sort by the key-value pairs in the dictionary with:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">title</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+</code></pre></div>    </div>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We define a function, <code class="highlighter-rouge">f</code>, which just returns the value from the <code class="highlighter-rouge">item</code> in the dictionary with <code class="highlighter-rouge">item[1]</code>. The <code class="highlighter-rouge">sorted</code> function, in turn, can use that as the key to sort the dictionary’s items. And we’ll also pass in <code class="highlighter-rouge">reverse=True</code> to sort from largest to smallest, instead of smallest to largest.</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We can actually define our function in the same line, with this syntax:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">title</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+</code></pre></div>    </div>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We pass in a lambda, or anonymous function, as the key, which takes in the <code class="highlighter-rouge">item</code> and returns <code class="highlighter-rouge">item[1]</code>.</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Finally, we can make all the titles lowercase with <code class="highlighter-rouge">title = row["title"].lower()</code>, so our counts can be a little more accurate even if the names weren’t typed in the exact same way.</li>
+</ul>
+
+<h2 id="sql"><a data-id="" href="https://cs50.harvard.edu/college/notes/7/#sql">SQL</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We’ll look at a new program in our terminal window, <code class="highlighter-rouge">sqlite3</code>, a command-line program that lets us use another language, SQL (pronounced like “sequel”).</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We’ll run some commands to create a new database called <code class="highlighter-rouge">favorites.db</code> and import our CSV file into a table called “favorites”:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/ $ sqlite3 favorites.db
+SQLite version 3.22.0 2018-01-22 18:45:57
+Enter ".help" for usage hints.
+sqlite&gt; .mode csv
+sqlite&gt; .import "CS50 2019 - Lecture 7 - Favorite TV Shows (Responses) - Form Responses 1.csv" favorites
+</code></pre></div>    </div>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We see a <code class="highlighter-rouge">favorites.db</code> in our IDE after we run this, and now we can use SQL to interact with our data:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; SELECT title FROM favorites;
+title
+Dynasty
+The Office
+Blindspot
+24
+Friends
+psych
+Veep
+Survivor
+...
+</code></pre></div>    </div>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We can even sort our results:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; SELECT title FROM favorites ORDER BY title;
+title
+/
+24
+9009
+Adventure Time
+Airplane Repo
+Always Sunny
+Ancient Aliens
+...
+</code></pre></div>    </div>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>And get a count of the number of times each title appears:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; SELECT title, COUNT(title) FROM favorites GROUP BY title;
+title | COUNT(title)
+/ | 1
+24 | 1
+9009 | 1
+Adventure Time | 1
+Airplane Repo | 1
+Always Sunny | 1
+Ancient Aliens | 1
+...
+</code></pre></div>    </div>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We can even set the count of each title to a new variable, <code class="highlighter-rouge">n</code>, and order our results by that, in descending order. Then we can see the top 10 results with <code class="highlighter-rouge">LIMIT 10</code>:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; SELECT title, COUNT(title) AS n FROM favorites GROUP BY title ORDER BY n DESC LIMIT 10;
+title | n
+The Office | 30
+Friends | 20
+Game of Thrones | 20
+Breaking Bad | 14
+Black Mirror | 9
+Rick and Morty | 9
+Brooklyn Nine-Nine | 5
+Game of thrones | 5
+No | 5
+Prison Break | 5
+</code></pre></div>    </div>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>SQL is a language that lets us work with a relational database, an application lets us store data and work with them more quickly than with a CSV.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>With <code class="highlighter-rouge">.schema</code>, we can see how the format for the table for our data is created:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; .schema
+CREATE TABLE favorites(
+  "Timestamp" TEXT,
+  "title" TEXT,
+  "genres" TEXT
+);
+</code></pre></div>    </div>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>It turns out that, when working with data, we only need four operations:
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">CREATE</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">READ</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">UPDATE</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">DELETE</code></li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>In SQL, the commands to perform each of these operations are:
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">INSERT</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">SELECT</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">UPDATE</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">DELETE</code></li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>First, we’ll need to insert a table with the <code class="highlighter-rouge">CREATE TABLE table (column type, ...);</code> command.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>SQL, too, has its own data types to optimize the amount of space used for storing data:
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">BLOB</code>, for “binary large object”, raw binary data that might represent files</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">INTEGER</code>
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">smallint</code></li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">integer</code></li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">bigint</code></li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">NUMERIC</code>
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">boolean</code></li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">date</code></li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">datetime</code></li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">numeric(scale,precision)</code>, which solves floating-point imprecision by using as many bits as needed, for each digit before and after the decimal point</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">time</code></li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">timestamp</code></li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">REAL</code>
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">real</code>, for floating-point values</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">double precision</code>, with more bits</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">TEXT</code>
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">char(n)</code>, for an exact number of characters</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">varchar(n)</code>, for a variable number of characters, up to a certain limit</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">text</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>SQLite is one database application that supports SQL, and there are many companies with server applications that support SQL, includes Oracle Database, MySQL, PostgreSQL, MariaDB, and Microsoft Access.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>After inserting values, we can use functions to perform calculations, too:
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">AVG</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">COUNT</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">DISTINCT</code>, for getting distinct values without duplicates</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">MAX</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">MIN</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>…</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>There are also other operations we can combine as needed:
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">WHERE</code>, matching on some strict condition</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">LIKE</code>, matching on substrings for text</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">LIMIT</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">GROUP BY</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">ORDER BY</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">JOIN</code>, combining data from multiple tables</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We can update data with <code class="highlighter-rouge">UPDATE table SET column=value WHERE condition;</code>, which could include 0, 1, or more rows depending on our condition. For example, we might say <code class="highlighter-rouge">UPDATE favorites SET title = "The Office" WHERE title LIKE "%office"</code>, and that will set all the rows with the title containing “office” to be “The Office” so we can make them consistent.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>And we can remove matching rows with <code class="highlighter-rouge">DELETE FROM table WHERE condition;</code>, as in <code class="highlighter-rouge">DELETE FROM favorites WHERE title = "Friends";</code>.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We can even delete an entire table altogether with another command, <code class="highlighter-rouge">DROP</code>.</li>
+</ul>
+
+<h2 id="imdb"><a data-id="" href="https://cs50.harvard.edu/college/notes/7/#imdb">IMDb</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>IMDb, or “Internet Movie Database”, has datasets <a href="https://www.imdb.com/interfaces/">available to download</a> as TSV, or tab-separate values, files.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>For example, we can download <code class="highlighter-rouge">title.basics.tsv.gz</code>, which will contain basic data about titles:
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">tconst</code>, a unique identifier for each title, like <code class="highlighter-rouge">tt4786824</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">titleType</code>, the type of the title, like <code class="highlighter-rouge">tvSeries</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">primaryTitle</code>, the main title used, like <code class="highlighter-rouge">The Crown</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">startYear</code>, the year a title was released, like <code class="highlighter-rouge">2016</code></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">genres</code>, a comma-separated list of genres, like <code class="highlighter-rouge">Drama,History</code></li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We take a look at <code class="highlighter-rouge">title.basics.tsv</code> after we’ve unzipped it, and we see that the first rows are indeed the headers we expected and each row has values separated by tabs. But the file has more than 6 million rows, so even searching for one value takes a moment.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We’ll download the file into our IDE with <code class="highlighter-rouge">wget</code>, and then <code class="highlighter-rouge">gunzip</code> to unzip it. But our IDE doesn’t have enough space, so we’ll use our Mac’s terminal instead.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We’ll write <code class="highlighter-rouge">import.py</code> to read the file in:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="c1"># Open TSV file for reading
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"title.basics.tsv"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">titles</span><span class="p">:</span>
+
+    <span class="c1"># Since the file is a TSV file, we can use the CSV reader and change
+</span>    <span class="c1"># the separator to a tab.
+</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">titles</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">)</span>
+
+    <span class="c1"># Open new CSV file for writing
+</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"shows0.csv"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">shows</span><span class="p">:</span>
+
+        <span class="c1"># Create writer
+</span>        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">shows</span><span class="p">)</span>
+
+        <span class="c1"># Write header of the columns we want
+</span>        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s">"tconst"</span><span class="p">,</span> <span class="s">"primaryTitle"</span><span class="p">,</span> <span class="s">"startYear"</span><span class="p">,</span> <span class="s">"genres"</span><span class="p">])</span>
+
+        <span class="c1"># Iterate over TSV file
+</span>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+
+            <span class="c1"># If non-adult TV show
+</span>            <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s">"titleType"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"tvSeries"</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s">"isAdult"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"0"</span><span class="p">:</span>
+
+                <span class="c1"># Write row
+</span>                <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">row</span><span class="p">[</span><span class="s">"tconst"</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s">"primaryTitle"</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s">"startYear"</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s">"genres"</span><span class="p">]])</span>
+</code></pre></div>    </div>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Now, we can open <code class="highlighter-rouge">shows0.csv</code> and see a smaller set of data. But it turns out, for some of the rows, <code class="highlighter-rouge">startYear</code> has a value of <code class="highlighter-rouge">\N</code>, and that’s a special value from IMDb when they want to represent values that are missing. So we can filter out those values and convert the <code class="highlighter-rouge">startYear</code> to an integer to filter for shows after 1970:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">...</span>
+<span class="c1"># If year not missing (We need to escape the backslash too)
+</span><span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s">"startYear"</span><span class="p">]</span> <span class="o">!=</span> <span class="s">"</span><span class="se">\\</span><span class="s">N"</span><span class="p">:</span>
+
+    <span class="c1"># If since 1970
+</span>    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">"startYear"</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">1970</span><span class="p">:</span>
+
+        <span class="c1"># Write row
+</span>        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">row</span><span class="p">[</span><span class="s">"tconst"</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s">"primaryTitle"</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s">"startYear"</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s">"genres"</span><span class="p">]])</span>
+</code></pre></div>    </div>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We can write a program to search for a particular title:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="c1"># Prompt user for title
+</span><span class="n">title</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Title: "</span><span class="p">)</span>
+
+<span class="c1"># Open CSV file
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"shows2.csv"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="nb">input</span><span class="p">:</span>
+
+    <span class="c1"># Create DictReader
+</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+    <span class="c1"># Iterate over CSV file
+</span>    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+
+        <span class="c1"># Search for title
+</span>        <span class="k">if</span> <span class="n">title</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">row</span><span class="p">[</span><span class="s">"primaryTitle"</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">"primaryTitle"</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s">"startYear"</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s">"genres"</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s">" | "</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We can run this program and see our results, but we can see how SQL can do a better job.</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>In Python, we can connect to a SQL database and read our file into it once, so we can make lots of queries without writing new programs and without having to read the entire file each time.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Let’s do this more easily with the CS50 library:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">cs50</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="c1"># Create database by opening and closing an empty file first
+</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="s">"shows3.db"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">cs50</span><span class="o">.</span><span class="n">SQL</span><span class="p">(</span><span class="s">"sqlite:///shows3.db"</span><span class="p">)</span>
+
+<span class="c1"># Create table called `shows`, and specify the columns we want,
+# all of which will be text except `startYear`
+</span><span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"CREATE TABLE shows (tconst TEXT, primaryTitle TEXT, startYear NUMERIC, genres TEXT)"</span><span class="p">)</span>
+
+<span class="c1"># Open TSV file
+# https://datasets.imdbws.com/title.basics.tsv.gz
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"title.basics.tsv"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">titles</span><span class="p">:</span>
+
+    <span class="c1"># Create DictReader
+</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">titles</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">)</span>
+
+    <span class="c1"># Iterate over TSV file
+</span>    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+
+        <span class="c1"># If non-adult TV show
+</span>        <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s">"titleType"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"tvSeries"</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s">"isAdult"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"0"</span><span class="p">:</span>
+
+            <span class="c1"># If year not missing
+</span>            <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s">"startYear"</span><span class="p">]</span> <span class="o">!=</span> <span class="s">"</span><span class="se">\\</span><span class="s">N"</span><span class="p">:</span>
+
+                <span class="c1"># If since 1970
+</span>                <span class="n">startYear</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">"startYear"</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">startYear</span> <span class="o">&gt;=</span> <span class="mi">1970</span><span class="p">:</span>
+
+                    <span class="c1"># Insert show by substituting values into each ? placeholder
+</span>                    <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"INSERT INTO shows (tconst, primaryTitle, startYear, genres) VALUES(?, ?, ?, ?)"</span><span class="p">,</span>
+                               <span class="n">row</span><span class="p">[</span><span class="s">"tconst"</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s">"primaryTitle"</span><span class="p">],</span> <span class="n">startYear</span><span class="p">,</span> <span class="n">genres</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Now we can run <code class="highlighter-rouge">sqlite3 shows3.db</code> and run commands like before, such as <code class="highlighter-rouge">SELECT * FROM shows LIMIT 10;</code>.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>With <code class="highlighter-rouge">SELECT COUNT(*) FROM shows;</code> we can see that there are more than 150,000 shows in our table, and with <code class="highlighter-rouge">SELECT COUNT(*) FROM shows WHERE startYear = 2019;</code>, we see that there were more than 6000 this year.</li>
+</ul>
+
+<h2 id="multiple-tables"><a data-id="" href="https://cs50.harvard.edu/college/notes/7/#multiple-tables">Multiple tables</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>But each of the rows will only have one column for genres, and the values are multiple genres put together. So we can go back to our import program, and add another table:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">cs50</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="c1"># Create database
+</span><span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="s">"shows4.db"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">cs50</span><span class="o">.</span><span class="n">SQL</span><span class="p">(</span><span class="s">"sqlite:///shows4.db"</span><span class="p">)</span>
+
+<span class="c1"># Create tables
+</span><span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"CREATE TABLE shows (id INT, title TEXT, year NUMERIC, PRIMARY KEY(id))"</span><span class="p">)</span>
+
+<span class="c1"># The `genres` table will have a column called `show_id` that references
+# the `shows` table above
+</span><span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"CREATE TABLE genres (show_id INT, genre TEXT, FOREIGN KEY(show_id) REFERENCES shows(id))"</span><span class="p">)</span>
+
+<span class="c1"># Open TSV file
+# https://datasets.imdbws.com/title.basics.tsv.gz
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"title.basics.tsv"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">titles</span><span class="p">:</span>
+
+    <span class="c1"># Create DictReader
+</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">titles</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">)</span>
+
+    <span class="c1"># Iterate over TSV file
+</span>    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+
+        <span class="c1"># If non-adult TV show
+</span>        <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s">"titleType"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"tvSeries"</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s">"isAdult"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"0"</span><span class="p">:</span>
+
+            <span class="c1"># If year not missing
+</span>            <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s">"startYear"</span><span class="p">]</span> <span class="o">!=</span> <span class="s">"</span><span class="se">\\</span><span class="s">N"</span><span class="p">:</span>
+
+                <span class="c1"># If since 1970
+</span>                <span class="n">startYear</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">"startYear"</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">startYear</span> <span class="o">&gt;=</span> <span class="mi">1970</span><span class="p">:</span>
+
+                    <span class="c1"># Trim prefix from tconst
+</span>                    <span class="nb">id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">"tconst"</span><span class="p">][</span><span class="mi">2</span><span class="p">:])</span>
+
+                    <span class="c1"># Insert show
+</span>                    <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"INSERT INTO shows (id, title, year) VALUES(?, ?, ?)"</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s">"primaryTitle"</span><span class="p">],</span> <span class="n">startYear</span><span class="p">)</span>
+
+                    <span class="c1"># Insert genres
+</span>                    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s">"genres"</span><span class="p">]</span> <span class="o">!=</span> <span class="s">"</span><span class="se">\\</span><span class="s">N"</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">genre</span> <span class="ow">in</span> <span class="n">row</span><span class="p">[</span><span class="s">"genres"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">","</span><span class="p">):</span>
+                            <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"INSERT INTO genres (show_id, genre) VALUES(?, ?)"</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">genre</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>So now our <code class="highlighter-rouge">shows</code> table no longer has a <code class="highlighter-rouge">genres</code> column, but instead we have a <code class="highlighter-rouge">genres</code> table with each row representing a show and an associated genre. Now, a particular show can have multiple genres we can search for, and we can get other data about the show from the <code class="highlighter-rouge">shows</code> table given its ID.</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>In fact, we can combine both tables with <code class="highlighter-rouge">SELECT * FROM shows WHERE id IN (SELECT show_id FROM genres WHERE genre = "Comedy") AND year = 2019;</code>. We’re filtering our <code class="highlighter-rouge">shows</code> table by IDs where the ID in the <code class="highlighter-rouge">genres</code> table has a value of “Comedy” for the <code class="highlighter-rouge">genre</code> column, and has the value of 2019 for the <code class="highlighter-rouge">year</code> column.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Our tables look like this:<br>
+<img src="./Lecture 7 - CS50_files/shows_table_genres_table.png" alt="table labeled shows with entries id, title, and year, and table labeled genres with show_id and genre and arrow from show_id to id">
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Since the ID in the <code class="highlighter-rouge">genre</code> table come from the <code class="highlighter-rouge">shows</code> table, we call it <code class="highlighter-rouge">show_id</code>. And the arrow indicates that a single show ID might have many matching rows in the <code class="highlighter-rouge">genres</code> table.</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We see that some datasets from IMDb, like <code class="highlighter-rouge">title.principals.tsv</code>, have only IDs for certain columns that we’ll have to look up in other tables.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>By reading the descriptions for each table, we can see that all of the data can be used to construct these tables:<br>
+<img src="./Lecture 7 - CS50_files/imdb_tables.png" alt="table labeled people, shows, genres, ratings, stars, writers with arrows indicating IDs between tables">
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Notice that, for example, a person’s name could also be copied to the <code class="highlighter-rouge">stars</code> or <code class="highlighter-rouge">writers</code> tables, but instead only the <code class="highlighter-rouge">person_id</code> is used to link to the data in the <code class="highlighter-rouge">people</code> table. This way, we only need to update the name in one place if we need to make a change.</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We’ll open a database, <code class="highlighter-rouge">shows.db</code>, with these tables to look at some more examples.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We’ll download a program called <a href="https://sqlitebrowser.org/dl/">DB Browser for SQLite</a>, which will have a graphical user interface to browse our tables and data. We can use the “Execute SQL” tab to run SQL directly in the program, too.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We can run <code class="highlighter-rouge">SELECT * FROM shows JOIN genres ON show.id = genres.show_id;</code> to join two tables by matching IDs in columns we specify. Then we’ll get back a wider table, with columns from each of those two tables.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We can take a person’s ID and find them in shows with <code class="highlighter-rouge">SELECT * FROM stars WHERE person_id = 1122;</code>, but we can do a query inside our query with <code class="highlighter-rouge">SELECT show_id FROM stars WHERE person_id = (SELECT id FROM people WHERE name = "Ellen DeGeneres");</code>.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>This gives us back the <code class="highlighter-rouge">show_id</code>, so to get the show data we can run: <code class="highlighter-rouge">SELECT * FROM shows WHERE id IN (...);</code> with <code class="highlighter-rouge">...</code> being the query above.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We can get the same results with:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT title FROM
+people JOIN stars ON people.id = stars.person_id JOIN
+shows ON stars.show_id = shows.id
+WHERE name = "Ellen DeGeneres"
+</code></pre></div>    </div>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We join the <code class="highlighter-rouge">people</code> table with the <code class="highlighter-rouge">stars</code> table, and then with the <code class="highlighter-rouge">shows</code> table by specifying columns that should match between the tables, and then selecting just the <code class="highlighter-rouge">title</code> with a filter on the name.</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>But now we can select other fields from our combined tables, too.</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>It turns out that we can specify columns of our tables to be special types, such as:
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">PRIMARY KEY</code>, used as the primary identifier for a row</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">FOREIGN KEY</code>, which points to a row in another table</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">UNIQUE</code>, which means it has to be unique in this table</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span><code class="highlighter-rouge">INDEX</code>, which asks our database to create a index to more quickly query based on this column. An index is a data structure like a tree, which helps us search for values.</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>We can create an index with <code class="highlighter-rouge">CREATE INDEX person_index ON stars (person_id);</code>. Then the <code class="highlighter-rouge">person_id</code> column will have an index called <code class="highlighter-rouge">person_index</code>. With the right indexes, our join query is several hundred times faster.</li>
+</ul>
+
+<h2 id="problems"><a data-id="" href="https://cs50.harvard.edu/college/notes/7/#problems">Problems</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>One problem with databases is <strong>race conditions</strong>, where the timing of two actions or events cause unexpected behavior.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>For example, consider two roommates and a shared fridge in their dorm. The first roommate comes home, and sees that there is no milk in the fridge. So the first roommate leaves to the store to buy milk, and while they are at the store, the second roommate comes home, sees that there is no milk, and leaves for another store to get milk. Later, there will be two jugs of milk in the fridge. By leaving a note, we can solve this problem. We can even lock the fridge so that our roommate can’t check whether there is milk, until we’ve gotten back.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>This can happen in our database if we have something like this:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rows = db.execute("SELECT likes FROM posts WHERE id=?", id);
+likes = rows[0]["likes"]
+db.execute("UPDATE posts SET likes = ?", likes + 1);
+</code></pre></div>    </div>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>First, we’re getting the number of likes on a post with a given ID. Then, we set the number of likes to that number plus one.</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>But now if we have two different web servers both trying to add a like, they might both set it to the same value instead of actually adding one each time. For example, if there are 2 likes, both servers will check the number of likes, see that there are 2, and set the value to 3. One of the likes will then be lost.</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>To solve this, we can use transactions, where a set of actions is guaranteed to happen together.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>Another problem in SQL is called a <strong>SQL injection attack</strong>, where an adversary can execute their own commands on our database.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-circle"></i></span>For example, someone might try type in <code class="highlighter-rouge">malan@harvard.edu'--</code> as their email. If we have a SQL query that’s a formatted string (without escaping, or substituting dangerous characters from, the input), such as <code class="highlighter-rouge">f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'"</code>, then the query will end up being <code class="highlighter-rouge">f"SELECT * FROM users WHERE username = 'malan@harvard.edu'--' AND password = '{password}'"</code>, which will actually select the row where <code class="highlighter-rouge">username = 'malan@harvard.edu'</code> and turn the rest of the line into a comment. To prevent this, we should use <code class="highlighter-rouge">?</code> placeholders for our SQL library to automatically escape inputs from the user.</li>
+</ul>
+
+
+                </main>
+
+            </div>
+
+        </div>
+
+    
+
+
+</body></html>
