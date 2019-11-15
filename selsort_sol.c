@@ -1,3 +1,4 @@
+ 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,7 +10,12 @@ void pretty_printer(int *to_print)
 {
     printf("[");
     for (int i = 0, j = sizeof(to_sort)/sizeof(to_sort[0]); i < j; i++)
-    {
+    { 
+        if (i == j - 1)
+        {
+            printf("%i", to_print[i]);
+            break;
+        }
         printf("%i, ", to_print[i]);
     }
     printf("]\n");
@@ -34,7 +40,7 @@ int main(int argc, char **argv)
     }
     else
     {
-        printf("Usage: ./bubble [asc|dsc]\n");
+        printf("Usage: ./selsort [asc|dsc]\n");
         return 1;
     }
 
