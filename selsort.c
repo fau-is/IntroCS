@@ -30,19 +30,8 @@ int main(int argc, char **argv)
         printf("Usage: ./selsort [asc|dsc]\n");
         return 1;
     }
-    if (strcmp(argv[1], "asc") == 0)
-    {
-        asc = 1;
-    }
-    else if (strcmp(argv[1], "dsc") == 0)
-    {
-        asc = 0;
-    }
-    else
-    {
-        printf("Usage: ./selsort [asc|dsc]\n");
-        return 1;
-    }
+    
+    // TODO asc, dsc
 
     //helpers
     int limit = sizeof(to_sort)/sizeof(to_sort[0]);
@@ -51,24 +40,7 @@ int main(int argc, char **argv)
     //why this way? :)
     for (int i = limit - 1; i > 0; i--)
     {
-        max = to_sort[i];
-        maxIndex = i;
-        for (int j = 0; j < i; j++)
-        {
-            bool cond = to_sort[j] >= max;
-            if (!asc)
-            {
-                cond = !cond;
-            }
-            if (cond)
-            {
-                max = to_sort[j];
-                maxIndex = j;
-            }
-        }
-        int tmp = to_sort[i];
-        to_sort[i] = to_sort[maxIndex];
-        to_sort[maxIndex] = tmp;
+        //TODO
     }
 
     pretty_printer(to_sort);
