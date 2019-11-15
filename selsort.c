@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 
     if (argc != 2)
     {
-        printf("Usage: ./bubble [asc|dsc]\n");
+        printf("Usage: ./selsort [asc|dsc]\n");
         return 1;
     }
    
