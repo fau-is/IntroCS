@@ -10,6 +10,13 @@ class BinSearchTree:
             self.root = None
             self.root = self.make_bst(arr)
 
+    def make_bst(self, arr):
+        self.root = Node(int(arr.pop(0)))
+        for elem in arr:
+            BinSearchTree.add_helper(self.root, int(elem))
+
+        return self.root
+
     def add(self, value):
         if self.root is None:
             self.root = Node(value)
@@ -76,6 +83,20 @@ class BinSearchTree:
             if cur_node.right is not None:
                 to_visit.append(cur_node.right)
 
+    def find(self, value):
+        return BinSearchTree.find_helper(self.root, value)
+
+    @staticmethod
+    def find_helper(root, value):
+        if root is None or root.payload == value:
+            return root
+        elif root.payload < value:
+            return BinSearchTree.find_helper(root.right, value)
+        else:
+            return BinSearchTree.find_helper(root.left, value)
+
+
+
     def dfs_rec(self):
         BinSearchTree.dfs(self.root)
 
@@ -85,10 +106,3 @@ class BinSearchTree:
             BinSearchTree.dfs(node.left)
         if node.right is not None:
             BinSearchTree.dfs(node.right)
-
-    def make_bst(self, arr):
-        self.root = Node(int(arr.pop(0)))
-        for elem in arr:
-            BinSearchTree.add_helper(self.root, int(elem))
-
-        return self.root
