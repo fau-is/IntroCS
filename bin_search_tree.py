@@ -4,24 +4,30 @@ from Node import Node
 class BinSearchTree:
 
     def __init__(self, arr):
-        if arr is None:
+        if arr is None or len(arr) < 1:
             self.root = None
         else:
             self.root = None
             self.root = self.make_bst(arr)
 
+    def add(self, value):
+        if self.root is None:
+            self.root = Node(value)
+        else:
+            BinSearchTree.add_helper(self.root, value)
+
     @staticmethod
-    def add(root, value):
+    def add_helper(root, value):
         if root.payload < value:
             if root.right is None:
                 root.right = Node(value)
             else:
-                BinSearchTree.add(root.right, value)
+                BinSearchTree.add_helper(root.right, value)
         else:
             if root.left is None:
                 root.left = Node(value)
             else:
-                BinSearchTree.add(root.left, value)
+                BinSearchTree.add_helper(root.left, value)
 
     def delete(self, value):
         BinSearchTree.delete_helper(self.root, value)
@@ -83,6 +89,6 @@ class BinSearchTree:
     def make_bst(self, arr):
         self.root = Node(int(arr.pop(0)))
         for elem in arr:
-            BinSearchTree.add(self.root, int(elem))
+            BinSearchTree.add_helper(self.root, int(elem))
 
         return self.root

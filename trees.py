@@ -17,6 +17,10 @@ if __name__ == '__main__':
     bs_tree.bfs_it()
     bs_tree.dfs_rec()
 
+    # make other bs tree
+    bs2_tree = bst(None)
+    bs2_tree.add(3)
+
     # print all variants bt
     print("Binary Tree:")
     print("\t preorder: \t", end="")
@@ -28,10 +32,20 @@ if __name__ == '__main__':
     print()
 
     # print all variants bst
-    print("Binary Search Tree:")
+    print("Binary Search Tree (1):")
     print("\t preorder: \t", end="")
     Printer.print_preorder(bs_tree.root)
     print("\n\t inorder: \t", end="")
     Printer.print_inorder(bs_tree.root)
     print("\n\t postorder: \t", end="")
     Printer.print_postorder(bs_tree.root)
+    print()
+
+    # print all variants bst
+    print("Binary Search Tree (2):")
+    print("\t preorder: \t", end="")
+    Printer.print_preorder(bs2_tree.root)
+    print("\n\t inorder: \t", end="")
+    Printer.print_inorder(bs2_tree.root)
+    print("\n\t postorder: \t", end="")
+    Printer.print_postorder(bs2_tree.root)
