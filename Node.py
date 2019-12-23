@@ -3,3 +3,4 @@ class Node:
         self.payload = payload
         self.left = None
         self.right = None
+        self.height = 1

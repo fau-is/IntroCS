@@ -1,7 +1,7 @@
 import sys
 from Printer import Printer
 from bin_tree import BinTree as bt
-from bin_search_tree import BinSearchTree as bst
+from bin_search_tree import BST as bst
 
 
 if __name__ == '__main__':

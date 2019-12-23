@@ -1,7 +1,7 @@
 from Node import Node
 
 
-class BinSearchTree:
+class BST:
 
     def __init__(self, arr):
         if arr is None or len(arr) < 1:
@@ -13,7 +13,7 @@ class BinSearchTree:
     def make_bst(self, arr):
         self.root = Node(int(arr.pop(0)))
         for elem in arr:
-            BinSearchTree.add_helper(self.root, int(elem))
+            BST.add_helper(self.root, int(elem))
 
         return self.root
 
@@ -21,7 +21,7 @@ class BinSearchTree:
         if self.root is None:
             self.root = Node(value)
         else:
-            BinSearchTree.add_helper(self.root, value)
+            BST.add_helper(self.root, value)
 
     @staticmethod
     def add_helper(root, value):
@@ -29,24 +29,25 @@ class BinSearchTree:
             if root.right is None:
                 root.right = Node(value)
             else:
-                BinSearchTree.add_helper(root.right, value)
+                BST.add_helper(root.right, value)
         else:
             if root.left is None:
                 root.left = Node(value)
             else:
-                BinSearchTree.add_helper(root.left, value)
+                BST.add_helper(root.left, value)
 
     def delete(self, value):
-        BinSearchTree.delete_helper(self.root, value)
+        self.root = BST.delete_helper(self.root, value)
 
     @staticmethod
     def delete_helper(root, value):
         if root is None:
             return root
+        # find the right node that is to be deleted
         if value < root.payload:
-            root.left = BinSearchTree.delete_helper(root.left, value)
+            root.left = BST.delete_helper(root.left, value)
         elif value > root.payload:
-            root.right = BinSearchTree.delete_helper(root.right, value)
+            root.right = BST.delete_helper(root.right, value)
         else:
             if root.left is None:
                 return root.right
@@ -54,13 +55,11 @@ class BinSearchTree:
             elif root.right is None:
                 return root.left
 
-            current = root.right
-            while current.left is not None:
-                current = current.left
+            # determine the new value of root
+            root.payload = BST.min_finder(root.right).payload
 
-            root.payload = current.payload
-
-            root.right = BinSearchTree.delete_helper(root.right, root.payload)
+            # delete the redundant value
+            root.right = BST.delete_helper(root.right, root.payload)
 
         return root
 
@@ -84,25 +83,25 @@ class BinSearchTree:
                 to_visit.append(cur_node.right)
 
     def find(self, value):
-        return BinSearchTree.find_helper(self.root, value)
+        return BST.find_helper(self.root, value)
 
     @staticmethod
     def find_helper(root, value):
         if root is None or root.payload == value:
             return root
         elif root.payload < value:
-            return BinSearchTree.find_helper(root.right, value)
+            return BST.find_helper(root.right, value)
         else:
-            return BinSearchTree.find_helper(root.left, value)
+            return BST.find_helper(root.left, value)
 
 
 
     def dfs_rec(self):
-        BinSearchTree.dfs(self.root)
+        BST.dfs(self.root)
 
     @staticmethod
     def dfs(node):
         if node.left is not None:
-            BinSearchTree.dfs(node.left)
+            BST.dfs(node.left)
         if node.right is not None:
-            BinSearchTree.dfs(node.right)
+            BST.dfs(node.right)
