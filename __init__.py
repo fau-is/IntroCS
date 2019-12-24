@@ -4,7 +4,7 @@ import check50
 @check50.check()
 def exists():
     """"runs"""
-    check50.exists("bin_tree.py")
+    check50.exists("bin_search_tree.py")
     
 
 @check50.check(compiles)
