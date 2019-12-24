@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+
 class Graph(object):
 
     # sth is an adjacency list in the form [node, directed_edge]
@@ -40,6 +41,7 @@ class Graph(object):
                     stack.insert(0, child)
 
         return number, path, found
+
 
 if __name__ == "__main__":
     graph = Graph([[1,2,3],[3,4],[4],[4],[]])
