@@ -18,7 +18,7 @@ class Graph(object):
         nbr, path, found = self.dfs_helper(root, tofind)
         if found:
             return nbr, path
-        else
+        else:
             return -1, []
 
     def dfs_helper(self, root, tofind):
