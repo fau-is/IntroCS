@@ -1,37 +1,26 @@
 import check50
 import check50.c
 
+
 @check50.check()
 def compiles():
-    """binary.c compiles."""
-    check50.c.compile("binary.c", lcs50=True)
+    """"runs"""
+    check50.run("python qsort.py").stdout("No arguments!", regex=False).exit(0)
+
 
 @check50.check(compiles)
-def finds_10():
-    """Finds 10 in the array"""
-    check50.run("./binary 10").stdout("Number 10 is at index 0").exit(0)
+def sorts_asc():
+    """Sorts stuff"""
+    check50.run("python qsort.py asldkgapqoejr").stdout("[ a, a, d, e, g, j, k, l, o, p, q, r, s ]", regex=False).exit(0)
+
 
 @check50.check(compiles)
-def finds_100():
-    """Finds 100 in the array"""
-    check50.run("./binary 100").stdout("Number 100 is at index 9").exit(0)
-    
-@check50.check(compiles)
-def finds_50():
-    """Finds 50 in the array"""
-    check50.run("./binary 50").stdout("Number 50 is at index 4").exit(0)
-    
-@check50.check(compiles)
-def finds_60():
-    """Finds 60 in the array"""
-    check50.run("./binary 60").stdout("Number 60 is at index 5").exit(0)
+def sorts_dsc():
+    """Sorts other stuff"""
+    check50.run("python qsort.py 1i6u5039431ÖALKJgj1p23O9").stdout("[ 0, 1, 1, 1, 2, 3, 3, 3, 4, 5, 6, 9, 9, A, J, K, L, O, g, i, j, p, u, Ö ]", regex=False).exit(0)
 
-@check50.check(compiles)
-def cannot_find_5():
-    """Test not found message with 5"""
-    check50.run("./binary 5").stdout("Number 5 not found").exit(1)
-    
+
 @check50.check(compiles)
 def usage():
-    """Check usage message"""
-    check50.run("./binary").stdout("Usage: ./binary Number").exit(1)
+    """Sorts a lot"""
+    check50.run("python qsort.py alskfjqiejr123io5udbagkdsf1384rasjdf1u3").stdout("[ 1, 1, 1, 2, 3, 3, 3, 4, 5, 8, a, a, a, b, d, d, d, e, f, f, f, g, i, i, j, j, j, k, k, l, o, q, r, r, s, s, s, u, u ]", regex=False).exit(0)
