@@ -169,27 +169,3 @@ class avl_tree(object):
         self.inorder(root.right)
 
     # Driver program to test above function
-
-
-myTree = avl_tree()
-root = None
-
-root = myTree.insert(root, 10)
-root = myTree.insert(root, 20)
-root = myTree.insert(root, 30)
-root = myTree.insert(root, 40)
-root = myTree.insert(root, 50)
-root = myTree.insert(root, 25)
-
-"""The constructed AVL Tree would be 
-			30 
-		/ \ 
-		20 40 
-		/ \	 \ 
-	10 25 50"""
-
-# Preorder Traversal
-print("Preorder traversal of the",
-      "constructed AVL tree is")
-myTree.inorder(root)
-print()
