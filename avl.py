@@ -13,8 +13,10 @@ class avl_tree(object):
             return Node(value)
         elif value < root.payload:
             root.left = self.insert(root.left, value)
-        else:
+        elif value > root.payload:
             root.right = self.insert(root.right, value)
+        else:
+            return root
 
         # Step 2 - Update height
         root.height = 1 + max(self.getHeight(root.left),

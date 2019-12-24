@@ -23,7 +23,6 @@ class Graph(object):
             return -1, []
 
     def dfs_helper(self, root, tofind):
-        print(self.adj)
         stack = []
         number = 0
         path = []
@@ -41,9 +40,3 @@ class Graph(object):
                     stack.insert(0, child)
 
         return number, path, found
-
-
-if __name__ == "__main__":
-    graph = Graph([[1,2,3],[3,4],[4],[4],[]])
-    nbr, path = graph.dfs(0, 2)
-    print(path)
