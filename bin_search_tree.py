@@ -30,11 +30,13 @@ class BST:
                 root.right = Node(value)
             else:
                 BST.add_helper(root.right, value)
-        else:
+        elif root.payload > value:
             if root.left is None:
                 root.left = Node(value)
             else:
                 BST.add_helper(root.left, value)
+        else:
+            return
 
     def delete(self, value):
         self.root = BST.delete_helper(self.root, value)
@@ -76,7 +78,7 @@ class BST:
         to_visit = [self.root]
         while len(to_visit) > 0:
             cur_node = to_visit.pop(0)
-            print(cur_node.payload)
+            # print(cur_node.payload)
             if cur_node.left is not None:
                 to_visit.append(cur_node.left)
             if cur_node.right is not None:

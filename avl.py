@@ -193,5 +193,3 @@ print("Preorder traversal of the",
       "constructed AVL tree is")
 myTree.inorder(root)
 print()
-
-# This code is contributed by Ajitesh Pathak

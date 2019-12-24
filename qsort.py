@@ -5,7 +5,7 @@ def pretty_printer(arr):
     print("[ ", end="")
     for i in range(len(arr)-1):
         print("%c" % arr[i], end=", ")
-    print("%c" % arr[len(arr)-1], end=" ]")
+    print("%c" % arr[len(arr)-1], end=" ]\n")
 
 
 def partition(arr, lower, upper):
@@ -41,7 +41,9 @@ def quickSort(arr, lower, upper):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) > 1:
+        INPUT = list(sys.argv[1])
 
-    INPUT = list(sys.argv[1])
-
-    pretty_printer(quickSort(INPUT, 0, len(INPUT) - 1))
+        pretty_printer(quickSort(INPUT, 0, len(INPUT) - 1))
+    else:
+        print("No arguments!")
