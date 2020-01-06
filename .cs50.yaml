@@ -1,4 +1,3 @@
 check50:
   files:
-    - !exclude "*"
     - !require dfs_gr.py
