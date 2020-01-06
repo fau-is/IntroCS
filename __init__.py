@@ -14,12 +14,7 @@ def exists():
 
 @check50.check(exists)
 def test_ez():
-    """example:
-            30
-           /  \
-         20   40
-        /  \     \
-       10  25    50"""
+    """ez_tree"""
     check50.run("python3 bin_tree_check_0.py")\
         .stdout("10, 20, 25, 30, 40, 50, 30, 20, 10, 25, 40, 50, 10, 25, 20, 50, 40, 30, "
                 , regex=False).exit(0)
