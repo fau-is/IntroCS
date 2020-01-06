@@ -42,7 +42,7 @@ if __name__ == '__main__':
     print("postorder: ", end="")
     Printer.print_postorder(bs2_tree.root)
     # print()
-    toprint = bs_tree.find(5)
+    toprint = bs2_tree.find(5)
     if toprint == None:
         toprint = None
     else:
