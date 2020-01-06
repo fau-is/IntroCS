@@ -1,5 +1,4 @@
 import sys
-from bin_tree import BinTree as bt
 from Printer import Printer
 from bin_search_tree import BST as bst
 
