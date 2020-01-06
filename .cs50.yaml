@@ -1,3 +1,4 @@
 check50:
   files:
     - !require dfs_gr.py
+    - !include dfs_gr_check.py
