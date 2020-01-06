@@ -1,4 +1,3 @@
 check50:
   files:
-    - !exclude "*"
     - !require bin_tree.py
