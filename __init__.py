@@ -6,6 +6,7 @@ def exists():
     """"runs"""
     check50.exists("avl.py")
     check50.include("Printer.py")
+    check50.include("Node.py")
     check50.include("bin_tree_check_0.py")
     check50.include("bin_tree_check_1.py")
     check50.include("bin_tree_check_2.py")
