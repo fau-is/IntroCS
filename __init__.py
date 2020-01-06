@@ -6,7 +6,7 @@ def exists():
     """"runs"""
     check50.exists("dfs_gr.py")
     check50.include("dfs_gr_check.py")
-    check50.py.append_code("dfs_gr_check.py")
+    check50.py.append_code("dfs_gr.py","dfs_gr_check.py")
     
 
 @check50.check(exists)
