@@ -21,5 +21,5 @@ def small_tree():
 
 @check50.check(compiles)
 def big_tree():
-    """Sorts a lot"""
+    """Trees a lot"""
     check50.run("python3 bin_tree_check.py 3,4,6,2,1,9,9,4,65,91,4,1,0,34,67,2,5").stdout("preorder: 3, 4, 2, 4, 2, 5, 65, 1, 91, 4, 6, 9, 1, 0, 9, 34, 67, inorder: 2, 4, 5, 2, 65, 4, 91, 1, 4, 3, 1, 9, 0, 6, 34, 9, 67, postorder: 2, 5, 4, 65, 2, 91, 4, 1, 4, 1, 0, 9, 34, 67, 9, 6, 3, ", regex=False).exit(0)
