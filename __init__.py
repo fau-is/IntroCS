@@ -6,6 +6,7 @@ def exists():
     """"runs"""
     check50.exists("bin_tree.py")
     check50.include("bin_tree_check.py")
+    check50.include("Printer.py")
     
 
 @check50.check(exists)
