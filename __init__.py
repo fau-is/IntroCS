@@ -7,6 +7,7 @@ def exists():
     check50.exists("bin_search_tree.py")
     check50.include("Printer.py")
     check50.include("Node.py")
+    check50.include("bin_tree_check.py")
     
 
 @check50.check(exists)
