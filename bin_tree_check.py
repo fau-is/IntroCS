@@ -26,7 +26,12 @@ if __name__ == '__main__':
     print("postorder: ", end="")
     Printer.print_postorder(bs_tree.root)
     # print()
-    print("find 5:", bs_tree.find(5).payload, end="")
+    toprint = bs_tree.find(5)
+    if toprint == None:
+        toprint = None
+    else:
+        toprint = toprint.payload
+    print("find 5:", toprint, end="")
 
     # print all variants bst
     # print("Binary Search Tree (2):")
@@ -37,4 +42,9 @@ if __name__ == '__main__':
     print("postorder: ", end="")
     Printer.print_postorder(bs2_tree.root)
     # print()
-    print("find 5:", bs2_tree.find(5).payload, end="")
+    toprint = bs_tree.find(5)
+    if toprint == None:
+        toprint = None
+    else:
+        toprint = toprint.payload
+    print("find 5:", toprint, end="")
