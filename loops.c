@@ -9,8 +9,5 @@
 
 int main(void)
 {
-    for (int i = 0; i < 25; i++)
-    {
-        printf("i = %i, j = %i\n", i / 5, i % 5);
-    }
+
 }

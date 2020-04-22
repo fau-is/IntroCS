@@ -7,16 +7,5 @@
 
 int main(void)
 {
-    int n = get_int("Please enter a number: ");
 
-    int modulo = n % 2;
-    if (modulo == 0)
-    {
-        printf("%d is an even number!\n", n);
-    }
-    else
-    {
-        printf("%d is an uneven number!\n", n);
-    }
-    return 0;
 }

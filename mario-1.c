@@ -8,12 +8,6 @@
 
 int main(void)
 {
-    int n = get_int("Enter Number between 0 and 100: ");
-    while (n < 0 || n > 100)
-    {
-        n = get_int("Enter Number between 0 and 100: ");
-    }
-    printf("The input Number is: %d\n", n);
-    return 0;
+
 }
 

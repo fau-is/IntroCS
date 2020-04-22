@@ -7,23 +7,5 @@
 
 int main(void)
 {
-    int n;
-    do
-    {
-        n = get_int("Number between 1 and 10: ");
-    }
-    while (n < 1 || n > 10);
 
-    int multiple;
-    for (int i = 0; i < 10; i++)
-    {
-        multiple = n*i;
-
-        if (i != 9)
-        {
-            printf("%d, ", multiple);
-        }
-    }
-    printf("%d\n", multiple);
-    return 0;
 }
