@@ -1,10 +1,18 @@
 ![fau-logo](https://www.fau.de/files/2016/02/fb-ww-logo-preview.jpg)
 # Complete lowupper.c
 
-Write a Program that can read a given Array of chars and convert capitalized letters into non capitalized letters
-and vice versa. 
-Make sure that you that always calculates the size of your array! 
+Write a Program that:
+    1. Reads a given array of chars.
+    2. Lowers capitalized letters (e.g. 'A' => 'a')
+    3. Capitalizes lower letters (e.g. 'a' => 'A')
 
+The ASCII table might help you to figure out how you convert the capitalization:
+
+![ASCII Table](http://www.asciitable.com/index/asciifull.gif)
+
+{% next "Output specification" %}
+
+The output of your program should follow these specifications:
 Given the array: 
 
 ```
@@ -17,6 +25,7 @@ The output for the given array should look as follows:
 ```
 
 {% spoiler "Hints" %}
-- Look at the Ascii table 
-- Use functions from the *ctype.h* library
+
+- Functions from the *ctype.h* library might help
+
 {% endspoiler %}
