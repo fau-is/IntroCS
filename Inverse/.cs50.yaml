@@ -1,0 +1,7 @@
+lab50:
+  window:
+    - editor
+    - readme
+    - terminal
+  files:
+    - !include inverse.c
