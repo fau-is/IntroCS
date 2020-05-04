@@ -6,12 +6,9 @@ Write your code to implement your alphabet check as a function outside of
 your main Program. In your Program invert the input and print it out.
 
 ~~~
-<
 Example: Input = Hello; Output = olleH
- >
 ~~~
-
-
+{% spoiler "Hints" %}
 
 Hint: Use isalpha()
-
+{% endspoiler %}
