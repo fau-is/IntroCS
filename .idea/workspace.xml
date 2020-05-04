@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/Pset1" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="Added Readme.md">
+      <change afterPath="$PROJECT_DIR$/Loops/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modulo/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Multiply/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Getint/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Getint/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Getint/getint.c" beforeDir="false" afterPath="$PROJECT_DIR$/Getint/getint.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Loops/loops.c" beforeDir="false" afterPath="$PROJECT_DIR$/Loops/loops.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modulo/modulo.c" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo/modulo.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Multiply/multiply.c" beforeDir="false" afterPath="$PROJECT_DIR$/Multiply/multiply.c" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/Pset1" />
+                <branch-info repo="$PROJECT_DIR$" source="origin/Pset1_Solutions" />
+                <branch-info repo="$PROJECT_DIR$" source="origin/Pset2" />
+                <branch-info repo="$PROJECT_DIR$" source="origin/Pset2_Solutions" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Pset2" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1bGv1WDkHwRlBMglVf1yxB0IDuE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Multiply" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\chris\CLionProjects\IntroCS\Multiply" />
+      <recent name="C:\Users\chris\CLionProjects\IntroCS\Modulo" />
+      <recent name="C:\Users\chris\CLionProjects\IntroCS\Loops" />
+      <recent name="C:\Users\chris\CLionProjects\IntroCS\Getint" />
+      <recent name="C:\Users\chris\CLionProjects\IntroCS\Anagrams" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\chris\CLionProjects\IntroCS\Loops" />
+      <recent name="C:\Users\chris\CLionProjects\IntroCS\Modulo" />
+      <recent name="C:\Users\chris\CLionProjects\IntroCS\Getint" />
+      <recent name="C:\Users\chris\CLionProjects\IntroCS\Multiply" />
+      <recent name="C:\Users\chris\CLionProjects\IntroCS\Anagrams" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Cmake" type="CMakeRunConfiguration" factoryName="Application" singleton="false" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" RUN_PATH="$PROJECT_DIR$/loops.c" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\chris\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="" />
+      <created>1588271029242</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588271029242</updated>
+      <workItem from="1588271032213" duration="2227000" />
+      <workItem from="1588279616462" duration="1685000" />
+      <workItem from="1588599824047" duration="5568000" />
+    </task>
+    <task id="LOCAL-00001" summary="added invers Sol to Pset2_solutions">
+      <created>1588274488154</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1588274488154</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added invers Sol to Pset2_solutions">
+      <created>1588274496988</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1588274496988</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added Problem lower.c to Pset2">
+      <created>1588279705300</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1588279705300</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added Problem anagrams.c to Pset2">
+      <created>1588600045957</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1588600045958</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added Problem anagrams.c to Pset2">
+      <created>1588601117297</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1588601117297</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added .cs50.yaml to Anagrams">
+      <created>1588601832275</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1588601832275</updated>
+    </task>
+    <task id="LOCAL-00007" summary="updated anagrams.c">
+      <created>1588601878289</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1588601878289</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added README.md to Anagrams">
+      <created>1588601906521</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1588601906521</updated>
+    </task>
+    <task id="LOCAL-00009" summary="rm comments anagrams.c">
+      <created>1588602252920</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1588602252920</updated>
+    </task>
+    <task id="LOCAL-00010" summary="rm comments inverse.c">
+      <created>1588602280932</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1588602280932</updated>
+    </task>
+    <task id="LOCAL-00011" summary="rm comments lowupper.c">
+      <created>1588602326747</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1588602326747</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Created distinct directories for Psets">
+      <created>1588603234417</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1588603234417</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added yaml for Loops.c">
+      <created>1588603376294</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1588603376294</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added yaml for every directory">
+      <created>1588603557958</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1588603557958</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Moved checks and refactored to specific wd's">
+      <created>1588603953250</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1588603953250</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Moved checks and refactored to specific wd's">
+      <created>1588604514745</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1588604514745</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added Readme.md">
+      <created>1588604721143</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1588604721143</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/Pset1" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="new exercise contingent to char arrays" />
+    <MESSAGE value="added invers Sol to Pset2_solutions" />
+    <MESSAGE value="added Problem lower.c to Pset2" />
+    <MESSAGE value="added Problem anagrams.c to Pset2" />
+    <MESSAGE value="added .cs50.yaml to Anagrams" />
+    <MESSAGE value="updated anagrams.c" />
+    <MESSAGE value="added README.md to Anagrams" />
+    <MESSAGE value="rm comments anagrams.c" />
+    <MESSAGE value="rm comments inverse.c" />
+    <MESSAGE value="rm comments lowupper.c" />
+    <MESSAGE value="Created distinct directories for Psets" />
+    <MESSAGE value="Added yaml for Loops.c" />
+    <MESSAGE value="Added yaml for every directory" />
+    <MESSAGE value="Moved checks and refactored to specific wd's" />
+    <MESSAGE value="Added Readme.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Readme.md" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588271436776">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1500.960@0.0.1500.960" timestamp="1588271436776" />
+    <state x="531" y="235" key="FileChooserDialogImpl" timestamp="1588281007865">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="531" y="235" key="FileChooserDialogImpl/0.0.1500.960@0.0.1500.960" timestamp="1588281007865" />
+    <state x="568" y="382" key="Github.CreateGistDialog" timestamp="1588274883966">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="568" y="382" key="Github.CreateGistDialog/0.0.1500.960@0.0.1500.960" timestamp="1588274883966" />
+    <state x="252" y="125" key="SettingsEditor" timestamp="1588603648425">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="252" y="125" key="SettingsEditor/0.0.1500.960@0.0.1500.960" timestamp="1588603648425" />
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2" timestamp="1588604729520">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1588604729520" />
+    <state x="498" y="254" key="git4idea.merge.GitPullDialog" timestamp="1588604525230">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="498" y="254" key="git4idea.merge.GitPullDialog/0.0.1500.960@0.0.1500.960" timestamp="1588604525230" />
+  </component>
+</project>
