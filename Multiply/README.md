@@ -1,0 +1,9 @@
+![fau-logo](https://www.fau.de/files/2016/02/fb-ww-logo-preview.jpg)
+# Complete multiply.c
+
+Prompt a user for input of a number between 1-10 inclusively.
+Use a for loop with 10 iterations to multiply the number entered 
+by the user with your initialized counter for each iteration
+~~~
+Example: Input = 1; Output = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+~~~
