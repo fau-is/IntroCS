@@ -34,9 +34,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="updated README.md for anagrams.c with more precise directions">
-      <change afterPath="$PROJECT_DIR$/Lowupper/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="added python checks to lowupper.c">
+      <change afterPath="$PROJECT_DIR$/Inverse/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +87,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Multiply" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Inverse" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -289,7 +288,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588615245374</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="added python checks to lowupper.c">
+      <created>1588618057898</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1588618057898</updated>
+    </task>
+    <task id="LOCAL-00024" summary="added python checks to lowupper.c">
+      <created>1588618158213</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1588618158213</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +352,8 @@
     <MESSAGE value="Updated Readme for inverse.c" />
     <MESSAGE value="added lab50 to .yaml files" />
     <MESSAGE value="updated README.md for anagrams.c with more precise directions" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated README.md for anagrams.c with more precise directions" />
+    <MESSAGE value="added python checks to lowupper.c" />
+    <option name="LAST_COMMIT_MESSAGE" value="added python checks to lowupper.c" />
   </component>
   <component name="WindowStateProjectService">
     <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588271436776">
@@ -358,10 +372,10 @@
       <screen x="0" y="0" width="1500" height="960" />
     </state>
     <state x="252" y="125" key="SettingsEditor/0.0.1500.960@0.0.1500.960" timestamp="1588603648425" />
-    <state x="343" y="209" key="Vcs.Push.Dialog.v2" timestamp="1588615260663">
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2" timestamp="1588618164171">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1588615260663" />
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1588618164171" />
     <state x="498" y="254" key="git4idea.merge.GitPullDialog" timestamp="1588604525230">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
