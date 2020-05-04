@@ -1,3 +1,4 @@
+![fau-logo](https://www.fau.de/files/2016/02/fb-ww-logo-preview.jpg)
 # Complete lower.c
 
 Write a Program that can read a given Array of chars and convert capitalized letters into non capitalized letters
