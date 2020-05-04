@@ -24,8 +24,5 @@ The output for the given array should look as follows:
     "[ a, B, c, D, e, F ]" 
 ```
 
-{% spoiler "Hints" %}
+Some functions from the *ctype.h* library might help you solve the task.
 
-- Functions from the *ctype.h* library might help
-
-{% endspoiler %}
