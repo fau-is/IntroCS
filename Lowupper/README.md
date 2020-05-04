@@ -10,6 +10,11 @@ The ASCII table might help you to figure out how you convert the capitalization:
 
 ![ASCII Table](http://www.asciitable.com/index/asciifull.gif)
 
+
+
+Functions from the *ctype.h* library might help you solve the task.
+[Man-Page ctype.h](http://man7.org/linux/man-pages/man0/ctype.h.0p.html)
+
 {% next "Output specification" %}
 
 The output of your program should follow these specifications:
@@ -24,5 +29,4 @@ The output for the given array should look as follows:
     "[ a, B, c, D, e, F ]" 
 ```
 
-Some functions from the *ctype.h* library might help you solve the task.
 
