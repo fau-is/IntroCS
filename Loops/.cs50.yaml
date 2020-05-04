@@ -1,3 +1,4 @@
 check50:
   files:
     - !exclude "*"
+    - !include loops.c
