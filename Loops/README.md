@@ -6,10 +6,14 @@
             printf("i = %d, j = %d\n", i, j);
 
 Transfer the code above into a program that uses only one for loop instead of a double for loop
+Try not to use a while loop!
+
+Think of the logic behind nested loops (loops in loops in loops...) and the effect it has on the
+total times of iterating through specific code.
 
 
 {% spoiler "Hints" %}
 
-HINT: maybe division and modulo can be helpful
+HINT: division and modulo can be helpful
 
 {% endspoiler %}
