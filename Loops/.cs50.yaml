@@ -1,4 +1,4 @@
-check50:
+lab50:
   files:
     - !exclude "*"
     - !include loops.c
