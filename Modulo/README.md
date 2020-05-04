@@ -1,13 +1,18 @@
 ![fau-logo](https://www.fau.de/files/2016/02/fb-ww-logo-preview.jpg)
 # Complete modulo.c
 
-Write a program that prompts a user for a integer input and then tells the
-User whether the number he entered is an even number or an uneven number
-~~~
-Example: Input = 2; Output = 2 is a even number
-~~~
-{% spoiler "Hints" %}
+Write a program that prompts a user for an integer input using a function such as get_int(). The program
+you write should then check whether or not the entered number is in actual fact an uneven or an uneven number.
 
-HINT: Modulo is helpful here.
+~~~
+Example: 
+Input = 2; 
+Output = 2 is a even number;
 
-{% endspoiler %}
+Input = 3;
+Output = 3 is a uneven number;
+~~~
+
+
+Modulo is helpful here. Try thinking back at the mathematical properties of the modulo and 
+how you can utilize it.

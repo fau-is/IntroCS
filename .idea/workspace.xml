@@ -34,9 +34,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="Added Readme.md">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Getint/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Getint/README.md" afterDir="false" />
+    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="changes to README.md for loops.c">
+      <change beforePath="$PROJECT_DIR$/Modulo/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,7 +245,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588604721143</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="changes to README.md for getint.c">
+      <created>1588616612518</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1588616612518</updated>
+    </task>
+    <task id="LOCAL-00019" summary="changes to README.md for loops.c">
+      <created>1588616818804</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1588616818804</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,7 +305,9 @@
     <MESSAGE value="Added yaml for every directory" />
     <MESSAGE value="Moved checks and refactored to specific wd's" />
     <MESSAGE value="Added Readme.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Readme.md" />
+    <MESSAGE value="changes to README.md for getint.c" />
+    <MESSAGE value="changes to README.md for loops.c" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes to README.md for loops.c" />
   </component>
   <component name="WindowStateProjectService">
     <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588271436776">
@@ -311,10 +326,10 @@
       <screen x="0" y="0" width="1500" height="960" />
     </state>
     <state x="252" y="125" key="SettingsEditor/0.0.1500.960@0.0.1500.960" timestamp="1588603648425" />
-    <state x="343" y="209" key="Vcs.Push.Dialog.v2" timestamp="1588604729520">
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2" timestamp="1588616797165">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1588604729520" />
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1588616797165" />
     <state x="498" y="254" key="git4idea.merge.GitPullDialog" timestamp="1588604525230">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
