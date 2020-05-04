@@ -35,14 +35,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="Added Readme.md">
-      <change afterPath="$PROJECT_DIR$/Loops/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modulo/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Multiply/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Getint/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Getint/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Getint/getint.c" beforeDir="false" afterPath="$PROJECT_DIR$/Getint/getint.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Loops/loops.c" beforeDir="false" afterPath="$PROJECT_DIR$/Loops/loops.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modulo/modulo.c" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo/modulo.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Multiply/multiply.c" beforeDir="false" afterPath="$PROJECT_DIR$/Multiply/multiply.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
