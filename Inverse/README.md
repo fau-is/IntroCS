@@ -9,6 +9,5 @@ your main Program. In your Program invert the input and print it out.
 Example: Input = Hello; Output = olleH
 ~~~
 {% spoiler "Hints" %}
-
-Hint: Use isalpha()
+HINT: Use isalpha()
 {% endspoiler %}
