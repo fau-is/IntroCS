@@ -2,11 +2,11 @@
 # Complete lowupper.c
 
 Write a Program that:
-    1. Reads a given array of chars.
-    2. Lowers capitalized letters (e.g. 'A' => 'a')
-    3. Capitalizes lower letters (e.g. 'a' => 'A')
+1. Reads a given array of chars.
+2. Lowers capitalized letters (e.g. 'A' => 'a')
+3. Capitalizes lower letters (e.g. 'a' => 'A')
 
-The ASCII table might help you to figure out how you convert the capitalization:
+The ASCII table might help you to figure out how you could convert the capitalization of the letters:
 
 ![ASCII Table](http://www.asciitable.com/index/asciifull.gif)
 
