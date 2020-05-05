@@ -1,5 +1,6 @@
 lab50:
   files:
+    - !include anagrams.c
 check50:
   files:
     - !exclude "*"
