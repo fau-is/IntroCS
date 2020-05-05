@@ -33,7 +33,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="updated README.md" />
+    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="updated README.md anagram.c">
+      <change beforePath="$PROJECT_DIR$/Anagrams/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Anagrams/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,6 +132,7 @@
       <workItem from="1588279616462" duration="1685000" />
       <workItem from="1588599824047" duration="5970000" />
       <workItem from="1588614013408" duration="1754000" />
+      <workItem from="1588669749032" duration="341000" />
     </task>
     <task id="LOCAL-00001" summary="added invers Sol to Pset2_solutions">
       <created>1588274488154</created>
@@ -320,7 +323,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588661994050</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="updated __init__.py anagram.c">
+      <created>1588669910503</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1588669910503</updated>
+    </task>
+    <task id="LOCAL-00029" summary="updated README.md anagram.c">
+      <created>1588669968612</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1588669968612</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +354,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Pset2" />
+                        <option value="Pset2" />
                       </list>
                     </value>
                   </entry>
@@ -373,7 +390,9 @@
     <MESSAGE value="added python checks to inverse.c" />
     <MESSAGE value="updated anagrams.c" />
     <MESSAGE value="updated README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated README.md" />
+    <MESSAGE value="updated __init__.py anagram.c" />
+    <MESSAGE value="updated README.md anagram.c" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated README.md anagram.c" />
   </component>
   <component name="WindowStateProjectService">
     <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588271436776">
