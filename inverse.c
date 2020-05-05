@@ -27,6 +27,7 @@ int main(int argc, char **argv)
     inverse[j] = word[size - 1 - j];
   }
   printf("inverse: %s\n", inverse);
+  return 0;
 }
 
 int alphabet(char *word, int size)
