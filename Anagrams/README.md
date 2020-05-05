@@ -4,12 +4,12 @@
 ## Anagrams
 Write a Program that can intake 2 strings i.e. words and check whether they are anagrams. 
 >An anagram is a word or phrase that is formed by rearranging the letters of a different word or phrase.
-> For instance, rearranging the name mary can result in army. 
+>For instance, rearranging the name mary can result in army. 
 >Thus, these two words are anagrams of each other.
 
 ==In this exercise, don't worry about phrases. We'll just look at words==
 
-(% next %)
+{% next %}
 ## Program Specifications
 Your main function should ask the User for exactly two input strings which it will check for being anagrams to each other. 
 
@@ -31,7 +31,7 @@ Input = "red", "blue"
 Output = "Strings are not anagrams\n"
 ~~~
 
-(% next "Library Talk" %)
+{% next "Library Talk" %}
 
 ## Libraries
 Note that you can use the <cs50.h> library at your free will for functions such as
@@ -100,10 +100,11 @@ The algorithmic approach might sound as follows:
 		- Compare the values of a_count[i] and b_count[i]
 		- if they are not similar return 0 (the words aren't anagrams 
 	- If you came across the iteration you can return 1 (the words are anagrams)
-
+~~~
 ## Check 
 
 You can check your code using the following check50 command:
+
 ~~~
 $check50 fau-is/IntroCS/Pset2/Anagrams --local
 ~~~
