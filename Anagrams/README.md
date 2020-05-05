@@ -72,7 +72,7 @@ Army | Mary (letter counts in alphabetical order):
 
 ## The Alphabetical Index
 Use the alphabetical index to count the number of letter occurrences.
-You get the alphabetical Index for an upper-case letter by substracting 'A' from the upper-case letter.
+You get the alphabetical Index for an upper-case letter by subtracting 'A' from the upper-case letter.
 You get the alphabetical index for a lower-case letter by substracting 'a' from the lower-case letter. 
 Look at the ascii table and try it out you'll see that it works. As a consequence :
 ~~~
