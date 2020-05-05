@@ -12,6 +12,11 @@ def compiles_inverse():
     check50.c.compile("inverse.c", lcs50=True)
 
 @check50.check(compiles_inverse)
+def inverse_isalpha():
+    """re-prompts on non alphabetical input"""
+    check50.run("./inverse H1llo").stdout("Input word\n", regex=True)
+
+@check50.check(compiles_inverse)
 def inverse_stdin():
     """print out inverse"""
     check50.run("./inverse Hello").stdout("olleH\n", regex=True)
