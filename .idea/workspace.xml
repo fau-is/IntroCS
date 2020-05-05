@@ -33,9 +33,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="added python checks to inverse.c">
-      <change afterPath="$PROJECT_DIR$/Anagrams/__init__.py" afterDir="false" />
-    </list>
+    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="updated README.md" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -308,7 +306,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588618396875</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="updated anagrams.c">
+      <created>1588661913643</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1588661913643</updated>
+    </task>
+    <task id="LOCAL-00027" summary="updated README.md">
+      <created>1588661994050</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1588661994050</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +356,6 @@
     <MESSAGE value="added Problem lower.c to Pset2" />
     <MESSAGE value="added Problem anagrams.c to Pset2" />
     <MESSAGE value="added .cs50.yaml to Anagrams" />
-    <MESSAGE value="updated anagrams.c" />
     <MESSAGE value="added README.md to Anagrams" />
     <MESSAGE value="rm comments anagrams.c" />
     <MESSAGE value="rm comments inverse.c" />
@@ -360,7 +371,9 @@
     <MESSAGE value="updated README.md for anagrams.c with more precise directions" />
     <MESSAGE value="added python checks to lowupper.c" />
     <MESSAGE value="added python checks to inverse.c" />
-    <option name="LAST_COMMIT_MESSAGE" value="added python checks to inverse.c" />
+    <MESSAGE value="updated anagrams.c" />
+    <MESSAGE value="updated README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated README.md" />
   </component>
   <component name="WindowStateProjectService">
     <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588271436776">
@@ -379,10 +392,10 @@
       <screen x="0" y="0" width="1500" height="960" />
     </state>
     <state x="252" y="125" key="SettingsEditor/0.0.1500.960@0.0.1500.960" timestamp="1588603648425" />
-    <state x="343" y="209" key="Vcs.Push.Dialog.v2" timestamp="1588618418710">
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2" timestamp="1588662003443">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1588618418710" />
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1588662003443" />
     <state x="498" y="254" key="git4idea.merge.GitPullDialog" timestamp="1588604525230">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
