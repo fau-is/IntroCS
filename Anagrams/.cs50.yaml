@@ -1,4 +1,5 @@
 lab50:
+  files:
 check50:
   files:
     - !exclude "*"
