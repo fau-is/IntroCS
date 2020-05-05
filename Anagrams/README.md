@@ -26,6 +26,8 @@ documentation or GeekForGeeks & W3Schools.
 Example: 
 Input = Army, mary; 
 Output = Strings are anagrams;
+Input = army, arny;
+Output = Strings are not anagrams;
 ~~~
 {% spoiler "Hints" %}
 
