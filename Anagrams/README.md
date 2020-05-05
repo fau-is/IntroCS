@@ -36,7 +36,7 @@ Output = "Strings are not anagrams\n"
 ## Libraries
 Note that you can use the <cs50.h> library at your free will for functions such as
 get_string() etc. However, this is not necessary! you can also use functions included in the <stdio.h> library such as fgets()!. 
-You find functions that will help you with this task in the \<ctype.h\> library.
+You find functions that will help you with this task in the *ctype.h* library.
 Other than that all the libraries you need are included in the header already.
 
 If you don't know which library contains what function, you find a plethora of documentation for C libraries in the actual CS50 documentation, GeekForGeeks and W3Schools.
@@ -72,8 +72,8 @@ Army | Mary (letter counts in alphabetical order):
 
 ## The Alphabetical Index
 Use the alphabetical index to count the number of letter occurrences.
-You get the alphabetical Index for an upper-case letter by substracting 'A' from the Upper-Case letter.
-You get the alphabetical index for a lower-case letter by substracting 'a' from the lower case letter. 
+You get the alphabetical Index for an upper-case letter by substracting 'A' from the upper-case letter.
+You get the alphabetical index for a lower-case letter by substracting 'a' from the lower-case letter. 
 Look at the ascii table and try it out you'll see that it works. As a consequence :
 ~~~
 Alphabetical index
