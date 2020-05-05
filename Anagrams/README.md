@@ -8,8 +8,8 @@ pass in these strings to a separate Function and only give meaning to the additi
 The Function doing the actual work i.e. checking whether 2 strings are indeed anagrams should be outside of your main program. We have already
 initialized a function for you below the header and added the actual function with your ToDo below the main function. 
 
-Please note that you can add the <cs50.h> library at your free will for functions such as
-get_string() etc. However, this is not necessary! you can also use functions included in the <stdio.h> library such as gets()!  
+Please note that you can use the <cs50.h> library at your free will for functions such as
+get_string() etc. However, this is not necessary! you can also use functions included in the <stdio.h> library such as fgets()!  
 Make sure that your check is case in-sensitive i.e. that your program recognizes 'ARMY' to be a
 anagram for 'mary'. You can find functions that will help you with this in the <ctype.h> library.
 Other than that all the Libraries you need are included in the
