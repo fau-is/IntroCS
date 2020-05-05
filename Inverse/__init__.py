@@ -14,4 +14,4 @@ def compiles_inverse():
 @check50.check(compiles_inverse)
 def inverse_stdin():
     """print out inverse"""
-    check50.run("./inverse Hello").stdout("olleH\n")
+    check50.run("./inverse Hello").stdout("olleH\n", regex=True)

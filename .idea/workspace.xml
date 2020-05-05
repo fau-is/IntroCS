@@ -33,10 +33,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="anagrams.c added corrections">
+    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="added correction to checks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anagrams/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Anagrams/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inverse/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Inverse/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +134,7 @@
       <workItem from="1588614013408" duration="1754000" />
       <workItem from="1588669749032" duration="341000" />
       <workItem from="1588671992831" duration="594000" />
-      <workItem from="1588680790991" duration="296000" />
+      <workItem from="1588680790991" duration="617000" />
     </task>
     <task id="LOCAL-00001" summary="added invers Sol to Pset2_solutions">
       <created>1588274488154</created>
@@ -341,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588669968612</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="added correction to checks">
+      <created>1588681109611</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1588681109611</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,7 +401,8 @@
     <MESSAGE value="updated README.md" />
     <MESSAGE value="updated __init__.py anagram.c" />
     <MESSAGE value="updated README.md anagram.c" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated README.md anagram.c" />
+    <MESSAGE value="added correction to checks" />
+    <option name="LAST_COMMIT_MESSAGE" value="added correction to checks" />
   </component>
   <component name="WindowStateProjectService">
     <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588271436776">
@@ -415,14 +421,14 @@
       <screen x="0" y="0" width="1500" height="960" />
     </state>
     <state x="252" y="125" key="SettingsEditor/0.0.1500.960@0.0.1500.960" timestamp="1588603648425" />
-    <state x="343" y="209" key="Vcs.Push.Dialog.v2" timestamp="1588669979281">
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2" timestamp="1588681167002">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1588669979281" />
-    <state x="498" y="254" key="git4idea.merge.GitPullDialog" timestamp="1588671405837">
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1588681167002" />
+    <state x="498" y="254" key="git4idea.merge.GitPullDialog" timestamp="1588680811421">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="498" y="254" key="git4idea.merge.GitPullDialog/0.0.1500.960@0.0.1500.960" timestamp="1588671405837" />
+    <state x="498" y="254" key="git4idea.merge.GitPullDialog/0.0.1500.960@0.0.1500.960" timestamp="1588680811421" />
     <state x="413" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1588605520355">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
