@@ -33,7 +33,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="update inverse.c">
+    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="update __init__.py">
       <change beforePath="$PROJECT_DIR$/Inverse/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Inverse/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -353,7 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588681495543</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="update __init__.py">
+      <created>1588683065602</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1588683065602</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,7 +391,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="new exercise contingent to char arrays" />
     <MESSAGE value="added invers Sol to Pset2_solutions" />
     <MESSAGE value="added Problem lower.c to Pset2" />
     <MESSAGE value="added Problem anagrams.c to Pset2" />
@@ -409,7 +415,8 @@
     <MESSAGE value="updated __init__.py anagram.c" />
     <MESSAGE value="updated README.md anagram.c" />
     <MESSAGE value="added correction to checks" />
-    <option name="LAST_COMMIT_MESSAGE" value="added correction to checks" />
+    <MESSAGE value="update __init__.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="update __init__.py" />
   </component>
   <component name="WindowStateProjectService">
     <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588271436776">
@@ -428,10 +435,10 @@
       <screen x="0" y="0" width="1500" height="960" />
     </state>
     <state x="252" y="125" key="SettingsEditor/0.0.1500.960@0.0.1500.960" timestamp="1588603648425" />
-    <state x="343" y="209" key="Vcs.Push.Dialog.v2" timestamp="1588681506128">
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2" timestamp="1588683075571">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1588681506128" />
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1588683075571" />
     <state x="498" y="254" key="git4idea.merge.GitPullDialog" timestamp="1588680811421">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
