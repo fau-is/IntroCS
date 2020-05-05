@@ -10,7 +10,7 @@ initialized a function for you below the header and added the actual function wi
 
 Please note that you can use the <cs50.h> library at your free will for functions such as
 get_string() etc. However, this is not necessary! you can also use functions included in the <stdio.h> library such as fgets()!  
-Make sure that your check is case in-sensitive i.e. that your program recognizes 'ARMY' to be a
+Make sure your check is case in-sensitive i.e. that your program recognizes 'ARMY' to be a
 anagram for 'mary'. You can find functions that will help you with this in the <ctype.h> library.
 Other than that all the Libraries you need are included in the
 Header already.
