@@ -34,7 +34,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="changes to README.md for multiply.c" />
+    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="changes to README.md for multiply.c">
+      <change beforePath="$PROJECT_DIR$/Getint/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Getint/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Loops/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Loops/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modulo/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Multiply/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Multiply/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

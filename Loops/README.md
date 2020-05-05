@@ -11,6 +11,12 @@ Try not to use a while loop!
 Think of the logic behind nested loops (loops in loops in loops...) and the effect it has on the
 total times of iterating through specific code.
 
+We have included some basic checks for you to see whether your program works in the intended way.
+You can run this command in your Terminal to run the check
+~~~
+$check50 fau-is/IntroCS/Pset1/Loops --local
+~~~
+
 
 {% spoiler "Hints" %}
 

@@ -14,6 +14,13 @@ print out the inputted number. If this is not the case there should be a re-prom
 ~~~
 Example: Input = 120; Output = 120 is not in between 0 -100
 ~~~
+
+We have included some basic checks for you to see whether your program works in the intended way.
+You can run this command in your Terminal to run the check
+~~~
+$check50 fau-is/IntroCS/Pset1/Getint --local
+~~~
+
 {% spoiler "Hints" %}
 
 HINT: Make use of a While Loop or a do-while loop

@@ -11,3 +11,9 @@ Input = 1;
 Output = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 ~~~
 
+We have included some basic checks for you to see whether your program works in the intended way.
+You can run this command in your Terminal to run the check
+~~~
+$check50 fau-is/IntroCS/Pset1/Multiply --local
+~~~
+

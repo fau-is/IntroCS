@@ -13,6 +13,11 @@ Input = 3;
 Output = 3 is a uneven number;
 ~~~
 
-
 Modulo is helpful here. Try thinking back at the mathematical properties of the modulo and 
 how you can utilize it.
+
+We have included some basic checks for you to see whether your program works in the intended way.
+You can run this command in your Terminal to run the check
+~~~
+$check50 fau-is/IntroCS/Pset1/Modulo --local
+~~~
