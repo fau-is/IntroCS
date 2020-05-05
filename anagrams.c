@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
-//#include <cs50.h>
+#include <cs50.h>
 
 int anagram(char *a, char *b);
 const int alphabet = 26;
@@ -12,11 +12,11 @@ int main(void)
 
     if (anagram(a, b))
     {
-        printf("The words are anagrams\n");
+        printf("Strings are anagrams\n");
     }
     else
     {
-        printf("The words are not anagrams\n");
+        printf("Strings are not anagrams\n");
     }
     return 0;
 
