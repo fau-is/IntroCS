@@ -3,16 +3,12 @@
 //#include <cs50.h>
 
 int anagram(char *a, char *b);
-const int N = 50;
 const int alphabet = 26;
 
 int main(void)
 {
-    char a[N], b[N];
-    printf("Enter 1st Word:");
-    gets(a);
-    printf("Enter 2nd Word:");
-    gets(b);
+    char *a = get_string("1. Word: ");
+    char *b = get_string("2. Word: ");
 
     if (anagram(a, b))
     {
@@ -34,10 +30,8 @@ int anagram(char *a, char *b)
     while (a[counter] != '\0')
     {
         _a[tolower(a[counter]) - 97] ++;
-        printf("%i\n", _a[counter]);
         counter++;
     }
-
     counter = 0;
     while (b[counter] != '\0')
     {
