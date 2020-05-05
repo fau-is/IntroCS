@@ -6,12 +6,14 @@
 int anagram(char *a, char *b);
 //This should be a hint in itself ;)
 const int alphabet = 26;
+// Max world length
+const int N = 20;
 
 int main(void)
 {
     //We have initialized your strings for you already
-    char *a;
-    char *b;
+    char a[N];
+    char b[N];
     //ToDo
     return 0;
 }

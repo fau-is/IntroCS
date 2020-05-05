@@ -2,3 +2,7 @@ lab50:
   files:
     - !exclude "*"
     - !include anagrams.c
+check50:
+  files:
+    - !exclude "*"
+    - !require anagrams.c

@@ -2,3 +2,7 @@ lab50:
   files:
     - !exclude "*"
     - !include inverse.c
+check50:
+  files:
+    - !exclude "*"
+    - !require inverse.c
