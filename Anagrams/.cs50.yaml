@@ -1,3 +1,5 @@
 lab50:
+check50:
   files:
     - !exclude "*"
+    - !require anagrams.c
