@@ -17,16 +17,16 @@ def compiles_anagrams():
 @check50.check(compiles_anagrams)
 def anagram_true():
     """It's an anagram"""
-    check50.run("./anagrams").stdin("mary", "army").stdout("Strings are anagrams?\n", regex=True)
+    check50.run("./anagrams").stdin("mary").stdin("army").stdout("Strings are anagrams?\n", regex=True)
 
 
 @check50.check(compiles_anagrams)
 def anagram_true_caseInsensitive():
     """It's an anagram"""
-    check50.run("./anagrams").stdin("mary", "ARMY").stdout("Strings are anagrams?\n", regex=True)
+    check50.run("./anagrams").stdin("mary").stdin("ARMY").stdout("Strings are anagrams?\n", regex=True)
 
 
 @check50.check(compiles_anagrams)
 def anagram_false():
     """Not an anagram"""
-    check50.run("./anagrams").stdin("mary", "arny").stdout("Strings are not anagrams?\n", regex=True)
+    check50.run("./anagrams").stdin("mary").stdin("arny").stdout("Strings are not anagrams?\n", regex=True)
