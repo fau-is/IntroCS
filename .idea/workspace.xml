@@ -33,8 +33,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="updated README.md anagram.c">
-      <change beforePath="$PROJECT_DIR$/Anagrams/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Anagrams/README.md" afterDir="false" />
+    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="anagrams.c added corrections">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anagrams/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Anagrams/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inverse/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Inverse/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +135,8 @@
       <workItem from="1588599824047" duration="5970000" />
       <workItem from="1588614013408" duration="1754000" />
       <workItem from="1588669749032" duration="341000" />
+      <workItem from="1588671992831" duration="594000" />
+      <workItem from="1588680790991" duration="296000" />
     </task>
     <task id="LOCAL-00001" summary="added invers Sol to Pset2_solutions">
       <created>1588274488154</created>
@@ -415,10 +419,10 @@
       <screen x="0" y="0" width="1500" height="960" />
     </state>
     <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1588669979281" />
-    <state x="498" y="254" key="git4idea.merge.GitPullDialog" timestamp="1588604525230">
+    <state x="498" y="254" key="git4idea.merge.GitPullDialog" timestamp="1588671405837">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="498" y="254" key="git4idea.merge.GitPullDialog/0.0.1500.960@0.0.1500.960" timestamp="1588604525230" />
+    <state x="498" y="254" key="git4idea.merge.GitPullDialog/0.0.1500.960@0.0.1500.960" timestamp="1588671405837" />
     <state x="413" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1588605520355">
       <screen x="0" y="0" width="1500" height="960" />
     </state>

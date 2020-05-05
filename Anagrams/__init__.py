@@ -22,7 +22,7 @@ def anagram_true():
 
 @check50.check(compiles_anagrams)
 def anagram_true_caseInsensitive():
-    """It's an anagram"""
+    """It's a case insensitive anagram"""
     check50.run("./anagrams").stdin("mary").stdin("ARMY").stdout("Strings are anagrams?\n", regex=True)
 
 
