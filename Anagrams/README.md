@@ -7,7 +7,7 @@ Write a Program that can intake 2 strings i.e. words and check whether they are 
 >For instance, rearranging the name mary can result in army. 
 >Thus, these two words are anagrams of each other.
 
-==In this exercise, don't worry about phrases. We'll just look at words==
+**In this exercise, don't worry about phrases. We'll just look at words.**
 
 {% next %}
 ## Program Specifications
@@ -35,7 +35,8 @@ Output = "Strings are not anagrams\n"
 
 ## Libraries
 Note that you can use the <cs50.h> library at your free will for functions such as
-get_string() etc. However, this is not necessary! you can also use functions included in the <stdio.h> library such as fgets()!  . You can find functions that will help you with this in the <ctype.h> library.
+get_string() etc. However, this is not necessary! you can also use functions included in the <stdio.h> library such as fgets()!. 
+You can find functions that will help you with this in the <ctype.h> library.
 Other than that all the Libraries you need are included in the
 Header already.
 
@@ -44,7 +45,9 @@ Plethora of documentation for C libraries in the actual CS50
 documentation, GeekForGeeks and W3Schools.
 
 {% next "Spoiler: Algorithmic approach" %}
-==Note that this is only one way to the solution, there are many more. In Computer Science we often don't have the one and greatest sample solution. If you have an own idea how to solve the task, then we encourage you to follow your own path.==
+***Note***: This is only one way to the solution, there are many more. 
+In Computer Science we often don't have the one and greatest sample solution. 
+If you have an own idea how to solve the task, then we encourage you to follow your own path.
 
 The general idea of this task is to let you count the number of each alphabetical letters in both words.
 
