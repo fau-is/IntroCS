@@ -32,7 +32,7 @@ The output for the given array should look as follows:
 We have included some basic checks for you to see whether your program works in the intended way.
 You can run this command in your Terminal to run the check
 ~~~
-check50 fau-is/IntroCS/Pset2/Lowupper --local
+$check50 fau-is/IntroCS/Pset2/Lowupper --local
 ~~~
 
 
