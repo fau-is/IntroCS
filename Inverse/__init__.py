@@ -12,6 +12,11 @@ def compiles_inverse():
     check50.c.compile("inverse.c", lcs50=True)
 
 @check50.check(compiles_inverse)
+def two_argc():
+    """only allows 2 cmd line argmuents"""
+    check50.run("./inverse Hello Hello").stdout("Input word\n").run("./inverse").stdout("Input word\n")
+
+@check50.check(compiles_inverse)
 def inverse_isalpha():
     """re-prompts on non alphabetical input"""
     check50.run("./inverse H1llo").stdout("Input word\n")
