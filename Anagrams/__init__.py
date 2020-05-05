@@ -15,4 +15,4 @@ def compiles_anagrams():
 @check50.check(compiles_anagrams)
 def anagram_me():
     """Anagram me"""
-    check50.run("./lowupper").stdin("mary", "army").stdout("Strings are anagrams")
+    check50.run("./lowupper").stdin("mary", "army").stdout("Strings are anagrams").run("./lowupper").stdin("mary", "arny").stdout("Strings are not anagrams")

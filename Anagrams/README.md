@@ -100,7 +100,11 @@ The algorithmic approach might sound as follows:
 		- Compare the values of a_count[i] and b_count[i]
 		- if they are not similar return 0 (the words aren't anagrams 
 	- If you came across the iteration you can return 1 (the words are anagrams)
+
+## Check 
+
+You can check your code using the following check50 command:
 ~~~
-
-
+$check50 fau-is/IntroCS/Pset2/Anagrams --local
+~~~
 
