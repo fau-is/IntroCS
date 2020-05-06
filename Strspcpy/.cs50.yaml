@@ -3,6 +3,8 @@ check50:
     - !exclude "*"
     - !require strspcpy.c
 lab50:
-  files: *check50_files
+  files:
+    - !exclude "*"
+    - !include strspcpy.c
 
 
