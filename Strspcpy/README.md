@@ -155,7 +155,9 @@ int main(int argc, char **argv)
 ```
 {% endspoiler %}
  
+ 
  #### to\_copy
+ 
  
  For to\_copy we need to conduct the following steps:
  1. Get it from the command line (argv)
@@ -257,6 +259,8 @@ int main(int argc, char **argv)
  {% endspoiler %}
  
  {% next "The loop" %}
+ 
+ 
  #### Creating the Copy Loop
  
  We're almost finished. All we need to do is to loop from 0 to _n_ using int i as iterator over the output string.
