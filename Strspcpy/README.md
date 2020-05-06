@@ -15,7 +15,7 @@ The program receives exactly two command-line inputs:
 The program should create a new string that is _n_ characters long. It should fill the string 
 with the chars from *to_copy* as long as they fit in.
 
-~~~
+```
 Examples:
 1)
     ./strspcpy 3 a
@@ -26,7 +26,7 @@ Examples:
 3)
     ./strspcpy 2 Hello
     > He
-~~~
+```
 
 The interesting thing about this task is that we must iterate over the input string and the output string at the same time.
 The loop variable for the output string might be a higher number than the input string's length.
@@ -51,11 +51,11 @@ Add these libraries to your strspcpy.c file as the header.
 If you don't remember how click the button to see how it's done:
 
 {% spoiler "Header in C-Code" %}
-~~~C
+```C
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-~~~
+```
 {% endspoiler %}
 
 ### The main function
@@ -78,12 +78,12 @@ the curly parentheses follow in the next line, after the comma that separates th
 If you're done have a look here: 
 
 {% spoiler "Main" %}
-~~~C
+```C
 int main(int argc, char **argv)
 {
     //ToDo
 } 
-~~~
+```
 {% endspoiler %}}
 
 {% next "Input" %}
@@ -107,7 +107,7 @@ Pay attention to your style.
 **You may not use an else.**
 
 {% spoiler "argc check" %}
-~~~C
+```C
 int main(int argc, char **argv)
 {
     if (argc != 0)
@@ -116,7 +116,7 @@ int main(int argc, char **argv)
     }
     // Proceed
 }
-~~~
+```
 
 {% endspoiler %}
 
@@ -137,9 +137,8 @@ Last, check if n is smaller than 1 or larger than 50. In this case, abort the pr
  
  Try to meet these specifications by yourself. If you want check our solution: 
  
- {% spoiler "Check n" %}
- 
- ~~~C
+{% spoiler "Check n" %} 
+```C
 int main(int argc, char **argv)
 {
     if (argc != 0)
@@ -153,10 +152,11 @@ int main(int argc, char **argv)
         return 2;
     }
 }
-~~~
- {% endspoiler %}
+```
+{% endspoiler %}
  
- #### to_copy
+ #### to\_copy
+ 
  For to_copy we need to conduct the following steps:
  1. Get it from the command line (argv)
  2. Get its length (strlen(string))
@@ -174,7 +174,7 @@ int main(int argc, char **argv)
 
  
  {% spoiler "Check to_copy" %}
- ~~~C
+```C
 int main(int argc, char **argv)
 {
     if (argc != 0)
@@ -198,8 +198,8 @@ int main(int argc, char **argv)
         }
     }
 }
-~~~
- {% endspoiler %}
+```
+{% endspoiler %}
  
 **Nice we are done with the program input and can now start to special copy. If anything is unclear up to now, please let us know via Teams!**
 ___
@@ -222,7 +222,7 @@ Remember that computer scientists count starting from 0. So, the last place of a
 
 {% spoiler "Check copy_dest" %}
 
- ~~~C
+```C
 int main(int argc, char **argv)
 {
     if (argc != 0)
@@ -249,7 +249,7 @@ int main(int argc, char **argv)
     char copy_dest[n+1];
     char copy_dest[n] = '\0';
 }
-~~~
+```
 
  {% endspoiler %}
  
@@ -267,7 +267,7 @@ int main(int argc, char **argv)
  
  {% spoiler "Loop" %}
 
- ~~~C
+```C
 int main(int argc, char **argv)
 {
     if (argc != 0)
@@ -299,7 +299,7 @@ int main(int argc, char **argv)
         copy_dest[i] = copy_dest[i % len];
     }
 }
-~~~ 
+``` 
 
  {% endspoiler %}
  
@@ -319,7 +319,7 @@ int main(int argc, char **argv)
  Write that last line of code and we are done.
  
 {% spoiler "Complete Solution" %}
- ~~~C
+```C
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -359,7 +359,7 @@ int main(int argc, char **argv)
     
     printf("%s\n", copy_dest);
 }   
-~~~
+```
 
 {% endspoiler %}
 
@@ -374,5 +374,5 @@ To see if you've done everything right run:
 If there are all greens and smiles you've done everything right!
 Perfect!
 
-If there are frowns, doubel check what you might have missed.
+If there are frowns, double check what you might have missed.
  
