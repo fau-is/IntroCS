@@ -27,6 +27,15 @@ Examples:
     ./strspcpy 2 Hello
     > He
 ```
+Regarding Exitcodes: Return...
+
+... 0 - If copy was successful.
+
+... 1 - If the number of command line arguments is not exactly two. 
+
+... 2 - If the first argument n contains a non-digit character, or the parsed number is not in the range \[1-50\].
+
+... 3 - If the string to be copied contains any non-alphabetic characters.
 
 The interesting thing about this task is that we must iterate over the input string and the output string at the same time.
 The loop variable for the output string might be a higher number than the input string's length.
@@ -45,7 +54,7 @@ As in most programming tasks we first need to ensure that we include the right l
 - printf() => stdio.h (Standard in and output library) to print the solution
 - atoi() => stdlib.h (Standard C library) converts the command line arg to an integer
 - strlen() => string.h (string library) gets the length of the input string
-- isalpha() => ctype.h (Character type library) to check wheter a char is alphabetical
+- isalpha(), isdigit() => ctype.h (Character type library) to check wheter a char is alphabetical
 
 Add these libraries to your strspcpy.c file as the header.
 If you don't remember how click the button to see how it's done:
@@ -124,16 +133,31 @@ int main(int argc, char **argv)
 The first command-line argument is an integer _n_ representing the length of our output string. 
 There are three things that need to be done with n: 
 1. Get it from the argument vector (At which place is it?)
-2. Convert it to an integer
-3. Check whether the integer meets our condition (min. 1 max 50)
+2. Iterate over the argument
+3. Convert it to an integer
+4. Check whether the integer meets our condition (min. 1 max 50)
 
-We will leave 1. open to you, you should be able to figure this out all by yourself. 
+We will leave 1. open to you, you should be able to figure this out all by yourself. Store the value in 
+_char \*n\_as\_string_.
 
-Regarding 2., the function atoi() receives a string as parameter and tries to parse an integer from the string.
-The procedure returns 0, if the string cannot be parsed. Thus, there is no need to check the characters in our case.
+For the conversion, the function atoi() comes in handy. It receives a string as parameter and tries to parse an integer from the string.
+But, if the string contains a valid number somewhere, e.g. 21b (21), atoi() will parse the 21 from the string. 
+We do not want that.
+Thus, let's iterate over the string first and check each character whether it is a digit or not.
+This check makes sure the user entered a number. 
+
+To do the iteration (2.), get the length of n\_as\_string with strlen(num_as_string). 
+We don't need the length later, so you can declare both the length, and the iterator directly inside the for-loop's head. 
+Then, iterate from 0 to the length of the string. 
+For each character call isdigit(n\_as\_string\[i]). 
+If isdigit returns 0 the char is not a digit. 
+In this case, abort the program, and return 2 as the exit code.
+
+A call to atoi returns the parsed number or 0 (If it couldn't parse). 
 Store the return value of atoi in a newly declared _int n_.
 
-Last, check if n is smaller than 1 or larger than 50. In this case, abort the program and return the exit code "2".
+Last, check if n is smaller than 1 or larger than 50. 
+In this case, abort the program and return the exit code "2".
  
  Try to meet these specifications by yourself. If you want check our solution: 
  
@@ -144,6 +168,15 @@ int main(int argc, char **argv)
     if (argc != 0)
     {
         return 1;
+    }
+    char *n_as_string = argv[1];
+    
+    for (int i = 0, j = strlen(n_as_string); i < j; i++)
+    {
+        if (isdigit(n_as_string[i]) == 0)
+        {
+            return 2;
+        }    
     }
     
     int n = atoi(argv[1]);
@@ -163,8 +196,8 @@ int main(int argc, char **argv)
  2. Get its length (strlen(string))
  3. Iterate over the string and check every character whether it's an alphabetical char (isalpha())
  
- Get the string from argv and store it in **char \*to\_copy**. Then, call strlen with to_copy as a parameter and store
- the return value in **int len**. 
+ Get the string from argv and store it in **char \*to\_copy**. Then, call strlen() with to_copy as a parameter and store
+ the return value in **int len** (We'll need it later). 
  
  Write a for-loop that iterates from 0 to _len_. In each iteration check each character with an if-statement. 
  If the character at place i in to_copy is not alphabetical. In this case your program returns 3. 
@@ -182,6 +215,17 @@ int main(int argc, char **argv)
     {
         return 1;
     }
+    
+    char *n_as_string = argv[1];
+    
+    for (int i = 0, j = strlen(n_as_string); i < j; i++)
+    {
+        if (isdigit(n_as_string[i]) == 0)
+        {
+            return 2;
+        }    
+    }
+    
     
     int n = atoi(argv[1]);
     if (n < 1 || n > 50)
@@ -234,6 +278,16 @@ int main(int argc, char **argv)
         return 1;
     }
     
+    char *n_as_string = argv[1];
+    
+    for (int i = 0, j = strlen(n_as_string); i < j; i++)
+    {
+        if (isdigit(n_as_string[i]) == 0)
+        {
+            return 2;
+        }    
+    }
+    
     int n = atoi(argv[1]);
     if (n < 1 || n > 50)
     {
@@ -282,6 +336,16 @@ int main(int argc, char **argv)
         return 1;
     }
     
+    char *n_as_string = argv[1];
+    
+    for (int i = 0, j = strlen(n_as_string); i < j; i++)
+    {
+        if (isdigit(n_as_string[i]) == 0)
+        {
+            return 2;
+        }    
+    }
+    
     int n = atoi(argv[1]);
     if (n < 1 || n > 50)
     {
@@ -317,15 +381,15 @@ int main(int argc, char **argv)
  If you have done that we finally come to the output. 
  We will simply print the copy_dest to the command-line using printf().
  
- Remember that printf gets as first parameter the format of what you want to print.
- You need placeholder for a type of variable that you want to print. 
+ Remember that printf() gets as first parameter the format of what you want to print.
+ You need a placeholder for a type of variable that you want to print. 
  
  The following parameters must match the format you specified. 
  
  "%s" is the placeholder for a string variable. _copy\_dest_ is what you want to print.
  Be sure that you finish with a new line '\n'.
  
- Write that last line of code and we are done.
+ Write that last line of code, and we are done.
  
 {% spoiler "Complete Solution" %}
 ```c
@@ -340,6 +404,16 @@ int main(int argc, char **argv)
     if (argc != 3)
     {
         return 1;
+    }
+
+    char *n_as_string = argv[1];
+    
+    for (int i = 0, j = strlen(n_as_string); i < j; i++)
+    {
+        if (isdigit(n_as_string[i]) == 0)
+        {
+            return 2;
+        }    
     }
     
     int n = atoi(argv[1]);
@@ -376,11 +450,11 @@ int main(int argc, char **argv)
 
 ## Check50
 
-To see if you've done everything right run: 
+To see if you've done everything right, run check50: 
 
 > check50 fau-is/IntroCS/Pset2/Strspcpy \-\-local
 
-If there are all greens and smiles you've done everything right!
+If there are all smiles and greens you've done it right!
 Perfect!
 
 If there are frowns, double check what you might have missed.
