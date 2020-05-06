@@ -155,9 +155,8 @@ int main(int argc, char **argv)
 ```
 {% endspoiler %}
  
- **If you're done then proceed with checking to_copy.**
  
- #### to\_copy
+#### to\_copy
  
  For to\_copy we need to conduct the following steps:
  1. Get it from the command line (argv)
@@ -262,7 +261,7 @@ int main(int argc, char **argv)
  
  Nice you created the output variable, so now let's fill it!
  
- #### Creating the Copy Loop
+#### Creating the Copy Loop
  
  We're almost finished. All we need to do is to loop from 0 to _n_ using int i as iterator over the output string.
  Add the char at place _i_ modulo (%) _len_ in _to\_copy_ to _copy\_dest_ at place _i_.
@@ -313,7 +312,7 @@ int main(int argc, char **argv)
  
  {% next "Output" %}
  
- ### Output
+### Output
  
  If you have done that we finally come to the output. 
  We will simply print the copy_dest to the command-line using printf().
