@@ -378,7 +378,7 @@ int main(int argc, char **argv)
 
 To see if you've done everything right run: 
 
-> check50 fau-is/IntroCS/Pset2/Strspcpy --local
+> check50 fau-is/IntroCS/Pset2/Strspcpy \-\-local
 
 If there are all greens and smiles you've done everything right!
 Perfect!
