@@ -6,5 +6,3 @@ lab50:
   files:
     - !exclude "*"
     - !include strspcpy.c
-
-

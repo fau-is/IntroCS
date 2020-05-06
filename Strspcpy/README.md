@@ -350,7 +350,7 @@ int main(int argc, char **argv)
     }
 
     char copy_dest[n+1];
-    char copy_dest[n] = '\0';
+    copy_dest[n] = '\0';
     
     for (int i = 0; i < n; i++)
     {
