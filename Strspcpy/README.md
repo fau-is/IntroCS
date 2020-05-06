@@ -157,7 +157,7 @@ int main(int argc, char **argv)
  
  #### to\_copy
  
- For to_copy we need to conduct the following steps:
+ For to\_copy we need to conduct the following steps:
  1. Get it from the command line (argv)
  2. Get its length (strlen(string))
  3. Iterate over the string and check every character whether it's an alphabetical char (isalpha())
@@ -307,7 +307,9 @@ int main(int argc, char **argv)
  {% endspoiler %}
  
  {% next "Output" %}
+ 
  ### Output
+ 
  If you have done that we finally come to the output. 
  We will simply print the copy_dest to the command-line using printf().
  
