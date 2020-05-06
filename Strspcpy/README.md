@@ -296,7 +296,7 @@ int main(int argc, char **argv)
     
     for (int i = 0; i < n; i++)
     {
-        copy_dest[i] = copy_dest[i % len];
+        copy_dest[i] = to_copy[i % len];
     }
 }
 ``` 
@@ -354,7 +354,7 @@ int main(int argc, char **argv)
     
     for (int i = 0; i < n; i++)
     {
-        copy_dest[i] = copy_dest[i % len];
+        copy_dest[i] = to_copy[i % len];
     }
     
     printf("%s\n", copy_dest);

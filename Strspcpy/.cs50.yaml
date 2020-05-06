@@ -1,7 +1,7 @@
 check50:
   files:
     - !exclude "*"
-    - !require strspcpy.c
+    - !include strspcpy.c
 lab50:
   files:
     - !exclude "*"
