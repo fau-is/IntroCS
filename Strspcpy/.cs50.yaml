@@ -1,0 +1,8 @@
+check50:
+  files:
+    - !exclude "*"
+    - !require strspcpy.c
+lab50:
+  files: *check50_files
+
+
