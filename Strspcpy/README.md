@@ -202,12 +202,15 @@ int main(int argc, char **argv)
 {% endspoiler %}
  
 **Nice we are done with the program input and can now start to special copy. If anything is unclear up to now, please let us know via Teams!**
+
 ___
+
 ### Algorithm
 
 Now, we get to the more interesting parts of this task.
 
 #### copy destination
+
 To proceed we first need to set up a new string that we can copy to. 
 String intuitions: 
 - strings are arrays of chars
