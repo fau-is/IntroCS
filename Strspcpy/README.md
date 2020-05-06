@@ -110,7 +110,7 @@ Pay attention to your style.
 ```c
 int main(int argc, char **argv)
 {
-    if (argc != 0)
+    if (argc != 3)
     {
         return 1;
     }
@@ -177,7 +177,7 @@ int main(int argc, char **argv)
 ```c
 int main(int argc, char **argv)
 {
-    if (argc != 0)
+    if (argc != 3)
     {
         return 1;
     }
@@ -225,7 +225,7 @@ Remember that computer scientists count starting from 0. So, the last place of a
 ```c
 int main(int argc, char **argv)
 {
-    if (argc != 0)
+    if (argc != 3)
     {
         return 1;
     }
@@ -270,7 +270,7 @@ int main(int argc, char **argv)
 ```c
 int main(int argc, char **argv)
 {
-    if (argc != 0)
+    if (argc != 3)
     {
         return 1;
     }
@@ -328,7 +328,7 @@ int main(int argc, char **argv)
 
 int main(int argc, char **argv)
 {
-    if (argc != 0)
+    if (argc != 3)
     {
         return 1;
     }
