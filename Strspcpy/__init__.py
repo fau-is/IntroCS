@@ -26,7 +26,7 @@ def check_first_input_is_number():
 def check_second_input_is_alpha():
     """Checks if exits with code 3 if non alphabetical character in second input"""
     check50.run("./strspcpy 10 stup1d").exit(3)
-    check50.run("./strspcpy 10 where)").exit(3)
+    check50.run("./strspcpy 10 where").exit(3)
     check50.run("./strspcpy 10 l3v3r4g3").exit(3)
 
 
