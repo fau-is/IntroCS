@@ -155,9 +155,9 @@ int main(int argc, char **argv)
 ```
 {% endspoiler %}
  
+ **If you're done then proceed with checking to_copy.**
  
  #### to\_copy
- 
  
  For to\_copy we need to conduct the following steps:
  1. Get it from the command line (argv)
@@ -260,6 +260,7 @@ int main(int argc, char **argv)
  
  {% next "The loop" %}
  
+ Nice you created the output variable, so now let's fill it!
  
  #### Creating the Copy Loop
  
