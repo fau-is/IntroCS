@@ -13,6 +13,9 @@ should print out the inverted string.
 Example: 
 Input = Hello; 
 Output = olleH;
+
+Input = H1llo;
+Output = Input word;
 ~~~
 
 You only require the libraries already given in the header. If unsure what functions

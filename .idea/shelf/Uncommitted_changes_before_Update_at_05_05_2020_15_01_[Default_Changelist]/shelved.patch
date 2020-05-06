@@ -1,0 +1,19 @@
+Index: Inverse/__init__.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import check50\r\nimport check50.c\r\n\r\n@check50.check()\r\ndef exists_inverse():\r\n    \"\"\"inverse.c exists in WD.\"\"\"\r\n    check50.exists(\"inverse.c\")\r\n\r\n@check50.check(exists_inverse)\r\ndef compiles_inverse():\r\n    \"\"\"inverse.c compiles.\"\"\"\r\n    check50.c.compile(\"inverse.c\", lcs50=True)\r\n\r\n@check50.check(compiles_inverse)\r\ndef two_argc():\r\n    \"\"\"only allows 2 cmd line argmuents\"\"\"\r\n    check50.run(\"./inverse Hello Hello\").stdout(\"Input word\\n\").stdin(\"./inverse\").stdout(\"Input word\\n\")\r\n\r\n@check50.check(compiles_inverse)\r\ndef inverse_isalpha():\r\n    \"\"\"re-prompts on non alphabetical input\"\"\"\r\n    check50.run(\"./inverse H1llo\").stdout(\"Input word\\n\")\r\n\r\n@check50.check(compiles_inverse)\r\ndef inverse_stdin():\r\n    \"\"\"print out inverse\"\"\"\r\n    check50.run(\"./inverse Hello\").stdout(\"olleH\\n\")\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Inverse/__init__.py	(revision 00c8885b34418ab5cb536423bb058138e85e3805)
++++ Inverse/__init__.py	(date 1588683686616)
+@@ -14,7 +14,8 @@
+ @check50.check(compiles_inverse)
+ def two_argc():
+     """only allows 2 cmd line argmuents"""
+-    check50.run("./inverse Hello Hello").stdout("Input word\n").stdin("./inverse").stdout("Input word\n")
++    check50.run("./inverse Hello Hello").stdout("Input word\n")
++    check50.run("./inverse").stdout("Input word\n")
+ 
+ @check50.check(compiles_inverse)
+ def inverse_isalpha():
