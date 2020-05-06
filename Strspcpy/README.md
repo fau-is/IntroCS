@@ -84,7 +84,7 @@ int main(int argc, char **argv)
     //ToDo
 } 
 ```
-{% endspoiler %}}
+{% endspoiler %}
 
 {% next "Input" %}
 
@@ -107,7 +107,7 @@ Pay attention to your style.
 **You may not use an else.**
 
 {% spoiler "argc check" %}
-```C
+```c
 int main(int argc, char **argv)
 {
     if (argc != 0)
@@ -138,7 +138,7 @@ Last, check if n is smaller than 1 or larger than 50. In this case, abort the pr
  Try to meet these specifications by yourself. If you want check our solution: 
  
 {% spoiler "Check n" %} 
-```C
+```c
 int main(int argc, char **argv)
 {
     if (argc != 0)
@@ -174,7 +174,7 @@ int main(int argc, char **argv)
 
  
  {% spoiler "Check to_copy" %}
-```C
+```c
 int main(int argc, char **argv)
 {
     if (argc != 0)
@@ -222,7 +222,7 @@ Remember that computer scientists count starting from 0. So, the last place of a
 
 {% spoiler "Check copy_dest" %}
 
-```C
+```c
 int main(int argc, char **argv)
 {
     if (argc != 0)
@@ -267,7 +267,7 @@ int main(int argc, char **argv)
  
  {% spoiler "Loop" %}
 
-```C
+```c
 int main(int argc, char **argv)
 {
     if (argc != 0)
@@ -319,7 +319,7 @@ int main(int argc, char **argv)
  Write that last line of code and we are done.
  
 {% spoiler "Complete Solution" %}
-```C
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -365,7 +365,7 @@ int main(int argc, char **argv)
 
 {% next "Check50" %}
 
-## Check 50
+## Check50
 
 To see if you've done everything right run: 
 
