@@ -17,33 +17,17 @@ int main() {
 
 void stupidsort(int A[], int size)
 {
-    while(array_sorted(A, size) == false)
-    {
-        randomize(A, size);
-    }
+    //ToDo
 }
 
 bool array_sorted(int A[], int size)
 {
-    for (int i = 0; i < size; i++)
-    {
-        if(A[i] > A[i+1])
-        {
-            return false;
-        }
-    }
-    return true;
+    //ToDo
 }
 
 void randomize(int A[], int size)
 {
-    for(int j = 0; j < size; j++)
-    {
-        int swp = rand()%size;
-        int c = A[j];
-        A[j] = A[swp];
-        A[swp] = c;
-    }
+    //ToDo
 }
 
 void pretty_printer(int A[], int size)

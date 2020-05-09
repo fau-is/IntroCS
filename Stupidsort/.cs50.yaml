@@ -1,0 +1,8 @@
+lab50:
+  files:
+    - !exclude "*"
+    - !include stupidsort.c
+check50:
+  files:
+    - !exclude "*"
+    - !require stupidsort.c
