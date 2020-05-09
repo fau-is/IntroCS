@@ -1,7 +1,7 @@
 ![fau-logo](https://www.fau.de/files/2016/02/fb-ww-logo-preview.jpg)
 # Complete shellsort.c
 
-## StupidSort
+## ShellSort
 In this Exercise you will learn about ShellSort and write some code for yourself.
 
 **Before you start to code watch the video and read the explanations carefully. We want you 
