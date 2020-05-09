@@ -51,6 +51,7 @@ complete functions for you to work with. In the following we will explain the fu
 and specify what we want you to do.
 
 {% next "int main(void)" %}
+##int main(void)
 
 ***Note***: You do not need to write any code here.
 
@@ -65,6 +66,7 @@ function. The main function then proceeds to pass in the sorted array "A[]" and 
 into a printer function which prints out the array. 
 
 {% next "void stupidsort(int A[], int size)" %}
+##void stupidsort(int A[], int size)
 
 This is where you need to start coding. The stupidsort function actually should only
 check whether the array is sorted or not and then passing it into the actually sorting...or not ;)
@@ -81,6 +83,7 @@ Check array is sorted;
 ~~~
 
 {% next "bool array_sorted(int A[], int size)" %}
+##bool array_sorted(int A[], int size)
 
 This function should only look at the array and return a bool value.
 ~~~
@@ -93,6 +96,7 @@ Array is not sorted;
 ~~~
 
 {% next "void randomize(int A[], int size)" %}
+##void randomize(int A[], int size)
 
 This is where the magic happens. This is where the array gets randomized.
 For this purpose there is actually a C function which we want you to use.
@@ -127,5 +131,5 @@ You can check your code using the following check50 command:
 $check50 fau-is/IntroCS/CAlgorithms/Stupidsort --local
 ~~~
 
-##Have fun coding!
+**Have fun coding!**
 
