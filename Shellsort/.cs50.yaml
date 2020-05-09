@@ -1,0 +1,8 @@
+lab50:
+  files:
+    - !exclude "*"
+    - !include shellsort.c
+check50:
+  files:
+    - !exclude "*"
+    - !require shellsort.c
