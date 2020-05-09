@@ -9,7 +9,7 @@ to understand and apply concepts rather than blindly applying them.**
 
 {% next %}
 ## ShellSort Explanation
-![fau-logo](https://www.youtube.com/watch?v=ddeLSDsYVp8)
+{% video https://www.youtube.com/watch?v=ddeLSDsYVp8 %}
 
 ## Specification
 As you might have noticed we have provided you with some starter code and some
