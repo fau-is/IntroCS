@@ -1,0 +1,10 @@
+lab50:
+  files:
+    - !exclude "*"
+    - !include wizardry.c
+    - !include hogwarts.txt
+    - !include myletter.txt
+check50:
+  files:
+    - !exclude "*"
+    - !require wizardry.c
