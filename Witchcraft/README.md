@@ -101,5 +101,5 @@ libraries in the actual CS50 documentation, GeekForGeeks and W3Schools.
 You can check your code using the following check50 command:
 
 ~~~
-$check50 fau-is/IntroCS/Pset3/Wizardry --local
+$check50 fau-is/IntroCS/Pset3/Witchcraft --local
 ~~~
