@@ -25,4 +25,4 @@ def inverse_isalpha():
 @check50.check(compiles_inverse)
 def inverse_stdin():
     """print out inverse"""
-    check50.run("./inverse scortni").stdout("introcs?\n")
+    check50.run("./inverse scortni").stdout("introcs\n")
