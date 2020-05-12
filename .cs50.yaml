@@ -1,5 +1,9 @@
+lab50:
+  files:
+    - !exclude "*"
+    - !include linear.c
 check50:
   files:
     - !exclude "*"
-    - !require "linear.c"
+    - !require linear.c
     
