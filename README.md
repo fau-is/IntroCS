@@ -18,6 +18,8 @@ $ check50 fau-is/IntroCS/CLinearSearch --local
 
 {% next %}
 
+# Description
+
 For this array your program should behave in the following way.
 ~~~
 int to_search[10] = {1, 11, 4, 5, 9, 12, 55, 78, 0, 7};
