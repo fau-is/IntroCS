@@ -2,7 +2,7 @@ lab50:
   files:
     - !exclude "*"
     - !include wizardry.c
-    - !include hogwarts.txt
+    - !include hopwarts.txt
     - !include myletter.txt
 check50:
   files:

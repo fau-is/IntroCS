@@ -5,7 +5,7 @@
 In this exercise you will implement a program which reads in an input file and copies its
 contents to an output file. Furthermore, you will be required to manipulate the content
 being written into your output file. To be more specific you will be receiving your very
-own personal letter of invitation to Hogwarts!
+own personal letter of invitation to Hopwarts!
 
 For this exercise you must be familiar with all the functions introduced by CS50 included
 in FILE I/O. If you are unsure where to start have a look at the functions included in the
@@ -22,7 +22,7 @@ You have again received some distribution code on which you are required to buil
 in this exercise instead of one file we have provided you with 3 files in total. 
 
 1. **wizardry.c** - this is your program file where you will do all of your coding.
-2. **hogwarts.txt** - this is your input .txt file which you are required to read in
+2. **hopwarts.txt** - this is your input .txt file which you are required to read in
 3. **myletter.txt** - this is you output .txt. file which you will write into
 
 
@@ -30,7 +30,7 @@ Your program should take in 3 command line arguments which it can use throughout
 first command line argument should be the input file. The second one should be the output file
 and lastly you should also give your Surname.
 ~~~
-./wizardry hogwarts.txt myletter.txt Surname
+./wizardry hopwarts.txt myletter.txt Surname
 ~~~
 If your program detects more or less than 3 command line arguments it should behave
 as follows.
@@ -44,7 +44,7 @@ end of your program you should close the said file in order to avoid a memory le
 
 After opening both files we want you to write the contents of hogwarts.txt into myletter.txt.
 However, there is one further hurdle you will have to jump for success.
-The first line in hogwarts.txt is:
+The first line in hopwarts.txt is:
 ~~~
 Dear Mr/Ms. Surname,
 ~~~
@@ -66,17 +66,17 @@ We strongly recommend that you look at the documentation you can find online for
 function. As soon as you understand its usage it will make your life a lot easier!
 
 So to sum up: As soon as you have completed the task your myletter.txt file should look
-like this - if your name is Harry Potter!
+like this - if your name is Garry Hotter!
 
 ~~~
-Dear Mr/Ms. Potter,
+Dear Mr/Ms. Hotter,
 
-We are pleased to inform you that you have been accepted at Hogwarts School of Witchcraft and Wizardry.
+We are pleased to inform you that you have been accepted at Hopwarts School of Witchcraft and Wizardry.
 Please find enclosed a list of all necessary books and equipment.
 Term begins on 1 September. We await your owl by no later than 31 July.
 Yours sincerely,
 
-Minerva McGonagall
+Inmerva McAgonall
 Deputy Headmistress
 ~~~
 
