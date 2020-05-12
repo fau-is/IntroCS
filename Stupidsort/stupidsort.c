@@ -41,7 +41,7 @@ void pretty_printer(int A[], int size)
             printf("%i, ", A[k]);
         }
     }
-    printf("%i ]", A[k]);
+    printf("%i ]\n", A[k]);
 }
 
 

@@ -26,15 +26,30 @@ the way it is because it sorts an array not following a clear sorting structure.
 actually randomizes all values included in an array until it by chance has randomized the array 
 in the correct order.
 
-Now all of you programmers will now think to yourself "This is not effective!". And to that we say: "Well you are 
-of course absolutely right!" This sorting procedure is actually an unstable one. Let's have a look 
-at the run-times
+This sorting procedure is actually an unstable one. Unstable means that same keys remain in the same
+input sequence. Here is an example:
 ~~~
-/* The worst case scenario is of course is endless sorting as 
-it randomizes the values of an array. 'n!' is the amount of
-possible permutations of all the different values. */
+// Note that there are 2 of the same keys, namely '3' in this Array.
 
-Worst Case = O(n*n!);
+Unsorted Array = [1, 3, 7, 2, 5, 4, 3, 9, 10, 8, 6]
+
+/* In to call a sorting algorithm stable, the keys that are same i.e. '3'
+need to remain in the same input order. This means that the 3 with index 1 from
+the unsorted array needs to be placed before the 3 with index 6 in the final
+sorted array.*/
+
+Sorted Array = [1, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10]
+~~~
+
+Now all of you programmers will now think to yourself "This algorithm is not effective!". And to that we say: "Well you are 
+of course absolutely right!" Let's have a look at the run-times:
+~~~
+/* The worst case scenario of course is endless sorting as 
+it randomizes the values of an array. In the average case 'n!' 
+is the amount of possible permutations of all the different values. */
+
+Worst Case = O(∞);
+Average Case = O(n*n!);
 
 /* Best case is only the amount of values, one needs to check
 whether the array is sorted. This is of course only feasible
