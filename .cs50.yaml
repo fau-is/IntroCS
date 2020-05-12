@@ -1,3 +1,7 @@
+lab50:
+  files:
+    - !exclude "*"
+    - !include selsort.c
 check50:
   files:
     - !exclude "*"
