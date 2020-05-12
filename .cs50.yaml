@@ -1,3 +1,7 @@
+lab50:
+  files:
+    - !exclude "*"
+    - !include insertSort.c
 check50:
   files:
     - !exclude "*"
