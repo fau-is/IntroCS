@@ -11,4 +11,4 @@ lab50:
 check50:
   files:
     - !exclude "*"
-    - !require wizardry.c
+    - !require copycat.c
