@@ -31,9 +31,13 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a7f5041-e11d-4087-bc88-21cff1be5b55" name="Default Changelist" comment="updated CAlgorithms">
+    <list default="true" id="3a7f5041-e11d-4087-bc88-21cff1be5b55" name="Default Changelist" comment="Pset2">
+      <change afterPath="$PROJECT_DIR$/Colourclash/New_Logo.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Colourclash/bmp.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Colourclash/recolour.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/IntroCS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/IntroCS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Witchcraft/.cs50.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Witchcraft/.cs50.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,13 +73,24 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../IntroCS-Exercise-Sandbox/cmake-build-debug" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="Images" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\chris\CLionProjects\IntroCS-Exercise-Sandbox" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\chris\CLionProjects\IntroCS-Exercise-Sandbox\cmake-build-debug" />
+      <recent name="C:\Users\chris\CLionProjects\IntroCS-Exercise-Sandbox" />
+      <recent name="C:\Users\chris\CLionProjects\IntroCS\Colourclash" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -158,10 +173,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="updated witchcraft pset3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="461" y="165" key="SettingsEditor" timestamp="1589281767652">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589528252709">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589281767652" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589528252709" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589528138395">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589528138395" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1589527846085">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589527846085" />
     <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1589214411515">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
