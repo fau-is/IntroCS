@@ -22,5 +22,4 @@ int main(int argc, char **argv)
     }
     fclose(copy_file);
     fclose(dest_file);
-    // TODO: copy the contents of argv[1] to argv[2]
 }
