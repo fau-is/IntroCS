@@ -4,7 +4,6 @@ lab50:
     - !include wizardry.c
     - !include hopwarts.txt
     - !include myletter.txt
-    - !include README.md
 check50:
   files:
     - !exclude "*"
