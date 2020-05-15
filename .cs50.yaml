@@ -1,3 +1,11 @@
+lab50: 
+  files:
+    - !exclude "*"
+    - !include "babylon.c"
+submit50:
+  files:
+    - !exclude "*"
+    - !include "babylon.c"
 check50:
   files:
     - !exclude "*"
