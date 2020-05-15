@@ -5,9 +5,6 @@
 **Before tackling this task, make sure you have understood the concept of Linked Lists.
 We recommend you watch this video in beforehand.**
 
-{% video https://www.youtube.com/watch?v=zQI3FyWm144 %}
-
-
 {% next %}
 
 ## Program Specifications
