@@ -1,7 +1,7 @@
 ![fau-logo](https://www.fau.de/files/2016/02/fb-ww-logo-preview.jpg)
+
 # Complete linked_list.c
 
-## Linked Lists
 **Before tackling this task, make sure you have understood the concept of Linked Lists.
 We recommend you watch this video in beforehand.**
 
@@ -9,6 +9,7 @@ We recommend you watch this video in beforehand.**
 
 
 {% next %}
+
 ## Program Specifications
 
 In order to solve this task you need to take care of **2 steps** in total. As you can see we have provided
@@ -67,7 +68,7 @@ $check50 fau-is/IntroCS/Pset4/LinkedList --local
 
 **Have fun coding!**
 
-{% spoiler "Hint - Add" %}
+{% spoiler "Hint" %}
 
 ##Pseudocode - Build Singly-Linked List
 ~~~
@@ -81,7 +82,7 @@ for length of array
     temp = new
 ~~~
 
-{% spoiler "Hint - Delete" %}
+{% spoiler "Hint" %}
 
 ##Pseudocode - Delete/Free Singly Linked List
 ~~~
