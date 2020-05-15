@@ -2,3 +2,11 @@ lab50:
   files:
     - !exclude "*"
     - !include modulo.c
+submit50:
+  files:
+    - !exclude "*"
+    - !include "modulo.c"
+check50:
+  files:
+    - !exclude "*"
+    - !require "modulo.c"

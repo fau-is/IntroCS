@@ -19,9 +19,8 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/Pset1" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:Pset1" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
@@ -34,11 +33,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="changes to README.md for multiply.c">
-      <change beforePath="$PROJECT_DIR$/Getint/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Getint/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Loops/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Loops/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modulo/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Modulo/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Multiply/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Multiply/README.md" afterDir="false" />
+    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="submit50 pset4">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Getint/.cs50.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Getint/.cs50.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Loops/.cs50.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Loops/.cs50.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +71,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1bGv1WDkHwRlBMglVf1yxB0IDuE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

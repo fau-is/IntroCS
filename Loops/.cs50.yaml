@@ -2,3 +2,11 @@ lab50:
   files:
     - !exclude "*"
     - !include loops.c
+submit50:
+  files:
+    - !exclude "*"
+    - !include "loops.c"
+check50:
+  files:
+    - !exclude "*"
+    - !require "loops.c"

@@ -2,3 +2,11 @@ lab50:
   files:
     - !exclude "*"
     - !include multiply.c
+submit50:
+  files:
+    - !exclude "*"
+    - !include "multiply.c"
+check50:
+  files:
+    - !exclude "*"
+    - !require "multiply.c"
