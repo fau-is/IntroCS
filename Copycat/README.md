@@ -2,8 +2,8 @@
 # Complete copycat.c
 
 ## Copycat
-Your task is simple read in a file ("original.txt") and copy its contents to another file
-("copy.txt")
+Your task is simple! Read in a file ("original.txt") and copy its contents to another file
+("copy.txt").
 
 For this exercise you must be familiar with the functions introduced by CS50 included
 in FILE I/O. If you are unsure where to start have a look at the functions included in the
