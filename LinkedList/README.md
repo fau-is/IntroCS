@@ -67,7 +67,7 @@ $check50 fau-is/IntroCS/Pset4/LinkedList --local
 
 **Have fun coding!**
 
-{% next "Spoiler/Hint" %}
+{% spoiler "Hint" %}
 
 ## Pseudocode - Build Singly-Linked List
 ~~~
@@ -80,8 +80,9 @@ for length of array
     temp->next = new
     temp = new
 ~~~
+{% endspoiler %}
 
-{% next "Spoiler/Hint" %}
+{% spoiler "Hint" %}
 
 ## Pseudocode - Delete/Free Singly Linked List
 ~~~
@@ -92,3 +93,4 @@ while trav != null          # traverse to end of list.
     free temp               # free the saved one.
 head = null                 # mark list to be empty.
 ~~~
+{% endspoiler %}
