@@ -71,14 +71,14 @@ $check50 fau-is/IntroCS/Pset4/LinkedList --local
 
 ## Pseudocode - Build Singly-Linked List
 ~~~
-temp = root
-for length of array
-    node new
-    new->payload = A[i]
-    while temp->next != NULL
-        temp = temp->next
-    temp->next = new
-    temp = new
+temp = root                         # set equal to head/root.
+for length of array                 # iterate over array.
+    node new                        # create new node.
+    new->payload = A[i]             # store payload.
+    while temp->next != NULL        # check whether next exists.
+        temp = temp->next           # if so go to end of list.
+    temp->next = new                # store pointer new in temp next.
+    temp = new                      # set temp to new for nex iteration.
 ~~~
 {% endspoiler %}
 
