@@ -1,4 +1,8 @@
 lab50:
+  windows:
+    -readme
+    -editor
+    -terminal
   files:
     - !exclude "*"
     - !include linked_list.c
