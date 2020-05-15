@@ -1,0 +1,16 @@
+lab50:
+  windows:
+    -readme
+    -editor
+    -terminal
+  files:
+    - !exclude "*"
+    - !include
+submit50:
+  files:
+    - !exclude "*"
+    - !include ""
+check50:
+  files:
+    - !exclude "*"
+    - !require
