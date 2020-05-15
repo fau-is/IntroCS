@@ -11,7 +11,7 @@ For this exercise you must be familiar with all the functions introduced by CS50
 in FILE I/O. If you are unsure where to start have a look at the functions included in the
 stdio.h library 
 
-{% stdio.h "https://www.tutorialspoint.com/c_standard_library/stdio_h.htm" %}
+[stdio.h](https://www.tutorialspoint.com/c_standard_library/stdio_h.htm)
 
 **In this exercise, don't worry about Special signs e.g. "!;  [;  .;  $;  =" etc. We'll just look at
 strings in their entirety.**
