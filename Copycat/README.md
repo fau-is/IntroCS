@@ -9,7 +9,7 @@ For this exercise you must be familiar with the functions introduced by CS50 inc
 in FILE I/O. If you are unsure where to start have a look at the functions included in the
 stdio.h library 
 
-{% stdio.h "https://www.tutorialspoint.com/c_standard_library/stdio_h.htm" %}
+[Tutorialspoint - stdio](https://www.tutorialspoint.com/c_standard_library/stdio_h.htm)
 
 {% next %}
 ## Program Specifications
