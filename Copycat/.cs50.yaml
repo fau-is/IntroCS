@@ -1,0 +1,14 @@
+lab50:
+  windows:
+    -readme
+    -editor
+    -terminal
+  files:
+    - !exclude "*"
+    - !include copycat.c
+    - !include copy.txt
+    - !include original.txt
+check50:
+  files:
+    - !exclude "*"
+    - !require wizardry.c
