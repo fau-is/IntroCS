@@ -17,4 +17,5 @@ def compiles_stupidsort():
 @check50.check(compiles_stupidsort)
 def stupidsort_sorts():
     """The sorting algorithm sorts"""
-    check50.run("./stupidsort").stdout("[ 1, 2, 3, 4, 5, 6, 7, 8, 10 ]")
+    check50.run("./stupidsort").stdout("[ 1, 2, 3, 4, 5, 6, 7, 8, 10 ]", regex=False).exit(0)
+

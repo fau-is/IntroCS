@@ -17,4 +17,5 @@ def compiles_shellsort():
 @check50.check(compiles_shellsort)
 def shellsort_sorts():
     """The sorting algorithm sorts"""
-    check50.run("./shellsort").stdout("[ 1, 2, 3, 3, 4, 5, 6, 7, 8, 10 ]")
+    check50.run("./shellsort").stdout("[ 1, 2, 3, 3, 4, 5, 6, 7, 8, 10 ]", regex=False).exit(0)
+
