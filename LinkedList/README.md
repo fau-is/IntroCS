@@ -1,9 +1,11 @@
 ![fau-logo](https://www.fau.de/files/2016/02/fb-ww-logo-preview.jpg)
 
-# Complete linked_list.c
+## Complete linked_list.c
 
 **Before tackling this task, make sure you have understood the concept of Linked Lists.
 We recommend you watch this video in beforehand.**
+
+{% video https://www.youtube.com/watch?v=zQI3FyWm144 %}
 
 {% next %}
 
@@ -67,7 +69,7 @@ $check50 fau-is/IntroCS/Pset4/LinkedList --local
 
 {% spoiler "Hint" %}
 
-##Pseudocode - Build Singly-Linked List
+## Pseudocode - Build Singly-Linked List
 ~~~
 temp = root
 for length of array
@@ -81,7 +83,7 @@ for length of array
 
 {% spoiler "Hint" %}
 
-##Pseudocode - Delete/Free Singly Linked List
+## Pseudocode - Delete/Free Singly Linked List
 ~~~
 trav = root                 # start at root/head.
 while trav != null          # traverse to end of list.
