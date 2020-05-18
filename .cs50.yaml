@@ -6,3 +6,7 @@ check50:
   files:
     - !exclude "*"
     - !require bubble.c
+submit50:
+  files:
+    - !exclude "*"
+    - !include "bubble.c"
