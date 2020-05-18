@@ -109,3 +109,11 @@ You can check your code using the following check50 command:
 $check50 fau-is/IntroCS/Pset2/Anagrams --local
 ~~~
 
+## Submit
+
+You can submit your code to us via the following submit50 command:
+
+~~~
+submit50 fau-is/introcs/Pset2/Anagrams
+~~~
+

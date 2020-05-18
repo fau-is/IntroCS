@@ -459,3 +459,10 @@ Perfect!
 
 If there are frowns, double check what you might have missed.
  
+## Submit
+ 
+You can submit your code to us via the following submit50 command:
+ 
+~~~
+submit50 fau-is/introcs/Pset2/Strspcpy
+~~~
