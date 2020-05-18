@@ -6,3 +6,7 @@ lab50:
   files:
     - !exclude "*"
     - !include strspcpy.c
+submit50:
+  files:
+    - !exclude "*"
+    - !include "strspcpy.c"

@@ -6,3 +6,7 @@ check50:
   files:
     - !exclude "*"
     - !require lowupper.c
+submit50:
+  files:
+    - !exclude "*"
+    - !include "lowupper.c"
