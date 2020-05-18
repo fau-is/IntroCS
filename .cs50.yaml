@@ -6,4 +6,7 @@ check50:
   files:
     - !exclude "*"
     - !require linear.c
-    
+submit50:
+  files:
+    - !exclude "*"
+    - !include "linear.c"
