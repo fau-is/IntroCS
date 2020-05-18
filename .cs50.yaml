@@ -2,3 +2,7 @@ check50:
   files:
     - !exclude "*"
     - !require qsort.py
+submit50:
+  files:
+    - !exclude "*"
+    - !include "qsort.py"
