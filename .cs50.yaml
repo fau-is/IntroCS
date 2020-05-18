@@ -2,3 +2,7 @@ check50:
   files:
     - !exclude "*"
     - !require bin_search_tree.py
+submit50:
+  files:
+    - !exclude "*"
+    - !include "bin_search_tree.py"
