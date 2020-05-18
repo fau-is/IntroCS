@@ -15,8 +15,8 @@ def compiles():
 
 @check50.check(compiles)
 def first_line():
-    """first line is correct"""
-    check50.run("./copycat").exit(0, timeout=10)
+    """Text is correct"""
+    check50.run("./copycat")
     with open("original.txt") as file1, open("copy.txt") as file2:
         for line1, line2 in zip(file1, file2):
             if line1 != line2:

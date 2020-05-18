@@ -24,7 +24,7 @@ def argc():
 @check50.check(argc)
 def matches():
     """You created your own letter of Acceptance"""
-    check50.run("./wizardry hopwarts.txt myletter.txt Goehl").exit(0, timeout=10)
+    check50.run("./wizardry hopwarts.txt myletter.txt Goehl")
     with open("hopwarts.txt") as file1, open("myletter.txt") as file2:
         for line1, line2 in zip(file1, file2):
             if line1 != line2:
