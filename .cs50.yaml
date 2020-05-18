@@ -1,3 +1,7 @@
 check50:
   files:
     - !require bin_tree.py
+submit50:
+  files:
+    - !exclude "*"
+    - !include "bin_tree.py"
