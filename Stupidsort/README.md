@@ -146,5 +146,13 @@ You can check your code using the following check50 command:
 $check50 fau-is/IntroCS/CAlgorithms/Stupidsort --local
 ~~~
 
+## Submit
+
+You can submit your code to us via the following submit50 command:
+
+~~~
+submit50 fau-is/introcs/CAlgorithms/Stupidsort
+~~~
+
 **Have fun coding!**
 
