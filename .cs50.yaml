@@ -1,3 +1,7 @@
 check50:
   files:
     - !require dfs_gr.py
+submit50:
+  files:
+    - !exclude "*"
+    - !include "dfs_gr.py"
