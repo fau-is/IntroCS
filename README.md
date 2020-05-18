@@ -37,4 +37,12 @@ CInorSt
 tsronic
 ~~~
 
+## Submit
+
+You can submit your code to us via the following submit50 command:
+
+~~~
+submit50 fau-is/introcs/CInsertionSort
+~~~
+
 **Happy Coding!**
