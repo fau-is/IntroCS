@@ -46,4 +46,12 @@ Print usage if the user provides neither asc nor dsc:
 Usage: ./bubble [asc|dsc]\n
 ~~~
 
+## Submit
+
+You can submit your code to us via the following submit50 command:
+
+~~~
+submit50 fau-is/introcs/CBubbleSort
+~~~
+
 **Have fun!**
