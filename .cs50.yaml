@@ -2,3 +2,7 @@ check50:
   files:
     - !exclude "*"
     - !require heapSort.c
+submit50:
+  files:
+    - !exclude "*"
+    - !include "heapSort.c"
