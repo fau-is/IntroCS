@@ -6,3 +6,7 @@ check50:
   files:
     - !exclude "*"
     - !require stupidsort.c
+submit50:
+  files:
+    - !exclude "*"
+    - !include "stupidsort.c"

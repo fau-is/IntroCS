@@ -6,3 +6,7 @@ check50:
   files:
     - !exclude "*"
     - !require shellsort.c
+submit50:
+  files:
+    - !exclude "*"
+    - !include "shellsort.c"
