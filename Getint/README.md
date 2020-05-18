@@ -21,6 +21,14 @@ You can run this command in your Terminal to run the check
 $check50 fau-is/IntroCS/Pset1/Getint --local
 ~~~
 
+## Submit
+
+You can submit your code to us via the following submit50 command:
+
+~~~
+submit50 fau-is/introcs/Pset1/Getint
+~~~
+
 {% spoiler "Hints" %}
 
 HINT: Make use of a While Loop or a do-while loop
