@@ -20,7 +20,7 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:Pset3" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:Pset2" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
@@ -33,15 +33,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="updated CAlgorithms">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_05_2020_15_01__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_05_2020_15_01__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Anagrams/.cs50.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Anagrams/.cs50.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inverse/.cs50.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Inverse/.cs50.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lowupper/.cs50.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Lowupper/.cs50.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Strspcpy/.cs50.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Strspcpy/.cs50.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="added submit50" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -374,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588683514862</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="added submit50">
+      <created>1589797683167</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1589797683167</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,7 +404,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added invers Sol to Pset2_solutions" />
     <MESSAGE value="added Problem lower.c to Pset2" />
     <MESSAGE value="added Problem anagrams.c to Pset2" />
     <MESSAGE value="added .cs50.yaml to Anagrams" />
@@ -430,7 +428,8 @@
     <MESSAGE value="updated README.md anagram.c" />
     <MESSAGE value="added correction to checks" />
     <MESSAGE value="update __init__.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="update __init__.py" />
+    <MESSAGE value="added submit50" />
+    <option name="LAST_COMMIT_MESSAGE" value="added submit50" />
   </component>
   <component name="WindowStateProjectService">
     <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588271436776">
@@ -445,14 +444,19 @@
       <screen x="0" y="0" width="1500" height="960" />
     </state>
     <state x="568" y="382" key="Github.CreateGistDialog/0.0.1500.960@0.0.1500.960" timestamp="1588274883966" />
+    <state x="840" y="386" width="389" height="268" key="MultipleFileMergeDialog" timestamp="1589797711410">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="840" y="386" width="389" height="268" key="MultipleFileMergeDialog/1920.-534.1500.980/0.0.1920.1040@0.0.1920.1040" timestamp="1589797711410" />
     <state x="252" y="125" key="SettingsEditor" timestamp="1588603648425">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
     <state x="252" y="125" key="SettingsEditor/0.0.1500.960@0.0.1500.960" timestamp="1588603648425" />
-    <state x="343" y="209" key="Vcs.Push.Dialog.v2" timestamp="1588683702243">
-      <screen x="0" y="0" width="1500" height="960" />
+    <state x="439" y="226" key="Vcs.Push.Dialog.v2" timestamp="1589797697402">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1588683702243" />
+    <state x="439" y="226" key="Vcs.Push.Dialog.v2/1920.-534.1500.980/0.0.1920.1040@0.0.1920.1040" timestamp="1589797697402" />
     <state x="767" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589193699592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
