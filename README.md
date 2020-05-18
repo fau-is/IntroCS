@@ -35,3 +35,11 @@ input: ./binary 3
 
 output: "Number 3 not found"
 ~~~
+
+## Submit
+
+You can submit your code to us via the following submit50 command:
+
+~~~
+submit50 fau-is/introcs/CBinarySearch
+~~~
