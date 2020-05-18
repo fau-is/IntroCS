@@ -6,3 +6,7 @@ check50:
   files:
     - !exclude "*"
     - !require selsort.c
+submit50:
+  files:
+    - !exclude "*"
+    - !include "selsort.c"
