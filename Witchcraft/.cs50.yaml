@@ -12,3 +12,7 @@ check50:
   files:
     - !exclude "*"
     - !require wizardry.c
+submit50:
+  files:
+    - !exclude "*"
+    - !include "wizardry.c"

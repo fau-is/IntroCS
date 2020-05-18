@@ -12,3 +12,7 @@ check50:
   files:
     - !exclude "*"
     - !require copycat.c
+submit50:
+  files:
+    - !exclude "*"
+    - !include "copycat.c"
