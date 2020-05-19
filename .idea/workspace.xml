@@ -32,10 +32,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a7f5041-e11d-4087-bc88-21cff1be5b55" name="Default Changelist" comment="update __init__.py">
-      <change afterPath="$PROJECT_DIR$/Copycat/copy.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Copycat/copycat.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Copycat/original.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
