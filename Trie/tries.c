@@ -14,7 +14,7 @@ typedef struct node
     bool is_city;
     struct node *children[N];
 }
-        node;
+node;
 
 node *root;
 
