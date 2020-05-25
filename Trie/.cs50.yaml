@@ -5,12 +5,14 @@ lab50:
     -terminal
   files:
     - !exclude "*"
-    - !include
+    - !include tries.c
+    - !include cities.txt
 submit50:
   files:
     - !exclude "*"
-    - !include ""
+    - !include "tries.c"
 check50:
   files:
     - !exclude "*"
-    - !require
+    - !require tries.c
+    - !require cities.txt

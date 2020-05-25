@@ -62,7 +62,7 @@ bool check(const char *word)
     return false;
 }
 
-void freeTrie(node *temp)
+void unload(node *temp)
 {
     for(int i = 0; i < N; i++)
     {
@@ -74,14 +74,14 @@ void freeTrie(node *temp)
     free(temp);
 }
 
-bool unload(void)
+/*bool unload(void)
 {
     node *traversal = root;
 
     freeTrie(traversal);
 
     return true;
-}
+}*/
 
 int main(void)
 {
@@ -144,7 +144,8 @@ int main(void)
             printf("City is not in Trie");
         }
     }
-    unload();
+    temp = root;
+    unload(temp);
     fclose(file);
     return 0;
 }
