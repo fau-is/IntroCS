@@ -4,9 +4,10 @@
 #include <ctype.h>
 #include <string.h>
 
-char A[7][10] = {"Erlangen", "Nuernberg", "Bamberg", "Muenchen", "Bayreuth", "Ingolstadt", "Ansbach"};
+char A[9][10] = {"Paris", "Erlangen", "Nuernberg", "Bamberg", "Montenegro", "Muenchen", "Bayreuth", "Ingolstadt", "Ansbach"};
 
 #define N 27
+#define size 9
 #define LENGTH 45
 
 typedef struct node
@@ -14,7 +15,7 @@ typedef struct node
     bool is_city;
     struct node *children[N];
 }
-node;
+        node;
 
 node *root;
 
@@ -71,7 +72,7 @@ void unload(node *temp)
     {
         if(temp->children[i] != NULL)
         {
-            freeTrie(temp->children[i]);
+            unload(temp->children[i]);
         }
     }
     free(temp);
@@ -79,7 +80,6 @@ void unload(node *temp)
 
 int main(void)
 {
-    int size = 7;
     char *cities = "Test.txt";
     root = malloc(sizeof(node));
     if (root == NULL)
@@ -95,7 +95,7 @@ int main(void)
     FILE *file = fopen(cities, "r");
     if (file == NULL)
     {
-        unload();
+        unload(root);
         return false;
     }
 
@@ -135,7 +135,7 @@ int main(void)
     {
         if (check(A[i]) == false)
         {
-            printf("City is not in Trie");
+            printf("%s is not in Trie\n", A[i]);
         }
     }
     temp = root;
