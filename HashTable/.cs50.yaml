@@ -1,0 +1,16 @@
+lab50:
+  windows:
+    -readme
+    -editor
+    -terminal
+  files:
+    - !exclude "*"
+    - !include linked_list.c
+submit50:
+  files:
+    - !exclude "*"
+    - !include "linked_list.c"
+check50:
+  files:
+    - !exclude "*"
+    - !require linked_list.c

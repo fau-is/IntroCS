@@ -74,15 +74,6 @@ void unload(node *temp)
     free(temp);
 }
 
-/*bool unload(void)
-{
-    node *traversal = root;
-
-    freeTrie(traversal);
-
-    return true;
-}*/
-
 int main(void)
 {
     int size = 7;
@@ -149,5 +140,3 @@ int main(void)
     fclose(file);
     return 0;
 }
-
-

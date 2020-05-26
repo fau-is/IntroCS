@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#define MAX 1024
+const int MAX 1024;
 
 int count_lines(char *file)
 {
@@ -28,8 +28,9 @@ int count_lines(char *file)
     return counter;
 }
 
-void create_array(char **A, char *file)
+char ** create_array(int size, char *file)
 {
+    char A[size][MAX];
     FILE *cities = NULL;
     int i = 0;
     int total;
@@ -47,6 +48,7 @@ void create_array(char **A, char *file)
     {
         printf("%s\n", A[i]);
     }
+    return A;
 }
 
 int main(void)
@@ -54,7 +56,6 @@ int main(void)
     char *file = "cities.txt";
     int size = count_lines(file);
     printf("this is the size: %i\n", size);
-    char A[size][MAX];
-    create_array(A, file);
+    char A[size][MAX] = create_array(size, file);
     return 0;
 }
