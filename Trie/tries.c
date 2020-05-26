@@ -52,13 +52,17 @@ bool check(const char *word)
             {
                 pointer = pointer -> children[index];
             }
-            if (pointer -> is_city == true)
-            {
-                return true;
-            }
+
         }
     }
-    return false;
+    if (pointer -> is_city == true)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void unload(node *temp)

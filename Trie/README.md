@@ -198,12 +198,14 @@ Lastly if the base case is not fulfilled, and you 'break out of the cycle' we ju
 
 That's all there is to it really :)
 
-Pseudocode:
-1. create temp node and set to root
-1. iterate through string you check against
-    1. index the letters of the string
-    
-
+Pseudo Code:
+1. Check if temp->is_city is true
+    1. increment count
+1. Iterate through children for N times
+    1. Check if temp->children is not NULL
+        1. pass temp->children into counting method
+1. Return count
+ 
 
 ![archer-recursion](https://i.imgur.com/ojcxhyQ.png)
 
@@ -234,38 +236,50 @@ without saying we need to return false.
 
 This concludes the check function().
 
-Pseudo Code:
-1. Check if temp->is_city is true
-    1. increment count
-1. Iterate through children for N times
-    1. Check if temp->children is not NULL
-        1. pass temp->children into counting method
-1. Return count
-
+Pseudocode:
+1. create temp node and set to root
+1. iterate through string you check against
+    1. index the letters of the string
+    1. if the letter of the string is not "\0"
+        1. check if children at that index is NULL
+            1. return false
+        1. set temp = temp->children
+1. if temp->is_city is true
+    1. return true
+1. else
+    1. return false   
+      
 {% next "unload()" %}
 
 ## Unloading your Trie
 
-**This function will unload your Trie by freeing all the allocated memory**
+**This function unloads your Trie by freeing all the allocated memory**
 
-Now this function will again be implemented recursively. You can do it iteratively!
+Now this function will again be implemented recursively. You can also do it iteratively!
 
-Again your temp node will be set to root in order to be able to walk through your Trie.
-In order to free all the allocated memory you will have to find all the nodes within the 
+A temp node will be set to root in order to be able to walk through the Trie.
+In order to free all the allocated memory we need to find all the nodes within the 
 Trie. 
-So the essence of your unload function is to iterate through the children property of your 
-temp node. If at any given index there is a node pointer stored you will have to pass that 
-node into your unload function once again. As soon as your base case is broken and your loop finishes
-you will have to use the free() command on your temp node. This will free all the allocated memory and successfully unload
-your Trie.
+So the essence of the unload function is to iterate through the _children_ property of the 
+temp node. If at any given index there is a node pointer stored we have to pass that 
+node into the unload function once again. As soon as the base case is not fulfilled any more
+and your loop finishes we have to use the free() command on the temp node. 
+This will free all the allocated memory and successfully unload the Trie.
 
 That's all there is to the unload function.
+
+Pseudo Code:
+1. iterate over temp->children
+    1. if temp->children is not NULL
+        1. pass temp->children into unload function
+1. free temp
+
 
 {% next "Debrief" %}
 
 ## Debrief
 
-If you have followed all the steps you should now have implemented your own Trie successfully! Congratulations.
+If you followed all the steps you should now have implemented a Trie successfully! Congratulations.
 
 Please submit your code to us so that if any issues arise we can help you accordingly!
 
