@@ -202,15 +202,7 @@ Pseudocode:
 1. create temp node and set to root
 1. iterate through string you check against
     1. index the letters of the string
-1. Loop over the characters in word:
-    1. Get the alphabetical index of the character
-    1. If current->children[alphabetical index] is NULL:
-        1. Set current to current->children[alphabetical index]
-    1. Else:
-        1. Create new node
-        1. Assign the new node to current->children[alphabetical index]
-        1. Set current to current->children[alphabetical index]
-1. Set current's is\_city to true
+    
 
 
 ![archer-recursion](https://i.imgur.com/ojcxhyQ.png)
