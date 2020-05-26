@@ -29,7 +29,7 @@ You should work on the given functions in the following order.
 1.  int main(void)
 2.  unsigned int counting(node *temp) 
 3.  bool check(const char *word)
-4.  unload() // this function will unload your Trie by freeing all the allocated memory
+4.  unload()
 ~~~
 
 **Have fun coding!**
@@ -58,7 +58,7 @@ node *root;
 ~~~
 
 The properties of your struct are a bool named _is\_city_, and the node array pointer _children_. 
-whichThe bool is\_city, if set to true, indicates that the word is a city name. 
+The bool is\_city, if set to true, indicates that the word is a city name. 
 Children, the node pointer array, stores pointers to other nodes. 
 This allows you to navigate through your Trie. 
 To access properties in a struct, use the following syntax.
@@ -82,7 +82,7 @@ In this case, you should return false or return 1.
 Again, we did this for you already. 
 
 The next step is to set the bool property of your root node to the right value.
-In our case, we set it to false.  
+In our case, we set it too false.  
 Since we do not want to add a city name which is an empty string ("") to our Trie. 
 Finally, we must ensure that "children[N]" does not contain any values from previous program usage. 
 Therefore, we use a loop to iterate over "children[N]" and set the values at every index to NULL.
@@ -94,7 +94,7 @@ Second, we, again, check whether opening the file was successful.
 If the file pointer remains NULL, we could not open the file. 
 In this case, by specification we call the unload()-function and return false.
 
-We are now done with the prerequisite, let's dive into the basic trie functionalities now.
+We are now done with the prerequisites, let's dive into the basic trie functionalities now.
 
 {% next "load in main" %}
 ## The Load
@@ -175,57 +175,68 @@ That's all for the Load Folks!
 
 ## unsigned int counting(node *temp)
 
-**This function will count the number of cities loaded into your trie**
+**This method counts the number of cities loaded into your trie**
 
 Now this can be done iteratively...However, to quote Doug Lloyd "Recursive Code is sexy."
 So that's what we're going to do!
 
 ## Counting Cities
 
-Now we could obviously introduce a global variable (which we have) and increment it every time we have loaded
+Now we could obviously introduce a global variable (which we have) and increment it every time we load
 a city into our Trie but where is the fun in that?
 
-As you can see in the main function we have initialized a node 'temp' and set it equal to the root node
-which we pass into our counting function. 
+As you can see in the main function we initialize a node 'temp' and set it equal to the root node
+which we pass into our counting method. 
 
-The first step within our counting function should be to check what value our is_city bool has. 
-If it is equal to true well then we will have to increment our 'count' (which we have conveniently declared globally).
-The next step would be to iterate through the children[N] property within your temp node and if there is a pointer
-stored at your current index you should pass the node correspondent to that pointer into your counting function once again.
-From the prior sentence the base case should be pretty clear as well as where recursion actually comes into play here!
+The first step within our counting method is to check what value our _is_city_ bool has. 
+If it is equal to _true_ well then we have to increment our 'count' (which we have conveniently declared globally).
+The next step is to iterate through _children_ property within the temp node and if there is a pointer
+stored at the current index we pass the node correspondent to that pointer into the counting method once again.
+From the prior sentence the base case should be pretty clear as well as where recursion actually comes into play!
 
-Lastly if your base case is not fulfilled, and you 'break out of the cycle' you will just have to return your count.
+Lastly if the base case is not fulfilled, and you 'break out of the cycle' we just have to return the count.
 
 That's all there is to it really :)
 
-![fau-logo](https://i.imgur.com/ojcxhyQ.png)
+Pseudo Code:
+1. Check if temp->is_city is true
+    1. increment count
+1. Iterate through children for N times
+    1. Check if temp->children is not NULL
+        1. pass temp->children into counting method
+1. Return count
+
+
+![archer-recursion](https://i.imgur.com/ojcxhyQ.png)
 
 {% next "bool check(const char *word)" %}
 
 ## Checking for cities
 
-**This function will check whether your Trie has loaded all the cities**
+**This method checks whether your Trie has loaded all the cities**
 
-The string array 'A', if implemented correctly, has all the cities included and therefore, this is what we will check against.
+The string array 'A', has all the cities included and therefore, this is what is checked against.
 
-The function returns a bool. If the city exists within your Trie it will return true if not it will return false.
-Again in order to walk trough your Trie we require a temporary node which initially will again be set to equal root.
+The function returns a bool. If the city exists within the Trie it returns true if not it returns false.
+In order to walk trough the Trie we require a temporary node which initially is set to equal root.
 
-After that we require a loop for the length of the city we want to check against. Just as in the Load a simple For-Loop 
-should suffice. 
+After that a loop is required to iterate for the length of the string being checked against. 
+Just as in the Load a simple For-Loop suffices. 
 
-Moving on you will have to again calculate the index the same way you did in the load function for the city you are checking.
-Don't forget that you only want to check the word as long as the string you are checking against didn't end i.e.
-you do not want to check for the '\0' character. A simple if condition for this purpose will do the trick.
+Moving on we have to calculate the index the same way we did in the load function for the city you are checking.
+Don't forget that we only want to check the word as long as the string we are checking against doesn't end i.e.
+we do not want to check for the '\0' character. A simple if condition for this purpose will do the trick.
 
-Now the first thing you should check is whether a value exists at the index within the children[N] array of your temp
-node. If not then you will have to return false as your word doesn't exist. However, if there is a value you will have to 
-move your temp node to the next node to again check whether at the corresponding index of the next letter a pointer to a
-subsequent node is store...and so on. Your final check as soon as you have finished looping through the city you're checking
-against is whether the value of the bool property is 'true'. If so return true otherwise it goes without saying you should 
-return false.
+Now the first thing we check is whether a value exists at the index within _children_ of our temp
+node. If not we have to return false as our word doesn't exist. However, if there is a value we have to 
+move our temp node to the next node to check whether at the corresponding index of the next letter a pointer to a
+subsequent node is stored...and so on. The final check, as soon as the loop finishes iterating through the string we're
+checking against is whether the value of the _is_city_ property is _true_. If so we return true otherwise it goes 
+without saying we need to return false.
 
-This concludes your check function().
+This concludes the check function().
+
+
 
 {% next "unload()" %}
 
