@@ -109,8 +109,6 @@ int main(void)
         for(int i = 0; i < length; i++)
         {
             int index = tolower(word[i]) - 'a';
-            printf("%c", word[i]);
-
             if (current -> children[index] == NULL)
             {
                 node *pNode = malloc(sizeof(node));
@@ -127,7 +125,6 @@ int main(void)
             }
         }
         current -> is_city = true;
-        printf("\n");
     }
     node *temp = root;
     printf("Cities in Trie: %i\n", counting(temp));
