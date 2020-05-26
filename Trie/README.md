@@ -198,13 +198,19 @@ Lastly if the base case is not fulfilled, and you 'break out of the cycle' we ju
 
 That's all there is to it really :)
 
-Pseudo Code:
-1. Check if temp->is_city is true
-    1. increment count
-1. Iterate through children for N times
-    1. Check if temp->children is not NULL
-        1. pass temp->children into counting method
-1. Return count
+Pseudocode:
+1. create temp node and set to root
+1. iterate through string you check against
+    1. index the letters of the string
+1. Loop over the characters in word:
+    1. Get the alphabetical index of the character
+    1. If current->children[alphabetical index] is NULL:
+        1. Set current to current->children[alphabetical index]
+    1. Else:
+        1. Create new node
+        1. Assign the new node to current->children[alphabetical index]
+        1. Set current to current->children[alphabetical index]
+1. Set current's is\_city to true
 
 
 ![archer-recursion](https://i.imgur.com/ojcxhyQ.png)
@@ -236,7 +242,13 @@ without saying we need to return false.
 
 This concludes the check function().
 
-
+Pseudo Code:
+1. Check if temp->is_city is true
+    1. increment count
+1. Iterate through children for N times
+    1. Check if temp->children is not NULL
+        1. pass temp->children into counting method
+1. Return count
 
 {% next "unload()" %}
 
