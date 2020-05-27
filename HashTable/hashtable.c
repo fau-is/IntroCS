@@ -60,7 +60,7 @@ void unload_ht(node *head)
 
 int main(void)
 {
-    unsigned char *A[6] = {"Chris", "Max", "Sebastian", "Johannes", "Matzner", "Chris"};
+    unsigned char *A[6] = {"Harth", "Max", "Sebastian", "Johannes", "Matzner", "Chris"};
     node *hashtable[10];
     int i;
     for (i = 0; i < 10; i++)
