@@ -95,13 +95,15 @@ int main(void)
         }
     }
 
-    unsigned char*to_find = "Chris";
-    unsigned char*to_find1 = "Tobias";
-    if(search(to_find1, hashtable) == true)
+    unsigned char *to_search[2] = {"Chris", "Tobias"};
+    for (i = 0; i < 2; i++)
     {
-        printf("%s exists\n", to_find1);
-    } else{
-        printf("%s does not exist\n", to_find1);
+        if(search(to_search[i], hashtable) == true)
+        {
+            printf("%s exists\n", to_search[i]);
+        } else{
+            printf("%s does not exist\n", to_search[i]);
+        }
     }
     for (i = 0; i < 10; i++)
     {
