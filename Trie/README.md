@@ -283,6 +283,15 @@ If you followed all the steps you should now have implemented a Trie successfull
 
 Please submit your code to us so that if any issues arise we can help you accordingly!
 
+## Check 
+
+You can check your code using the following check50 command:
+
+~~~
+$check50 fau-is/IntroCS/Pset4/Trie --local
+~~~
+
+
 ## Submit
 
 You can submit your code to us via the following submit50 command:
@@ -291,10 +300,3 @@ You can submit your code to us via the following submit50 command:
 $submit50 fau-is/introcs/Pset4/Trie
 ~~~
 
-## Check 
-
-You can check your code using the following check50 command:
-
-~~~
-$check50 fau-is/IntroCS/Pset4/Trie --local
-~~~
