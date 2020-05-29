@@ -41,7 +41,8 @@ Finally the hashtable will be unloaded via the unload function.
 {% next "Hash functions" %}
 
 CS50s course material touches hash functions as well as their areas of application briefly.
-Nevertheless, a hashtable is the best coding task to come up and implement your own hash function.
+Nevertheless, a hashtable is the best coding task in order to come up and practice implementing
+your own hash function.
 
 In short a hash function is a mathematical function that converts an input value into a fix sized
 numeric value. The values that are being returned by any hash function are called hash values. 
@@ -54,7 +55,7 @@ Input = Rudolph
 Output = 167
 ~~~
 
-Hash functions are used with hash tables naturally. Generally the usage of a hash function constitutes 
+Hash functions are used with hash tables naturally. Generally the usage of a hash function constitutes a
 rope-walk in-between search times and storage space. Writing an efficient hash function can therefore, 
 be an entire science of its own. 
 
