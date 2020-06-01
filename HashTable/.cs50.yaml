@@ -1,16 +1,12 @@
 lab50:
-  windows:
-    -readme
-    -editor
-    -terminal
-  files:
-    - !exclude "*"
-    - !include hashtable.c
-submit50:
   files:
     - !exclude "*"
     - !include hashtable.c
 check50:
   files:
     - !exclude "*"
-    - !require "hashtable.c"
+    - !require hashtable.c
+submit50:
+  files:
+    - !exclude "*"
+    - !include "hashtable.c"
