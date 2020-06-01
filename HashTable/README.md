@@ -16,8 +16,8 @@ you with some starter code!
 
 ~~~
 1. int main(void) // the main programm will largely consist of the loading
-2. unsigned int hash(unsigned char *name) // this is your hashfunction
-3. bool search(unsigned char*to_search, node *hashtable[]) // this function will search for given input
+2. int hash(char *name) // this is your hashfunction
+3. bool search(char*to_search, node *hashtable[]) // this function will search for given input
 4. void unload_ht(node *head) // this function will free allocated memory
 ~~~
 
