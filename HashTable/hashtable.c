@@ -5,20 +5,20 @@
 
 typedef struct node
 {
-    unsigned char* payload;
+    char* payload;
     struct node *next;
 }
 node;
 
 node *hashtable[10];
 
-unsigned int hash(unsigned char *name)
+int hash(char *name)
 {
     //ToDo Hash function
-    //return unsigned int;
+    //return integer;
 }
 
-bool search(unsigned char*to_search, node *hashtable[])
+bool search(char*to_search, node *hashtable[])
 {
     //ToDo
     //return true or false;
@@ -32,7 +32,7 @@ void unload_ht(node *head)
 
 int main(void)
 {
-    unsigned char *A[6] = {"Harth", "Max", "Sebastian", "Johannes", "Matzner", "Chris"};
+    char *A[6] = {"Harth", "Max", "Sebastian", "Johannes", "Matzner", "Chris"};
     int i;
     for (i = 0; i < 10; i++)
     {
@@ -41,7 +41,7 @@ int main(void)
 
     //ToDo Load the Hashtable
 
-    unsigned char *to_search[2] = {"Chris", "Tobias"};
+    char *to_search[2] = {"Chris", "Tobias"};
     for (i = 0; i < 2; i++)
     {
         if(search(to_search[i], hashtable) == true)
