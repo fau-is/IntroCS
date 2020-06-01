@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include <string.h>
 
-char A[9][10] = {"Paris", "Erlangen", "Nuernberg", "Bamberg", "Montenegro", "Muenchen", "Bayreuth", "Ingolstadt", "Ansbach"};
+char A[9][11] = {"Paris", "Erlangen", "Nuernberg", "Bamberg", "Montenegro", "Muenchen", "Bayreuth", "Ingolstadt", "Ansbach"};
 
 #define N 27
 #define size 9
