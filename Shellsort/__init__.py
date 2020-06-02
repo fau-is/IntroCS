@@ -4,13 +4,13 @@ import check50.c
 
 @check50.check()
 def exists_shellsort():
-    """stupidsort.c exists in WD."""
+    """shellsort.c exists in WD."""
     check50.exists("shellsort.c")
 
 
 @check50.check(exists_shellsort)
 def compiles_shellsort():
-    """stupidsort.c compiles."""
+    """shellsort.c compiles."""
     check50.c.compile("shellsort.c", lcs50=True)
 
 
