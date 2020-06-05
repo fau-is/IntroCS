@@ -9,4 +9,4 @@ check50:
 submit50:
   files:
     - !exclude "*"
-    - !inc lude "binary.c"
+    - !include "binary.c"
