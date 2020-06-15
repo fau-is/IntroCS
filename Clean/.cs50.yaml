@@ -16,4 +16,3 @@ check50:
   files:
     - !exclude "*"
     - !require clean.py
-    - !require silent_sea_clean.txt
