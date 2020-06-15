@@ -29,7 +29,7 @@ Day/Month/Year, h:m:s
 
 Your Output needs to look like the following (with the correct times and dates obviously):
 ~~~
-Local: 01/06/2020, 12:16:21
+Local : 01/06/2020, 12:16:21
 Europe/Berlin : 01/06/2020, 14:16:21
 America/New_York : 01/06/2020, 08:16:21
 Europe/London : 01/06/2020, 13:16:21

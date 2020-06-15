@@ -67,7 +67,7 @@ Output:
 A = ('IntroCS', 'is', 'fun')
 ~~~
 
-Additionally, you will most definitely require the **.join** method which allows you to concatenate separate items to a string.
+Additionally, you will most definitely require the **.join** method which allows you to concatenate list items to a string.
 ~~~
 Example: 
 
