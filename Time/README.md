@@ -3,7 +3,7 @@
 ## Complete time.py
 
 **Before tackling this task, make sure you have you have watched CS50s Lecture on python
-and are comfortable with this new language**
+and are comfortable with this new language.**
 
 {% next %}
 
@@ -37,7 +37,7 @@ Asia/Shanghai : 01/06/2020, 20:16:21
 Africa/Accra : 01/06/2020, 12:16:21
 ~~~
 
-{% next "" %}
+{% next %}
 
 Now in order to work with dates and times you will have to use the datetime library. You can find
 comprehensive python docs via this [link](https://docs.python.org/3/library/datetime.html). The Library 
