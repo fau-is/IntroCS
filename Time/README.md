@@ -14,13 +14,13 @@ a bit complicated. However, this problem will help you understand working with t
 
 Your program should do the following. First we want you to print your local time including UTC 
 (Coordinated Universal time) timezone information. You will notice that your "local" time might actually not correspond
-with the time of the place in the world you are currently located in why is that?
+to the time of the place in the world you are currently located in. Why is that?
 
 After that we want you to print out the corresponding times in Europe/Berlin, 
-America/New_York, Europe/London, Asia/Shanghai and Africa/Accra provided in
+America/New_York, Europe/London, Asia/Shanghai and Africa/Accra included in
 list A.
 
-Furthermore, we want that every date and time is printed in the following specified way.
+Furthermore, every date and time needs to be printed out in the following specified way.
 ~~~
 Datetime format:
 
