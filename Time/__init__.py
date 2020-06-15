@@ -8,10 +8,10 @@ def exists():
     """time.py"""
     check50.exists("time.py")
 
-@check50.check(exists)
-def compiles():
-    """time.py compiles"""
-    check50.run("python clean.py")
+#@check50.check(exists)
+#def compiles():
+#    """time.py compiles"""
+#    check50.run("python clean.py")
 
 @check50.check(compiles)
 def check():
