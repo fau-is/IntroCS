@@ -13,7 +13,11 @@ def compiles():
     """clean.py compiles"""
     check50.c.compile("clean.py", lcs50=True)
 
-@check50.check(compiles)
-def check():
-    """clean.py does what it is supposed to do"""
-    check50.run("python clean.py").stdout("Paris is not in Trie").stdout("Montenegro is not in Trie")
+@check50.check(argc)
+def matches():
+    """Poem is cleaned"""
+    check50.run("python clean.py")
+    with open("silent_sea_clean.txt") as file1, open("sol.txt") as file2:
+        for line1, line2 in zip(file1, file2):
+            if line1 != line2:
+                raise check50.Failure("Poems do not match")
