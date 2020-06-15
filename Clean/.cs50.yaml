@@ -1,0 +1,19 @@
+lab50:
+  windows:
+    -readme
+    -editor
+    -terminal
+  files:
+    - !exclude "*"
+    - !include clean.py
+    - !include silent_sea.txt
+    - !include silent_sea_clean.txt
+submit50:
+  files:
+    - !exclude "*"
+    - !include "clean.py"
+check50:
+  files:
+    - !exclude "*"
+    - !require clean.py
+    - !require silent_sea_clean.txt

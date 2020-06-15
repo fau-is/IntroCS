@@ -1,0 +1,16 @@
+lab50:
+  windows:
+    -readme
+    -editor
+    -terminal
+  files:
+    - !exclude "*"
+    - !include time.py
+submit50:
+  files:
+    - !exclude "*"
+    - !include "time.py"
+check50:
+  files:
+    - !exclude "*"
+    - !require time.py
