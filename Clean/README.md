@@ -43,7 +43,7 @@ Thy broad breast heaves as one in pain
 Thou dark and silent sea
 ~~~
 
-{% next "" %}
+{% next %}
 
 Cleaning text is a common task that has to be done in coding. Now in order to do so 
 python's string library offers a couple of functionalities that will definitely come in useful 
