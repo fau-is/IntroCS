@@ -11,7 +11,7 @@ def exists():
 @check50.check(exists)
 def compiles():
     """clean.py compiles"""
-    check50.py.compile("clean.py", lcs50=True)
+    check50.run("python clean.py")
 
 @check50.check(argc)
 def matches():
