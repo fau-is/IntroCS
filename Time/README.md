@@ -12,9 +12,9 @@ and are comfortable with this new language**
 Time is precious and important. When it comes to working with dates and time in python things can get 
 a bit complicated. However, this problem will help you understand working with time.
 
-Your program should do the following. First we want you to print your local time in UTC 
-(Coordinated Universal time). You will notice that your "local" time might actually not correspond
-with the time of the place in the world you are currently located in. 
+Your program should do the following. First we want you to print your local time including UTC 
+(Coordinated Universal time) timezone information. You will notice that your "local" time might actually not correspond
+with the time of the place in the world you are currently located in why is that?
 
 After that we want you to print out the corresponding times in Europe/Berlin, 
 America/New_York, Europe/London, Asia/Shanghai and Africa/Accra provided in
@@ -39,46 +39,40 @@ Africa/Accra : 01/06/2020, 12:16:21
 
 {% next "" %}
 
-Now in order to work with dates and times 
-
-**Your output file must not include any signs included in .punctuation of the string library.**
-
-Furthermore, we recommend that you use the **.append** method inherent to python as you will most likely have to 
-work with Lists in order to tackle this problem. 
+Now in order to work with dates and times you will have to use the datetime library. You can find
+comprehensive python docs via this [link](https://docs.python.org/3/library/datetime.html). The Library 
+includes classes which allow you to manipulate dates and times. We recommend to read over this documentation
+before tackling the task. Nevertheless, you can see a basic example of working with datetime below.
 ~~~
-Example: 
+Example:
 
-A = ("IntroCS", "is")
-string = "fun"
-A.append(string)
-print("A =", A)
+now = datetime.now()
+print(now.time())
+print(now.date())
 
 Output:
-
-A = ('IntroCS', 'is', 'fun')
+15:45:34.996735
+2020-06-15
 ~~~
 
-Additionally, you will most definitely require the **.join** method which allows you to concatenate separate items to a string.
+Now additionally when working with different timezones there is an helpful open source module called
+Python pytz (python timezone). Essentially this module is very useful when working with timezone definitions as
+well as calculating times in relation to different timezones. This module allows you to do the following.
+
 ~~~
-Example: 
+Example:
 
-A = ("IntroCS", "is", "fun")
-string = " ".join(A)
-print(string)
-
-Output:
-
-"IntroCS is fun"
+#Try out this line of code in your IDE ;)
+print(pytz.all_timezones)
 ~~~
 
-**Have fun coding!**
+There is some great open source explanations on working with the pytz module from [JournalDev](https://www.journaldev.com/23370/python-pytz).
 
 {% next "Library Talk" %}
 
 ## Libraries
 
-**Note** that for this task we will only allow functions included in the string 
-library Therefore, try to rely on the basics python offers
+**Note** that for this task we will only allow methods included in the datetime library and pytz module.
 
 If you don't know which library contains which function, you can find a plethora of documentation for python libraries 
 in the actual python docs or the CS50 documentation, GeekForGeeks and W3Schools.
@@ -90,7 +84,7 @@ in the actual python docs or the CS50 documentation, GeekForGeeks and W3Schools.
 You can check your code using the following check50 command:
 
 ~~~
-$check50 fau-is/IntroCS/Pset6/Clean --local
+$check50 fau-is/IntroCS/Pset6/Time --local
 ~~~
 
 ## Submit
@@ -98,15 +92,5 @@ $check50 fau-is/IntroCS/Pset6/Clean --local
 You can submit your code to us via the following submit50 command:
 
 ~~~
-submit50 fau-is/introcs/Pset6/Clean
+submit50 fau-is/introcs/Pset6/Time
 ~~~
-
-{% spoiler "Hint" %}
-
-First you need to read your file into a string. Further, you will have to initialize a list.
-Then you go through your string character for character to check for any punctuation. If you find punctuation you do 
-not append anything. Vice versa if your character is not included in .punctuation you just append the character to 
-a normal list. Finally, you concatenate your list to a single string which you then write into your 
-Output file.
- 
-{% endspoiler %}
