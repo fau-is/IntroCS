@@ -22,7 +22,7 @@ def exists():
 #    """time.py runs"""
 #    check50.run("python time.py")
 
-@check50.check(compiles)
+@check50.check(exists)
 def check():
     """time.py does what it is supposed to do"""
     t_format = "%d/%m/%Y, %H:%M:%S"
