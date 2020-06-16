@@ -19,8 +19,8 @@ def exists():
 
 @check50.check(exists)
 def compiles():
-    """clean.py runs"""
-    check50.run("python clean.py")
+    """time.py runs"""
+    check50.run("python time.py")
 
 @check50.check(compiles)
 def check():
