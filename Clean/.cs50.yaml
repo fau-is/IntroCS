@@ -8,6 +8,7 @@ lab50:
     - !include clean.py
     - !include silent_sea.txt
     - !include silent_sea_clean.txt
+    - !exclude sol.txt
 submit50:
   files:
     - !exclude "*"
@@ -16,5 +17,5 @@ check50:
   files:
     - !exclude "*"
     - !require clean.py
-    - !include sol.txt
+    - !require sol.txt
     - !require silent_sea_clean.txt
