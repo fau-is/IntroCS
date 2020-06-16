@@ -16,3 +16,4 @@ check50:
   files:
     - !exclude "*"
     - !require clean.py
+    - !require sol.txt
