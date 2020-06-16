@@ -34,4 +34,4 @@ def check():
     London = 'Europe/London : '+now.astimezone(pytz.timezone('Europe/London')).strftime(t_format)
     Shanghai = 'Asia/Shanghai : '+now.astimezone(pytz.timezone('Asia/Shanghai')).strftime(t_format)
     Accra = 'Africa/Accra : '+now.astimezone(pytz.timezone('Africa/Accra')).strftime(t_format)
-    check50.run("python time.py").stdout(local).stdout(Berlin).stdout(New_York).stdout(London).stdout(Shanghai).stdout(Accra)
+    check50.run("python3 time.py").stdout(local).stdout(Berlin).stdout(New_York).stdout(London).stdout(Shanghai).stdout(Accra)
