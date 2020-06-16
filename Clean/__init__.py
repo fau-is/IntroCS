@@ -3,7 +3,7 @@ import check50
 import check50.py
 
 
-hash = ["ac21deef8cb555e224b8a531b8981f6ad80beda36b66bd5a3a76bb2666c256fb"]
+hashes = ["ac21deef8cb555e224b8a531b8981f6ad80beda36b66bd5a3a76bb2666c256fb"]
 
 @check50.check()
 def exists():
@@ -30,6 +30,6 @@ def compiles():
 def matches():
     """Poem is cleaned"""
     check50.run("python3 clean.py")
-    if hash("silent_sea_clean.txt") != self.hashes[0]:
+    if hash("silent_sea_clean.txt") != hashes[0]:
         raise Error("poem is not cleaned")
 
