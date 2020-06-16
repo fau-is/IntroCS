@@ -1,7 +1,14 @@
 import check50
 import check50.c
 from datetime import datetime
-import pytz
+import sys
+import subprocess
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+if not import pytz:
+    install("pytz")
+    import pytz
+
 
 @check50.check()
 def exists():
