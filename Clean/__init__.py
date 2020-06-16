@@ -11,12 +11,12 @@ def exists():
 @check50.check(exists)
 def compiles():
     """clean.py compiles"""
-    check50.run("python clean.py")
+    check50.run("python3 clean.py")
 
 @check50.check(compiles)
 def matches():
     """Poem is cleaned"""
-    check50.run("python clean.py")
+    check50.run("python3 clean.py")
     with open("silent_sea_clean.txt") as file1, open("sol.txt") as file2:
         for line1, line2 in zip(file1, file2):
             if line1 != line2:
