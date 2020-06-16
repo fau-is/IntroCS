@@ -1,5 +1,5 @@
 import check50
-import check50.c
+import check50.py
 from datetime import datetime
 import sys
 import subprocess

@@ -1,5 +1,5 @@
 import check50
-import check50.c
+import check50.py
 
 @check50.check()
 def exists():
