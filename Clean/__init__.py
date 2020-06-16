@@ -13,7 +13,7 @@ def compiles():
     """clean.py compiles"""
     check50.run("python clean.py")
 
-@check50.check(argc)
+@check50.check(compiles)
 def matches():
     """Poem is cleaned"""
     check50.run("python clean.py")
