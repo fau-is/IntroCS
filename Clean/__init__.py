@@ -1,5 +1,9 @@
+from check50 import *
 import check50
 import check50.py
+
+
+hash = ["ac21deef8cb555e224b8a531b8981f6ad80beda36b66bd5a3a76bb2666c256fb"]
 
 @check50.check()
 def exists():
@@ -13,11 +17,19 @@ def compiles():
     """clean.py runs"""
     check50.run("python3 clean.py")
 
+#@check50.check(compiles)
+#def matches():
+#    """Poem is cleaned"""
+#    check50.run("python3 clean.py")
+#    with open("silent_sea_clean.txt") as file1, open("sol.txt") as file2:
+#        for line1, line2 in zip(file1, file2):
+#            if line1 != line2:
+#                raise check50.Failure("Poems do not match")
+
 @check50.check(compiles)
 def matches():
     """Poem is cleaned"""
     check50.run("python3 clean.py")
-    with open("silent_sea_clean.txt") as file1, open("sol.txt") as file2:
-        for line1, line2 in zip(file1, file2):
-            if line1 != line2:
-                raise check50.Failure("Poems do not match")
+    if hash("silent_sea_clean.txt") != self.hashes[0]:
+        raise Error("poem is not cleaned")
+
