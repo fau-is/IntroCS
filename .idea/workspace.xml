@@ -34,9 +34,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="submit50 pset4">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Getint/.cs50.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Getint/.cs50.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Loops/.cs50.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Loops/.cs50.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Multiply/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Multiply/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
