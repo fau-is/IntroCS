@@ -273,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588617373541</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="submit50 pset4">
+      <created>1592321106254</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1592321106254</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,7 +330,8 @@
     <MESSAGE value="changes to README.md for loops.c" />
     <MESSAGE value="changes to README.md for modulo.c" />
     <MESSAGE value="changes to README.md for multiply.c" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes to README.md for multiply.c" />
+    <MESSAGE value="submit50 pset4" />
+    <option name="LAST_COMMIT_MESSAGE" value="submit50 pset4" />
   </component>
   <component name="WindowStateProjectService">
     <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588271436776">

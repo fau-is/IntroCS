@@ -16,6 +16,6 @@ def compiles():
 @check50.check(compiles)
 def multiplies():
     """multiply does what it is supposed to do."""
-    check50.run("./multiply").stdout("[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]")
+    check50.run("./multiply").stdin("1").stdout("[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]")
 
 
