@@ -4,7 +4,7 @@ from datetime import datetime
 import sys
 import subprocess
 def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+    subprocess.check_call([sys.executable, "-m", "pip3", "install", package])
 try:
     import pytz
 except ImportError:
