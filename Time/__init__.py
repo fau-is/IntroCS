@@ -5,7 +5,9 @@ import sys
 import subprocess
 def install(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-if not import pytz:
+try:
+    import pytz
+except ImportError:
     install("pytz")
     import pytz
 
