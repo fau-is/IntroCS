@@ -17,10 +17,10 @@ def exists():
     """time.py"""
     check50.exists("time.py")
 
-@check50.check(exists)
-def compiles():
-    """time.py runs"""
-    check50.run("python time.py")
+#@check50.check(exists)
+#def compiles():
+#    """time.py runs"""
+#    check50.run("python time.py")
 
 @check50.check(compiles)
 def check():
