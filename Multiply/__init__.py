@@ -11,7 +11,7 @@ def exists_multiply():
 @check50.check(exists_multiply)
 def compiles():
     """multiply compiles."""
-    check50.c.compile("multiply", lcs50=True)
+    check50.c.compile("multiply.c", lcs50=True)
 
 @check50.check(compiles)
 def multiplies():
