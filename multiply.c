@@ -15,6 +15,7 @@ int main(void)
     while (n < 1 || n > 10);
 
     int multiple;
+    printf("[ ");
     for (int i = 0; i < 10; i++)
     {
         multiple = n*i;
@@ -24,6 +25,6 @@ int main(void)
             printf("%d, ", multiple);
         }
     }
-    printf("%d\n", multiple);
+    printf("%d ]\n", multiple);
     return 0;
 }
