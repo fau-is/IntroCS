@@ -33,7 +33,7 @@ into the constructor of each class. Please pay attention to this!**
 
 {% next "Class Attributes"%}
 
-##Superclass Vehicle - Attributes
+## Superclass Vehicle - Attributes
 
 This is your parent class. The constructor should take 4 positional arguments.
 
@@ -58,7 +58,7 @@ Output:
 Additionally, after every time a instance of class vehicle is created this instance should
 be automatically appended to the predefined list called "v_list"
 
-##Subclass car - Attributes
+## Subclass car - Attributes
 
 This is your first subclass. The constructor should take 6 positional arguments. 2 of which
 need to be passed into the superclass.
@@ -74,7 +74,7 @@ now you will notice that there is no attribute 'type'. This is not a argument th
 passed into a certain class as the class car itself is the type. I.e. you will need to find a way
 to add the type to the superclass without taking it in as a positional argument.
 
-##Subclass truck - Attributes
+## Subclass truck - Attributes
 
 This is your second subclass. The constructor should take 7 positional arguments. 2 of which
 need to be passed into the superclass.
@@ -91,7 +91,7 @@ need to be passed into the superclass.
 Again you will notice that there is no attribute 'type'. This is for the same reasons as 
 described in car class.
 
-##Subclass bike - Attributes
+## Subclass bike - Attributes
 
 This is your final subclass. The constructor should 5 positional arguments. 2 of which need
 to be passed into the superclass.
@@ -108,11 +108,11 @@ And once more there is no attribute 'type'. for the same reasons as given above.
 
 {% next "Class Methods"%}
 
-##Class Methods
+## Class Methods
 
 We will now go over some methods that you are required to define for each class.
 
-##Methods vehicle
+## Methods vehicle
 
 **get_id()** = This method should return the ID of the class instance. Note that it should
 not print the ID! The ID needs to be returned.
@@ -148,17 +148,17 @@ instance actually possesses a 'max_speed_kmh' attribute.
 
 **set_name** = sets a name for a vehicle regardless of type.
 
-##Methods car
+## Methods car
 
 There is no method that needs to be specified for the subclass car
 
-##Methods truck
+## Methods truck
 
 **get_max_load()** = returns the 'max_load_kg' attribute of the class instance
 
 **set_max_load()** = sets the 'max_load_kg' attribute of the class instance
 
-##Mehods bike
+## Methods bike
 
 **get_gear()** = returns the 'gears' attribute of the class
 
