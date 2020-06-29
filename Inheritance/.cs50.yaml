@@ -1,0 +1,18 @@
+lab50:
+  windows:
+    -readme
+    -editor
+    -terminal
+  files:
+    - !exclude "*"
+    - !include sup.py
+    - !include vehicles.py
+submit50:
+  files:
+    - !exclude "*"
+    - !include "vehicles.py"
+check50:
+  files:
+    - !exclude "*"
+    - !require sup.py
+    - !require vehicles.py
