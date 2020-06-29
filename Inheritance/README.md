@@ -33,7 +33,7 @@ into the constructor of each class. Please pay attention to this!**
 
 {% next "Class Attributes"%}
 
-## Superclass Vehicle - Attributes
+## Superclass vehicle - Attributes
 
 This is your parent class. The constructor should take 4 positional arguments.
 
