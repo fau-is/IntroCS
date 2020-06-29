@@ -5,10 +5,10 @@ p0 = "car  truck  bike  "
 p1 = "ID: 1; Type: car; Name: Golf VII; Brand: Volkswagen; Passengers: 5"
 p2 = "ID: 2; Type: truck; Name: F-150 Raptor; Brand: Ford; Passengers: 5"
 p3 = "ID: 3; Type: bike; Name: X3; Brand: VanMoof; Passengers: 1"
-p4 = 190.125
-p5 = 240
+p4 = "190.125"
+p5 = "240"
 p6 = "Bike rejected successfully"
-p7 = 1500
+p7 = "1500"
 
 
 @check50.check()
