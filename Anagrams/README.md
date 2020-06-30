@@ -35,7 +35,8 @@ Output = "Strings are not anagrams\n"
 
 ## Libraries
 Note that you can use the <cs50.h> library at your free will for functions such as
-get_string() etc. However, this is not necessary! you can also use functions included in the <stdio.h> library such as fgets()!. 
+get_string() etc. However, this is not necessary! you can also use functions included in the standard libraries such as scanf().
+Remember that when prompting for input you need to use a printf() function without a newline character for each input. 
 You find functions that will help you with this task in the *ctype.h* library.
 Other than that all the libraries you need are included in the header already.
 

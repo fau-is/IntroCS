@@ -35,9 +35,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="added submit50">
       <change beforePath="$PROJECT_DIR$/Anagrams/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Anagrams/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inverse/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Inverse/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lowupper/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Lowupper/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Strspcpy/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Strspcpy/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
