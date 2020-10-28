@@ -1,0 +1,13 @@
+
+lab50:
+  files:
+    - !exclude "*"
+    - !include "welcome.c"
+check50:
+  files:
+    - !exclude "*"
+    - !require "welcome.c"
+submit50:
+  files:
+    - !exclude "*"
+    - !include "welcome.c"
