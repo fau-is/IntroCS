@@ -8,7 +8,7 @@ Start by following these instructions.
 
 ## Run the Program
 
-Write the following command into the terminal and execute
+Write the following command into the terminal and execute it!
 ~~~
 make welcome
 ~~~
