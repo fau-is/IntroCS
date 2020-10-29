@@ -4,7 +4,9 @@
 This Lab was created to test whether some applications necessary for successful
 completion of the course are working.
 
-Start by following these instructions.
+Start by following the upcoming instructions.
+
+{% next "Run the Program" %}
 
 ## Run the Program
 
@@ -12,6 +14,8 @@ Write the following command into the terminal and execute it!
 ~~~
 make welcome
 ~~~
+
+{% next "Check your Program" %}
 
 ## Check your Program
 
@@ -24,6 +28,8 @@ Don't worry about it this is just for explanatory reasons.
 ~~~
 check50 fau-is/IntroCS/dummies/TechTest --local
 ~~~
+
+{% next "Submit the Program" %}
 
 ## Submit
 
@@ -42,11 +48,16 @@ work to us!
 submit50 fau-is/introcs/dummies/TechTest
 ~~~
 
+{% next %}
 
-##That's it!
+## That's it!
 
 
 If you have completed all the steps above and everything has worked you should be 
 set for success! 
 
-If not please contact your Course Coordinators and Tutors in order to rectify any issues.
+If not please contact us!
+
+We look forward to working with you during this Semester.
+
+~ Prof. Dr. Matzner, Prof. Dr. Harth, Sebastian, Daniel, Max, Chris
