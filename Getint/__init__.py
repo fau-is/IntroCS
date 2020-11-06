@@ -19,4 +19,10 @@ def output_getint():
     check50.run("./getint").stdin("50").stdout("Nice! The input was: 50\n")
 
 
+@check50.check(compiles_getint)
+def output_wrongint():
+    """Input Number is not between 0 and 100 inclusively"""
+    check50.run("./getint").stdin("120").stdout("Nope! The input was: 120\n").stdin("10").\
+        stdout("Nice! The input was: 10\n")
+
 
