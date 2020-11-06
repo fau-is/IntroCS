@@ -5,12 +5,12 @@ import check50.c
 
 @check50.check()
 def exists_getint():
-    """mario-1.c exists in WD."""
+    """getint.c exists in WD."""
     check50.exists("getint.c")
 
 @check50.check(exists_getint)
 def compiles_getint():
-    """mario-1.c compiles."""
+    """getint.c compiles."""
     check50.c.compile("getint.c", lcs50=True)
 
 @check50.check(compiles_getint)
