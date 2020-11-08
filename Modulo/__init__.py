@@ -13,7 +13,12 @@ def compiles_modulo():
     check50.c.compile("modulo.c", lcs50=True)
 
 @check50.check(compiles_modulo)
-def even_uneven():
+def even():
     """check for even number and uneven number"""
-    check50.run("./modulo").stdin("2").stdout("2 is an even number!\n").run("./modulo").stdin("3").stdout("3 is an uneven number!\n")
+    check50.run("./modulo").stdin("2").stdout("2 is an even number!\n").
+
+@check50.check(compiles_modulo)
+def uneven():
+    """check for uneven number"""
+    check50.run("./modulo").stdin("3").stdout("3 is an uneven number!\n");
 
