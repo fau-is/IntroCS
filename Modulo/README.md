@@ -6,11 +6,14 @@ you write should then check whether or not the entered number is in actual fact 
 
 ~~~
 Example: 
-Input = 2; 
-Output = 2 is a even number;
-
-Input = 3;
-Output = 3 is a uneven number;
+$ ./modulo
+Input = 2 
+Output = 2 is an even number!
+$
+$./modulo
+Input = 3
+Output = 3 is an uneven number!
+$
 ~~~
 
 Modulo is helpful here. Try thinking back at the mathematical properties of the modulo and 
