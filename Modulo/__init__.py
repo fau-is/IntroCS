@@ -14,7 +14,7 @@ def compiles_modulo():
 
 @check50.check(compiles_modulo)
 def even():
-    """check for even number and uneven number"""
+    """check for even number number"""
     check50.run("./modulo").stdin("2").stdout("2 is an even number!\n")
 
 @check50.check(compiles_modulo)
