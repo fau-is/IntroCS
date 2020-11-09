@@ -10,11 +10,11 @@ initialized a function you can use already called alphabet(). In the end your ma
 should print out the inverted string.
 
 ~~~
-Input = ./lowupper Hello 
-Output = olleH
+Input = "Hello"; 
+Output = "olleH";
 
-Input = ./lowupper H1llo
-Output = Input word
+Input = "H1llo";
+Output = "Input word";
 ~~~
 
 You only require the libraries already given in the header. If unsure what functions
