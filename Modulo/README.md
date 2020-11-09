@@ -8,11 +8,11 @@ you write should then check whether or not the entered number is in actual fact 
 Example: 
 $ ./modulo
 Input = 2 
-Output = 2 is an even number!
+2 is an even number!
 $
 $./modulo
 Input = 3
-Output = 3 is an uneven number!
+3 is an uneven number!
 $
 ~~~
 
