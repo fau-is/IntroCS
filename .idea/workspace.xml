@@ -33,8 +33,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="added submit50">
-      <change beforePath="$PROJECT_DIR$/Anagrams/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Anagrams/README.md" afterDir="false" />
+    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="updated check pset1">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +70,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Pset2_Solutions" />
+        <entry key="$PROJECT_DIR$" value="Pset1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -392,7 +392,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Pset3" />
+                        <option value="Pset2" />
                       </list>
                     </value>
                   </entry>
