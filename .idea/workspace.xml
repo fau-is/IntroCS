@@ -33,9 +33,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="submit50 pset4">
-      <change beforePath="$PROJECT_DIR$/Multiply/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Multiply/__init__.py" afterDir="false" />
-    </list>
+    <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="updated check pset1" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -280,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592321106254</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="updated check pset1">
+      <created>1604919966459</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1604919966459</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +302,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Pset1" />
+                        <option value="Pset1" />
                       </list>
                     </value>
                   </entry>
@@ -331,32 +336,17 @@
     <MESSAGE value="changes to README.md for modulo.c" />
     <MESSAGE value="changes to README.md for multiply.c" />
     <MESSAGE value="submit50 pset4" />
-    <option name="LAST_COMMIT_MESSAGE" value="submit50 pset4" />
+    <MESSAGE value="updated check pset1" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated check pset1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588271436776">
+    <state x="620" y="346" width="391" height="266" key="MultipleFileMergeDialog" timestamp="1604919999923">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1500.960@0.0.1500.960" timestamp="1588271436776" />
-    <state x="531" y="235" key="FileChooserDialogImpl" timestamp="1588281007865">
+    <state x="620" y="346" width="391" height="266" key="MultipleFileMergeDialog/0.0.1500.960@0.0.1500.960" timestamp="1604919999923" />
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2" timestamp="1604920055388">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="531" y="235" key="FileChooserDialogImpl/0.0.1500.960@0.0.1500.960" timestamp="1588281007865" />
-    <state x="568" y="382" key="Github.CreateGistDialog" timestamp="1588274883966">
-      <screen x="0" y="0" width="1500" height="960" />
-    </state>
-    <state x="568" y="382" key="Github.CreateGistDialog/0.0.1500.960@0.0.1500.960" timestamp="1588274883966" />
-    <state x="252" y="125" key="SettingsEditor" timestamp="1588603648425">
-      <screen x="0" y="0" width="1500" height="960" />
-    </state>
-    <state x="252" y="125" key="SettingsEditor/0.0.1500.960@0.0.1500.960" timestamp="1588603648425" />
-    <state x="343" y="209" key="Vcs.Push.Dialog.v2" timestamp="1588617380595">
-      <screen x="0" y="0" width="1500" height="960" />
-    </state>
-    <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1588617380595" />
-    <state x="498" y="254" key="git4idea.merge.GitPullDialog" timestamp="1588604525230">
-      <screen x="0" y="0" width="1500" height="960" />
-    </state>
-    <state x="498" y="254" key="git4idea.merge.GitPullDialog/0.0.1500.960@0.0.1500.960" timestamp="1588604525230" />
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1604920055388" />
   </component>
 </project>
