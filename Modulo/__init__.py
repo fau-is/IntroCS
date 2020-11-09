@@ -15,10 +15,10 @@ def compiles_modulo():
 @check50.check(compiles_modulo)
 def even():
     """check for even number number"""
-    check50.run("./modulo").stdin("2").stdout("2 is an even number?.?(\n)", regex=True)
+    check50.run("./modulo").stdin("2").stdout("2 is an even number.?\n", regex=True)
 
 @check50.check(compiles_modulo)
 def uneven():
     """check for uneven number"""
-    check50.run("./modulo").stdin("3").stdout("3 is an uneven number?.?(\n)", regex=True)
+    check50.run("./modulo").stdin("3").stdout("3 is an uneven number.?\n", regex=True)
 
