@@ -34,7 +34,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b0bc17e-5ff8-419e-a0c7-c31955c8c7c6" name="Default Changelist" comment="updated check pset1">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Anagrams/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Anagrams/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -375,7 +375,28 @@
       <option name="project" value="LOCAL" />
       <updated>1589797683167</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="updated check pset1">
+      <created>1604921474824</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1604921474824</updated>
+    </task>
+    <task id="LOCAL-00036" summary="updated check pset1">
+      <created>1604921563944</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1604921563944</updated>
+    </task>
+    <task id="LOCAL-00037" summary="updated check pset1">
+      <created>1604921647164</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1604921647164</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +427,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added Problem lower.c to Pset2" />
     <MESSAGE value="added Problem anagrams.c to Pset2" />
     <MESSAGE value="added .cs50.yaml to Anagrams" />
     <MESSAGE value="added README.md to Anagrams" />
@@ -431,49 +451,13 @@
     <MESSAGE value="added correction to checks" />
     <MESSAGE value="update __init__.py" />
     <MESSAGE value="added submit50" />
-    <option name="LAST_COMMIT_MESSAGE" value="added submit50" />
+    <MESSAGE value="updated check pset1" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated check pset1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588271436776">
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2" timestamp="1604921667484">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1500.960@0.0.1500.960" timestamp="1588271436776" />
-    <state x="531" y="235" key="FileChooserDialogImpl" timestamp="1588281007865">
-      <screen x="0" y="0" width="1500" height="960" />
-    </state>
-    <state x="531" y="235" key="FileChooserDialogImpl/0.0.1500.960@0.0.1500.960" timestamp="1588281007865" />
-    <state x="568" y="382" key="Github.CreateGistDialog" timestamp="1588274883966">
-      <screen x="0" y="0" width="1500" height="960" />
-    </state>
-    <state x="568" y="382" key="Github.CreateGistDialog/0.0.1500.960@0.0.1500.960" timestamp="1588274883966" />
-    <state x="840" y="386" width="389" height="268" key="MultipleFileMergeDialog" timestamp="1589797711410">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="840" y="386" width="389" height="268" key="MultipleFileMergeDialog/1920.-534.1500.980/0.0.1920.1040@0.0.1920.1040" timestamp="1589797711410" />
-    <state x="252" y="125" key="SettingsEditor" timestamp="1588603648425">
-      <screen x="0" y="0" width="1500" height="960" />
-    </state>
-    <state x="252" y="125" key="SettingsEditor/0.0.1500.960@0.0.1500.960" timestamp="1588603648425" />
-    <state x="439" y="226" key="Vcs.Push.Dialog.v2" timestamp="1589797697402">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1588683702243" />
-    <state x="439" y="226" key="Vcs.Push.Dialog.v2/1920.-534.1500.980/0.0.1920.1040@0.0.1920.1040" timestamp="1589797697402" />
-    <state x="767" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589193699592">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="767" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589193699592" />
-    <state x="674" y="151" key="git4idea.branch.GitSmartOperationDialog" timestamp="1589526786751">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="674" y="151" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589526786751" />
-    <state x="498" y="254" key="git4idea.merge.GitPullDialog" timestamp="1588680811421">
-      <screen x="0" y="0" width="1500" height="960" />
-    </state>
-    <state x="498" y="254" key="git4idea.merge.GitPullDialog/0.0.1500.960@0.0.1500.960" timestamp="1588680811421" />
-    <state x="413" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1588605520355">
-      <screen x="0" y="0" width="1500" height="960" />
-    </state>
-    <state x="413" y="206" width="672" height="678" key="search.everywhere.popup/0.0.1500.960@0.0.1500.960" timestamp="1588605520355" />
+    <state x="343" y="209" key="Vcs.Push.Dialog.v2/0.0.1500.960@0.0.1500.960" timestamp="1604921667484" />
   </component>
 </project>

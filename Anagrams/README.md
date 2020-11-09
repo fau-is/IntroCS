@@ -11,7 +11,8 @@ Write a Program that can intake 2 strings i.e. words and check whether they are 
 
 {% next %}
 ## Program Specifications
-Your main function should ask the User for exactly two input strings which it will check for being anagrams to each other. 
+Your main function should ask the User for exactly two input strings which it will check for being anagrams to each other.
+You can use CS50s "get_string" to prompt for input. Do not collect the input via the command line arguments! 
 
 The main function should pass these strings to the function *** int anagram(char \*a, char \*b)***.
 The Function ***anagram(char \*a, char \*b)*** does the actual work, i.e. checking whether 2 strings are anagrams.
