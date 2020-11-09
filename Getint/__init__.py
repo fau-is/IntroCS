@@ -16,7 +16,8 @@ def compiles_getint():
 @check50.check(compiles_getint)
 def output_getint():
     """Input Number is between 0 and 100 inclusively"""
-    check50.run("./getint").stdin("50").stdout("The input Number is: 50\n")
+    check50.run("./getint").stdin("50").stdout("Nice! the input Number was: 50\n")
+    check50.run("./getint").stdin("120").stdout("Nope! the input Number was: 120\n")
 
 
 
