@@ -1,0 +1,11 @@
+submit50:
+  files:
+    - !exclude "*"
+    - !include "ps5.py"
+check50:
+  files:
+    - !exclude "*"
+    - !require ps5.py
+    - !require triggers.txt
+    - !require project_util.py
+    - !require feedparser.py
