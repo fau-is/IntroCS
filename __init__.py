@@ -6,8 +6,8 @@ from datetime import timedelta
 import check50
 import check50.py
 
-@check50.check()
-class ProblemSet5NewsStory(unittest.TestCase):
+#@check50.check()
+#class ProblemSet5NewsStory(unittest.TestCase):
 
     @check50.check()
     def setUp(self):
@@ -47,8 +47,8 @@ class ProblemSet5NewsStory(unittest.TestCase):
                           'test description', 'test link', datetime.now())
         self.assertEqual(type(story.get_pubdate()), datetime)
 
-@check50.check()
-class ProblemSet5(unittest.TestCase):
+#@check50.check()
+#class ProblemSet5(unittest.TestCase):
 
     @check50.check()
     def setUp(self):
@@ -308,12 +308,12 @@ class ProblemSet5(unittest.TestCase):
         self.assertTrue(nob in filtered_stories)
         self.assertEqual(2, len(filtered_stories))
 
-@check50.check()
-if __name__ == "__main__":
-    suite = unittest.TestSuite()
-    suite.addTest(unittest.makeSuite(ProblemSet5NewsStory))
-    suite.addTest(unittest.makeSuite(ProblemSet5))
-    unittest.TextTestRunner(verbosity=2).run(suite)
+#@check50.check()
+#if __name__ == "__main__":
+#    suite = unittest.TestSuite()
+#    suite.addTest(unittest.makeSuite(ProblemSet5NewsStory))
+#    suite.addTest(unittest.makeSuite(ProblemSet5))
+#    unittest.TextTestRunner(verbosity=2).run(suite)
 
 
 
