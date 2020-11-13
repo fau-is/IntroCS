@@ -8,32 +8,40 @@ import check50.py
 
 @check50.check()
 class ProblemSet5NewsStory(unittest.TestCase):
+
+    @check50.check()
     def setUp(self):
         pass
 
+    @check50.check()
     def testNewsStoryConstructor(self):
         story = NewsStory('', '', '', '', datetime.now())
 
+    @check50.check()
     def testNewsStoryGetGuid(self):
         story = NewsStory('test guid', 'test title',
                           'test description', 'test link', datetime.now())
         self.assertEqual(story.get_guid(), 'test guid')
 
+    @check50.check()
     def testNewsStoryGetTitle(self):
         story = NewsStory('test guid', 'test title',
                           'test description', 'test link', datetime.now())
         self.assertEqual(story.get_title(), 'test title')
 
+    @check50.check()
     def testNewsStoryGetdescription(self):
         story = NewsStory('test guid', 'test title',
                           'test description', 'test link', datetime.now())
         self.assertEqual(story.get_description(), 'test description')
 
+    @check50.check()
     def testNewsStoryGetLink(self):
         story = NewsStory('test guid', 'test title',
                           'test description', 'test link', datetime.now())
         self.assertEqual(story.get_link(), 'test link')
 
+    @check50.check()
     def testNewsStoryGetTime(self):
         story = NewsStory('test guid', 'test title',
                           'test description', 'test link', datetime.now())
@@ -41,6 +49,8 @@ class ProblemSet5NewsStory(unittest.TestCase):
 
 @check50.check()
 class ProblemSet5(unittest.TestCase):
+
+    @check50.check()
     def setUp(self):
         class TrueTrigger:
             def evaluate(self, story): return True
@@ -53,6 +63,7 @@ class ProblemSet5(unittest.TestCase):
         self.ft = FalseTrigger()
         self.ft2 = FalseTrigger()
 
+    @check50.check()
     def test1TitleTrigger(self):
         cuddly    = NewsStory('', 'The purple cow is soft and cuddly.', '', '', datetime.now())
         exclaim   = NewsStory('', 'Purple!!! Cow!!!', '', '', datetime.now())
@@ -85,6 +96,7 @@ class ProblemSet5(unittest.TestCase):
             self.assertFalse(trig.evaluate(nospaces), "TitleTrigger fired when words were not separated by spaces or punctuation.")
             self.assertFalse(trig.evaluate(nothing), "TitleTrigger fired when none of the words in the phrase appeared.")
 
+    @check50.check()
     def test2TitleTrigger(self):
         cuddly = NewsStory('', 'The purple cow is soft and cuddly.', '', '', datetime.now())
         exclaim = NewsStory('', 'Purple!!! Cow!!!', '', '', datetime.now())
@@ -127,6 +139,7 @@ class ProblemSet5(unittest.TestCase):
             self.assertFalse(trig.evaluate(nothing),
                              "TitleTrigger fired when none of the words in the phrase appeared.")
 
+    @check50.check()
     def test2DescriptionTrigger(self):
         cuddly    = NewsStory('', '', 'The purple cow is soft and cuddly.', '', datetime.now())
         exclaim   = NewsStory('', '', 'Purple!!! Cow!!!', '', datetime.now())
@@ -159,6 +172,7 @@ class ProblemSet5(unittest.TestCase):
             self.assertFalse(trig.evaluate(nospaces), "DescriptionTrigger fired when words were not separated by spaces or punctuation.")
             self.assertFalse(trig.evaluate(nothing), "DescriptionTrigger fired when none of the words in the phrase appeared.")
 
+    @check50.check()
     def test3altBeforeAndAfterTrigger(self):
 
         dt = timedelta(seconds=5)
@@ -192,6 +206,7 @@ class ProblemSet5(unittest.TestCase):
         self.assertTrue(s2.evaluate(in_a_bit), "AfterTrigger failed to fire on news just after specified time")
         self.assertTrue(s2.evaluate(future), "AfterTrigger failed to fire on news from long ago")
 
+    @check50.check()
     def test3BeforeAndAfterTrigger(self):
 
         dt = timedelta(seconds=5)
@@ -216,6 +231,7 @@ class ProblemSet5(unittest.TestCase):
         self.assertTrue(s2.evaluate(in_a_bit), "AfterTrigger failed to fire on news just after specified time")
         self.assertTrue(s2.evaluate(future), "AfterTrigger failed to fire on news from long ago")
 
+    @check50.check()
     def test4NotTrigger(self):
         n = NotTrigger(self.tt)
         b = NewsStory("guid", "title", "description", "link", datetime.now())
@@ -225,6 +241,7 @@ class ProblemSet5(unittest.TestCase):
         y = NotTrigger(self.ft)
         self.assertTrue(y.evaluate(b), "A NOT trigger applied to 'always false' DID NOT return true")
 
+    @check50.check()
     def test5AndTrigger(self):
         yy = AndTrigger(self.tt, self.tt2)
         yn = AndTrigger(self.tt, self.ft)
@@ -237,6 +254,7 @@ class ProblemSet5(unittest.TestCase):
         self.assertFalse(ny.evaluate(b), "AND of 'always false' and 'always true' should be false")
         self.assertFalse(nn.evaluate(b), "AND of 'always false' and 'always false' should be false")
 
+    @check50.check()
     def test6OrTrigger(self):
         yy = OrTrigger(self.tt, self.tt2)
         yn = OrTrigger(self.tt, self.ft)
@@ -249,6 +267,7 @@ class ProblemSet5(unittest.TestCase):
         self.assertTrue(ny.evaluate(b), "OR of 'always false' and 'always true' should be true")
         self.assertFalse(nn.evaluate(b), "OR of 'always false' and 'always false' should be false")
 
+    @check50.check()
     def test7FilterStories(self):
         tt = TitleTrigger("New York City")
         a = NewsStory('', "asfd New York City asfdasdfasdf", '', '', datetime.now())
@@ -270,6 +289,7 @@ class ProblemSet5(unittest.TestCase):
         filtered_stories = filter_stories(stories, [self.ft])
         self.assertEqual(len(filtered_stories), 0)
 
+    @check50.check()
     def test8FilterStories2(self):
         a = NewsStory('', "asfd New York City asfdasdfasdf", '', '', datetime.now())
         b = NewsStory('', "asdfasfd new york city! asfdasdfasdf", '', '', datetime.now())
