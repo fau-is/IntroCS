@@ -59,7 +59,7 @@ def test3altBeforeAndAfterTrigger():
 def test3BeforeAndAfterTrigger():
     """test3BeforeAndAfterTrigger"""
     #check50.run("python - m unittest ps5_test.ProblemSet5.test3BeforeAndAfterTrigger")
-    dt = timedelta(seconds=5)
+    dt = datetime.timedelta(seconds=5)
     now = datetime(2016, 10, 12, 23, 59, 59)
     ancient = NewsStory('', '', '', '', datetime(1987, 10, 15))
     just_now = NewsStory('', '', '', '', now - dt)
