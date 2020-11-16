@@ -1,6 +1,6 @@
 import check50
 import check50.py
-from ps5_test import *
+#from ps5_test import *
 #from ps5 import *
 
 @check50.check()
