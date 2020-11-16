@@ -6,7 +6,7 @@ import check50.py
 @check50.check()
 def testNewsStoryConstructor():
     """testNewsStoryConstructor"""
-    check50.run("python -m unittest ps5_test.ProblemSet5NewsStory.testNewsStoryConstructor").stdout("OK")
+    check50.run("python -m unittest ps5_test.ProblemSet5NewsStory.testNewsStoryConstructor")
 
 @check50.check()
 def testNewsStoryGetGuid():
