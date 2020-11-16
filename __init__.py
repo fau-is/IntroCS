@@ -57,7 +57,29 @@ def test3altBeforeAndAfterTrigger():
 @check50.check()
 def test3BeforeAndAfterTrigger():
     """test3BeforeAndAfterTrigger"""
-    check50.run("python - m unittest ps5_test.ProblemSet5.test3BeforeAndAfterTrigger")
+    #check50.run("python - m unittest ps5_test.ProblemSet5.test3BeforeAndAfterTrigger")
+    dt = timedelta(seconds=5)
+    now = datetime(2016, 10, 12, 23, 59, 59)
+    ancient = NewsStory('', '', '', '', datetime(1987, 10, 15))
+    just_now = NewsStory('', '', '', '', now - dt)
+    in_a_bit = NewsStory('', '', '', '', now + dt)
+    future = NewsStory('', '', '', '', datetime(2087, 10, 15))
+
+    s1 = BeforeTrigger('12 Oct 2016 23:59:59')
+    s2 = AfterTrigger('12 Oct 2016 23:59:59')
+
+    self.assertTrue(s1.evaluate(ancient), "BeforeTrigger failed to fire on news from long ago")
+    self.assertTrue(s1.evaluate(just_now), "BeforeTrigger failed to fire on news happened right before specified time")
+
+    self.assertFalse(s1.evaluate(in_a_bit), "BeforeTrigger fired to fire on news happened right after specified time")
+    self.assertFalse(s1.evaluate(future), "BeforeTrigger fired to fire on news from the future")
+
+    self.assertFalse(s2.evaluate(ancient), "AfterTrigger fired to fire on news from long ago")
+    self.assertFalse(s2.evaluate(just_now), "BeforeTrigger fired to fire on news happened right before specified time")
+
+    self.assertTrue(s2.evaluate(in_a_bit), "AfterTrigger failed to fire on news just after specified time")
+    self.assertTrue(s2.evaluate(future), "AfterTrigger failed to fire on news from long ago")
+
 
 @check50.check()
 def test4NotTrigger():
