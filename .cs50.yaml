@@ -9,3 +9,4 @@ check50:
     - !require triggers.txt
     - !require project_util.py
     - !require feedparser.py
+    - !require ps5_test.py
