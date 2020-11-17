@@ -176,7 +176,7 @@ if __name__ == '__main__':
 
         # Problem 11
         # TODO: After implementing read_trigger_config, uncomment this line
-        #triggerlist = read_trigger_config('triggers.txt')
+        #triggerlist = read_trigger_config('triggers.txt')s
 
         # HELPER CODE - you don't need to understand this!
         # Reads and writes Newsstories to stories.txt in specified format
