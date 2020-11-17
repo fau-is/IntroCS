@@ -3,16 +3,16 @@
 // stories!
 
 // title trigger named t1
-t1,TITLE,Trump
+t1,TITLE,election
 
 // description trigger named t2
 t2,DESCRIPTION,Trump
 
 // description trigger named t3
-t3,DESCRIPTION,Biden
+t3,DESCRIPTION,Clinton
 
 // after trigger named t4
-t4,AFTER,9 Dec 2019 17:00:10
+t4,AFTER,3 Oct 2016 17:00:10
 
 // composite trigger named t4
 t5,AND,t2,t3
