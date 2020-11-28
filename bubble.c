@@ -38,8 +38,9 @@ int main(int argc, char **argv)
 
 }
 
-void pretty_printer(int *to_print, size_t size)
+void pretty_printer(int *to_print)
 {
+    int size = sizeof(to_print)/sizeof(int);
     printf("[");
     for (int i = 0; i < size; i++)
     {
