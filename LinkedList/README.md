@@ -70,7 +70,7 @@ $check50 fau-is/IntroCS/Pset4/LinkedList --local
 You can always submit your code to us via the following submit50 command:
 
 ~~~
-submit50 fau-is/introcs/Pset4/HashTable
+submit50 fau-is/introcs/Pset4/LinkedList
 ~~~
 
 **Have fun coding!**
