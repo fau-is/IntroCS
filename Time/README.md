@@ -84,7 +84,7 @@ in the actual python docs or the CS50 documentation, GeekForGeeks and W3Schools.
 You can check your code using the following check50 command:
 
 ~~~
-$check50 fau-is/IntroCS/Pset6/Time
+check50 fau-is/IntroCS/Pset6/Time --local
 ~~~
 
 ## Submit
