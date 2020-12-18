@@ -4,7 +4,7 @@ car = vehicles.car("Golf VII", 5, "Volkswagen", 105, 195)
 truck = vehicles.truck("F-150 Raptor", 5, "Ford", 450, 230, 1500)
 bike = vehicles.bike("X3", 1, "VanMoof", 4)
 
-for items in vehicles.v_list:
+for items in vehicles.vehicle.v_list:
     print(items.type, " ", end="")
 print()
 
