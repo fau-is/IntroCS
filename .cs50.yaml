@@ -2,6 +2,7 @@ submit50:
   files:
     - !exclude "*"
     - !include "ps5.py"
+    - !include "ps5_test.py"
 check50:
   files:
     - !exclude "*"
