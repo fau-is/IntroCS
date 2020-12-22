@@ -1,0 +1,8 @@
+submit50:
+  files:
+    - !exclude "*"
+    - !include "routing_tree.py"
+check50:
+  files:
+    - !exclude "*"
+    - !require "routing_tree.py"
