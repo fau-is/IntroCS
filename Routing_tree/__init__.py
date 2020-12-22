@@ -30,6 +30,8 @@ def add_tree_child():
     for domain, ip in BST:
         routing_tree.Node.add(domain, ip)
     n = routing_tree.Node.root
+    if n is None:
+        raise check50.Failure()
     if n.domain != 'sebastian.com':
         raise check50.Mismatch('sebastian.com', n.domain)
 
@@ -37,6 +39,8 @@ def add_tree_child():
         raise check50.Mismatch('0.0.0.0', n.IP)
 
     n = n.left
+    if n is None:
+        raise check50.Failure()
     if n.domain != 'sabastian.com':
         raise check50.Mismatch('sabastian.com', n.domain)
 
@@ -44,13 +48,19 @@ def add_tree_child():
         raise check50.Mismatch('0.1.0.0', n.IP)
 
     n = routing_tree.Node.root.right
+    if n is None:
+        raise check50.Failure()
+
     if n.domain != 'sebastion.com':
         raise check50.Mismatch('sebastion.com', n.domain)
 
     if n.IP != '1.0.0.0':
         raise check50.Mismatch('1.0.0.0', n.IP)
 
-    n = routing_tree.Node.root.right.right
+    n = routing_tree.Node.root.right.left
+    if n is None:
+        raise check50.Failure()
+
     if n.domain != 'sebastimon.com':
         raise check50.Mismatch('sebastimon.com', n.domain)
 
