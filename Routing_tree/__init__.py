@@ -1,9 +1,10 @@
 import check50
 import check50.py
 
+
+check50.py.import_('routing_tree.py')
 check50.include('routing_tree.py')
 import routing_tree
-
 
 @check50.check()
 def exists():
