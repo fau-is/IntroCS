@@ -1,7 +1,7 @@
 import check50
 import check50.py
 import unittest
-import routing_tree
+import .routing_tree
 
 @check50.check()
 def exists():
