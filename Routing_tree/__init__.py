@@ -1,7 +1,6 @@
 import check50
 import check50.py
 import unittest
-from .routing_tree import Node
 
 check50.py.import_('routing_tree.py')
 
