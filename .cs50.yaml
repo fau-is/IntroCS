@@ -1,8 +1,8 @@
 submit50:
   files:
     - !exclude "*"
-    - !include "ps5.py"
-    - !include "ps5_test.py"
+    - !require ps5.py
+    - !require ps5_test.py
 check50:
   files:
     - !exclude "*"
