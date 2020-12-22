@@ -3,6 +3,8 @@ import check50.py
 import unittest
 from .routing_tree import Node
 
+check50.py.import_('routing_tree.py')
+
 @check50.check()
 def exists():
     """routing_tree.py & dns.py exist"""
