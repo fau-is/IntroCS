@@ -87,17 +87,18 @@ class Node:
         return BFS
 
     @staticmethod
-    def print_preorder():
-        print('[', end="")
-        Node.dfs_recursive(Node.root)
-        print(']')
+    def preorder():
+        List = []
+        return Node.dfs_recursive(Node.root, List)
+
    
     @staticmethod
-    def dfs_recursive(cur_node):
+    def dfs_recursive(cur_node, List):
         if cur_node is not None:
-            Node.dfs_recursive(cur_node.left)
-            print(cur_node.domain, ", ", end="")
-            Node.dfs_recursive(cur_node.right)
+            Node.dfs_recursive(cur_node.left, List)
+            List.append(cur_node.domain)
+            Node.dfs_recursive(cur_node.right, List)
+        return List
 
     @staticmethod
     def smallest_node(cur_node):

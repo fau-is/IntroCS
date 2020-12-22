@@ -20,7 +20,7 @@ def main():
     for domain, ip in do_ips:
         Tree.add(domain, ip)
 
-    Tree.print_preorder()
+    print(Tree.preorder())
 
     Tree.find_question("facebook.com")
     Tree.find_question("google.com")
@@ -30,7 +30,7 @@ def main():
     #Tree.bfs_recursive()
     Tree.delete_method("quelle.de")
     Tree.find_question("quelle.de")
-    Tree.print_preorder()
+    print(Tree.preorder())
     #Tree.bfs()
 if __name__ == '__main__':
     main()
