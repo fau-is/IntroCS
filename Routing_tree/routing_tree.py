@@ -1,6 +1,6 @@
 found = True
 
-class Node:
+class BST:
     root = None
     def __init__(self, domain):
         self.domain = domain
@@ -10,64 +10,64 @@ class Node:
 
     @staticmethod
     def add(domain, ip):
-        if Node.root is None:
-            Node.root = Node(domain)
-            Node.root.IP = ip
+        if BST.root is None:
+            BST.root = BST(domain)
+            BST.root.IP = ip
         else:
-            Node.add_recursion(Node.root, domain, ip)
+            BST.add_recursion(BST.root, domain, ip)
     
     @staticmethod
-    def add_recursion(cur_node, value, IP):
-        if cur_node.domain < value:
-            if cur_node.right is not None:
-                Node.add_recursion(cur_node.right, value, IP)
+    def add_recursion(cur_BST, value, IP):
+        if cur_BST.domain < value:
+            if cur_BST.right is not None:
+                BST.add_recursion(cur_BST.right, value, IP)
             else:
-                cur_node.right = Node(value)
-                cur_node.right.IP = IP
-        elif cur_node.domain > value:
-            if cur_node.left is not None:
-                Node.add_recursion(cur_node.left, value, IP)
+                cur_BST.right = BST(value)
+                cur_BST.right.IP = IP
+        elif cur_BST.domain > value:
+            if cur_BST.left is not None:
+                BST.add_recursion(cur_BST.left, value, IP)
             else:
-                cur_node.left = Node(value)
-                cur_node.left.IP = IP
+                cur_BST.left = BST(value)
+                cur_BST.left.IP = IP
         else:
             return
 
     @staticmethod
     def find_question(to_find):
-        cur_node = Node.find(to_find)
-        if cur_node:
-            print(to_find, '=', cur_node.IP)
+        cur_BST = BST.find(to_find)
+        if cur_BST:
+            print(to_find, '=', cur_BST.IP)
         else:
             print(to_find, 'does not exist in the Tree.')
 
     @staticmethod
     def find(to_find):
-        if Node.root is not None:
-            cur_node = Node.find_recursion(Node.root, to_find)
-            return cur_node
+        if BST.root is not None:
+            cur_BST = BST.find_recursion(BST.root, to_find)
+            return cur_BST
 
     @staticmethod
-    def find_recursion(cur_node, to_find):
-        if cur_node is None:
+    def find_recursion(cur_BST, to_find):
+        if cur_BST is None:
             return
-        elif cur_node.domain == to_find:
-            return cur_node
-        elif cur_node.domain < to_find:
-            return Node.find_recursion(cur_node.right, to_find)
-        elif cur_node.domain > to_find:
-            return Node.find_recursion(cur_node.left, to_find)
+        elif cur_BST.domain == to_find:
+            return cur_BST
+        elif cur_BST.domain < to_find:
+            return BST.find_recursion(cur_BST.right, to_find)
+        elif cur_BST.domain > to_find:
+            return BST.find_recursion(cur_BST.left, to_find)
         else:
             return
 
     @staticmethod
     def bfs():
-        if Node.root is None:
+        if BST.root is None:
             return
         BFS = []
         queue = []
-        queue.append(Node.root)
-        to_print = Node.bfs_recursive(queue, BFS)
+        queue.append(BST.root)
+        to_print = BST.bfs_recursive(queue, BFS)
         print(to_print)
     
     @staticmethod
@@ -83,39 +83,39 @@ class Node:
             elif current.right:
                 queue.append(current.right)
 
-            Node.bfs_recursive(queue, BFS)
+            BST.bfs_recursive(queue, BFS)
         return BFS
 
     @staticmethod
     def preorder():
         List = []
-        return Node.dfs_recursive(Node.root, List)
+        return BST.dfs_recursive(BST.root, List)
 
    
     @staticmethod
-    def dfs_recursive(cur_node, List):
-        if cur_node is not None:
-            Node.dfs_recursive(cur_node.left, List)
-            List.append(cur_node.domain)
-            Node.dfs_recursive(cur_node.right, List)
+    def dfs_recursive(cur_BST, List):
+        if cur_BST is not None:
+            BST.dfs_recursive(cur_BST.left, List)
+            List.append(cur_BST.domain)
+            BST.dfs_recursive(cur_BST.right, List)
         return List
 
     @staticmethod
-    def smallest_node(cur_node):
-        current = cur_node
+    def smallest_BST(cur_BST):
+        current = cur_BST
         while current.left is not None:
             current = current.left
         return current
 
     @staticmethod
-    def deleteNode(root, domain):
+    def deleteBST(root, domain):
         if root is None:
             return root
 
         if domain < root.domain:
-            root.left = Node.deleteNode(root.left, domain)
+            root.left = BST.deleteBST(root.left, domain)
         elif domain > root.domain:
-            root.right = Node.deleteNode(root.right, domain)
+            root.right = BST.deleteBST(root.right, domain)
         else:
 
             if root.left is None:
@@ -128,17 +128,17 @@ class Node:
                 root = None
                 return temp
 
-            temp = Node.smallest_node(root.right)
+            temp = BST.smallest_BST(root.right)
 
             root.domain = temp.domain
 
-            root.right = Node.deleteNode(root.right, temp.domain)
+            root.right = BST.deleteBST(root.right, temp.domain)
 
         return root
 
     @staticmethod
     def delete_method(domain):
-        Node.root = Node.deleteNode(Node.root, domain)
+        BST.root = BST.deleteBST(BST.root, domain)
 
 
 

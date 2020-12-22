@@ -1,7 +1,7 @@
 import dns
 import routing_tree
 import csv
-from routing_tree import Node as Tree
+from routing_tree import BST as Tree
 
 def read_csv(file, do_ips):
     f = open(file)

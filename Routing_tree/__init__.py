@@ -13,8 +13,8 @@ def exists():
 @check50.check()
 def add_root():
     """adds a root"""
-    routing_tree.Node.add('Fantastic.com', '1.1.1.1')
-    n = routing_tree.Node.root
+    routing_tree.BST.add('Fantastic.com', '1.1.1.1')
+    n = routing_tree.BST.root
     if n.domain != 'Fantastic.com':
         raise check50.Mismatch('Fantastic.com', n.domain)
 
@@ -28,8 +28,8 @@ def add_tree_child():
     BST = [("sebastian.com", '0.0.0.0'), ("sebastion.com", '1.0.0.0'), ("sabastian.com", '0.1.0.0'),
            ("sebastimon.com", '0.0.1.0')]
     for domain, ip in BST:
-        routing_tree.Node.add(domain, ip)
-    n = routing_tree.Node.root
+        routing_tree.BST.add(domain, ip)
+    n = routing_tree.BST.root
     if n is None:
         raise check50.Failure()
     if n.domain != 'sebastian.com':
@@ -47,7 +47,7 @@ def add_tree_child():
     if n.IP != '0.1.0.0':
         raise check50.Mismatch('0.1.0.0', n.IP)
 
-    n = routing_tree.Node.root.right
+    n = routing_tree.BST.root.right
     if n is None:
         raise check50.Failure()
 
@@ -57,7 +57,7 @@ def add_tree_child():
     if n.IP != '1.0.0.0':
         raise check50.Mismatch('1.0.0.0', n.IP)
 
-    n = routing_tree.Node.root.right.left
+    n = routing_tree.BST.root.right.left
     if n is None:
         raise check50.Failure()
 
