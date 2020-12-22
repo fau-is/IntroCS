@@ -44,8 +44,8 @@ def add_tree_child():
         raise check50.Mismatch('0.1.0.0', n.IP)
 
     n = routing_tree.Node.root.right
-    if n.domain != 'sabastion.com':
-        raise check50.Mismatch('sabastion.com', n.domain)
+    if n.domain != 'sebastion.com':
+        raise check50.Mismatch('sebastion.com', n.domain)
 
     if n.IP != '1.0.0.0':
         raise check50.Mismatch('1.0.0.0', n.IP)
