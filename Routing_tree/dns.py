@@ -1,5 +1,3 @@
-import dns
-import routing_tree
 import csv
 from routing_tree import BST as Tree
 
@@ -40,6 +38,7 @@ def main():
     print(Tree.preorder())
 
     print(Tree.bfs())
+
 if __name__ == '__main__':
     main()
 

@@ -87,7 +87,7 @@ def find_node():
         if n.domain != "binary.com":
             raise check50.Mismatch("binary.com", n.domain)
 
-@check50.check()
+@check50.check(add_tree_child)
 def reject_find_node():
     """returns false if node not in tree"""
     BST = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'),
@@ -101,4 +101,23 @@ def reject_find_node():
         raise check50.Failure("Should not return bool=False")
 
 
+@check50.check(add_tree_child)
+def bfs():
+    """Breadth First Search is correct"""
+    BFS = ['computer.com', 'array.com', 'hardware.com', 'binary.com', 'ecommerce.com', 'interconnectivity.com', 'data.com', 'gigabyte.com']
+    BST = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'), ('hardware.com', '2.0.0.0'),
+           ("ecommerce.com", '0.0.1.0'), ('gigabyte.com', '1.1.1.1'), ("data.com", '0.0.0.1'), ('interconnectivity.com', '0.2.0.0')]
 
+    if routing_tree.BST.bfs() != BFS:
+        raise check50.Mismatch(BFS, routing_tree.BST.bfs())
+
+
+@check50.check(add_tree_child)
+def preorder_dfs():
+    """pre-order DFS is correct"""
+    DFS = ['array.com', 'binary.com', 'computer.com', 'data.com', 'ecommerce.com', 'gigabyte.com', 'hardware.com', 'interconnectivity.com']
+    BST = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'), ('hardware.com', '2.0.0.0'),
+           ("ecommerce.com", '0.0.1.0'), ('gigabyte.com', '1.1.1.1'), ("data.com", '0.0.0.1'), ('interconnectivity.com', '0.2.0.0')]
+
+    if routing_tree.BST.preorder() != DFS:
+        raise check50.Mismatch(DFS, routing_tree.BST.preorder())
