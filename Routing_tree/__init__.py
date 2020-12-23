@@ -82,12 +82,23 @@ def find_node():
         raise check50.Failure("Did not expect None-type")
     if routing_tree.BST.find("binary.com") is False:
         raise check50.Failure("Did not expect bool=False")
-    if routing_tree.BST.find("nonsense.com") is not False:
-        raise check50.Failure("Expected false")
     if routing_tree.BST.find("binary.com"):
         n = routing_tree.BST.find("binary.com")
         if n.domain != "binary.com":
             raise check50.Mismatch("binary.com", n.domain)
+
+@check50.check()
+def reject_find_node():
+    """returns false if node not in tree"""
+    BST = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'),
+           ("ecommerce.com", '0.0.1.0'), ("data.com", '0.0.0.1')]
+    for domain, ip in BST:
+        routing_tree.BST.add(domain, ip)
+
+    if routing_tree.BST.find("nonsense.com") is not False:
+        raise check50.Failure("Expected false")
+    if routing_tree.BST.find("binary.com") is False:
+        raise check50.Failure("Should not return bool=False")
 
 
 
