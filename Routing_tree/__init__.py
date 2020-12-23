@@ -121,3 +121,41 @@ def preorder_dfs():
         routing_tree.BST.add(domain, ip)
     if routing_tree.BST.preorder() != DFS:
         raise check50.Mismatch(DFS, routing_tree.BST.preorder())
+
+@check50.check(find_node)
+def delete():
+    """Deletes Node"""
+    BST = BST = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'), ('hardware.com', '2.0.0.0'), ("ecommerce.com", '0.0.1.0'), ('gigabyte.com', '1.1.1.1'), ("data.com", '0.0.0.1'), ('interconnectivity.com', '0.2.0.0')]
+    for domain, ip in BST:
+        routing_tree.BST.add(domain, ip)
+    n = routing_tree.BST.root
+    if n is None:
+        raise check50.Failure("No Root")
+
+    #1. Case one child
+    routing_tree.BST.deleteBST(routing_tree.BST.root, "array.com")
+    if routing_tree.BST.find("array.com") is not False:
+        raise check50.Failure("Expected deletion of array.com with one child did not occur")
+    if routing_tree.BST.root.left.domain == 'array.com':
+        raise check50.Failure("Deletion unsuccessful")
+
+    #2. Case no children
+    routing_tree.BST.deleteBST(routing_tree.BST.root, "data.com")
+    if routing_tree.BST.find("data.com") is not False:
+        raise check50.Failure("Expected deletion of data.com with no children did not occur")
+    if routing_tree.BST.root.right.left.left is not None:
+        raise check50.Failure("Deletion unsuccessful")
+
+    #3. Case two children
+    routing_tree.BST.deleteBST(routing_tree.BST.root, "hardware.com")
+    if routing_tree.BST.find("hardware.com") is not False:
+        raise check50.Failure("Expected deletion of data.com with no children did not occur")
+    if routing_tree.BST.root.right.domain == 'hardware.com':
+        raise check50.Failure("Deletion unsuccessful")
+
+    #4. Case deletes Root
+    routing_tree.BST.deleteBST(routing_tree.BST.root, routing_tree.BST.root.domain)
+    if routing_tree.BST.root.domain == "computer.com":
+        raise check50.Failure("Root Deletion unsuccessful")
+
+

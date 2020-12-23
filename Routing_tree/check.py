@@ -14,3 +14,6 @@ BFS = g.bfs()
 print(BFS)
 DFS = g.preorder()
 print(DFS)
+
+g.deleteBST(g.root, "array.com")
+print(g.preorder())
