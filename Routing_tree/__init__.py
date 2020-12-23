@@ -1,6 +1,8 @@
 import check50
 import check50.py
 
+#check50 fau-is/IntroCS/PyGraphsTrees/Routing_tree --local
+
 check50.include('routing_tree.py')
 routing_tree = check50.py.import_('routing_tree.py')
 
@@ -10,7 +12,7 @@ def exists():
     check50.exists("routing_tree.py")
 
 
-@check50.check()
+@check50.check(exists)
 def add_root():
     """adds a root"""
     routing_tree.BST.add('Fantastic.com', '1.1.1.1')
@@ -22,7 +24,7 @@ def add_root():
         raise check50.Mismatch('1.1.1.1', n.IP)
 
 
-@check50.check()
+@check50.check(add_root)
 def add_tree_child():
     """adds children"""
     BST = [("sebastian.com", '0.0.0.0'), ("sebastion.com", '1.0.0.0'), ("sabastian.com", '0.1.0.0'),
@@ -68,7 +70,7 @@ def add_tree_child():
         raise check50.Mismatch('0.0.1.0', n.IP)
 
 
-@check50.check()
+@check50.check(add_tree_child)
 def find_node():
     """finds node"""
     BST = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'),
@@ -84,7 +86,7 @@ def find_node():
         raise check50.Failure("Expected false")
     if routing_tree.BST.find("binary.com"):
         n = routing_tree.BST.find("binary.com")
-        if n != "binary.com":
+        if n.domain != "binary.com":
             raise check50.Mismatch("binary.com", n.domain)
 
 
