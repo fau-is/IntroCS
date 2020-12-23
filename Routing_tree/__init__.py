@@ -8,7 +8,7 @@ routing_tree = check50.py.import_('routing_tree.py')
 
 @check50.check()
 def exists():
-    """routing_tree.py & dns.py exist"""
+    """routing_tree.py exists"""
     check50.exists("routing_tree.py")
 
 
