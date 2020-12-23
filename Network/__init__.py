@@ -14,7 +14,7 @@ def exists():
 @check50.check(exists)
 def add_vertex():
     """adds vertex"""
-    network.Graph.add_vertex('A')
     n = network.Graph
+    n.add_vertex('A')
     if 'A' not in n.items():
         raise check50.Failure()
