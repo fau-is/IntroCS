@@ -105,9 +105,9 @@ def reject_find_node():
 def bfs():
     """Breadth First Search is correct"""
     BFS = ['computer.com', 'array.com', 'hardware.com', 'binary.com', 'ecommerce.com', 'interconnectivity.com', 'data.com', 'gigabyte.com']
-    BST = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'), ('hardware.com', '2.0.0.0'),
-           ("ecommerce.com", '0.0.1.0'), ('gigabyte.com', '1.1.1.1'), ("data.com", '0.0.0.1'), ('interconnectivity.com', '0.2.0.0')]
-
+    BST = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'), ('hardware.com', '2.0.0.0'), ("ecommerce.com", '0.0.1.0'), ('gigabyte.com', '1.1.1.1'), ("data.com", '0.0.0.1'), ('interconnectivity.com', '0.2.0.0')]
+    for domain, ip in BST:
+        routing_tree.BST.add(domain, ip)
     if routing_tree.BST.bfs() != BFS:
         raise check50.Mismatch(BFS, routing_tree.BST.bfs())
 
@@ -116,8 +116,8 @@ def bfs():
 def preorder_dfs():
     """pre-order DFS is correct"""
     DFS = ['array.com', 'binary.com', 'computer.com', 'data.com', 'ecommerce.com', 'gigabyte.com', 'hardware.com', 'interconnectivity.com']
-    BST = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'), ('hardware.com', '2.0.0.0'),
-           ("ecommerce.com", '0.0.1.0'), ('gigabyte.com', '1.1.1.1'), ("data.com", '0.0.0.1'), ('interconnectivity.com', '0.2.0.0')]
-
+    BST = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'), ('hardware.com', '2.0.0.0'), ("ecommerce.com", '0.0.1.0'), ('gigabyte.com', '1.1.1.1'), ("data.com", '0.0.0.1'), ('interconnectivity.com', '0.2.0.0')]
+    for domain, ip in BST:
+        routing_tree.BST.add(domain, ip)
     if routing_tree.BST.preorder() != DFS:
         raise check50.Mismatch(DFS, routing_tree.BST.preorder())
