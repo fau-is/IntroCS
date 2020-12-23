@@ -66,3 +66,26 @@ def add_tree_child():
 
     if n.IP != '0.0.1.0':
         raise check50.Mismatch('0.0.1.0', n.IP)
+
+
+@check50.check()
+def find_node():
+    """finds node"""
+    BST = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'),
+           ("ecommerce.com", '0.0.1.0'), ("data.com", '0.0.0.1')]
+    for domain, ip in BST:
+        routing_tree.BST.add(domain, ip)
+
+    if routing_tree.BST.find("binary.com") is None:
+        raise check50.Failure("Did not expect None-type")
+    if routing_tree.BST.find("binary.com") is False:
+        raise check50.Failure("Did not expect bool=False")
+    if routing_tree.BST.find("nonsense.com") is not False:
+        raise check50.Failure("Expected false")
+    if routing_tree.BST.find("binary.com"):
+        n = routing_tree.BST.find("binary.com")
+        if n != "binary.com":
+            raise check50.Mismatch("binary.com", n.domain)
+
+
+

@@ -33,19 +33,27 @@ class BST:
         else:
             return
 
-    @staticmethod
-    def find_question(to_find):
-        cur_BST = BST.find(to_find)
-        if cur_BST:
-            print(to_find, '=', cur_BST.IP)
-        else:
-            print(to_find, 'does not exist in the Tree.')
+    #@staticmethod
+    #def find_question(to_find):
+    #    cur_BST = BST.find(to_find)
+    #    if cur_BST:
+    #        #print(to_find, '=', cur_BST.IP)
+    #        return True
+    #    else:
+    #        #print(to_find, 'does not exist in the Tree.')
+    #        return False
 
     @staticmethod
     def find(to_find):
         if BST.root is not None:
             cur_BST = BST.find_recursion(BST.root, to_find)
-            return cur_BST
+            #return cur_BST
+            if cur_BST:
+                #print(to_find, '=', cur_BST.IP)
+                return cur_BST
+            else:
+                #print(to_find, 'does not exist in the Tree.')
+                return False
 
     @staticmethod
     def find_recursion(cur_BST, to_find):
@@ -67,8 +75,8 @@ class BST:
         BFS = []
         queue = []
         queue.append(BST.root)
-        to_print = BST.bfs_recursive(queue, BFS)
-        print(to_print)
+        return BST.bfs_recursive(queue, BFS)
+
     
     @staticmethod
     def bfs_recursive(queue, BFS):
