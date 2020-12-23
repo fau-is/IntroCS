@@ -16,5 +16,5 @@ def add_vertex():
     """adds vertex"""
     network.Graph.add_vertex('A')
     n = network.Graph
-    if n['A'] is not list:
+    if 'A' not in n.items():
         raise check50.Failure()
