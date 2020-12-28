@@ -37,10 +37,10 @@ def add_edge():
     if ('A', 2) not in n['B'] and ('D', 2) not in n['B'] and ('C', 4) not in n['B']:
         raise check50.Failure("Edges B->A w:2; B->D w:2 and B->C w:4 (in requested format)", n['B'])
     #Edges outgoing C
-    if ('A', 3) in n['C'] and ('B', 4) in n['C']:
+    if ('A', 3) not in n['C'] and ('B', 4) not in n['C']:
         raise check50.Failure("Edges C->A w:3 and C->B w:4 (in requested format)", n['C'])
     #Edges outgoing D
-    if ('B', 2) in n['D']:
+    if ('B', 2) not in n['D']:
         raise check50.Mismatch("Edge D->B w:2 (in requested format)", n['D'])
 
 @check50.check(add_edge)
