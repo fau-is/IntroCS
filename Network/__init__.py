@@ -84,6 +84,22 @@ def bfs():
 @check50.check(add_edge)
 def dijkstra():
     """performs Dijkstra correctly"""
+    Vertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+    Edges = ['AB2', 'AC3', 'BD2', 'CB4', 'BE2', 'EF1', 'EG5', 'FG2']
+    n = network.Graph()
+    for vertex in Vertices:
+        n.add_vertex(vertex)
+    for edge in Edges:
+        n.add_edge(edge[:1], edge[1], int(edge[2:]))
+
+    distance, path = n.djikstra('A', 'F')
+    if distance != 5 and path != ['A', 'B', 'E', 'F']:
+        raise check50.Mismatch("5; ['A', 'B', 'E', 'F']", str(distance) + " " + str(path))
+
+    distance, path = n.djikstra('G', 'C')
+    if distance != 9 and path != ['G', 'F', 'E', 'B', 'C']:
+        raise check50.Mismatch("9; ['G', 'F', 'E', 'B', 'C']", str(distance) + " " + str(path))
+
 
 
 
