@@ -42,3 +42,25 @@ def add_edge():
     #Edges outgoing D
     if ('B', 2) in n['D']:
         raise check50.Mismatch("Edge D->B w:2 (in requested format)", n['D'])
+
+@check50.check(add_edge)
+def dfs():
+    """performs pre-order search correctly"""
+    Vertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+    Edges = ['AB2', 'AC3', 'BD2', 'CB4', 'BE2', 'EF1', 'EG5', 'FG2']
+    n = network.Graph()
+    for vertex in Vertices:
+        n.add_vertex(vertex)
+    for edge in Edges:
+        n.add_edge(edge[:1], edge[1], int(edge[2:]))
+
+    A = ['A', 'E', 'D', 'B', 'F', 'C']
+    if A != n.dfs('A'):
+        raise check50.Mismatch(A, n.dfs('A'))
+
+    B = ['A', 'E', 'D', 'B', 'F', 'C']
+    if B != n.dfs('B'):
+        raise check50.Mismatch(A, n.dfs('B'))
+
+
+
