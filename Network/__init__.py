@@ -62,5 +62,25 @@ def dfs():
     if B != n.dfs('B'):
         raise check50.Mismatch(A, n.dfs('B'))
 
+@check50.check(add_edge)
+def bfs():
+    """performs pre-order search correctly"""
+    Vertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+    Edges = ['AB2', 'AC3', 'BD2', 'CB4', 'BE2', 'EF1', 'EG5', 'FG2']
+    n = network.Graph()
+    for vertex in Vertices:
+        n.add_vertex(vertex)
+    for edge in Edges:
+        n.add_edge(edge[:1], edge[1], int(edge[2:]))
+
+    A = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+    if A != n.bfs('A'):
+        raise check50.Mismatch(A, n.bfs('A'))
+
+    F = ['F', 'E', 'G', 'B', 'A', 'D', 'C']
+    if B != n.bfs('F'):
+        raise check50.Mismatch(A, n.bfs('F'))
+
+
 
 
