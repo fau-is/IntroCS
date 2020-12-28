@@ -64,7 +64,7 @@ def dfs():
 
 @check50.check(add_edge)
 def bfs():
-    """performs pre-order search correctly"""
+    """performs BFS search correctly"""
     Vertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
     Edges = ['AB2', 'AC3', 'BD2', 'CB4', 'BE2', 'EF1', 'EG5', 'FG2']
     n = network.Graph()
@@ -80,6 +80,11 @@ def bfs():
     F = ['F', 'E', 'G', 'B', 'A', 'D', 'C']
     if B != n.bfs('F'):
         raise check50.Mismatch(A, n.bfs('F'))
+
+@check50.check(add_edge)
+def dijkstra():
+    """performs Dijkstra correctly"""
+
 
 
 
