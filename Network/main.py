@@ -22,7 +22,6 @@ Edges = [('yahoo.com', 'google.com', 3), ('yahoo.com', 'facebook.com', 2), ('yah
 for edge in Edges:
     a, b, c = edge
     g.add_edge(a, b, c)
-
 print(g)
 print(g.dfs('yahoo.com'))
 print(g.bfs('twitter.com'))
