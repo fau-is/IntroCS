@@ -1,5 +1,3 @@
-found = True
-
 class BST:
     root = None
     def __init__(self, domain):

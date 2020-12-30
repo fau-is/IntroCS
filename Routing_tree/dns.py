@@ -17,9 +17,9 @@ def main():
     for domain, ip in do_ips:
         Tree.add(domain, ip)
 
-    print(Tree.preorder())
-    print(Tree.bfs())
-
+    print('DFS: ', Tree.preorder())
+    print('BFS: ', Tree.bfs())
+    print('Attempt to find facebook.com & google.com')
     to_find = ["facebook.com", "google.com"]
     for items in to_find:
         vertex = Tree.find(items)
@@ -27,7 +27,7 @@ def main():
             print(vertex.domain, "can be found at", vertex.IP)
         else:
             print(items, "does not exist")
-
+    print("Attempt to delete 'quelle.de'")
     Tree.delete_method("quelle.de")
     vertex = Tree.find("quelle.de")
     if vertex is not False:
@@ -35,9 +35,9 @@ def main():
     else:
         print("quelle.de does not exist")
 
-    print(Tree.preorder())
+    print('DFS: ', Tree.preorder())
 
-    print(Tree.bfs())
+    print('BFS:', Tree.bfs())
 
 if __name__ == '__main__':
     main()
