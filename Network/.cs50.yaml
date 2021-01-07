@@ -1,7 +1,7 @@
 submit50:
   files:
     - !exclude "*"
-    - !include "network.py"
+    - !require "network.py"
 check50:
   files:
     - !exclude "*"
