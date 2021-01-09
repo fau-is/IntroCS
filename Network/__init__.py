@@ -75,16 +75,20 @@ def dfs():
     for edge in large_e:
         n.add_edge(edge[:1], edge[1], int(edge[2:]))
 
-    A = ['A', 'E', 'D', 'B', 'F', 'C']
-        try:
-            if A != n.dfs('A'):
-                raise check50.Mismatch(A, n.dfs('A'))
-        except:
-            raise check50.Failure()
+    #A = ['A', 'E', 'D', 'B', 'F', 'C']
+    #    if A != n.dfs('A'):
+    #        raise check50.Mismatch(A, n.dfs('A'))
 
-    B = ['A', 'E', 'D', 'B', 'F', 'C']
-    if B != n.dfs('B'):
-        raise check50.Failure(B, n.dfs('B'))
+    try:
+        N = n.dfs('A')
+        if N != ['A', 'E', 'D', 'B', 'F', 'C']:
+            raise check50.Mismatch(A, n.dfs('A'))
+    except:
+        raise check50.Failure("Could not run DFS")
+
+
+    #B = ['A', 'E', 'D', 'B', 'F', 'C']
+    #if B != n.dfs('B'):
         #raise check50.Mismatch(A, n.dfs('B'))
 
 
