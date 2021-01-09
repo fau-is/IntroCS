@@ -75,12 +75,12 @@ def dfs():
 
     A = ['A', 'E', 'D', 'B', 'F', 'C']
     if A != n.dfs('A'):
-        raise check50.Failure("Expected", A, "not", n.dfs('A'))
+        raise check50.Failure(A, n.dfs('A'))
         #raise check50.Mismatch(A, n.dfs('A'))
 
     B = ['A', 'E', 'D', 'B', 'F', 'C']
     if B != n.dfs('B'):
-        raise check50.Failure("Expected", B, "not", n.dfs('B'))
+        raise check50.Failure(B, n.dfs('B'))
         #raise check50.Mismatch(A, n.dfs('B'))
 
 
