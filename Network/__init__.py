@@ -1,3 +1,5 @@
+import sys
+
 import check50
 import check50.py
 
@@ -74,9 +76,11 @@ def dfs():
         n.add_edge(edge[:1], edge[1], int(edge[2:]))
 
     A = ['A', 'E', 'D', 'B', 'F', 'C']
-    if A != n.dfs('A'):
-        raise check50.Failure(A, n.dfs('A'))
-        #raise check50.Mismatch(A, n.dfs('A'))
+        try:
+            if A != n.dfs('A'):
+                raise check50.Mismatch(A, n.dfs('A'))
+        except:
+            print(sys.exc.info()[0])
 
     B = ['A', 'E', 'D', 'B', 'F', 'C']
     if B != n.dfs('B'):
