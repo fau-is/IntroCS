@@ -80,7 +80,7 @@ def dfs():
             if A != n.dfs('A'):
                 raise check50.Mismatch(A, n.dfs('A'))
         except:
-            print(sys.exc.info()[0])
+            raise check50.Failure()
 
     B = ['A', 'E', 'D', 'B', 'F', 'C']
     if B != n.dfs('B'):
