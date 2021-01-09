@@ -75,21 +75,29 @@ def dfs():
     for edge in large_e:
         n.add_edge(edge[:1], edge[1], int(edge[2:]))
 
-    #A = ['A', 'E', 'D', 'B', 'F', 'C']
-    #    if A != n.dfs('A'):
-    #        raise check50.Mismatch(A, n.dfs('A'))
+    A = ['A', 'E', 'D', 'B', 'F', 'C']
+    #if A != n.dfs('A'):
+        #raise check50.Mismatch(A, n.dfs('A'))
 
     try:
         N = n.dfs('A')
         if N != ['A', 'E', 'D', 'B', 'F', 'C']:
             raise check50.Mismatch(A, n.dfs('A'))
     except:
-        raise check50.Failure("Could not run DFS")
+        raise check50.Failure("Could not run DFS - could not unpack return value")
 
 
-    #B = ['A', 'E', 'D', 'B', 'F', 'C']
+    B = ['A', 'E', 'D', 'B', 'F', 'C']
     #if B != n.dfs('B'):
         #raise check50.Mismatch(A, n.dfs('B'))
+
+    try:
+        N = n.dfs('B')
+        if N != ['A', 'E', 'D', 'B', 'F', 'C']:
+            raise check50.Mismatch(B, n.dfs('B'))
+    except:
+        raise check50.Failure("Could not run DFS - could not unpack return value")
+
 
 
 @check50.check(add_edge)
