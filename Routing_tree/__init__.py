@@ -2,7 +2,6 @@ import check50
 import check50.py
 
 check50.include('routing_tree.py')
-routing_tree = check50.py.import_('routing_tree.py')
 
 domains1 = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'),
             ("ecommerce.com", '0.0.1.0'), ("data.com", '0.0.0.1')]
@@ -21,11 +20,18 @@ def exists():
 def compiles():
     """Routing_tree.py has no syntax errors"""
     check50.py.compile("routing_tree.py")
+          
+def import_routing():
+    routing_tree = check50.py.import_('routing_tree.py')
+    if routing_tree is None:
+        raise check50.Failure("import failed")
+    return routing_tree
 
 
 @check50.check(compiles)
 def add_root():
     """BST can add a single domain"""
+    routing_tree = import_routing()
     routing_tree.BST.add('Fantastic.com', '1.1.1.1')
     n = routing_tree.BST.root
     if n is None:
