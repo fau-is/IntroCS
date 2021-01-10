@@ -3,6 +3,7 @@ import check50.py
 
 check50.include('routing_tree.py')
 check50.py.import_('routing_tree.py')
+import routing_tree
 
 domains1 = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'),
             ("ecommerce.com", '0.0.1.0'), ("data.com", '0.0.0.1')]
