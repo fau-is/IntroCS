@@ -3,7 +3,6 @@ import sys
 import check50
 import check50.py
 
-check50.include("network.py")
 
 small_v = ['A', 'B', 'C', 'D']
 small_e = ['AB2', 'AC3', 'BD2', 'CB4']
