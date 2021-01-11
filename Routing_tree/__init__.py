@@ -23,8 +23,13 @@ def compiles():
     """Routing_tree.py has no syntax errors"""
     check50.py.compile("routing_tree.py")
 
+@check50.check(compiles)
 def imports():
-    check50.py.import_("routing_tree.py")
+    """Routing_tree.py can be imported"""
+    tmp = check50.py.import_("routing_tree.py")
+    if tmp is None or not hasattr(tmp, 'BST'):
+        raise check50.Failure("Could not import properly")
+
 
 @check50.check(compiles)
 def add_root():
