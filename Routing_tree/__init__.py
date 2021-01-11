@@ -22,6 +22,9 @@ def compiles():
     """Routing_tree.py has no syntax errors"""
     check50.py.compile("routing_tree.py")
 
+@check50.check(compiles)
+def imports():
+    check50.py.import_("routing_tree.py")
 
 @check50.check(compiles)
 def add_root():
