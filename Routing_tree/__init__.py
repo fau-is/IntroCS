@@ -1,8 +1,9 @@
 import check50
+import check50.internal
 import check50.py
 
 check50.include('routing_tree.py')
-routing_tree = check50.py.import_('routing_tree.py')
+
 
 domains1 = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'),
             ("ecommerce.com", '0.0.1.0'), ("data.com", '0.0.0.1')]
@@ -22,13 +23,13 @@ def compiles():
     """Routing_tree.py has no syntax errors"""
     check50.py.compile("routing_tree.py")
 
-@check50.check(compiles)
 def imports():
     check50.py.import_("routing_tree.py")
 
 @check50.check(compiles)
 def add_root():
     """BST can add a single domain"""
+    routing_tree = check50.internal.import_file('routing_tree', 'routing_tree.py')
     routing_tree.BST.add('Fantastic.com', '1.1.1.1')
     n = routing_tree.BST.root
     if n is None:
@@ -43,6 +44,7 @@ def add_root():
 @check50.check(compiles)
 def add_tree_child():
     """BST can add several domains"""
+    routing_tree = check50.internal.import_file('routing_tree', 'routing_tree.py')
     # Build Tree
     for domain, ip in domains1:
         routing_tree.BST.add(domain, ip)
@@ -85,6 +87,7 @@ def add_tree_child():
 @check50.check(add_tree_child)
 def find_node():
     """BST can locate a domain and a BST node stores the correct IP address"""
+    routing_tree = check50.internal.import_file('routing_tree', 'routing_tree.py')
     for domain, ip in domains1:
         routing_tree.BST.add(domain, ip)
 
@@ -92,7 +95,7 @@ def find_node():
         n = routing_tree.BST.find("binary.com")
         if n.domain != "binary.com":
             raise check50.Mismatch("binary.com", n.domain, "Find located the wrong vertex")
-        if n.ip != "0.1.0.0":
+        if n.IP != "0.1.0.0":
             raise check50.Mismatch("0.1.0.0", n.ip, "It seems that the IP-Address is not stored correctly")
     else:
         raise check50.Failure("Could not locate a domain which should exist")
@@ -101,6 +104,7 @@ def find_node():
 @check50.check(find_node)
 def find_non_existent_node():
     """returns false if node not in tree"""
+    routing_tree = check50.internal.import_file('routing_tree', 'routing_tree.py')
     for domain, ip in domains1:
         routing_tree.BST.add(domain, ip)
 
@@ -111,6 +115,7 @@ def find_non_existent_node():
 @check50.check(add_tree_child)
 def check_bfs():
     """Checks whether output is generated in BFS manner"""
+    routing_tree = check50.internal.import_file('routing_tree', 'routing_tree.py')
     bfs = ['computer.com', 'array.com', 'hardware.com', 'binary.com', 'ecommerce.com', 'interconnectivity.com',
            'data.com', 'gigabyte.com']
     for domain, ip in domains2:
@@ -123,6 +128,7 @@ def check_bfs():
 @check50.check(add_tree_child)
 def preorder_dfs():
     """Checks whether output is in preorder-order using DFS"""
+    routing_tree = check50.internal.import_file('routing_tree', 'routing_tree.py')
     dfs = ['computer.com', 'array.com', 'binary.com', 'hardware.com', 'ecommerce.com', 'data.com', 'gigabyte.com',
            'interconnectivity.com']
     for domain, ip in domains2:
@@ -135,6 +141,7 @@ def preorder_dfs():
 @check50.check(find_node)
 def delete():
     """Deletes Node"""
+    routing_tree = check50.internal.import_file('routing_tree', 'routing_tree.py')
     for domain, ip in domains2:
         routing_tree.BST.add(domain, ip)
     n = routing_tree.BST.root
