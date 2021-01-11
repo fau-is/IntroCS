@@ -23,27 +23,28 @@ def compiles():
     """Routing_tree.py has no syntax errors"""
     check50.py.compile("routing_tree.py")
 
-@check50.check(compiles)
+
 def imports():
     """Routing_tree.py can be imported"""
     tmp = check50.py.import_("routing_tree.py")
     if tmp is None or not hasattr(tmp, 'BST'):
         raise check50.Failure("Could not import properly")
-
+    return tmp
 
 @check50.check(compiles)
 def add_root():
     """BST can add a single domain"""
-    routing_tree = check50.internal.import_file('routing_tree', 'routing_tree.py')
+    routing_tree = imports()
     routing_tree.BST.add('Fantastic.com', '1.1.1.1')
-    n = routing_tree.BST.root
-    if n is None:
-        raise check50.Failure("Root was None")
-    if n.domain != 'Fantastic.com':
-        raise check50.Mismatch('Fantastic.com', n.domain)
 
-    if n.IP != '1.1.1.1':
-        raise check50.Mismatch('1.1.1.1', n.IP)
+    if routing_tree.BST.root is None:
+        raise check50.Failure("Root was None")
+
+    if routing_tree.BST.root.domain!= 'Fantastic.com':
+        raise check50.Mismatch('Fantastic.com', routing_tree.BST.root.domain)
+
+    if routing_tree.BST.root.IP != '1.1.1.1':
+        raise check50.Mismatch('1.1.1.1', routing_tree.BST.root.IP)
 
 
 @check50.check(compiles)
