@@ -2,9 +2,6 @@ import check50
 import check50.internal
 import check50.py
 
-
-
-
 domains1 = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'),
             ("ecommerce.com", '0.0.1.0'), ("data.com", '0.0.0.1')]
 domains2 = [("computer.com", '0.0.0.0'), ("array.com", '1.0.0.0'), ("binary.com", '0.1.0.0'),
@@ -34,7 +31,7 @@ def imports():
 @check50.check(compiles)
 def add_root():
     """BST can add a single domain"""
-    import routing_tree
+    routing_tree = imports()
     routing_tree.BST.add('Fantastic.com', '1.1.1.1')
 
     if routing_tree.BST.root is None:
