@@ -79,17 +79,17 @@ def dfs():
     #if A != n.dfs('A'):
         #raise check50.Mismatch(A, n.dfs('A'))
 
-    N = n.dfs('A')
+    N = n.dfs('A', [])
     if N != A:
         #if N != ['A', 'B', 'D', 'E', 'F', 'G', 'C']:
-        raise check50.Mismatch(A, n.dfs('A'))
+        raise check50.Mismatch(A, n.dfs('A', []))
 
 
 
     # B = ['A', 'E', 'D', 'B', 'F', 'C']
     B = ['B', 'A', 'C', 'D', 'E', 'F', 'G']
-    if B != n.dfs('B'):
-        raise check50.Mismatch(B, n.dfs('B'))
+    if B != n.dfs('B', []):
+        raise check50.Mismatch(B, n.dfs('B', []))
 
 
     #N2 = n.dfs('B')
