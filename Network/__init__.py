@@ -91,13 +91,10 @@ def dfs():
     #if B != n.dfs('B'):
         #raise check50.Mismatch(A, n.dfs('B'))
 
-    try:
-        N = n.dfs('B')
-        if N != ['B', 'D', 'E', 'F', 'G']:
-            raise check50.Mismatch(B, n.dfs('B'))
-    except:
-        # raise check50.Failure("Could not run DFS - could not unpack return value")
-        raise check50.Failure(N)
+
+    N2 = n.dfs('B')
+    if N2 != ['B', 'D', 'E', 'F', 'G']:
+        raise check50.Mismatch(B, n.dfs('B'))
 
 
 
