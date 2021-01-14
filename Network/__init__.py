@@ -84,7 +84,9 @@ def dfs():
         if N != ['A', 'B', 'D', 'E', 'F', 'G', 'C']:
             raise check50.Mismatch(A, n.dfs('A'))
     except:
-        raise check50.Failure("Could not run DFS - could not unpack return value")
+        # raise check50.Failure("Could not run DFS - could not unpack return value")
+        raise check50.Failure(N)
+
 
 
     # before B = ['A', 'E', 'D', 'B', 'F', 'C']
@@ -97,7 +99,8 @@ def dfs():
         if N != ['B', 'D', 'E', 'F', 'G']:
             raise check50.Mismatch(B, n.dfs('B'))
     except:
-        raise check50.Failure("Could not run DFS - could not unpack return value")
+        # raise check50.Failure("Could not run DFS - could not unpack return value")
+        raise check50.Failure(N)
 
 
 
