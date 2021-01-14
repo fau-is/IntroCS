@@ -74,8 +74,8 @@ def dfs():
     for edge in large_e:
         n.add_edge(edge[:1], edge[1], int(edge[2:]))
 
-    A = ['A', 'E', 'D', 'B', 'F', 'C']
-    # ['A', 'B', 'D', 'E', 'F', 'G', 'C']
+    # before A = ['A', 'E', 'D', 'B', 'F', 'C']
+    A = ['A', 'B', 'D', 'E', 'F', 'G', 'C']
     #if A != n.dfs('A'):
         #raise check50.Mismatch(A, n.dfs('A'))
 
@@ -87,8 +87,8 @@ def dfs():
         raise check50.Failure("Could not run DFS - could not unpack return value")
 
 
-    B = ['A', 'E', 'D', 'B', 'F', 'C']
-    # ['B', 'D', 'E', 'F', 'G']
+    # before B = ['A', 'E', 'D', 'B', 'F', 'C']
+    B = ['B', 'D', 'E', 'F', 'G']
     #if B != n.dfs('B'):
         #raise check50.Mismatch(A, n.dfs('B'))
 
