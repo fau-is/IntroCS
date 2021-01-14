@@ -115,19 +115,20 @@ def bfs():
 
     try:
         N = n.bfs('A')
-        if N != ['A', 'B', 'C', 'D', 'E', 'F', 'G']:
+        if N != A:
             raise check50.Mismatch(A, n.bfs('A'))
     except:
         raise check50.Failure("Could not run BFS - could not unpack return value")
 
 
-    B = ['F', 'E', 'G', 'B', 'A', 'D', 'C']
+    #B = ['F', 'E', 'G', 'B', 'A', 'D', 'C']
+    B = ['B', 'A', 'D', 'E', 'C', 'F', 'G']
     #if B != n.bfs('F'):
     #    raise check50.Mismatch(A, n.bfs('F'))
 
     try:
         N = n.bfs('B')
-        if N != ['F', 'E', 'G', 'B', 'A', 'D', 'C']:
+        if N != B:
             raise check50.Mismatch(B, n.bfs('B'))
     except:
         raise check50.Failure("Could not run BFS - could not unpack return value")
