@@ -74,33 +74,33 @@ def dfs():
     for edge in large_e:
         n.add_edge(edge[:1], edge[1], int(edge[2:]))
 
-    A = ['A', 'E', 'D', 'B', 'F', 'C']
-    # A = ['A', 'B', 'D', 'E', 'F', 'G', 'C']
+    # A = ['A', 'E', 'D', 'B', 'F', 'C']
+    A = ['A', 'B', 'D', 'E', 'F', 'G', 'C']
     #if A != n.dfs('A'):
         #raise check50.Mismatch(A, n.dfs('A'))
 
     try:
         N = n.dfs('A')
-        if N != ['A', 'E', 'D', 'B', 'F', 'C']:
+        if N != ['A', 'B', 'D', 'E', 'F', 'G', 'C']:
             raise check50.Mismatch(A, n.dfs('A'))
     except:
-        raise check50.Failure("Could not run DFS - could not unpack return value")
-        # raise check50.Failure(N)
+        # raise check50.Failure("Could not run DFS - could not unpack return value")
+        raise check50.Failure(N)
 
 
 
-    B = ['A', 'E', 'D', 'B', 'F', 'C']
-    # B = ['B', 'D', 'E', 'F', 'G']
+    # B = ['A', 'E', 'D', 'B', 'F', 'C']
+    B = ['B', 'D', 'E', 'F', 'G']
     #if B != n.dfs('B'):
         #raise check50.Mismatch(A, n.dfs('B'))
 
     try:
         N = n.dfs('B')
-        if N != ['A', 'E', 'D', 'B', 'F', 'C']:
+        if N != ['B', 'D', 'E', 'F', 'G']:
             raise check50.Mismatch(B, n.dfs('B'))
     except:
-        raise check50.Failure("Could not run DFS - could not unpack return value")
-        # raise check50.Failure(N)
+        # raise check50.Failure("Could not run DFS - could not unpack return value")
+        raise check50.Failure(N)
 
 
 
