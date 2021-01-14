@@ -81,7 +81,8 @@ def dfs():
 
     try:
         N = n.dfs('A')
-        if N != ['A', 'B', 'D', 'E', 'F', 'G', 'C']:
+        if N != A:
+        #if N != ['A', 'B', 'D', 'E', 'F', 'G', 'C']:
             raise check50.Mismatch(A, n.dfs('A'))
     except:
         # raise check50.Failure("Could not run DFS - could not unpack return value")
