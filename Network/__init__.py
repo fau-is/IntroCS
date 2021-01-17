@@ -145,14 +145,12 @@ def dijkstra():
         n.add_vertex(vertex)
     for edge in large_e:
         n.add_edge(edge[:1], edge[1], int(edge[2:]))
-    try:
-        distance, path = n.dijkstra('A', 'F')
-        if distance != 5 and path != ['A', 'B', 'E', 'F']:
-            raise check50.Mismatch("5; ['A', 'B', 'E', 'F']", str(distance) + " " + str(path))
 
-        distance, path = n.dijkstra('G', 'C')
-        if distance != 9 and path != ['G', 'F', 'E', 'B', 'C']:
-            raise check50.Mismatch("9; ['G', 'F', 'E', 'B', 'C']", str(distance) + " " + str(path))
-    except:
-        raise check50.Failure("Could not run Dijkstra")
+    distance, path = n.dijkstra('A', 'F')
+    if distance != 5 and path != ['A', 'B', 'E', 'F']:
+        raise check50.Mismatch("5; ['A', 'B', 'E', 'F']", str(distance) + " " + str(path))
+
+    distance, path = n.dijkstra('G', 'C')
+    if distance != 9 and path != ['G', 'F', 'E', 'B', 'C']:
+        raise check50.Mismatch("9; ['G', 'F', 'E', 'B', 'C']", str(distance) + " " + str(path))
 
