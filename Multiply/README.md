@@ -1,4 +1,4 @@
-![fau-logo](https://www.fau.de/files/2016/02/fb-ww-logo-preview.jpg)
+![fau-logo](https://introcs.is.rw.fau.de/img/logos/ReWi_logo.png)
 # Complete multiply.c
 
 Prompt a user for input of a number between 1-10 inclusively.
