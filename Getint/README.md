@@ -1,4 +1,4 @@
-![fau-logo](https://www.fau.de/files/2016/02/fb-ww-logo-preview.jpg)
+![fau-logo](https://introcs.is.rw.fau.de/img/logos/ReWi_logo.png)
 # Complete getint.c
 Write a program which uses CS50's _get_int()_ function to prompt a user for input. 
 You can also research by yourself whether there are different ways of getting user input in 
