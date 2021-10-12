@@ -1,4 +1,4 @@
-![fau-logo](https://www.fau.de/files/2016/02/fb-ww-logo-preview.jpg)
+![fau-logo](https://introcs.is.rw.fau.de/img/logos/ReWi_logo.png)
 # Complete modulo.c
 
 Write a program that prompts a user for an integer input using a function such as get_int(). The program
