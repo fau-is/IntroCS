@@ -1,4 +1,4 @@
-![fau-logo](https://www.fau.de/files/2016/02/fb-ww-logo-preview.jpg)
+![fau-logo](https://introcs.is.rw.fau.de/img/logos/ReWi_logo.png)
 # Complete inverse.c
 Write a program that takes a command line input only allowing 1 Word. 
 If a  user inputs 2 words into the command line your program should automatically exit  with the correct exit code i.e. return 1;
