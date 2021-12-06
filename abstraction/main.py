@@ -1,5 +1,5 @@
 from gift import Gift
-from calculator import Number
+from square_rootr import Number
 
 
 def main():

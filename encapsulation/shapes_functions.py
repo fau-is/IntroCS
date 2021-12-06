@@ -1,7 +1,7 @@
 import math
 
 
-def area(a, b):
+def area_rectangle(a, b):
     """
     Calculates the area of a rectangle.
     :param a: height
@@ -11,7 +11,7 @@ def area(a, b):
     return a * b
 
 
-def perimeter(a, b):
+def perimeter_rectangle(a, b):
     """
     Calculates the perimeter of a rectangle
     :param a: height

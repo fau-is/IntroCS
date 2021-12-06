@@ -3,8 +3,8 @@ import shapes_functions
 
 # Rectangle
 rect = Rectangle(10, 10)
-rect_area = shapes_functions.area(rect.height, rect.width)
-rect_peri = shapes_functions.perimeter(rect.height, rect.width)
+rect_area = shapes_functions.area_rectangle(rect.height, rect.width)
+rect_peri = shapes_functions.perimeter_rectangle(rect.height, rect.width)
 print(f'A rectangle with height: {rect.height} '
       f'and width: {rect.width} has '
       f'the area {rect_area} and perimeter {rect_peri}')
