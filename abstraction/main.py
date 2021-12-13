@@ -8,6 +8,7 @@ def main():
     print(f"Height: {gift.height}")
     print(f"Width: {gift.width}")
     print(f"Color: {gift._color}")
+    print(f"Content: {gift.__content}")
     gift.open_gift()
 
 
@@ -17,4 +18,4 @@ def main2():
 
 
 if __name__ == '__main__':
-    main2()
+    main()

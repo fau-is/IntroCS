@@ -2,7 +2,7 @@ from shapes import Rectangle, Triangle, Circle
 import shapes_functions
 
 # Rectangle
-rect = Rectangle(10, 10)
+rect = Rectangle(10, 5)
 rect_area = shapes_functions.area_rectangle(rect.height, rect.width)
 rect_peri = shapes_functions.perimeter_rectangle(rect.height, rect.width)
 print(f'A rectangle with height: {rect.height} '
@@ -14,6 +14,7 @@ print(f'A rectangle with height: {rect.height} '
 tri = Triangle(10, 10, 10)
 tri_area = shapes_functions.area_triangle(tri.side1, tri.side2, tri.side3)
 tri_peri = shapes_functions.perimeter_triangle(tri.side1, tri.side2, tri.side3)
+
 print(f'A triangle with the three sides {tri.side1}, '
       f'{tri.side2}, and {tri.side3} has '
       f'the area {tri_area:.2f} and perimeter {tri_peri}')
