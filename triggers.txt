@@ -6,13 +6,13 @@
 t1,TITLE,election
 
 // description trigger named t2
-t2,DESCRIPTION,Trump
+t2,DESCRIPTION,Putin
 
 // description trigger named t3
-t3,DESCRIPTION,Clinton
+t3,DESCRIPTION,war
 
 // after trigger named t4
-t4,AFTER,3 Oct 2016 17:00:10
+t4,AFTER,1 Oct 2022 17:00:10
 
 // composite trigger named t4
 t5,AND,t2,t3
@@ -20,5 +20,20 @@ t5,AND,t2,t3
 // composite trigger named t4
 t6,AND,t1,t4
 
+// title trigger named t7
+t7,TITLE,Qatar
+
+// description trigger named t8
+t8,DESCRIPTION,championship
+
+// description trigger named t9
+t9,DESCRIPTION,german
+
+// composite trigger named t4
+t10,OR,t8,t9
+
+// TITLE trigger named t11
+t11,TITLE,germany
+
 // the trigger list contains t1 and t4
-ADD,t5,t6
+ADD,t5,t6,t7,t10,t11
