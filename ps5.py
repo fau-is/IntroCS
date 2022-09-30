@@ -194,7 +194,7 @@ if __name__ == '__main__':
             stories = process("http://feeds.bbci.co.uk/news/rss.xml")
 
             # Get stories from Yahoo's Top Stories RSS news feed
-            stories.extend(process("http://news.yahoo.com/rss/topstories"))
+            # stories.extend(process("http://news.yahoo.com/rss/topstories"))
 
             stories = filter_stories(stories, triggerlist)
 
