@@ -27,6 +27,8 @@ Include statements are used to import code from librarys.
   - CS50's training wheels is imported to make your life a little easier in the beginning.
 
   ### Prototypes
-  You need to use function prototypes, if you want 
+  You need to use function prototypes, if you want to have your main function on top of the program; at least relatively.
+
+  In calculator.c, we using functions to calculate our results. And, we are using a dedicated print function.
 
 
