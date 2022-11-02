@@ -1,18 +1,1 @@
-// Header
-
-
-
-// Prototypes
-
-
-
-// Main function
-
-
-
-
-// Functions
-
-
-
-
+// So much emptyness
