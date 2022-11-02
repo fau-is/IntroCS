@@ -26,9 +26,21 @@ Include statements are used to import code from librarys.
 - cs50.h
   - CS50's training wheels is imported to make your life a little easier in the beginning.
 
-  ### Prototypes
-  You need to use function prototypes, if you want to have your main function on top of the program; at least relatively.
+### Prototypes
+You need to use function prototypes, if you want to have your main function on top of the program; at least relatively.
 
-  In calculator.c, we using functions to calculate our results. And, we are using a dedicated print function.
+In calculator.c, we using functions to calculate our results. And, we are using a dedicated print function. You can find their implementations below the main function.
 
+### Main Function
+The heart of your program is the main-function. Every program needs a main function to compile. For now, your main functions could look as follows:
 
+> int main(void)
+
+The first thing your program actively does is the first line in your main function.
+From here, you could call other functions, fulfill your tasks, or just print "Hello, world".
+
+### Functions
+Functions have a return value, and often they require parameters. Both, the return type and the parameters require specifications of a data type.
+
+A function:
+> int sum(int a, int b)
