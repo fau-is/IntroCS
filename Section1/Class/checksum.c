@@ -8,8 +8,7 @@ int main(void)
     int number = -1;
     do
     {
-        number = get_int("Positive Number: ");  // 123 % 10 = 3; 123 / 10 = 12 % 10 = 2
-                                                // 123 / 10 = 12 / 10 = 1 / 1 / 10
+        number = get_int("Positive Number: ");
 
     }
     while (number < 0);
