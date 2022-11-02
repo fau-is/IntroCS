@@ -5,5 +5,11 @@ Prompt a user for 10 Integer numbers. Afterwards, calculate the average out of t
 Hints:
 - No need to store individual numbers that a user provided
 - Remember that Integer numbers and the average of 10 Integer number may be different data types
-- 
+- Use a for-loop to exactly as a user 10 times.
+
+{% spoiler  "Solution" %}
+If you want to look at the solution switch to calc_sol.c
+
+{% endspoiler %}
+
 
