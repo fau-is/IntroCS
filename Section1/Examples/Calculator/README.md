@@ -26,4 +26,7 @@ Include statements are used to import code from librarys.
 - cs50.h
   - CS50's training wheels is imported to make your life a little easier in the beginning.
 
+  ### Prototypes
+  You need to use function prototypes, if you want 
+
 
