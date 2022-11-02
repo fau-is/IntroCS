@@ -8,7 +8,7 @@ int main(void)
     int number = -1;
     do
     {
-        number = get_int("Positive Number: ");
+        number = get_int("Positive Number: "); // 123
 
     }
     while (number < 0);
