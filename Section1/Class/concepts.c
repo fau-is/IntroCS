@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <cs50.h>
 
 int main(void)
 {
-    printf("Hello, world!\n");
+    string name = "world";
+    printf("Hello, %s!\n", name);
 }
