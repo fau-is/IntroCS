@@ -1,0 +1,4 @@
+lab:
+  files:
+    - !exclude *
+    - !include math.c
