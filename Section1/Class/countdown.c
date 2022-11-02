@@ -3,7 +3,10 @@
 
 int main(void)
 {
-    int to_countdown = get_int("Number: ");
+    do
+    {
+        int to_countdown = get_int("Number: ");
+    } while (to_countdown < 0);
 
     for(int i = to_countdown; i >= 0; i--)
     {
