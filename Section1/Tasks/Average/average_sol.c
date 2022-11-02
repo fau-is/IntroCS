@@ -3,6 +3,7 @@
 
 int main(void)
 {
+    // You could also ask for float values.
     int sum4avg = 0;
     for (int i = 0; i < 10; i++)
     {
