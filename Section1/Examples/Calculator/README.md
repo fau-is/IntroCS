@@ -13,7 +13,7 @@ In every loop, the program will ask which calculator operation should be execute
 
 After performing the calculation the result is printed.
 
-{%next File outline %}
+{% next File outline %}
 
 ## File outline
 ### Header
@@ -33,14 +33,27 @@ In calculator.c, we using functions to calculate our results. And, we are using 
 
 ### Main Function
 The heart of your program is the main-function. Every program needs a main function to compile. For now, your main functions could look as follows:
-
-> int main(void)
-
+```C
+ int main(void)
+```
 The first thing your program actively does is the first line in your main function.
 From here, you could call other functions, fulfill your tasks, or just print "Hello, world".
 
 ### Functions
 Functions have a return value, and often they require parameters. Both, the return type and the parameters require specifications of a data type.
 
-A function:
+Assume, there is the following function sum:
+```C
 > int sum(int a, int b)
+{
+  return a + b;
+}
+```
+
+This function must return an integer to its caller, e.g., the main-function. Additionally, this function always expects two Integer values as parameters.
+
+{% next "Try running calculator" %}
+
+## Try the program
+Despite not being the most usable calculator, this minimal example shows: You can already write and understand a program.
+
