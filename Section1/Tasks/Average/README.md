@@ -8,7 +8,7 @@ Hints:
 - Use a for-loop to exactly as a user 10 times.
 
 {% spoiler  "Solution" %}
-If you want to look at the solution switch to calc_sol.c
+If you want to look at the solution switch to average_sol.c
 
 {% endspoiler %}
 
