@@ -26,6 +26,12 @@ int main(void)
         if (action == 'm')
         {
             mean();
+
+            if (quit() == 1)
+            {
+                return 0;
+            }
+
             continue;
         }
 
@@ -110,7 +116,7 @@ int multiply(int a, int b)
 void mean()
 {
     int sum = 0;
-    int numbers = get_int("How many values?");
+    int numbers = get_int("How many values? ");
 
     for (int i = 0; i < 10; i++)
     {
