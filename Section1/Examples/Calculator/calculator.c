@@ -116,15 +116,20 @@ int multiply(int a, int b)
 void mean()
 {
     int sum = 0;
-    int numbers = get_int("How many values? ");
+    int numbers = -1;
+    do
+    {
+        numbers = get_int("How many values? ");
+    }
+    while(numbers < 1);
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < numbers; i++)
     {
         sum += get_int("Value: ");
     }
 
 
-    printf("Average: %.2f\n", sum / 10.0);
+    printf("Average: %.2f\n", sum / (float) numbers);
 }
 
 int quit()
