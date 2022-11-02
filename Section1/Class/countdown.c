@@ -3,6 +3,8 @@
 
 int main(void)
 {
-    string name = get_string("Name? ");
+    int to_countdown = get_int("Number: ");
+
+    
     printf("Hello, %s!\n", name);
 }
