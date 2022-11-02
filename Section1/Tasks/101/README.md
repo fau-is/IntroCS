@@ -10,13 +10,7 @@ Write that prints out the small multiplication table.
 
 {% spoiler "Pseudo Solution" %}
 - For character alignment you can use "\t" just as you would use "\n" for new lines
-- Use a double for loop. Each counting to 10.
-    - In the inner loop:
-        - Multiply the numbers of both iterations.
-        - Print the result and alignment character
-    - In the outer loop:
-        - Print a '\n' character
-
+- Remember: You can nest loops under loops (under loops, ...)
 {% endspoiler %}
 
 {% spoiler "Pseudo Solution" %}
