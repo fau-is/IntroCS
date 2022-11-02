@@ -1,4 +1,4 @@
-lab:
+lab50:
   files:
     - !exclude *
     - !include math.c
