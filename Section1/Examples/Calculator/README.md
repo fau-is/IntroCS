@@ -57,3 +57,12 @@ This function must return an integer to its caller, e.g., the main-function. Add
 ## Try the program
 Despite not being the most usable calculator, this minimal example shows: You can already write and understand a program.
 
+By now, you should be able to run a program on your own.
+Still, if you need help click the button below to see instruction on how to run the program.
+
+{% spoiler "How to run" %}
+```bash
+make calculator
+./calculator
+```
+{% endspoiler %}
