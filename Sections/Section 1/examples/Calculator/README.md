@@ -13,7 +13,7 @@ In every loop, the program will ask which calculator operation should be execute
 
 After performing the calculation the result is printed.
 
-{%next %}
+{%next File outline %}
 
 ## File outline
 ### Includes
