@@ -9,5 +9,12 @@
 
 int main(void)
 {
-    printf("Hello, world!\n");
+    for (int i = 1; i < 11; i++)
+    {
+        for (int j = 1; j < 11; j++)
+        {
+            printf("%i\t", i*j);
+        }
+        printf("\n");
+    }
 }
