@@ -5,18 +5,20 @@ int main(void)
 {
     int a = get_int("a: ");
     int b = get_int("b: ");
-
+    int result;
+    
     if (a > b)
     {
-        printf("%i\n", a - b);
+        result = a - b;
     }
     else if (a < b)
     {
-        printf("%i\n", a + b);
+        result = a + b;
     }
     else
     {
-        printf("%i\n", a * b);
+        result = a * b;
     }
 
+    printf("%i\n", result);
 }
