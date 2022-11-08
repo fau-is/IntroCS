@@ -1,0 +1,4 @@
+lab50:
+  files:
+    - !include initials.c
+    - !exclude initials_sol.c
