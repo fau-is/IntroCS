@@ -110,7 +110,7 @@ So, this string will be handled perfectly!
 You initialise a char array and an Integer:
 ```C
     char c[] = {'I','N','T','R','O'}; // 5 Bytes
-    int i = 2000000000000; // 4 Bytes
+    int i = 1073741824; // 4 Bytes
 ```
 Assume that:
 - _c_ is stored at addresses 0-4;
@@ -122,7 +122,7 @@ Now if you map the addresses...
 - 2: T
 - 3: R
 - 4: O
-- 5: 00000000 (first byte of integer)
+- 5: 01000000 (first byte of integer)
 - 6: 00000000
 - 7: 00000000
 - 8: 00000000
