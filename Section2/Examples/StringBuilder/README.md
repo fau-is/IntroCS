@@ -75,9 +75,13 @@ This loop would print Hi.
 ## Warning
 A lot of unused bytes is actually full of NUL characters as it consists of 8 0-bits (00000000). Often, even if you forget to set a NUL character, your string handling will work as you expected, because your string is followed by random memory which is empty (i.e. consists of NUL characters).
 
-Consider the following simplified situations.
+It is to be avoided that your program only works in some situations.
 
-### Situation: Code works (randomly) without \0
+{% next "Situations" %}
+
+### Consider the following simplified situations.
+
+#### Situation: Code works (randomly) without \0
 You initialise a char array and an Integer:
 ```C
     char c[] = {'I','N','T','R','O'}; // 5 Bytes
@@ -102,14 +106,26 @@ Now if you map the addresses...
 So, this string will be handled perfectly!
 *BUT: Programs which randomly work are BAD!*
 
-#### Situations in which it does not work
+#### Situation where your program does not work
+You initialise a char array and an Integer:
+```C
+    char c[] = {'I','N','T','R','O'}; // 5 Bytes
+    int i = 2000000000000; // 4 Bytes
+```
+Assume that:
+- _c_ is stored at addresses 0-4;
+- _i_ is stored at 5-8
 
-
-
-
-
-
-
+Now if you map the addresses...
+- 0: I
+- 1: N
+- 2: T
+- 3: R
+- 4: O
+- 5: 00000000 (first byte of integer)
+- 6: 00000000
+- 7: 00000000
+- 8: 00000000
 
 
 
