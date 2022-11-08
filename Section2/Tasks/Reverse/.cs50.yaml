@@ -1,3 +1,4 @@
 lab50:
   files:
-  - !include reverse.c
+    - !include reverse.c
+    - !exclude reverse_sol.c

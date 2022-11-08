@@ -1,3 +1,4 @@
 lab50:
   files:
-  - !include addition.c
+    - !include addition.c
+    - !exclude addition_sol.c
