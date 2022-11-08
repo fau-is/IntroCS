@@ -127,5 +127,26 @@ Now if you map the addresses...
 - 7: 00000000
 - 8: 00000000
 
+This time the byte at address 5 yields a 64 and not a NUL character. Therefore, the is corrupt due to the missing NUL character.
+
+{% next "Try it yourself!" %}
+## Try it yourself
+Build and run the program.
+
+´´´bash
+make string_builder
+./string_builder
+´´´
+
+Try it with different strings (e.g. "Hi", "Hello, IntroCS!").
+
+You will see; often, the program finds string equality without adding the NUL character.
+However, for some strings a NUL character must be added to find equality.
+
+IF YOU BUILD A STRING MANUALLY 
+
+
+
+
 
 
