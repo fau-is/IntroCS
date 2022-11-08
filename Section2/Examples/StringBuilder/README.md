@@ -22,6 +22,8 @@ Main funtion (Pseudo)
         1. If strings are equal: Exit Code 0
         2. Else: Exit Code 1
 
+{%next "Further Explanations" %}
+
 ## Some Explanation
 Consider the following string s:
 
