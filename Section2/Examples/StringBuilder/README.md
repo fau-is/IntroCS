@@ -143,7 +143,7 @@ Try it with different strings (e.g. "Hi", "Hello, IntroCS!").
 You will see; often, the program finds string equality without adding the NUL character.
 However, for some strings a NUL character must be added to find equality.
 
-IF YOU BUILD A STRING MANUALLY 
+If you build a string from a char array, never forget to add the NUL character as last charater \0.
 
 
 
