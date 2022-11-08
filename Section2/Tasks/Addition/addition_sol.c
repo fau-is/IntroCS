@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <ctype.h>
+#include <stdlib.h>
 #include <cs50.h>
 
 // Your main function goes below
@@ -16,5 +16,5 @@ int main(int argc, string argv[])
 
     int result = x + y;
 
-    printf("%s + %s = %i\n", result);
+    printf("%s + %s = %i\n", argv[1], argv[2], result);
 }
