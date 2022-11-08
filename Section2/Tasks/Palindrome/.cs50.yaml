@@ -1,3 +1,4 @@
 lab50:
   files:
     - !include palindrome.c
+    - !exclude palindrome_sol.c
