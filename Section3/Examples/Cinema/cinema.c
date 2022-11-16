@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <cs50.h>
 
 
 // Define count of seat rows and length of seat rows
