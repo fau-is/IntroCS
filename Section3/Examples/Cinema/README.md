@@ -18,7 +18,7 @@ Your own information system, with which you operate the cinema, stores the seats
 Each element of this matrix is a seat with typical characteristics of a cinema seat.
 
 You have written a script for the automated transfer of the service provider data into your information system.
-You can then feed the display with intuitive descriptions of row and seat numbers, e.g. "Row 3 seat no 1"
+You can then feed the display with intuitive descriptions of row and seat numbers, e.g. "Row 3 seat no 1".
 
 {% spoiler "Hints" %}
 This text is initially hidden.
