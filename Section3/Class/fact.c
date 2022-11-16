@@ -19,6 +19,10 @@ int main(int argc, string argv[])
 
 int fact(int n)
 {
+    if (n < 1)
+    {
+        return -1;
+    }
     if (n == 1)
     {
         return 1;
