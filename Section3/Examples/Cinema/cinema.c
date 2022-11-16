@@ -24,6 +24,9 @@ int main(void)
     // populating the cinema with the data
     for (int i = 0; i < ROWS; i++)
     {
-        for ()
+        for (int y = 0; y < ROW_LEN; y++ )
+        {
+            
+        }
     }
 }
