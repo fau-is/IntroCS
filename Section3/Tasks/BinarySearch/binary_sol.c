@@ -41,12 +41,32 @@ int main(int argc, string argv[])
         printf("Found\n");
     else
         printf("Not Found\n");
+
+
+
 }
 
 bool binary_search(int start, int end, int to_find, int arr[])
 {
-    // TODO
+    if (end < start)
+    {
+        return false;
+    }
 
+    int middle = (start + end) / 2;
+
+    if (to_find == arr[middle])
+    {
+        return true;
+    }
+    else if(to_find > arr[middle])
+    {
+        return binary_search(middle + 1, end, to_find, arr);
+    }
+    else
+    {
+        return binary_search(start, middle - 1, to_find, arr);
+    }
 
 
 
