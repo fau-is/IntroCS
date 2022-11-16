@@ -1,6 +1,6 @@
 # Cinema
 
-Imagine that you run a cinema. Per....
+Imagine that you run a small  cinema. Per....
 
 {% next "Explanation %}
 
@@ -8,5 +8,5 @@ Imagine that you run a cinema. Per....
 Here is some more text.
 
 {% spoiler "Hints" %}
-This text is initially hidden. 
+This text is initially hidden.
 {% endspoiler %}
