@@ -16,6 +16,7 @@ int main()
         lectures[i].year = get_int("Year: ");
         lectures[i].topic = get_string("Topic: ");
     }
+    printf("Registered Lectures\n")
 
     for (int i = 0; i < n; i++)
     {
