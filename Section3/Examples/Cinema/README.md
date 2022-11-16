@@ -2,6 +2,7 @@
 
 Imagine you run a small cinema in your backyard with just 16 seats (4 rows of 4 seats).
 You have found a very inexpensive service provider on the Internet to handle the online reservations.
+
 The only drawback: The service provider does not save the reservations with the corresponding row and seat number but with a consecutive number <= 15.
 One hour before each movie you will receive two data sets from the service provider regarding the reservations, which are already sorted:
 	- The consecutive numbers
