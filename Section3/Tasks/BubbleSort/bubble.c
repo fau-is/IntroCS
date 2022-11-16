@@ -7,7 +7,7 @@ int main(int argc, string argv[])
 {
     if (argc < 2)
     {
-        printf("Please provide at least one Integer as arg.\n Usage: find_max INT [INT ...]~n");
+        printf("Please provide at least one Integer as arg.\n Usage: ./bubble INT [INT ...]~n");
         return 1;
     }
 

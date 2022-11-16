@@ -1,0 +1,4 @@
+lab50:
+  files:
+    - !include binary.c
+    - !exclude binary_sol.c

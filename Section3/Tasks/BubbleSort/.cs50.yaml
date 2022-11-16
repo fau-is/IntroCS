@@ -1,0 +1,4 @@
+lab50:
+  files:
+    - !include bubble.c
+    - !exclude bubble_sol.c
