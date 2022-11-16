@@ -21,5 +21,9 @@ int data = {0, 1, 3, 5, 6, 8, 10, 11, 12, 13, 14, 15}
 
 int main(void)
 {
-    
+    // populating the cinema with the data
+    for (int i = 0; i < ROWS; i++)
+    {
+        for ()
+    }
 }
