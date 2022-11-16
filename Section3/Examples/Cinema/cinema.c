@@ -13,8 +13,10 @@ typedef struct
 }
 seat;
 
-// Cinema room
+// Seating rows in the cinema are stored as a ROW x ROW_LEN matrix
 seat cinema[ROWS][ROW_LEN];
+
+//
 
 
 int main(void)
