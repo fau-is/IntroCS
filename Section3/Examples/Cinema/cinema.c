@@ -21,7 +21,8 @@ seat cinema[ROWS][ROW_LEN];
 
 // Data extracted from the online processing system
 int data[] = {0, 1, 3, 5, 6, 8, 10, 11, 12, 13, 14, 15};
-string names[] = {"Mark}
+string names[] = {"Mark", "Elisa", "Jake", "Scott", "Aiden",
+"Andrew", "Emily", "Charlotte", "Olivia"}
 
 int main(void)
 {
