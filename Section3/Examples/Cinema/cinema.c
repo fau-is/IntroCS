@@ -30,8 +30,8 @@ int main(void)
     // populating the cinema with the data
     for (int i = 0; i < ROWS * ROW_LEN; i++)
     {
-        row = data[reservation] / ROWS;
-        pos = data[reservation] % ROW_LEN;
+        row = data[i] / ROWS;
+        pos = data[i] % ROW_LEN;
 
         // Accessing seat properties for seat in row ... and pos ...
         cinema[row][pos].row = row;
