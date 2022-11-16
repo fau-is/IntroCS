@@ -1,3 +1,4 @@
 lab50:
   files:
     -!include find_max.c
+    -!exclude find_max_sol.c
