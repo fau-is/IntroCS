@@ -20,7 +20,7 @@ seat;
 seat cinema[ROWS][ROW_LEN];
 
 // Data extracted from the online processing system
-int data = {0, 1, 3, 5, 6, 8, 10, 11, 12, 13, 14, 15}
+int data[] = {0, 1, 3, 5, 6, 8, 10, 11, 12, 13, 14, 15};
 
 int main(void)
 {
@@ -57,7 +57,7 @@ int main(void)
         {
             if (!cinema[i][y].reserved)
             {
-                printf("\tRow %i seat no %i\n", i, y);
+                printf("\tRow %i seat no %i\n", i+1, y+1);
             }
         }
     }
