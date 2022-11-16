@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <cs50.h>
 
 
 // Define count of seat rows and length of seat rows
@@ -19,35 +20,45 @@ seat;
 seat cinema[ROWS][ROW_LEN];
 
 // Data extracted from the online processing system
-int data = {0, 1, 3, 5, 6, 8, 10, 11, 12, 13, 14, 15}
+int data[] = {0, 1, 3, 5, 6, 8, 10, 11, 12, 13, 14, 15};
 
 int main(void)
 {
     int row;
     int pos;
-
+    int reservation = 0;
     // populating the cinema with the data
     for (int i = 0; i < ROWS * ROW_LEN; i++)
     {
-        row = data[i] / ROWS;
-        pos = data[i] % ROW_LEN;
+        row = data[reservation] / ROWS;
+        pos = data[reservation] % ROW_LEN;
 
         // Accessing seat properties for seat in row ... and pos ...
         cinema[row][pos].row = row;
         cinema[row][pos].pos = pos;
-        cinema[row][pos].reserved = true;
 
-
+        // Checking if current seat is the next reservation
+        if (i == data[reservation])
+        {
+            cinema[row][pos].reserved = true;
+            reservation++;
+        }
+        else
+        {
+            cinema[row][pos].reserved = false;
+        }
     }
 
-
-
-
+    // Print out rows and seat positions for all remaining free seats
+    printf("Free seats:\n");
     for (int i = 0; i < ROWS; i++)
     {
         for (int y = 0; y < ROW_LEN; y++ )
         {
-
+            if (!cinema[i][y].reserved)
+            {
+                printf("\tRow %i seat no %i\n", i+1, y+1);
+            }
         }
     }
 }
