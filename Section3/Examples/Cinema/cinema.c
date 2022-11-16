@@ -34,10 +34,10 @@ int main(void)
     // populating the cinema with the data
     for (int i = 0; i < ROWS * ROW_LEN; i++)
     {
-        row = data[i] / ROWS;
-        pos = data[i] % ROW_LEN;
+        row = i / ROWS;
+        pos = i % ROW_LEN;
 
-        // Accessing seat properties for seat in row ... and pos ...
+        // Accessing & assigning seat properties for seat in row ... and pos ...
         cinema[row][pos].row = row;
         cinema[row][pos].pos = pos;
 
