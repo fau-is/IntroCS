@@ -45,6 +45,7 @@ int main(void)
         if (i == data[reservation])
         {
             cinema[row][pos].reserved = true;
+            cinema[row][pos].name = names[reservation];
             reservation++;
         }
         else
@@ -64,5 +65,10 @@ int main(void)
                 printf("\tRow %i seat no %i\n", i+1, y+1);
             }
         }
+    }
+
+    for (int i = 0; i < ROWS; i++)
+    {
+        printf("Name %i last row: %s\n", i, cinema[3][i].name);
     }
 }
