@@ -49,14 +49,14 @@ int main(void)
     }
 
     // Print out rows and seat positions for all remaining free seats
-    printf("Free seats:\n")
+    printf("Free seats:\n");
     for (int i = 0; i < ROWS; i++)
     {
         for (int y = 0; y < ROW_LEN; y++ )
         {
             if (!cinema[i][y].reserved)
             {
-                printf(")
+                printf("\tRow %i seat no %i\n", i, y);
             }
         }
     }
