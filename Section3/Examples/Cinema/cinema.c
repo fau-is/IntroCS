@@ -67,8 +67,8 @@ int main(void)
         }
     }
 
-    for (int i = 0; i < ROWS; i++)
-    {
-        printf("Name %i last row: %s\n", i, cinema[3][i].name);
-    }
+    // for (int i = 0; i < ROWS; i++)
+    //{
+    //    printf("Name %i last row: %s\n", i, cinema[3][i].name);
+    //}
 }
