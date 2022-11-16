@@ -7,4 +7,4 @@ typedef struct
 	int day;
 	string topic;
 }
-date;
+lecture;
