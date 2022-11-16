@@ -7,12 +7,13 @@
 #define ROWS 4
 #define ROW_LEN 4
 
-// Cinema seats have row, position and reserved status
+// Cinema seats have row, position, reserved and name status
 typedef struct
 {
     int row;
     int pos;
     bool reserved;
+    string name;
 }
 seat;
 
@@ -21,6 +22,9 @@ seat cinema[ROWS][ROW_LEN];
 
 // Data extracted from the online processing system
 int data[] = {0, 1, 3, 5, 6, 8, 10, 11, 12, 13, 14, 15};
+string names[] = {"Mark", "Elisa", "Jake", "Scott", "Aiden",
+                  "Andrew", "Emily", "Charlotte", "Olivia",
+                  "Sofia", "Adam", "Tom"};
 
 int main(void)
 {
@@ -30,10 +34,10 @@ int main(void)
     // populating the cinema with the data
     for (int i = 0; i < ROWS * ROW_LEN; i++)
     {
-        row = data[i] / ROWS;
-        pos = data[i] % ROW_LEN;
+        row = i / ROWS;
+        pos = i % ROW_LEN;
 
-        // Accessing seat properties for seat in row ... and pos ...
+        // Accessing & assigning seat properties for seat in row ... and pos ...
         cinema[row][pos].row = row;
         cinema[row][pos].pos = pos;
 
@@ -41,6 +45,7 @@ int main(void)
         if (i == data[reservation])
         {
             cinema[row][pos].reserved = true;
+            cinema[row][pos].name = names[reservation];
             reservation++;
         }
         else
@@ -61,4 +66,12 @@ int main(void)
             }
         }
     }
+
+    // Print names in last row
+    printf("\nVisitors in last row:\n");
+    for (int i = 0; i < ROW_LEN; i++)
+    {
+        printf("\tSeat %i: %s", i+1, cinema[3][i].name);
+    }
+    printf("\n");
 }
