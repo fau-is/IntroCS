@@ -16,10 +16,10 @@ int main()
         lectures[i].year = get_int("Year: ");
         lectures[i].topic = get_string("Topic: ");
     }
-    printf("Registered Lectures\n")
+    printf("\nRegistered Lectures\n===============\n");
 
     for (int i = 0; i < n; i++)
     {
-       printf("%i.%s, %i: %s\n", lectures[i].day, lectures[i].month, lectures[i].year, lectures[i].topic);
+       printf("%s:\t%i.%s %i\n", lectures[i].topic, lectures[i].day, lectures[i].month, lectures[i].year);
     }
 }
