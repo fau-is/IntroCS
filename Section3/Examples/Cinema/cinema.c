@@ -7,7 +7,7 @@
 #define ROWS 4
 #define ROW_LEN 4
 
-// Cinema seats have row, position and reserved status
+// Cinema seats have row, position, reserved and name status
 typedef struct
 {
     int row;
