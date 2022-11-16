@@ -67,8 +67,10 @@ int main(void)
         }
     }
 
+    // Print names in last row
+    printf("\nVisitors in last row:\n\n");
     for (int i = 0; i < ROWS; i++)
     {
-        printf("Name %i last row: %s\n", i, cinema[3][i].name);
+        printf("\tseat %i: %s\n", i+1, cinema[3][i].name);
     }
 }
