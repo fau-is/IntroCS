@@ -3,4 +3,4 @@ lab50:
     - !include lecture.c
     - !include lecture_register.c
     - !exclude lecture_sol.c
-    - !exclude lecture_register_sol.c
+    - !exclude lecture_register_sol .c
