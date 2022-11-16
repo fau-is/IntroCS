@@ -13,6 +13,8 @@ typedef struct
 }
 seat;
 
+// Cinema room 
+seat cinema[ROWS][ROW_LEN];
 
 
 int main(void)
