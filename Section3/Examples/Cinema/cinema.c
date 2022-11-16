@@ -36,6 +36,7 @@ int main(void)
         cinema[row][pos].row = row;
         cinema[row][pos].pos = pos;
 
+        // Checking if current seat is the next reservation
         if (i == data[reservation])
         {
             cinema[row][pos].reserved = true;
@@ -47,14 +48,16 @@ int main(void)
         }
     }
 
-
-
-
+    // Print out rows and seat positions for all remaining free seats
+    printf("Free seats:\n")
     for (int i = 0; i < ROWS; i++)
     {
         for (int y = 0; y < ROW_LEN; y++ )
         {
-
+            if (!cinema[i][y].reserved)
+            {
+                printf(")
+            }
         }
     }
 }
