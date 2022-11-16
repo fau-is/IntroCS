@@ -9,7 +9,8 @@ int main(int argc, string argv[])
     {
         printf("Please provide at least one Integer as arg.\n Usage: find_max INT [INT ...]~n");
     }
-    int arr[argc-1];
+    int arr_len = argc-1;
+    int arr[arr_len];
 
     for (int i = 1; i < argc; i++)
     {
@@ -18,7 +19,6 @@ int main(int argc, string argv[])
 
     int max_index = 0;
     int max = arr[max_index];
-    int arr_len = sizeof(arr)/sizeof(int);
 
     for (int i = 1; i < arr_len; i++)
     {
