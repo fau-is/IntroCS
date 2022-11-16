@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+
 
 // Define count of seat rows and length of seat rows
 #define ROWS 4
@@ -21,12 +23,31 @@ int data = {0, 1, 3, 5, 6, 8, 10, 11, 12, 13, 14, 15}
 
 int main(void)
 {
+    int row;
+    int pos;
+
     // populating the cinema with the data
+    for (int i = 0; i < ROWS * ROW_LEN; i++)
+    {
+        row = data[i] / ROWS;
+        pos = data[i] % ROW_LEN;
+
+        // Accessing seat properties for seat in row ... and pos ...
+        cinema[row][pos].row = row;
+        cinema[row][pos].pos = pos;
+        cinema[row][pos].reserved = true;
+
+
+    }
+
+
+
+
     for (int i = 0; i < ROWS; i++)
     {
         for (int y = 0; y < ROW_LEN; y++ )
         {
-            
+
         }
     }
 }
