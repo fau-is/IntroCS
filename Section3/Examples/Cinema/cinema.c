@@ -45,7 +45,6 @@ int main(void)
         {
             cinema[row][pos].reserved = false;
         }
-
     }
 
 
