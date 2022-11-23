@@ -9,7 +9,7 @@ int main(void)
 
     char *u = malloc(sizeof(char) * 100);
 
-    scanf("%s %s\n", u);
+    scanf("%s", u);
 
     printf("%s\n", u);
 
