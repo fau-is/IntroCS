@@ -5,7 +5,7 @@ Note that the first six characters of a GIF 89a file are the characters:
 ```
 G, I, F, 8, 9, a.
 ```
-Usage: ./gif0 filepath
+Usage: ./isgif filepath
 
 Prints:
 * If file is gif: "File is a gif"
