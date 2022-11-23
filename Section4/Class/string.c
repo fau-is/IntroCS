@@ -9,6 +9,11 @@ int main(void)
 
     char *u = malloc(sizeof(char) * 100);
 
+    if (u == NULL)
+    {
+        return 1;
+    }
+
     scanf("%s", u);
 
     printf("%s\n", u);
