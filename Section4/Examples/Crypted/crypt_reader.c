@@ -31,7 +31,7 @@ int main(int argc, char **argv)
         printf("%c", c);
         fseek(file, 3, SEEK_CUR);
     }
-    
+
     fclose(file);
     printf("\n");
 }
