@@ -1,0 +1,3 @@
+lab50:
+  files:
+    - !exclude concatenate_sol.c

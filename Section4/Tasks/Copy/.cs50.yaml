@@ -1,0 +1,4 @@
+lab50:
+  files:
+    - !exclude copy_sol.c
+    - !exclude toupper_sol.c
