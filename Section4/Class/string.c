@@ -3,8 +3,8 @@
 
 int main(void)
 {
-    string s = "Hello";
-    char t[] = {'H', 'e', 'l', 'l', 'o', '\0'};
+    char *s = "Hello";
+    char t[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
 
 
 }
