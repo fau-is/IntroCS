@@ -5,7 +5,7 @@ int main(void)
 {
     int a = 10;
     int *p = &a;
-    
+
     // Get / Print the address
     printf("%p\n", p);
     printf("%p\n", &a);
@@ -15,5 +15,5 @@ int main(void)
     printf("%i\n", a);
 
     // Print address of P
-    printf("%p\n", &p); 
+    printf("%p\n", &p);
 }
