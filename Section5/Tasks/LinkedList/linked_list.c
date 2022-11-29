@@ -45,7 +45,6 @@ int main(int argc, char **argv)
     }
 
     fclose(f);
-
     print_list(list);
     delete(list);
 }
@@ -53,55 +52,23 @@ int main(int argc, char **argv)
 
 node *create(int value)
 {
-    node *n = malloc(sizeof(node));
-
-    if (n == NULL)
-    {
-        return NULL;
-    }
-
-    n->payload = value;
-    n->next = NULL;
-
-    return n;
+    return NULL;
 }
 
 
 node* add(node *list, int value)
 {
-    if (list == NULL)
-        return create(value);
-
-    node *new = create(value);
-    if (new != NULL)
-    {
-        new->next = list;
-        return new;
-    }
-    return list;
+    return NULL;
 }
 
 
 bool find(node *list, int value)
 {
-    for (node* cursor = list; cursor != NULL; cursor = cursor->next)
-    {
-        if (cursor->payload == value)
-        {
-            return true;
-        }
-    }
     return false;
 }
 
 bool delete(node *list)
 {
-    if (list == NULL)
-        return true;
-    delete(list->next);
-    free(list);
-    if(list == NULL)
-        return true;
     return false;
 }
 
