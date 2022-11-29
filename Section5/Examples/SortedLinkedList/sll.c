@@ -33,7 +33,7 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    FILE *f = fopen("numbers.txt", "r");
+    FILE *f = fopen(argv[1], "r");
 
     if (f == NULL)
     {
@@ -43,8 +43,8 @@ int main(int argc, char **argv)
 
     int i = 0;
 
-    while(!feof(f))
-        list = add(list, fread(&i, sizeof(int), 1, f));
+    while(fread(&i, sizeof(int), 1, f) == 1)
+        list = add(list, i);
 
     fclose(f);
 
