@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 
     int i = 0;
 
-    while(fread(&i, sizeof(int), 1, f) == 1)
+    while(fscanf(f, "%i", &i) == 1)
         list = add(list, i);
 
     fclose(f);
