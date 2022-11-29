@@ -33,10 +33,15 @@ int main(int argc, char **argv)
     }
 
     int i;
+    node *list;
 
     while(fscanf(f, "%i", &i) == 1)
     {
         list = add(list, i);
+        if (list == NULL)
+        {
+            break;
+        }
     }
 
     fclose(f);
