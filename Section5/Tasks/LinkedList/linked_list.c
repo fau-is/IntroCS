@@ -18,21 +18,36 @@ void print_list(node *list);
 
 int main(int argc, char **argv)
 {
-    int arr[] = {1, 2, 3, 4, 5, 6, 7};
-
-    node *list = create(arr[0]);
-
-    if (list == NULL)
+    if (argc != 2)
     {
+        printf("Usage: %s filepath\n", argv[0]);
         return 1;
     }
 
-    for (int i = 1, len = 7; i < len; i++)
+    FILE *f = fopen(argv[1], "r");
+
+    if (f == NULL)
     {
-        list = add(list, arr[i]);
+        printf("Path %s does not exist\n", argv[1]);
+        return 2;
     }
 
+    int i;
+    node *list;
+
+    while(fscanf(f, "%i", &i) == 1)
+    {
+        list = add(list, i);
+        if (list == NULL)
+        {
+            break;
+        }
+    }
+
+    fclose(f);
+
     print_list(list);
+    delete(list);
 }
 
 
@@ -54,6 +69,9 @@ node *create(int value)
 
 node* add(node *list, int value)
 {
+    if (list == NULL)
+        return create(value);
+
     node *new = create(value);
     if (new != NULL)
     {
@@ -97,7 +115,6 @@ void print_list(node *list)
         printf("%i->", cursor->payload);
     }
     printf("\n");
-
 }
 
 
