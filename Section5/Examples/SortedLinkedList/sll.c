@@ -77,6 +77,7 @@ node* add(node *list, int value)
         node *cursor = list;
         while(cursor->next != NULL)
         {
+            if (cursor->payload )
             if ((cursor->next->payload > value && cursor->payload < value) || cursor->payload == value)
             {
                 new->next = cursor->next;
