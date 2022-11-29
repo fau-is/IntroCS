@@ -69,6 +69,9 @@ node *create(int value)
 
 node* add(node *list, int value)
 {
+    if (list == NULL)
+        return create(value);
+        
     node *new = create(value);
     if (new != NULL)
     {
