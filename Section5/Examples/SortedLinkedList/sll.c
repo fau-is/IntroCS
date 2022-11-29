@@ -37,11 +37,18 @@ node *create(int value)
 }
 
 
-bool add(node* list, int value)
+node* add(node* list, int value)
 {
-    node *cursor = list;
+    node *new = create(value);
+    if (new != NULL)
+    {
+        new->next = list;
+        return true;
+    }
+    return false;
 
-    
+
+
 }
 
 
