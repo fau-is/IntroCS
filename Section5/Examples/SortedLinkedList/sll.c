@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 
 typedef struct node
@@ -12,7 +13,7 @@ node;
 node *create(int value);
 node *add(node *list, int value);
 bool find(node *list, int value);
-bool delete(node *list, int value);
+bool delete(node *list);
 void print_list(node *list);
 
 int main(int argc, char **argv)
@@ -31,7 +32,7 @@ int main(int argc, char **argv)
         list = add(list, arr[i]);
     }
 
-
+    print_list(list);
 }
 
 
@@ -74,6 +75,18 @@ bool find(node *list, int value)
     }
     return false;
 }
+
+bool delete(node *list)
+{
+    if (list == NULL)
+        return true;
+    delete(list->next);
+    free(list);
+    if(list == NULL)
+        return true;
+    return false;
+}
+
 
 void print_list(node *list)
 {
