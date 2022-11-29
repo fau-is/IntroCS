@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <cs50.h>
+#include <stdlib.h>
 
 
 typedef struct node
@@ -10,7 +10,7 @@ typedef struct node
 node;
 
 node *create(int value);
-bool add(node *list, int value);
+node *add(node *list, int value);
 bool find(node *list, int value);
 bool delete(node *list, int value);
 void print_list(node *list);
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 
     for (int i = 1, len = 7; i < len; i++)
     {
-        node *list = add(list, arr[i]);
+        list = add(list, arr[i]);
     }
 
 
@@ -83,6 +83,7 @@ void print_list(node *list)
     {
         printf("%i->", cursor->payload);
     }
+    printf("\n");
 
 }
 
