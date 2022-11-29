@@ -57,6 +57,12 @@ node* add(node *list, int value)
     node *new = create(value);
     if (new != NULL)
     {
+        node *cursor = list;
+        while(cursor->next != NULL)
+        {
+            cursor = cursor->next
+        }
+
         new->next = list;
         return new;
     }
