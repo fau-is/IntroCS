@@ -24,13 +24,6 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    node *list = create(arr[0]);
-
-    if (list == NULL)
-    {
-        return 1;
-    }
-
     FILE *f = fopen(argv[1], "r");
 
     if (f == NULL)
@@ -42,7 +35,9 @@ int main(int argc, char **argv)
     int i;
 
     while(fscanf(f, "%i", &i) == 1)
+    {
         list = add(list, i);
+    }
 
     fclose(f);
 
@@ -71,7 +66,7 @@ node* add(node *list, int value)
 {
     if (list == NULL)
         return create(value);
-        
+
     node *new = create(value);
     if (new != NULL)
     {
