@@ -130,7 +130,6 @@ void print_list(node *list)
         printf("%i->", cursor->payload);
     }
     printf("\n");
-
 }
 
 
