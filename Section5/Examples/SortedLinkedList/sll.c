@@ -18,7 +18,7 @@ void print_list(node *list);
 
 int main(int argc, char **argv)
 {
-    int arr[] = {1, 2, 3, 4, 5, 6, 7};
+    int arr[] = {1, 2, 3, 4, 6, 5, 7};
 
     node *list = create(arr[0]);
 
@@ -60,11 +60,15 @@ node* add(node *list, int value)
         node *cursor = list;
         while(cursor->next != NULL)
         {
-            cursor = cursor->next
+            if (cursor->next->payload > value && cursor->payload < value)
+            {
+                new->next = cursor->next;
+                cursor->next = new;
+                return list;
+            }
+            cursor = cursor->next;
         }
-
-        new->next = list;
-        return new;
+        cursor->next = new;
     }
     return list;
 }
