@@ -26,10 +26,11 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    for (int i = 1, len = 7; i < len; i ++)
+    for (int i = 1, len = 7; i < len; i++)
     {
         node *list = add(list, arr[i]);
     }
+
 
 }
 
@@ -72,6 +73,17 @@ bool find(node *list, int value)
         }
     }
     return false;
+}
+
+void print_list(node *list)
+{
+    printf("->");
+
+    for (node *cursor = list; cursor != NULL; cursor = cursor->next)
+    {
+        printf("%i->", cursor->payload);
+    }
+
 }
 
 
