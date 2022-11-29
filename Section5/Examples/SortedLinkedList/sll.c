@@ -18,6 +18,12 @@ void print_list(node *list);
 
 int main(int argc, char **argv)
 {
+    if (argc != 2)
+    {
+        printf("Usage: %s filepath\n", argv[0]);
+        return 1;
+    }
+
     int arr[] = {1, 2, 3, 4, 6, 5, 7};
 
     node *list = create(arr[0]);
@@ -27,12 +33,23 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    for (int i = 1, len = 7; i < len; i++)
+    FILE *f = fopen("numbers.txt", "r");
+
+    if (f == NULL)
     {
-        list = add(list, arr[i]);
+        printf("Path %s does not exist\n", argv[1]);
+        return 2;
     }
 
+    int i = 0;
+
+    while(!feof(f))
+        list = add(list, fread(&i, sizeof(int), 1, f));
+
+    fclose(f);
+
     print_list(list);
+    delete(list);
 }
 
 
@@ -60,7 +77,7 @@ node* add(node *list, int value)
         node *cursor = list;
         while(cursor->next != NULL)
         {
-            if (cursor->next->payload > value && cursor->payload < value)
+            if ((cursor->next->payload > value && cursor->payload < value) || cursor->payload == value)
             {
                 new->next = cursor->next;
                 cursor->next = new;
