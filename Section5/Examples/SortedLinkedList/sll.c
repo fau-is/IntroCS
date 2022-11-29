@@ -24,8 +24,6 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    int arr[] = {1, 2, 3, 4, 6, 5, 7};
-
     node *list = create(arr[0]);
 
     if (list == NULL)
@@ -41,7 +39,7 @@ int main(int argc, char **argv)
         return 2;
     }
 
-    int i = 0;
+    int i;
 
     while(fscanf(f, "%i", &i) == 1)
         list = add(list, i);
