@@ -87,9 +87,14 @@ node *add(node *list, int value)
                 return new;
             }
             else if(new->value > cursor->value && new->value < cursor->next->value)
+            {
+                new->next = cursor->next;
+                cursor->next = new;
+                return list;
+            }
             cursor = cursor->next;
         }
-
+        cursor->next = new; 
     }
     return list;
 }
