@@ -54,6 +54,8 @@ int main(int argc, char **argv)
 node *create(char *value)
 {
     node *n = malloc(sizeof(node));
+    node->value = malloc(strlen(value));
+    strcpy(value, node->value);
 
     if (n == NULL)
     {
