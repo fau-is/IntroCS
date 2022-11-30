@@ -74,8 +74,9 @@ node *add(node *list, int value)
     }
     else
     {
-        
+        new->next = list;
     }
+    return new;
 
 
 
