@@ -47,6 +47,7 @@ int main(int argc, char **argv)
 
     fclose(f);
     print_list(list);
+    printf("%i numbers were read.\n", size(list));
     delete(list);
 }
 
@@ -75,7 +76,7 @@ bool delete(node *list)
 
 int size(node *list)
 {
-    
+    return 0;
 }
 
 
