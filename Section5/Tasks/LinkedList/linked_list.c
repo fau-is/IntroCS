@@ -68,6 +68,9 @@ node *create(int value)
 node *add(node *list, int value)
 {
     node *new = create(value);
+
+    if (new == NULL)
+        return list;
     if (list == NULL)
     {
         return new;
@@ -77,11 +80,6 @@ node *add(node *list, int value)
         new->next = list;
     }
     return new;
-
-
-
-
-    return NULL;
 }
 
 
