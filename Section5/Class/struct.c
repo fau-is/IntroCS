@@ -24,7 +24,7 @@ int main(void)
     if(s == NULL)
         return 1;
 
-    s = "hello";
+    
     n->s = s;
     printf("%p\n", s);
     free(s);
