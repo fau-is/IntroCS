@@ -21,8 +21,9 @@ int main(int argc, char **argv)
     {
         n = malloc(sizeof *n);
         n->next = NULL;
-        n->s = argv[i];
-        argv[i] = "Oh No!";
+        char *s = argv[i];
+        n->s = s;
+        s = "Oh No!";
         printf("%s\n", n->s);
         free(n);
     }
