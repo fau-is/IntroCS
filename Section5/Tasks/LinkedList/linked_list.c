@@ -54,7 +54,13 @@ int main(int argc, char **argv)
 
 node *create(int value)
 {
-    return NULL;
+    node *new = malloc(sizeof(node));
+
+    if (new == NULL)
+        return new;
+
+    
+
 }
 
 
