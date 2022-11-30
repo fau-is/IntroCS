@@ -8,23 +8,22 @@ typedef struct node
 }
 node;
 
-int main(int argc, char **argv)
+int main(void)
 {
     node *n = NULL;
 
-    while(1)
-    {
-        n = malloc(sizeof(node));
-        if (n == NULL)
-        {
-            break;
-        }
-        n->next = NULL;
-        char *s = malloc(20);
-        s = "hello";
-        n->s = s;
-        printf("%s %s\n", s, n->s);
-        free(n);
-    }
 
+    n = malloc(sizeof(node));
+    if (n == NULL)
+    {
+        return 1;
+    }
+    n->next = NULL;
+    char *s = malloc(20);
+    s = "hello";
+    n->s = s;
+    printf("%s\n", n->s);
+    free(s);
+    free(n);
 }
+
