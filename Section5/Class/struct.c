@@ -22,6 +22,7 @@ int main(int argc, char **argv)
         n = malloc(sizeof *n);
         n->next = NULL;
         n->s = argv[i];
+        argv[i] = "Oh No!";
         printf("%s\n", n->s);
         free(n);
     }
