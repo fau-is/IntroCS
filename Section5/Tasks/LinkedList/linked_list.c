@@ -56,20 +56,30 @@ node *create(int value)
 {
     node *new = malloc(sizeof(node));
 
-    if (new == NULL)
+    if (new != NULL)
     {
-        return new;
+        new->value = value;
+        new->next = NULL;
     }
-
-    new->value = value;
-    new->next = NULL;
-
     return new;
 }
 
 
-node* add(node *list, int value)
+node *add(node *list, int value)
 {
+    node *new = create(value);
+    if (list == NULL)
+    {
+        return new;
+    }
+    else
+    {
+        
+    }
+
+
+
+
     return NULL;
 }
 
