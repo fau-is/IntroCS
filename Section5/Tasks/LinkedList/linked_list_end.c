@@ -99,6 +99,7 @@ void delete(node *list)
     {
         delete(list->next);
         free(list);
+
     }
     return;
 }
