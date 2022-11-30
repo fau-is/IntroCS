@@ -12,15 +12,16 @@ int main(int argc, char **argv)
 {
     node *n = NULL;
 
-    while(true)
+    while(1)
     {
         n = malloc(sizeof(node));
-        if (node == NULL)
+        if (n == NULL)
         {
             break;
         }
         n->next = NULL;
-        char *s = malloc(20  * char);
+        char *s = malloc(20);
+        s = "hello";
         n->s = s;
         printf("%s %s\n", s, n->s);
         free(n);
