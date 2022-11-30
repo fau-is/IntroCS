@@ -95,7 +95,7 @@ void delete(node *list)
         delete(list->next);
         free(list);
     }
-    return; 
+    return;
 }
 
 int size(node *list)
@@ -115,7 +115,7 @@ void print_list(node *list)
 
     for (node *cursor = list; cursor != NULL; cursor = cursor->next)
     {
-        printf("%i->", cursor->payload);
+        printf("%i->", cursor->value);
     }
     printf("\n");
 }
