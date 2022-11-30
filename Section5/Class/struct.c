@@ -10,20 +10,19 @@ node;
 
 int main(int argc, char **argv)
 {
-    if (argc < 2)
-    {
-        printf("Usage: %s [Names]", argv[0]);
-        return 1;
-    }
     node *n = NULL;
 
-    for (int i = 1; i < argc; i++)
+    while(true)
     {
-        n = malloc(sizeof *n);
+        n = malloc(sizeof(node));
+        if (node == NULL)
+        {
+            break;
+        }
         n->next = NULL;
-        char *s = argv[i];
+        char *s = malloc(20  * char);
         n->s = s;
-        printf("%p %p\n", s, n->s);
+        printf("%s %s\n", s, n->s);
         free(n);
     }
 
