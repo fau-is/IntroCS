@@ -14,7 +14,7 @@ node *create(int value);
 node *add(node *list, int value);
 bool find(node *list, int value);
 int size(node *list);
-bool delete(node *list);
+void delete(node *list);
 void print_list(node *list);
 
 int main(int argc, char **argv)
@@ -88,9 +88,14 @@ bool find(node *list, int value)
     return false;
 }
 
-bool delete(node *list)
+void delete(node *list)
 {
-    return false;
+    if (list != NULL)
+    {
+        delete(list->next);
+        free(list);
+    }
+    return; 
 }
 
 int size(node *list)
