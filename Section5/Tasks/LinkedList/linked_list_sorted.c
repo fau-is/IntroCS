@@ -80,8 +80,16 @@ node *add(node *list, int value)
         node *cursor = list;
         while(cursor->next != NULL)
         {
-            if (cursor->value < list->value)
-            cursor = cursor->next;
+            if (cursor->value < new->value)
+            {
+                cursor = cursor->next;
+            }
+            else
+            {
+                new->next = cursor->next;
+                cursor->next = new;
+            }
+
         }
         cursor->next = new;
     }
