@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct node
 {
@@ -24,7 +25,7 @@ int main(void)
     if(s == NULL)
         return 1;
 
-    
+
     n->s = s;
     printf("%p\n", s);
     free(s);
