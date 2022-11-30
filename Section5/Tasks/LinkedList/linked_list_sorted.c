@@ -78,8 +78,10 @@ node *add(node *list, int value)
     else
     {
         node *cursor = list;
+        int inserted = 0;
         while(cursor->next != NULL)
         {
+
             if (cursor->value < new->value)
             {
                 cursor = cursor->next;
@@ -88,10 +90,12 @@ node *add(node *list, int value)
             {
                 new->next = cursor->next;
                 cursor->next = new;
+                inserted = 1;
             }
 
         }
-        cursor->next = new;
+        if (inserted != 1)
+            cursor->next = new;
     }
     return list;
 }
