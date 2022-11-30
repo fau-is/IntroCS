@@ -12,6 +12,7 @@ node;
 
 node *create(int value);
 node *add(node *list, int value);
+int size(node *list);
 bool find(node *list, int value);
 bool delete(node *list);
 void print_list(node *list);
@@ -47,6 +48,7 @@ int main(int argc, char **argv)
     fclose(f);
 
     print_list(list);
+    printf("%i Numbers were read\n", size(list));
     delete(list);
 }
 
@@ -92,8 +94,15 @@ node* add(node *list, int value)
         }
         cursor = cursor->next;
     }
-
+    cursor->next = new;
     return list;
+}
+
+int size(node *list)
+{
+    if (list == NULL)
+        return 0;
+    return size(list->next) + 1;
 }
 
 
