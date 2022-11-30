@@ -23,7 +23,7 @@ int main(int argc, char **argv)
         n->next = NULL;
         char *s = argv[i];
         n->s = s;
-        s = "Oh No!";
+        n->s = "Oh No!";
         printf("%s\n", n->s);
         free(n);
     }
