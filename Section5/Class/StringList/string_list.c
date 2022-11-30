@@ -12,7 +12,7 @@ node;
 
 node *create(char *value);
 node *add(node *list, char *value);
-bool find(node *list, int value);
+bool find(node *list, char *value);
 bool delete(node *list);
 void print_list(node *list);
 
