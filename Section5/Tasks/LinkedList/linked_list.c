@@ -5,7 +5,7 @@
 
 typedef struct node
 {
-    int payload;
+    int value;
     struct node *next;
 }
 node;
