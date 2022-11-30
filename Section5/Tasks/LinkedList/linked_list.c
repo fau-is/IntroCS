@@ -95,7 +95,12 @@ bool delete(node *list)
 
 int size(node *list)
 {
-    return 0;
+    int size = 0;
+    for (node *cursor = list; cursor != NULL; cursor = cursor->next)
+    {
+        size++;
+    }
+    return size;
 }
 
 
