@@ -12,6 +12,7 @@ node;
 
 node *create(int value);
 node *add(node *list, int value);
+int size(node *list);
 bool find(node *list, int value);
 bool delete(node *list);
 void print_list(node *list);
@@ -103,6 +104,13 @@ bool delete(node *list)
     if(list == NULL)
         return true;
     return false;
+}
+
+int size(node *list)
+{
+    if (list == NULL)
+        return 0;
+    return size(list->next) + 1;
 }
 
 
