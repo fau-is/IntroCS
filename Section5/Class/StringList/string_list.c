@@ -10,8 +10,8 @@ typedef struct node
 }
 node;
 
-node *create(int value);
-node *add(node *list, int value);
+node *create(char *value);
+node *add(node *list, char *value);
 bool find(node *list, int value);
 bool delete(node *list);
 void print_list(node *list);
@@ -86,7 +86,7 @@ bool find(node *list, int value)
 {
     for (node* cursor = list; cursor != NULL; cursor = cursor->next)
     {
-        if (cursor->payload == value)
+        if (cursor->value == value)
         {
             return true;
         }
