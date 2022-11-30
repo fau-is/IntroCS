@@ -77,13 +77,14 @@ node *add(node *list, int value)
     }
     else
     {
-        while(list->next != NULL)
+        node *cursor = list;
+        while(cursor->next != NULL)
         {
-            list = list->next;
+            cursor = cursor->next;
         }
-        list->next = new;
+        cursor->next = new;
     }
-    return new;
+    return list;
 }
 
 
