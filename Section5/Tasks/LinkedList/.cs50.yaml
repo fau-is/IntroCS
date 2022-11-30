@@ -1,0 +1,3 @@
+lab50:
+  files:
+    -!exclude linked_list_sol.c
