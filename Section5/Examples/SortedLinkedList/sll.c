@@ -84,12 +84,13 @@ node* add(node *list, int value)
             new->next = list;
             return new;
         }
-        else if (new->payload >= list->payload && new->payload < list->next->payload)
+        else if (new->payload >= cursor->payload && new->payload < cursor->next->payload)
         {
-
+            new->next = cursor->next;
+            cursor->next = new;
+            return list;
         }
-        else
-            cursor
+        cursor = cursor->next;
     }
 
     return list;
