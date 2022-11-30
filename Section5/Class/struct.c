@@ -15,6 +15,9 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    for (int i <)
+    for (int i = 1; i < argc; i++)
+    {
+        
+    }
 
 }
