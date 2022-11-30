@@ -79,23 +79,16 @@ node *add(node *list, int value)
     {
         node *cursor = list;
         int inserted = 0;
-        while(cursor->next != NULL)
+        while(cursor != NULL)
         {
-
-            if (cursor->value < new->value)
-            {
-                cursor = cursor->next;
-            }
-            else
+            if (new->value < cursor->value)
             {
                 new->next = cursor->next;
-                cursor->next = new;
-                inserted = 1;
+                cursor->next = new; 
             }
-
+            cursor = cursor->next;
         }
-        if (inserted != 1)
-            cursor->next = new;
+
     }
     return list;
 }
