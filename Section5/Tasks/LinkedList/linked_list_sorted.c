@@ -84,7 +84,8 @@ node *add(node *list, int value)
             if (new->value < cursor->value)
             {
                 new->next = cursor->next;
-                cursor->next = new; 
+                cursor->next = new;
+                break;
             }
             cursor = cursor->next;
         }
