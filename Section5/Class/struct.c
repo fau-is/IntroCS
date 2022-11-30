@@ -15,17 +15,15 @@ int main(int argc, char **argv)
         printf("Usage: %s [Names]", argv[0]);
         return 1;
     }
-    node* n = NULL;
+    node *n = NULL;
 
     for (int i = 1; i < argc; i++)
     {
-        n = malloc(sizeof(node));
+        n = malloc(sizeof *n);
         n->next = NULL;
         n->s = argv[i];
         printf("%s\n", n->s);
-
         free(n);
-
     }
 
 }
