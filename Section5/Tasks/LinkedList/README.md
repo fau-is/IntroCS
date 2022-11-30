@@ -20,3 +20,9 @@ Functions that you should implement:
 
 ## Differences in add
 First, try to implement a linked list, where every new element is added the the beginning of the list.
+
+Second, implement a linked list where every new element is added to the end of a linked list.
+
+Lastly, implement a linked list where every new element is added so that the resulting linked list is sorted.
+
+
