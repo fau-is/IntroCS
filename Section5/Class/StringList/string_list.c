@@ -32,12 +32,12 @@ int main(int argc, char **argv)
         return 2;
     }
 
-    char *buffer[100];
+    char buffer[100];
     node *list;
 
-    while(fscanf(f, "%s", read) == 1)
+    while(fscanf(f, "%s", buffer) == 1)
     {
-        list = add(list, i);
+        list = add(list, buffer);
         if (list == NULL)
         {
             break;
@@ -82,7 +82,7 @@ node* add(node *list, char *value)
 }
 
 
-bool find(node *list, int value)
+bool find(node *list, char *value)
 {
     for (node* cursor = list; cursor != NULL; cursor = cursor->next)
     {
