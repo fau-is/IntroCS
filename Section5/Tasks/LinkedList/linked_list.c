@@ -57,10 +57,14 @@ node *create(int value)
     node *new = malloc(sizeof(node));
 
     if (new == NULL)
+    {
         return new;
+    }
 
-    
+    new->value = value;
+    new->next = NULL;
 
+    return new;
 }
 
 
