@@ -77,7 +77,11 @@ node *add(node *list, int value)
     }
     else
     {
-        new->next = list;
+        while(list->next != NULL)
+        {
+            list = list->next;
+        }
+        list->next = new;
     }
     return new;
 }
