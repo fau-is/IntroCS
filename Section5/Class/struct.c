@@ -19,13 +19,14 @@ int main(void)
 
     n->next = NULL;
     char *s = malloc(20);
+    printf("%p\n", s);
 
     if(s == NULL)
         return 1;
-        
+
     s = "hello";
     n->s = s;
-    printf("%s\n", n->s);
+    printf("%p\n", s);
     free(s);
     free(n);
 }
