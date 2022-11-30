@@ -78,15 +78,15 @@ node *add(node *list, int value)
     else
     {
         node *cursor = list;
-        int inserted = 0;
-        while(cursor != NULL)
+;
+        while(cursor->next != NULL)
         {
             if (new->value < cursor->value)
             {
-                new->next = cursor->next;
-                cursor->next = new;
-                break;
+                new->next = cursor;
+                return new;
             }
+            else if(new->value > cursor->value && new->value < cursor->next->value)
             cursor = cursor->next;
         }
 
