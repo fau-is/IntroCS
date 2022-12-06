@@ -11,4 +11,4 @@ for element in args:
     value = int(element)
     arr.append(value)
 
-print(sorted(arr))
+print(sorted(arr, reverse=True))
