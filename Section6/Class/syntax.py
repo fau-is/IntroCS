@@ -10,10 +10,25 @@ else:
     print("I don't know you")
 
 for x in range(10):
-    print(f"{x}")
+    print(x)
 
 while name:
     name = None
+
+array = []
+
+array.append("Hello")
+
+array[0] = 1 #
+array.insert(0, 1) # [1, "Hello"]
+
+array.remove("Hello")
+array.pop(0)
+
+
+
+
+
 
 
 
