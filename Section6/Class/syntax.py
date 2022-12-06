@@ -2,14 +2,12 @@ from cs50 import get_string
 
 name = get_string("Name: ")
 
-
+string = "1"
 
 print("How are you?")
 
-if name == "Sebastian":
+if string:
     print(f"Hello, {name}")
-elif name == "Kristof":
-    print("I'm your Tutor")
 else:
     print("I don't know you")
 
