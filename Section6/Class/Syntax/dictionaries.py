@@ -1,7 +1,10 @@
+dictionary = {}
+
 d = {
-    "apple":"value",
+    "key":"value",
     5:"value2"
 }
+condition = d["key"] == "value"
 
 d[3.3] = "value3"
 
