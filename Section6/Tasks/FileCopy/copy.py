@@ -1,5 +1,3 @@
-
-
 infile = open("section.txt", "r")
 outfile = open("copied.txt", "w")
 

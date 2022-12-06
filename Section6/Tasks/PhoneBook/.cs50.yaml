@@ -1,0 +1,3 @@
+lab50:
+  files:
+    - !exclude phonebook_sol.py
