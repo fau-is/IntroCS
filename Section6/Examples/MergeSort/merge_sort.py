@@ -7,5 +7,5 @@ def main():
     mergeSort(to_sort)
 
 def mergeSort(arr):
-    
+
 
