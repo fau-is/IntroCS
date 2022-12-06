@@ -12,7 +12,7 @@ def main():
 
         for line in f:
             for char in line:
-                if str.isdigit(char):
+                if not str.isdigit(char):
                     continue
                 if int(char) % 2 == 1:
                     tmp_sequence.append(char)
