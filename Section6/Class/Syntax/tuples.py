@@ -5,7 +5,7 @@ t2 = ("Hello", 2)
 l = [t1, t2]
 
 
-for word, no in l:
-    print(f"Word: {word}, Number: {no}")
+for t in l:
+    print(f"Word: {t[0]}, Number: {t[1]}")
 
 
