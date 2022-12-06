@@ -2,13 +2,19 @@ from cs50 import get_string
 
 name = get_string("Name: ")
 
-string = "1"
-
 print("How are you?")
 
-if string:
+if name:
     print(f"Hello, {name}")
 else:
     print("I don't know you")
+
+for x in range(10):
+    print(f"{x}")
+
+while name:
+    name = None
+
+
 
 
