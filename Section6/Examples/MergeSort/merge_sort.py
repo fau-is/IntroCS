@@ -1,4 +1,5 @@
 from cs50 import get_int
+
 def main():
     to_sort = []
     for i in range(10):
