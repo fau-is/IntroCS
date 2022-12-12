@@ -7,4 +7,4 @@ class Controller:
 
     def print_log(self):
         for action, result in self.__log:
-            print(action, result, sep="\t")
+            print("Done" if result == True else "Error", action, sep="\t")

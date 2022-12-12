@@ -1,4 +1,5 @@
 import shutil
+import os
 
 
 class Action:
@@ -53,11 +54,11 @@ class RenameAction(MoveAction):
 
 class DeleteAction(Action):
     def __init__(self, src_path):
-        super().__init__(self, src_path, None)
+        super().__init__(src_path, None)
 
     def do_action(self):
         try:
-            shutil.rmtree(self.src_path)
+            os.remove(self.src_path)
             return True
         except:
             return False
