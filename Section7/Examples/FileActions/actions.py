@@ -49,4 +49,9 @@ class RenameAction(MoveAction):
 
 
 class DeleteAction(Action):
-    def __init__(self, src_p)
+    def __init__(self, src_path):
+        super().__init__(self, src_path, None)
+
+    def do_action(self):
+        try:
+            shutil.
