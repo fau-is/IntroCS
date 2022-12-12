@@ -4,7 +4,7 @@ from actions import *
 def main():
     controller = Controller()
 
-    actions.
+    copy = CopyAction("Files/something.txt", "Files/)
 
 
 if __name__ is "__main__":
