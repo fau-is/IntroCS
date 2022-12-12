@@ -47,6 +47,9 @@ class RenameAction(MoveAction):
     def __init__(self, src_path, target_path):
         super().__init__(src_path, target_path)
 
+    def __str__(self):
+        return f"Rename {super().super().__str__()}"
+
 
 class DeleteAction(Action):
     def __init__(self, src_path):
@@ -58,4 +61,7 @@ class DeleteAction(Action):
             return True
         except:
             return False
+
+    def __str__(self):
+        return f"Remove file {self.src_path} from disk"
 
