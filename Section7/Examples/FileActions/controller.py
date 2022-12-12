@@ -7,4 +7,4 @@ class Controller:
 
     def print_log(self):
         for action, result in self.__log:
-            printf(action, result, sep="\t")
+            print(action, result, sep="\t")
