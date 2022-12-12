@@ -54,4 +54,8 @@ class DeleteAction(Action):
 
     def do_action(self):
         try:
-            shutil.
+            shutil.rmtree(self.src_path)
+            return True
+        except:
+            return False
+
