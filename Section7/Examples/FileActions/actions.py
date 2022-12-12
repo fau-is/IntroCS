@@ -64,5 +64,5 @@ class DeleteAction(Action):
             return False
 
     def __str__(self):
-        return f"Remove file {self.src_path} from disk"
+        return f"Remove {self.src_path} from disk"
 
