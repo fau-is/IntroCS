@@ -49,4 +49,4 @@ class RenameAction(MoveAction):
 
 
 class DeleteAction(Action):
-    
+    def __init__(self, src_p)
