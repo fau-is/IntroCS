@@ -1,3 +1,3 @@
 # Animals example
 
-This is a 
+This file is an implementation of the animal example in 
