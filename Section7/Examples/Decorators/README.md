@@ -22,7 +22,11 @@ Class methods operate on class scope. Note the first parameter cls. The function
 A class method is declared with a decorator:
 _@classmethod_
 
-## Property
-A property is a 
+## property and property.setter
+Property modifies a getter method, and \[property_name\].setter a setter method.
+Using these decorators enables you to use a simple attribute reference for calling a getter and setter.
+
+See:
+
 
 
