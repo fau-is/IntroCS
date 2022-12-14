@@ -3,7 +3,7 @@ class Queue(list):
         super().__init__()
 
     def enqueue(self, obj):
-        super().append(obj)
+        self.append(obj)
 
     def dequeue(self):
         if len(self) > 0:
