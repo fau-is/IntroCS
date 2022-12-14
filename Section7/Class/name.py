@@ -9,12 +9,10 @@ class Name:
         print(self.something)
 
 
-if __name__ == "__main__":
+name_1 = Name("IntroCS")
 
-    name_1 = Name("IntroCS")
+name_1.something = "NewName"
 
-    name_1.something = "NewName"
-    
-    name_1.method_name()
+name_1.method_name()
 
 
