@@ -1,4 +1,4 @@
-import name
+a = ["Purple Cow", "Donald Trump"]
+s = "-".join(a)
 
-
-print("Hello World")
+print(s)
