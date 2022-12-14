@@ -12,8 +12,12 @@ class Name:
 def main():
     name_1 = Name("IntroCS")
     name_1.something = "NewName"
-    name_1.attribute.append(name1.something)
-    name_1.method_name()
+    name_1.attribute.append(name_1.something)
+    Name.attribute.append(name_1)
+
+    print(name_1.attribute)
+    print(Name.attribute)
+
 
 if __name__ == "__main__":
     main()
