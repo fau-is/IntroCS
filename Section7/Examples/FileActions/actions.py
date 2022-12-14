@@ -10,7 +10,7 @@ class Action:
     def do_action(self):
         pass
 
-    def __str__(self): # str(2) => "2"
+    def __str__(self): 
         return f"{self.src_path} to {self.target_path}"
 
 
