@@ -1,6 +1,6 @@
 # Class Name definition
 class Name:
-    attribute = 0
+    attribute = []
     # Special Method: Constructor
     def __init__(self, params):
         self.something = params
