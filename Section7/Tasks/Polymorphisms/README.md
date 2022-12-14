@@ -25,6 +25,8 @@ Create a function sum that can sum up at leas two and up to four numbers at the 
 Implement a class Item(), which represents an item on a payment receipt.
 
 Item should have three attributes; the name of an item, the quantity and the price per piece.
+Additionally, item has one method _price()_ which multiplies the quantity with the price per piece to calculate the total price. 
+
 In a main function, construct two items and sum them up using the ‘+’ operator.
 
 What happens?
