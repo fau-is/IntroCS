@@ -12,8 +12,7 @@ class Name:
 def main():
     name_1 = Name("IntroCS")
     name_1.something = "NewName"
-    name_1.attribute.append(name_1.something)
-    print(name_1.attribute)
+
     Name.attribute.append(name_1)
 
     print(name_1.attribute)
