@@ -26,9 +26,8 @@ _@classmethod_
 Property modifies a getter method, and \[property_name\].setter a setter method.
 Using these decorators enables you to use a simple attribute reference for calling a getter and setter.
 
-See:
-´´´Python
- 
-´´´
+See lines 43 pp.
+
+
 
 
