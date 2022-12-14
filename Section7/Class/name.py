@@ -1,9 +1,10 @@
 # Class Name definition
 class Name:
-    attribute = []
+    attribute = 0
     # Special Method: Constructor
     def __init__(self, params):
         self.something = params
+        Name.attribute.append(self)
 
     # Method
     def method_name(self):
@@ -11,11 +12,9 @@ class Name:
 
 def main():
     name_1 = Name("IntroCS")
-    name_1.something = "NewName"
+    name_2 = Name("NewName")
 
-    Name.attribute.append(name_1)
 
-    print(name_1.attribute)
     print(Name.attribute)
 
 
