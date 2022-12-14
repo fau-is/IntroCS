@@ -17,12 +17,11 @@ if __name__ == "__main__":
     print(t.value)
     print(t._value)
 
+    # Toggle comment of the following two lines.
+    # The first one leads to an error,
+    # the second line will work:
     print(t.__value)
-
-#    try:
-#        print(t.__value)
-#    except AttributeError:
-#        print(t.get_value())
+    # print(t.get_value())
 
     t.set_value(12)
     print(t.get_value())
