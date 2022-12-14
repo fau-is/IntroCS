@@ -29,6 +29,7 @@ class Cat(Animal):
     def speak(self):
         print("Meow")
 
+
 class Fox(Animal):
     def __init__(self, name):
         super().__init__(name, "Fox", "red")
