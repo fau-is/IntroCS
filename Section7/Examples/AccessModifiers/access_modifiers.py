@@ -14,6 +14,7 @@ class AccessModifier:
 
 if __name__ == "__main__":
     t = Test("IntroCS")
+    # Private and protected variables are easily accessible.
     print(t.value)
     print(t._value)
 
