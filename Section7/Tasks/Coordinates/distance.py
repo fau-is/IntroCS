@@ -1,4 +1,4 @@
-from math import radians, sin, cos, atan2, sqrt
+from math import sin, cos, atan2, sqrt
 
 def calculate_distance(loc1, loc2):
     dlon = loc1.coordinate.longitude - loc2.coordinate.longitude
