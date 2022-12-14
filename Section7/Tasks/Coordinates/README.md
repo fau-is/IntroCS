@@ -12,10 +12,8 @@ In the constructor, you must create a Coordinate object which is stored in the a
 Furthermore, you should create a return_location method that returns the name of the location. An array locations which is a class variable of Location stores every Location that is created.
 
 ## City
-Now create another class _City_ that is a subclass of _Location_. It should take 4 parameters: latitude, longitude, name and population.
-Pass latitude and longitude as well as name to the parent classes constructor.
-Population is an attribute specific to the subclass City.
-Lastly create a method that returns the population of a City.
+Now create another class _City_ that is a subclass of _Location_. It should take 4 parameters: latitude, longitude, name and population. Pass latitude and longitude as well as name to the parent classes constructor Population is an attribute specific to the subclass City.
+Lastly create a getter method for the population attribute of a City.
 
 ## Distance
 Import the function from distance.py and try to calculate the distance between two of your coordinates.
