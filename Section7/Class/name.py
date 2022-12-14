@@ -14,6 +14,8 @@ def main():
     name_1 = Name("IntroCS")
     name_2 = Name("NewName")
 
+    Name.method_name(name_1)
+    name1.method_name()
 
     print(Name.attribute)
 
