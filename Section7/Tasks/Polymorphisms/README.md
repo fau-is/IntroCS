@@ -22,6 +22,14 @@ It usually results in different functionalities.
 Create a function sum that can sum up at leas two and up to four numbers at the same time.
 
 ## Operator overloading
+Implement a class Item(), which represents an item on a payment receipt.
+
+Item should have three attributes; the name of an item, the quantity and the price per piece.
+In a main function, construct two items and sum them up using the ‘+’ operator.
+
+What happens?
+
+Assuming we want to receive the total price
 
 
 ## Method Overriding
