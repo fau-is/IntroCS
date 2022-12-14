@@ -9,7 +9,15 @@ import time
 import threading
 from project_util import translate_html
 from datetime import datetime
-import pytz
+import subprocess
+import sys
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+try:
+    import pytz
+except:
+    install('pytz')
+    import pytz
 
 
 #-----------------------------------------------------------------------
@@ -168,15 +176,15 @@ if __name__ == '__main__':
     # A sample trigger list - you might need to change the phrases to correspond
     # to what is currently in the news
     try:
-        #t1 = TitleTrigger("election")
-        #t2 = DescriptionTrigger("Trump")
-        #t3 = DescriptionTrigger("Biden")
-        #t4 = AndTrigger(t2, t3)
-        #triggerlist = [t1, t4]
+        t1 = TitleTrigger("election")
+        t2 = DescriptionTrigger("Trump")
+        t3 = DescriptionTrigger("Biden")
+        t4 = AndTrigger(t2, t3)
+        triggerlist = [t1, t4]
 
         # Problem 11
         # TODO: After implementing read_trigger_config, uncomment this line
-        #triggerlist = read_trigger_config('triggers.txt')s
+        #triggerlist = read_trigger_config('triggers.txt')
 
         # HELPER CODE - you don't need to understand this!
         # Reads and writes Newsstories to stories.txt in specified format
