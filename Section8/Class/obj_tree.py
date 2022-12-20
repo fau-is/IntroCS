@@ -1,4 +1,6 @@
-class BinSearchTreeNode():
+from graphviz import Graph
+
+class BinTreeNode():
     def __init__(self, value):
         self.__value = value
         self.__left = None
@@ -48,7 +50,7 @@ class BinTree():
         return tree
 
     @staticmethod
-    def __rec_helper_print(node, g):
+    def __rec_helper(node, g):
         if node == None:
             return
 
@@ -59,6 +61,16 @@ class BinTree():
         if node.right:
             BinTree.__rec_helper(node.right, g)
             g.edge(str(node.value), str(node.right.value))
+
+
+if __name__ == "__main__":
+    btree = BinTree.create_bin_tree(1)
+    btree.root.left = BinTreeNode(2)
+    btree.root.right = BinTreeNode(3)
+    btree.root.right.left = BinTreeNode(4)
+    btree.root.right.right = BinTreeNode(5)
+
+    btree.tree_drawer()
 
 
 
