@@ -1,4 +1,5 @@
 from symmetry import is_matrix_symmetric
+from graphviz import Digraph, Graph
 
 def draw_graph_from_mat(matrix):
     if is_matrix_symmetric(matrix):
@@ -22,4 +23,14 @@ def draw_graph_from_mat(matrix):
                         continue
                     edges.add((str(i), str(j)))
                 g.edge(str(i), str(j), str(matrix[i][j]))
-    g.render(filename="g_mat", format="png")
+    g.render(filename="g_draw", format="png")
+
+if __name__ == "__main__":
+    matrix = [
+                [0, 1, 2, 3],
+                [1, 0, 0, 0],
+                [2, 0, 0, 0],
+                [3, 0, 0, 0],
+            ]
+
+    draw_graph_from_mat(matrix)
