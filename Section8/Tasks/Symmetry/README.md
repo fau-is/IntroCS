@@ -3,17 +3,17 @@
 ## Lab Setup
 Before we start hacking, you need to execute a few commands:
 
-
+```
 sudo apt install graphviz
 pip install graphviz
-
+```
 
 If prompted whether you want to use up more space just type 'y' and hit Enter. Don't worry about any warnings.
 To test if the installation worked, run:
 
-´´´
+```
 python graph_drawer.py
-´´´
+```
 
 If no error shows up, you're good to go!
 
