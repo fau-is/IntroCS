@@ -1,18 +1,25 @@
 # Graph Drawing
+
 ## Lab Setup
 Before we start hacking, you need to execute a few commands:
-´´´
+
+
 sudo apt install graphviz
 pip install graphviz
-´´´
+
+
 If prompted whether you want to use up more space just type 'y' and hit Enter. Don't worry about any warnings.
 To test if the installation worked, run:
+
 ´´´
 python graph_drawer.py
 ´´´
+
 If no error shows up, you're good to go!
 
 {% next "Lab Setting" %}
+
+## Lab setting
 
 Imagine, after finishing IntroCS successfully you apply for an internship at a large software vendor "Geeglo".
 "Geeglo" likes to ask algorithmic questions in job interviews.
@@ -30,6 +37,8 @@ Based on an adjacency matrix, the function in _symmetry.py_ will determine if th
 **Exam mode - finish the task in at most 10 minutes.**
 
 {% next "Undirected vs. Directed" %}
+
+## Undirected vs. Directed
 You recall the IntroCS week of Graphs and Trees.
 You remember that directed graphs are graphs which allow walking along the edges in a single direction.
 In contrast, in undirected graphs every edge can be walked along in both directions.
@@ -41,6 +50,8 @@ If every edge exists in both directions, then the set of edges is symmetric.
 **If you feel comfortable already, try to solve the task from here.**
 
 {% next "Adjacency Matrices" %}
+
+## Adjacency Matrices
 Now that you remembered the conditions for undirected graphs, you recall the functionality of adjacency matrices.
 
 An adjacency matrix is an _n x n matrix_. It represents a graph with exactly _n_ vertices indicated by row or column
