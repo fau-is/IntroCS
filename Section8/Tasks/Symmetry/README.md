@@ -16,6 +16,15 @@ If no error shows up, you're good to go!
 
 Imagine, after finishing IntroCS successfully you apply for an internship at a large software vendor "Geeglo".
 "Geeglo" likes to ask algorithmic questions in job interviews.
-As you arrive for your interview, they ask you to write a function which determines if a graph stored in an adjacency
-matrix is 
+As you arrive for your interview, they ask you to write a function which determines if a graph is undirected or directed.
+The graph is encoded as a Python graph.
+The lab provided comes with three files:
+- symmetry.py => This is where you need to add your symmetry check.
+- symmetry_test.py => Unit-test cases for the function you need to write
+- graph_drawer.py => Should, in the end, draw an undirected graph.
+
+
+{% next "Undirected vs. Directed" %}
+
+
 
