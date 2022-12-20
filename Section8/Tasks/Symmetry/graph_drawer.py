@@ -1,8 +1,10 @@
-from graphviz import Digraph
-
+from symmetry import is_matrix_symmetric
 
 def draw_graph_from_mat(matrix):
-    g = Digraph(engine="circo")
+    if is_matrix_symmetric(matrix):
+        g = Graph(engine="circo")
+    else:
+        g = Digraph(engine="circo")
     g.attr('node', fillcolor='black', fontcolor='white', shape='rectangle', style='filled', border='black')
 
     # Create Vertices
@@ -21,15 +23,3 @@ def draw_graph_from_mat(matrix):
                     edges.add((str(i), str(j)))
                 g.edge(str(i), str(j), str(matrix[i][j]))
     g.render(filename="g_mat", format="png")
-
-
-if __name__ == "__main__":
-    matrix = [[0, 0, 5, 0],
-              [3, 0, 0, 2],
-              [0, 1, 0, 0],
-              [0, 0, 0, 0]]
-
-    draw_graph_from_mat(matrix)
-
-
-
