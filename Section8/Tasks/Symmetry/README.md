@@ -5,6 +5,7 @@ Before we start hacking, you need to execute a few commands:
 
 ```
 sudo apt install graphviz
+
 pip install graphviz
 ```
 
@@ -73,6 +74,19 @@ How to solve the task:
     * Let's replace the indices: If _matrix[row][column] == matrix[column][row]_ then an edge is symmetric
     * Use the double for loop to check this condition for every field in the matrix.
 {%endspoiler%}
+
+{% next "Testing Your Code"%}
+## Testing your code
+To see if your code runs correctly, you can call:
+```
+python graph_drawer.py
+
+python symmetry_test.py
+```
+
+The graph drawer should create a .png file which contains a now undirected graph.
+
+Symmetry tests should run without failure.
 
 
 
