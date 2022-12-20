@@ -30,8 +30,8 @@ def draw_graph_from_mat(matrix):
 
 
 if __name__ == "__main__":
-    matrix = [[0, 0, 1, 0],
-              [1, 0, 0, 1],
+    matrix = [[0, 0, 5, 0],
+              [3, 0, 0, 2],
               [0, 1, 0, 0],
               [0, 0, 0, 0]]
 
