@@ -60,8 +60,7 @@ How to solve the task:
 * Let's take a look at the decisive condition:
     * If _matrix[1][0] == _matrix[0][1] Then, the edges from node 1 to node 0 and node 0 to node 1 are symmetric.
     * Let's replace the indices: If _matrix[row][column] == matrix[column][row]_ then an edge is symmetric
-    * Use the double for loop to check this condition for every fiel
-
+    * Use the double for loop to check this condition for every field in the matrix.
 {%endspoiler%}
 
 
