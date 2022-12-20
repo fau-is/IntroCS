@@ -21,9 +21,9 @@ if __name__ == "__main__":
     adj_list = {
         'A': ['B', 'C'],
         'B': ['D'],
-        'C': ['A', 'E'],
-        'D': ['E'],
-        'E': []
+        'C': ['E'],
+        'D': ['A', 'E'],
+        'E': ['B']
     }
 
     print_list_as_graph(adj_list)
