@@ -17,3 +17,5 @@ def print_array_as_bt(arr):
 
 if __name__ == '__main__':
     arr = [18, 13, 35, 12, 15]
+
+    print_array_as_bt(arr)
