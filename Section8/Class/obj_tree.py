@@ -11,7 +11,7 @@ class BinTreeNode():
         return self.__left
 
     @left.setter
-    def left(self, node: BinTreeNode):
+    def left(self, node):
         self.__left = node
 
     @property
@@ -19,7 +19,7 @@ class BinTreeNode():
         return self.__right
 
     @right.setter
-    def right(self, node: BinTreeNode):
+    def right(self, node):
         self.__right = node
 
     @property
