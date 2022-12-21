@@ -43,7 +43,7 @@ if __name__ == "__main__":
     for i in range(20):
         graph.add_edge(i, i + 1 % 20)
 
-    graph.dfs(0)
+    graph.dfs(17)
 
 
 
