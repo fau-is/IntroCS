@@ -16,9 +16,17 @@ class TestTreeBuilder(unittest.TestCase):
 
         self.assertEqual("Root", tree.root.value)
 
-    def test_add_nodes_to_empty_tree():
+    def test_add_nodes_to_empty_tree(self):
         self.tree = BinTree("Root")
-        
+
+        self.tree.add_node("RootLeft")
+        self.tree.add_node("RootRight")
+
+        self.assertEqual("RootLeft", self.tree.root.left.value)
+        self.assertEqual("RootRight", self.tree.root.right.value)
+
+
+
 
 if __name__ == "__main__":
     unittest.main()
