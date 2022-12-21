@@ -8,31 +8,6 @@ class Node:
 
 
 class Graph:
-    def __init__(self, matrix):
-        self.nodes = []
-        for i in range(len(matrix)):
-            self.nodes.append(Node(i))
-
-        for i in range(len(matrix)):
-            for j in range(0, len(matrix[i])):
-                if matrix[i][j] == 1:
-                    if i != j:
-                        self.nodes[i].neighbors.append(self.nodes[j])
-
-    def draw_graph(self):
-        g = Digraph(engine='circo')
-        for node in self.nodes:
-            g.attr('node', style='filled', fillcolor='white', fontcolor='black', shape='circle')
-            g.node('%i' % node.id, '%i' % node.id)
-
-        handled = [[]]
-        for node in self.nodes:
-            for neighbor in node.neighbors:
-                handled.append([node, neighbor])
-                g.edge('%i' % node.id, '%i' % neighbor.id)
-
-        g.view(filename="graph")
-
     @staticmethod
     def draw_graph_from_list(adj):
         g = Digraph(engine="circo")
