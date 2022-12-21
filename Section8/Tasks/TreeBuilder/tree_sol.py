@@ -58,9 +58,3 @@ class BinTree:
 
         g.render(filename=name, format="png")
 
-if __name__ == "__main__":
-    tree = BinTree(1)
-    for i in range(2, 20):
-        tree.add_node(i)
-    tree.print_tree()
-    tree.draw_tree()
