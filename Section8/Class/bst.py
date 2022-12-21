@@ -1,1 +1,1 @@
-from graphviz import graph:
+from graphviz import Graph
