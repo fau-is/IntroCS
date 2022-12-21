@@ -65,12 +65,7 @@ class BinTree:
 
 if __name__ == "__main__":
     tree = BinTree(1)
-    tree.add_node(2)
-    tree.add_node(3)
-    tree.add_node(4)
-    tree.add_node(5)
-    tree.add_node(6)
-    tree.add_node(7)
-
+    for i in range(2, 20):
+        tree.add_node(i)
     tree.print_tree()
     tree.draw_tree()
