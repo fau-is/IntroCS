@@ -30,7 +30,21 @@ class Graph():
         return True
 
     def dfs(self, node):
-        visited = self.adj
+        visited = self.nodes[node].dfs_rec([])
+        print(visited)
+
+
+if __name__ == "__main__":
+    graph = Graph()
+
+    for i in range(20):
+        graph.add_node(i)
+
+    for i in range(20):
+        graph.add_edge(i, i % 19)
+
+    graph.dfs(0)
+
 
 
 
