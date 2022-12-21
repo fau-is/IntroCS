@@ -58,6 +58,23 @@ class Graph:
                     symmetric = False
         return symmetric
 
+def example_list():
+    return {'yahoo.com': [('facebook.com', 2), ('twitter.com', 2), ('google.com', 3)],
+           'google.com': [('instagram.com', 1), ('LordVoldemodem', 1), ('yahoo.com', 3), ('twitter.com', 3),
+                    ('facebook.com', 5), ('reddit.com', 5)],
+           'facebook.com': [('twitter.com', 1), ('yahoo.com', 2), ('google.com', 5)],
+           'twitter.com': [('instagram.com', 1), ('facebook.com', 1), ('yahoo.com', 2), ('google.com', 3)],
+           'instagram.com': [('google.com', 1), ('reddit.com', 1), ('twitter.com', 1)],
+           'reddit.com': [('instagram.com', 1), ('google.com', 5)], 'LordVoldemodem': [('google.com', 1)],
+           'DesktopD': [('Mobile1', 1), ('DesktopC', 3)], 'DesktopC': [('Modem', 1), ('Mobile1', 2), ('DesktopD', 3)],
+           'Mobile1': [('DesktopD', 1), ('DesktopC', 2)], 'Modem': [('DesktopC', 1)]}
+
+def simple_list():
+    return {'Nuremberg': [("Erlangen", 20), ("Fuerth", 10)],
+            'Fuerth': [("Nuremberg", 10), ("Erlangen", 10)],
+            'Erlangen': [("Nuremberg", 20), ("Fuerth", 10)]
+            }
+
 
 if __name__ == '__main__':
     matrix = [[0, 1, 1, 1],
@@ -66,17 +83,8 @@ if __name__ == '__main__':
               [1, 1, 1, 0]]
     # Graph.draw_graph_from_mat(matrix)
 
-    adj = {'yahoo.com': [('facebook.com', 2), ('twitter.com', 2), ('google.com', 3)],
-           'google.com': [('instagram.com', 1), ('LordVoldemodem', 1), ('yahoo.com', 3), ('twitter.com', 3),
-                    ('facebook.com', 5), ('reddit.com', 5)],
-           'facebook.com': [('twitter.com', 1), ('yahoo.com', 2), ('google.com', 5)],
-           'twitter.com': [('instagram.com', 1), ('facebook.com', 1), ('yahoo.com', 2), ('google.com', 3)],
-           'instagram.com': [('google.com', 1), ('reddit.com', 1), ('twitter.com', 1)],
-           'reddit.com': [('instagram.com', 1), ('google.com', 5)], 'LordVoldemodem': [('google.com', 1)],
-           'DesktopD': [('Mobile1', 1), ('DesktopC', 3)], 'DesktopC': [('Modem', 1), ('Mobile1', 2), ('DesktopD', 3)],
-           'Mobile1': [('DesktopD', 1), ('DesktopC', 2)], 'Modem': [('DesktopC', 1)]
-           }
-    Graph.draw_graph_from_list(adj)
+
+    Graph.draw_graph_from_list(simple_list())
 
 
 
