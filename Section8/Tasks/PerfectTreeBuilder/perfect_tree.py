@@ -69,6 +69,8 @@ if __name__ == "__main__":
     tree.add_node(3)
     tree.add_node(4)
     tree.add_node(5)
+    tree.add_node(6)
+    tree.add_node(7)
 
     tree.print_tree()
     tree.draw_tree()
