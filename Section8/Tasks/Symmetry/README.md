@@ -86,7 +86,7 @@ python symmetry_test.py
 
 The graph drawer should create a .png file which contains a now undirected graph.
 
-Symmetry tests should run without failure.
+All symmetry tests should run without failure.
 
 
 
