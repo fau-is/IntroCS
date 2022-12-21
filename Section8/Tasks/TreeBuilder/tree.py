@@ -12,7 +12,6 @@ class BinTreeNode:
         else:
             return 0
 
-
     def add_node(self, value):
         if not self.left:
             self.left = BinTreeNode(value)
@@ -40,7 +39,6 @@ class BinTreeNode:
         if self.right:
             self.right.draw_tree(graph)
             graph.edge(str(self.value), str(self.right.value))
-
 
 
 class BinTree:
