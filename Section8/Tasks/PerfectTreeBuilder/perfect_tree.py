@@ -7,14 +7,12 @@ class BinTreeNode:
         self.value = value
 
     def get_height(self):
-        if not self.left and not self.right:
-            return 0
         if self.left and self.right:
             return min(self.right.get_height(), self.left.get_height()) + 1
-        if self.right and not self.left:
-            return self.right.get_height() + 1
         else:
-            return self.left.get_height() + 1
+            return 0
+
+
 
     def add_node(self, value):
         if not self.left:
