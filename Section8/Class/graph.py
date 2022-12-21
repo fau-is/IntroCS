@@ -40,8 +40,8 @@ if __name__ == "__main__":
     for i in range(20):
         graph.add_node(i)
 
-    for i in range(21):
-        graph.add_edge(i, i + 1 % 20)
+    for i in range(20):
+        graph.add_edge(i, (i + 1) % 20)
 
     graph.dfs(17)
 
