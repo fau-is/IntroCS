@@ -1,3 +1,5 @@
+from graphviz import Graph
+
 class BinTreeNode:
     def __init__(self, value):
         self.left = None
@@ -31,6 +33,19 @@ class BinTreeNode:
         if self.right:
             self.right.print_preorder()
 
+    def draw_tree(self, graph):
+        graph.node(str(self.value), str(self.value))
+
+        if self.left:
+            self.left.draw_tree(graph)
+            graph.edge(str(self.value), str(self.left.value))
+
+        if self.right:
+            self.right.draw_tree(graph)
+            graph.edge(str(self.value), str(self.right.value))
+
+
+
 class BinTree:
     def __init__(self, value):
         self.root = BinTreeNode(value)
@@ -41,6 +56,13 @@ class BinTree:
     def print_tree(self):
         self.root.print_preorder()
 
+    def draw_tree(self, name="ptree"):
+        g = Graph()
+        g.attr('node', fillcolor='white', fontcolor='black', shape='circle', style='filled', border='black')
+        self.root.draw_tree(g)
+
+        g.render(filename=name, format="png")
+
 if __name__ == "__main__":
     tree = BinTree(1)
     tree.add_node(2)
@@ -49,3 +71,4 @@ if __name__ == "__main__":
     tree.add_node(5)
 
     tree.print_tree()
+    tree.draw_tree()
