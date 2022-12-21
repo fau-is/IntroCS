@@ -17,7 +17,6 @@ class GraphNode:
 class Graph():
     def __init__(self):
         self.nodes = {}
-        self.adj_matrix = {}
 
     def add_node(self, data):
         g_node = GraphNode(data)
