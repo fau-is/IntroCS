@@ -10,7 +10,7 @@ class BinTreeNode:
         if not self.left and not self.right:
             return 0
         if self.left and self.right:
-            return min(self.right.get_height(), self.left.get_height()) + 1
+            return max(self.right.get_height(), self.left.get_height()) + 1
         if self.right and not self.left:
             return self.right.get_height() + 1
         else:
