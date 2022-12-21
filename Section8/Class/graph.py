@@ -27,6 +27,7 @@ class Graph():
         if source not in adj_matrix or target not in adj_matrix:
             return False
 
-        
+        self.adj_matrix[source].append(target)
+        self.nodes[source].add_neighbor(self.nodes[target])
 
 
