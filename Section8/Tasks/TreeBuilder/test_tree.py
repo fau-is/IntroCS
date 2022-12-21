@@ -50,7 +50,7 @@ class TestTreeBuilder(unittest.TestCase):
         self.root_right_missing.add_node("RootRight")
         self.assertEqual("RootRight", self.root_right_missing.right.value)
 
-    def test_add_node_to_filled_tree(self):
+    def test_add_node_to_filled_tree2(self):
         self.root_left_right_left_missing.add_node("RootLeftRightLeft")
         self.assertEqual("RootLeftRightLeft", self.root_left_right_left_missing.left.right.left.value)
 
