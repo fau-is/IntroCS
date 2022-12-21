@@ -4,7 +4,7 @@ class BinTreeNode:
         self.right = None
         self.value = value
 
-    def get_height(self)
+    def get_height(self):
         if not self.left and not self.right:
             return 0
         if self.left and self.right:
@@ -14,7 +14,7 @@ class BinTreeNode:
         else:
             return self.left.get_height() + 1
 
-    def add_node(self, value)
+    def add_node(self, value):
         if self.left is None:
             self.left = BinTreeNode(value)
         elif self.right is None:
@@ -36,4 +36,17 @@ class BinTree:
         self.root = BinTreeNode(value)
 
     def add_node(self, value):
-        self.root 
+        self.root.add_node(value)
+
+    def print_tree(self):
+        self.root.print_preorder()
+
+if __name__ == "__main__":
+    tree = BinTree(1)
+
+    tree.add_node(2)
+    tree.add_node(3)
+    tree.add_node(4)
+    tree.add_node(5)
+
+    tree.print_tree()
