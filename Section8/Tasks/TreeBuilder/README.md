@@ -14,4 +14,5 @@ If prompted whether you want to use up more space just type 'y' and hit Enter. D
 ## Task
 In the class _BinTreeNode_, you need to implement the methods:
 * _get\_min\_height\_free\_spot_ which returns the highest height of the next free child-tree.
-* _add\_node_ which adds
+* _add\_node_ which adds a node to a binary tree at the highest free spot.
+
