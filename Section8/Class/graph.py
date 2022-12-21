@@ -21,13 +21,16 @@ class Graph():
     def add_node(self, data):
         g_node = GraphNode(data)
         self.nodes[data] = g_node
-        self.adj_matrix[data] = []
 
     def add_edge(self, source, target):
-        if source not in adj_matrix or target not in adj_matrix:
+        if source not in self.nodes or target not in self.nodes:
             return False
 
-        self.adj_matrix[source].append(target)
         self.nodes[source].add_neighbor(self.nodes[target])
+        return True
+
+    def dfs(self, node):
+        visited = self.adj
+
 
 
