@@ -11,7 +11,8 @@ class GraphNode:
         return visited
 
     def add_neighbor(self, neighbor):
-        self.neighbors.append(neighbor)
+        if neighbor not in self.neighbors:
+            self.neighbors.append(neighbor)
 
 class Graph():
     def __init__(self):
@@ -40,7 +41,7 @@ if __name__ == "__main__":
     for i in range(20):
         graph.add_node(i)
 
-    for i in range(20):
+    for i in range(21):
         graph.add_edge(i, i + 1 % 20)
 
     graph.dfs(17)
