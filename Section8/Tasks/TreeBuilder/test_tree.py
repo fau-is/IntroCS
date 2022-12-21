@@ -15,9 +15,10 @@ def tree_builder_root_left_right_left_missing():
     root.left.left = BinTreeNode("RootLeftLeft")
     root.left.left.left = BinTreeNode("RootLeftLeftLeft")
     root.left.left.right = BinTreeNode("RootLeftLeftRight")
-    root.right = BinTreeNode("RootRight")
+    root.left.right = BinTreeNode("RootLeftRight")
     root.left.right.right = BinTreeNode("RootLeftRightRight")
     # root.left.right.left => misses
+    root.right = BinTreeNode("RootRight")
     root.right.right = BinTreeNode("RootRightRight")
     root.right.right.left = BinTreeNode("RootRightRightLeft")
     root.right.right.right = BinTreeNode("RootRightRightRight")
