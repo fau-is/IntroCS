@@ -21,7 +21,7 @@ class BinTreeNode:
             self.left = BinTreeNode(value)
         elif not self.right:
             self.right = BinTreeNode(value)
-        elif self.left.get_height() < self.right.get_height():
+        elif self.left.get_height() <= self.right.get_height():
             self.left.add_node(value)
         else:
             self.right.add_node(value)
