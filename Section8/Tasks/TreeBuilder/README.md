@@ -22,6 +22,6 @@ In the class _BinTreeNode_, you need to implement the methods:
 * Left complete: A tree is filled to the leaf level and starts from the left to fill up the leaf-level.
 * In any tree-based data structure, Recursion is your friend.
 
-Python bears a _min()_ function which returns the minimum of compared values.
+Python provides a built_in function _min()_ which returns the minimum of all compared values.
 
 

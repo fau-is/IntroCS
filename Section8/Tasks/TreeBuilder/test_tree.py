@@ -7,9 +7,11 @@ def tree_builder1():
     root.left.left = BinTreeNode("RootLeftLeft")
     root.left.right = BinTreeNode("RootLeftRight")
 
+    return root
+
 class TestTreeBuilder(unittest.TestCase):
     def setUp(self):
-        self.tree = tree_builder1()
+        self.root = tree_builder1()
 
     def test_create_root(self):
         tree = BinTree("Root")
@@ -17,13 +19,17 @@ class TestTreeBuilder(unittest.TestCase):
         self.assertEqual("Root", tree.root.value)
 
     def test_add_nodes_to_empty_tree(self):
-        self.tree = BinTree("Root")
+        tree = BinTree("Root")
 
-        self.tree.add_node("RootLeft")
+        tree.add_node("RootLeft")
+        tree.add_node("RootRight")
+
+        self.assertEqual("RootLeft", tree.root.left.value)
+        self.assertEqual("RootRight", tree.root.right.value)
+
+    def test_add_node_to_filled_tree(self):
         self.tree.add_node("RootRight")
-
-        self.assertEqual("RootLeft", self.tree.root.left.value)
-        self.assertEqual("RootRight", self.tree.root.right.value)
+        self.assertEqual("RootRight", self.root.right.value)
 
 
 
