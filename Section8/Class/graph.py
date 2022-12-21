@@ -4,8 +4,8 @@ class GraphNode:
         self.data = data
 
     def dfs_rec(self, visited):
-        if self not in visited:
-            visited.append(self)
+        if self.data not in visited:
+            visited.append(self.data)
             for neighbor in self.neighbors:
                 visited = neighbor.dfs_rec(visited)
         return visited
