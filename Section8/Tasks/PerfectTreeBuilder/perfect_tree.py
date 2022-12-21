@@ -15,14 +15,14 @@ class BinTreeNode:
             return self.left.get_height() + 1
 
     def add_node(self, value):
-        if self.left is None:
+        if not self.left:
             self.left = BinTreeNode(value)
-        elif self.right is None:
-            self.left = BinTreeNode(value)
+        elif not self.right:
+            self.right = BinTreeNode(value)
         elif self.left.get_height() < self.right.get_height():
             self.left.add_node(value)
         else:
-            self.right.add_node
+            self.right.add_node(value)
 
     def print_preorder(self):
         print(self.value)
@@ -43,7 +43,6 @@ class BinTree:
 
 if __name__ == "__main__":
     tree = BinTree(1)
-
     tree.add_node(2)
     tree.add_node(3)
     tree.add_node(4)
