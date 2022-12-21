@@ -24,5 +24,9 @@ class Graph():
         self.adj_matrix[data] = []
 
     def add_edge(self, source, target):
+        if source not in adj_matrix or target not in adj_matrix:
+            return False
+
         
+
 
