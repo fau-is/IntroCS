@@ -65,8 +65,7 @@ if __name__ == '__main__':
               [1, 1, 0, 1],
               [1, 1, 1, 0]]
     # Graph.draw_graph_from_mat(matrix)
-    # g = Graph(matrix)
-    # g.draw_graph()
+
     adj = {'yahoo.com': [('facebook.com', 2), ('twitter.com', 2), ('google.com', 3)],
            'google.com': [('instagram.com', 1), ('LordVoldemodem', 1), ('yahoo.com', 3), ('twitter.com', 3),
                     ('facebook.com', 5), ('reddit.com', 5)],
