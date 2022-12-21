@@ -8,7 +8,7 @@ class BinTreeNode:
 
     def get_min_height_free_spot(self):
         if self.left and self.right:
-            return min(self.right.get_height(), self.left.get_height()) + 1
+            return min(self.right.get_min_height_free_spot(), self.left.get_min_height_free_spot()) + 1
         else:
             return 0
 
@@ -17,7 +17,7 @@ class BinTreeNode:
             self.left = BinTreeNode(value)
         elif not self.right:
             self.right = BinTreeNode(value)
-        elif self.left.get_height() <= self.right.get_height():
+        elif self.left.get_min_height_free_spot() <= self.right.get_min_height_free_spot():
             self.left.add_node(value)
         else:
             self.right.add_node(value)
