@@ -24,4 +24,7 @@ In the class _BinTreeNode_, you need to implement the methods:
 
 Python provides a built_in function _min()_ which returns the minimum of all compared values.
 
+## Test Your Code
+Feel free to use the test_tree.py file to test your Code.
+
 

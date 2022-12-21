@@ -7,20 +7,12 @@ class BinTreeNode:
         self.value = value
 
     def get_min_height_free_spot(self):
-        if self.left and self.right:
-            return min(self.right.get_min_height_free_spot(), self.left.get_min_height_free_spot()) + 1
-        else:
-            return 0
+        # TODO
+        pass
 
     def add_node(self, value):
-        if not self.left:
-            self.left = BinTreeNode(value)
-        elif not self.right:
-            self.right = BinTreeNode(value)
-        elif self.left.get_min_height_free_spot() <= self.right.get_min_height_free_spot():
-            self.left.add_node(value)
-        else:
-            self.right.add_node(value)
+       # TODO
+       pass
 
     def print_preorder(self):
         print(self.value)
