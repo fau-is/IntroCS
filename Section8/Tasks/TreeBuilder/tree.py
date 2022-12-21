@@ -13,7 +13,6 @@ class BinTreeNode:
             return 0
 
 
-
     def add_node(self, value):
         if not self.left:
             self.left = BinTreeNode(value)
