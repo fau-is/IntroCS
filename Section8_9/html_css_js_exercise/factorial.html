@@ -1,0 +1,21 @@
+<!DOCTYPE html><head>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function factorial(n) {
+    for(let i=n-1; i>=1; i--){
+        n = n * i;
+    }
+    alert(n)
+}
+    </script>
+    <title>HelloWorld</title>
+    
+</head>
+<body>
+    <h2> Welcome to my factorial calculation page!</h2>
+    <p class="bold">Hello world</p>
+    <input type="number" id="factor">
+    <p> <a href="#", onclick="factorial(document.getElementById('factor').value);">calculate</a></p>
+    <button onclick="factorial(document.getElementById('factor').value);">calculate</button>
+</body>
+</html> 

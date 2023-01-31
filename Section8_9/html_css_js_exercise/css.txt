@@ -1,0 +1,38 @@
+******************CSS selector********************
+1. select all:
+* {
+    background: green
+    }
+
+
+2. type selector
+span {
+    background: green
+        }
+
+
+3. class selector
+.green {
+            background: green
+        }
+
+
+4. ID selector
+#green {
+            background: green
+        }
+
+
+5. class + type
+
+ div.green {
+            background: green
+        }
+
+
+6. multiple type
+
+div, span {
+            background: green
+        }
+

@@ -1,0 +1,55 @@
+ 
+
+# Manual add idnum
+CREATE TABLE users (idnum INTEGER, username TEXT, password TEXT, fullname TEXT);
+
+
+# Autoincrement
+CREATE TABLE users (idnum INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT, fullname TEXT);
+INSERT INTO users (username, password, fullname) VALUES ('jerry', 'fus!||!', 'Jerry Seinfeld');
+
+INSERT INTO users (idnum, username, password, fullname) VALUES (10, 'jerry', 'fus!||!', 'Jerry Seinfeld');
+INSERT INTO users (idnum, username, password, fullname) VALUES (11, 'gcostanza', 'b0sc0', 'George Costanza');
+INSERT INTO users (idnum, username, password, fullname) VALUES (12, 'newman', 'USMAIL', 'Newman');
+
+# moms table
+CREATE TABLE moms (username TEXT, mother TEXT);
+INSERT INTO moms (username, mother) VALUES ('jerry', 'Helen Seinfeld');
+INSERT INTO moms (username, mother) VALUES ('gcostanza', 'Estelle Costanza');
+INSERT INTO moms (username, mother) VALUES ('kramer', 'Babs Kramer');
+
+
+#SELECT
+SELECT * FROM users;
+SLECT * FROM moms;
+SELECT idnum, fullname FROM users;
+SELECT password FROM users WHERE idnum=11;
+SELECT * FROM moms WHERE username='jerry';
+
+# JOIN
+SELECT users.username, moms.mother FROM users JOIN moms ON users.username=moms.username;
+
+# UPDATE
+UPDATE users SET password='bestpasswordever' WHERE idnum=10;
+
+# DELETE
+DELETE FROM users WHERE username='jerry';
+
+# DROP A TABLE
+DROP TABLE __name__
+
+# quit sqlite will lose all created tables
+
+**********************************************
+
+import sqlite3
+
+connection = sqlite3.connect("MyUsers.db")
+cursor = connection.cursor()
+
+cursor.execute("CREATE TABLE IF NOT EXISTS newUsers (idnum INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT, fullname TEXT)")
+
+cursor.execute("INSERT OR IGNORE INTO newUsers (username, password, fullname) VALUES ('jerry', 'fus!!!', 'Jerry Seinfeld')")
+connection.commit() # for insertion
+
+print(cursor.execute("SELECT * FROM newUsers").fetchall())

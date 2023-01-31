@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <title>Multipliation Table</title>
+  </head>
+  <body>
+    <p id="myp"> Super Cool Multipliation Table</p>
+        <table border=1>
+           {% for i in range(dim|int) %}    
+          <tr>
+                {% for j in range(dim|int) %}    
+              <td>
+                    {{ (i + 1) * (j + 1) }}    
+              </td>
+              {% endfor %}    
+          </tr>
+            {% endfor %}    
+        </table>
+  </body>
+</html>
