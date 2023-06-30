@@ -14,6 +14,13 @@ Students will access the API data and store users, posts, retweets, and favourit
 1.	Register an application at the instance we want to interact with (e.g. an own website). This can be done via an API endpoint (POST /api/v1/apps). This will give us a client_id and client_secret.
 2.	Obtain an access_token for the user you want to act as. This is done by directing the user to a specific URL where they can approve your app, and then they'll be redirected back to your app with an access_token in the URL.
 3.	Use the access_token to make API requests on behalf of the user. This can be done by including an Authorization header with the HTTP request.
+
+
+
+
+
+
+
 ### Useful API requests
 #### Timelines: 
 ```bash
