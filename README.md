@@ -7,7 +7,7 @@ Students will access the API data and store users, posts, retweets, and favourit
 2. Accessing Data via the API: Students will write Python code (or a language of your choice that supports OOP) to access data from the Mastodon API.
 3. Creating Objects: Students will create classes for Users, Posts, Retweets, and favourites. Instances of these classes will be created using data obtained from the Mastodon API.
 4. Problem-Solving Exercises: Students will work in groups to complete a problem set designed to enhance their understanding and usage of OOP concepts, including inheritance, polymorphism, and encapsulation.
-5. Data Storage: Students will create methods for storing and retrieving these objects, simulating a simple database.
+5. Data Storage: Students will create methods for storing and retrieving these objects, simulating a simple database. 
 
 ## API Access
 ### Obtaining Access to the API
@@ -15,13 +15,17 @@ Students will access the API data and store users, posts, retweets, and favourit
 2.	Obtain an access_token for the user you want to act as. This is done by directing the user to a specific URL where they can approve your app, and then they'll be redirected back to your app with an access_token in the URL.
 3.	Use the access_token to make API requests on behalf of the user. This can be done by including an Authorization header with the HTTP request.
 
+### Pset Structure
+1. Create account
+2. Get access via Credentials API
+3. ~~~ get data
+4. Create objects and methods
+5. Save result as object instances
+6. ~~~ Work with object instances
 
 
-
-
-
-
-### Useful API requests
+### Useful API requests 
+not used, since we will use Mastodon.py library and documentation
 #### Timelines: 
 ```bash
 GET /api/v1/timelines/public

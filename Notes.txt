@@ -1,0 +1,37 @@
+https://mastodon.social/api/v2/search?q=marieobst
+--> gives you a JSON dict with information about the account "marieobst"
+
+https://mastodon.social/api/v1/timelines/public?limit=1
+--> gives you a JSON dict with public account data
+[{"id":"110571223609139632","created_at":"2023-06-19T13:56:15.000Z","in_reply_to_id":null,"in_reply_to_account_id":null,"sensitive":false,"spoiler_text":"","visibility":"public","language":"ko","uri":"https://social.silicon.moe/users/zeroday0619/statuses/110571223475882291","url":"https://social.silicon.moe/@zeroday0619/110571223475882291","replies_count":0,"reblogs_count":0,"favourites_count":0,"edited_at":null,"favourited":false,"reblogged":false,"muted":false,"bookmarked":false,"content":"","filtered":[],"reblog":null,"account":{"id":"109311365288680116","username":"zeroday0619","acct":"zeroday0619@silicon.moe","display_name":"zero :verified:","locked":true,"bot":false,"discoverable":true,"group":false,"created_at":"2022-11-08T00:00:00.000Z","note":"\u003cp\u003einterested in computer science | \u003cbr\u003e\u003ca href=\"https://social.silicon.moe/tags/Nintendo\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"\u003e#\u003cspan\u003eNintendo\u003c/span\u003e\u003c/a\u003e \u0026amp; \u003ca href=\"https://social.silicon.moe/tags/Pokemon\" class=\"mention hashtag\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"\u003e#\u003cspan\u003ePokemon\u003c/span\u003e\u003c/a\u003e fan. | \u003cbr\u003eRTs not endorsements.\u003c/p\u003e","url":"https://social.silicon.moe/@zeroday0619","avatar":"https://files.mastodon.social/cache/accounts/avatars/109/311/365/288/680/116/original/eb0ff942854c76c6.png","avatar_static":"https://files.mastodon.social/cache/accounts/avatars/109/311/365/288/680/116/original/eb0ff942854c76c6.png","header":"https://files.mastodon.social/cache/accounts/headers/109/311/365/288/680/116/original/6b6d34f28ced6e20.jpeg","header_static":"https://files.mastodon.social/cache/accounts/headers/109/311/365/288/680/116/original/6b6d34f28ced6e20.jpeg","followers_count":148,"following_count":214,"statuses_count":1053,"last_status_at":"2023-06-19","emojis":[{"shortcode":"verified","url":"https://files.mastodon.social/cache/custom_emojis/images/000/449/120/original/2e58c7c205ce7e19.png","static_url":"https://files.mastodon.social/cache/custom_emojis/images/000/449/120/static/2e58c7c205ce7e19.png","visible_in_picker":true}],"fields":[{"name":"Lang","value":"ko_kr, en_us","verified_at":null},{"name":"Stella Misskey","value":"\u003ca href=\"https://stella.place/@zeroday0619\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"\u003e\u003cspan class=\"invisible\"\u003ehttps://\u003c/span\u003e\u003cspan class=\"\"\u003estella.place/@zeroday0619\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e","verified_at":"2023-06-02T12:30:32.615+00:00"},{"name":"Twitter","value":"\u003ca href=\"https://twitter.com/dev_zeroday0619\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"\u003e\u003cspan class=\"invisible\"\u003ehttps://\u003c/span\u003e\u003cspan class=\"\"\u003etwitter.com/dev_zeroday0619\u003c/span\u003e\u003cspan class=\"invisible\"\u003e\u003c/span\u003e\u003c/a\u003e","verified_at":null},{"name":"PGP","value":"\u003ca href=\"https://keyserver.ubuntu.com/pks/lookup?op=hget\u0026amp;search=b4a0d5ce4cb078752f8bb5b142685e8b\" rel=\"nofollow noopener noreferrer\" target=\"_blank\"\u003e\u003cspan class=\"invisible\"\u003ehttps://\u003c/span\u003e\u003cspan class=\"ellipsis\"\u003ekeyserver.ubuntu.com/pks/looku\u003c/span\u003e\u003cspan class=\"invisible\"\u003ep?op=hget\u0026amp;search=b4a0d5ce4cb078752f8bb5b142685e8b\u003c/span\u003e\u003c/a\u003e","verified_at":null}]},"media_attachments":[{"id":"110571223515390866","type":"image","url":"https://files.mastodon.social/cache/media_attachments/files/110/571/223/515/390/866/original/0345def6994249bd.jpg","preview_url":"https://files.mastodon.social/cache/media_attachments/files/110/571/223/515/390/866/small/0345def6994249bd.jpg","remote_url":"https://mstdn-cdn.e14forest.net/media_attachments/files/110/571/221/924/890/675/original/01b728821d1b32ba.jpg","preview_remote_url":null,"text_url":null,"meta":{"original":{"width":700,"height":449,"size":"700x449","aspect":1.55902004454343},"small":{"width":599,"height":384,"size":"599x384","aspect":1.5598958333333333}},"description":null,"blurhash":"UcG[[=MdjZHXrrofayt7oej[jZoKvzt7jZxu"}],"mentions":[],"tags":[],"emojis":[],"card":null,"poll":null}]
+
+
+
+account = mastodon.account_verify_credentials()
+user_id = account['id']
+
+followers = mastodon.account_followers(user_id)
+following = mastodon.account_following(user_id)
+
+Maybe mock data of some Accounts (that you can grant yourself access to) 
+
+!!!
+but no data about who is following who, since specific user authorization is needed
+try: https://mastodonpy.readthedocs.io/en/stable/06_accounts.html#following-and-followers
+--> maybe try this approach
+
+
+
+AUFGABEN:
+klassifizieren von Account bzw. wenn bestimmte voraussetzungen erfüllt sind 
+--> Bot = yes 
+
+User = id, username, display_name, follower_count,  following_count
+subclass = Bot or NOT
+Timeline = user, toots (a list of toots), and toot_count
+
+method: Bot der über python document etwas postet/ allen folgen, d
+
+Graphs & Trees: gemocktes Social Network Gespräche wieder geben
+
+Maybe add specific followers with a different data file. The information should be added to the classes as well
