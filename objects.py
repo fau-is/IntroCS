@@ -29,8 +29,8 @@ class User:
     def get_signdate(self):
         return self.signdate
     
-    def set_dollower_count(self):
-        count = user_data['followers_count']
-        self.followers_count = count
+    #def set_follower_count(self):
+     #   count = user_data['followers_count']
+      #  self.followers_count = count
     
     
