@@ -9,7 +9,8 @@ import pandas as pd
 # print(statuses[0]["content"]) # this prints the status text
 
 # 1.2 Fetching toots by hashtags:
-# response = requests.get("https://mastodon.social/api/v1/timelines/tag/cats?limit=2")
+# hashtag = 'cat'
+# response = requests.get(f"https://mastodon.social/api/v1/timelines/tag/{hashtag}?limit=2")
 # statuses = json.loads(response.text) # this converts the json to a python list of dictionary
 # assert statuses[0]["visibility"] == "public" # we are reading a public timeline
 # print(statuses[0]["content"]) # this prints the status text
@@ -69,13 +70,13 @@ import pandas as pd
 #     print(followers[0]['id']) # this prints the id of follower #1
 
 # 2.2 With authentication fetching followed users of a specified id:
-access_token = ""
-id = "15530"
-response = requests.get(f"https://mastodon.social/api/v1/accounts/{id}/following?limit=80", headers={'Authorization':f'Bearer {access_token}'})
-# Pagination - response object contains a "next"- or "prev"-link for the next or previous instances of following accounts (if there are more than 80 followers)
-following = json.loads(response.text) # this converts the json to a python list of dictionary
-print(len(following)) # this prints the number of followers
-if len(following)>0:
-    print(following[0]['id']) # this prints the id of follower #1
+# access_token = ""
+# id = "15530"
+# response = requests.get(f"https://mastodon.social/api/v1/accounts/{id}/following?limit=80", headers={'Authorization':f'Bearer {access_token}'})
+# # Pagination - response object contains a "next"- or "prev"-link for the next or previous instances of following accounts (if there are more than 80 followers)
+# following = json.loads(response.text) # this converts the json to a python list of dictionary
+# print(len(following)) # this prints the number of followers
+# if len(following)>0:
+#     print(following[0]['id']) # this prints the id of follower #1
 
 ## TODO: Issue, we can only access followers or following from users of the same server, e.g. mastodon.social, where the app is registered
