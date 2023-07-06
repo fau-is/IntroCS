@@ -13,7 +13,7 @@ class User:
         self.signdate = signdate
         User.users.append(id)
     
-    # getter- & setter-Methods
+    # getter-Methods
     def get_name(self):
         return self.name
     
@@ -29,11 +29,33 @@ class User:
     def get_signdate(self):
         return self.signdate
     
-    #def set_follower_count(self):
-     #   count = user_data['followers_count']
-      #  self.followers_count = count
       
 class Toot:
-    
-    
-    
+    def __init__(self, content, account, user_id, hashtags, bookmark, no_replies, url, toot_id):
+        self.content = content
+        self.account = account
+        self.user_id = user_id
+        self.hashtag = hashtags
+        self.bookmark = bookmark
+        self.no_replies = no_replies
+        self.url = url
+        self.toot_id = toot_id
+        
+    def get_replies(self):
+        toot_id = self.toot_id
+        # toot_id = "5" 
+        # Specify the ID of the toot you want to retrieve replies for 
+        context = mastodon.status_context(toot_id) 
+        replies = context['descendants'] 
+        print(replies)
+        
+       
+       
+class Reply(Toot):
+    def __init__(self, content, account, user_id, hashtags, bookmark, no_replies, url, reply_id, toot_id):
+        super().__init__(content, account, user_id, hashtags, bookmark, no_replies, url, toot_id)
+        self.reply_id = reply_id
+        
+    def safe_mother_toot(self):
+        return 1
+        # wenn toot mit der id, dann mach nichts, ansonsten erstelle toot

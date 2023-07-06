@@ -1,6 +1,6 @@
 from mastodon import Mastodon
 from bs4 import BeautifulSoup
-from objects import User
+from objects import User, Toot
 
 mastodon = Mastodon(
     client_id="SOXp3afnWgFJrQf2_UIlqgPva--ZhdBZHS9fyik8Rvg",
@@ -90,15 +90,17 @@ for toot in toots:
     soup = BeautifulSoup(content_html, 'html.parser')
     content_text = soup.get_text()
     toot = Toot(
-        account = toot['account']
-        content = content_text
-        user_id = toot['user_id']
-        hashtag = toot['hashtags']
-        bookmark = toot['bookmark']
-        no_replies = toot['no_replies']
-        url = toot['url']
+        account = toot['account'],
+        content = content_text,
+        user_id = toot['user_id'],
+        hashtag = toot['hashtags'],
+        bookmark = toot['bookmark'],
+        no_replies = toot['no_replies'],
+        url = toot['url']   
     )
     toots_dict.append(toot)
     
 for toot in toots_dict:
     print(toot["content"])
+    
+toots_dict[0].get_replies()
