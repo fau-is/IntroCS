@@ -1,4 +1,5 @@
 from mastodon import Mastodon
+from bs4 import BeautifulSoup
 from objects import User
 
 mastodon = Mastodon(
@@ -28,16 +29,12 @@ print("")
 
 
 query = "Johny"
-limit = 1
+limit = 10
 
 ######################################################################## Get all followed Persons ################################################################
 def get_followed(user_id):
-
     followedPersons = []
-
     followed = mastodon.account_following(id = user_id, limit=None)
-
-
     for account in followed:
         user = User(
             name=account['username'],
@@ -62,27 +59,46 @@ def get_followed(user_id):
     print("")
 
 ######################################################################## Search Accounts by Name ################################################################
+def search_account():
+    results = mastodon.account_search(q=query, limit=limit)
 
-results = mastodon.account_search(q=query, limit=limit)
+    users = []
+    for account in results:
+        user = User(
+            name=account['username'],
+            id=account['id'],
+            display_name=account['display_name'],
+            followers_count=account['followers_count'],
+            signdate=None
+        )
+        users.append(user)
 
-users = []
-for account in results:
-    user = User(
-        name=account['username'],
-        id=account['id'],
-        display_name=account['display_name'],
-        followers_count=account['followers_count'],
-        signdate=None
+    # Print the stored user data
+    for user in users:
+        print(f"Username: {user.get_name()}")
+        print(f"Display Name: {user.get_display_name()}")
+        print(f"Followers Count: {user.get_followers_count()}")
+        print()
+    
+hashtag = "Moin" 
+
+toots = mastodon.timeline_hashtag(hashtag, limit=limit)
+toots_dict = []
+# Process and print the retrieved toots
+for toot in toots:
+    content_html = toot['content']
+    soup = BeautifulSoup(content_html, 'html.parser')
+    content_text = soup.get_text()
+    toot = Toot(
+        account = toot['account']
+        content = content_text
+        user_id = toot['user_id']
+        hashtag = toot['hashtags']
+        bookmark = toot['bookmark']
+        no_replies = toot['no_replies']
+        url = toot['url']
     )
-    users.append(user)
-
-# Print the stored user data
-for user in users:
-    print(f"Username: {user.get_name()}")
-    print(f"Display Name: {user.get_display_name()}")
-    print(f"Followers Count: {user.get_followers_count()}")
-    print()
+    toots_dict.append(toot)
     
-    
-    
-#Moin Hanna
+for toot in toots_dict:
+    print(toot["content"])
