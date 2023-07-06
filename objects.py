@@ -1,4 +1,12 @@
-import mastodon
+from mastodon import Mastodon
+
+mastodon = Mastodon(
+    client_id="SOXp3afnWgFJrQf2_UIlqgPva--ZhdBZHS9fyik8Rvg",
+    client_secret="HW8bhQJlzAx1eGmLGUvK-qxi4ej8QRDylPFro0El6To",
+    access_token="eJpW5z5P82AYIHSzcd6oeHEPaSrP4SMGYn_nxoICLEE",
+    api_base_url="https://mastodon.social"
+)
+
 
 class User:
     # list of all 'loaded' users
@@ -47,7 +55,7 @@ class Toot:
         # Specify the ID of the toot you want to retrieve replies for 
         context = mastodon.status_context(toot_id) 
         replies = context['descendants'] 
-        print(replies)
+        return replies
         
        
        
