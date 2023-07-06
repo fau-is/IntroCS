@@ -32,5 +32,8 @@ class User:
     #def set_follower_count(self):
      #   count = user_data['followers_count']
       #  self.followers_count = count
+      
+class Toot:
+    
     
     

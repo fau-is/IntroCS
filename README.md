@@ -24,6 +24,12 @@ Students will access the API data and store users, posts, retweets, and favourit
 6. ~~~ Work with object instances
 
 
+### Thoughts
+toots in Reihenfolge --> toots reinladen (object toot // erbt von user) 
+toots nach hashtags raussuchen
+jeder toot braucht user (über id user data abfragen)
+
+
 ### Useful API requests 
 not used, since we will use Mastodon.py library and documentation
 #### Timelines: 

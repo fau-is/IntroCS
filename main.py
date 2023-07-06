@@ -27,38 +27,39 @@ print(f"Followers Count: {user.get_followers_count()}")
 print("")
 
 
-######################################################################## Get all followed Persons ################################################################
-
 query = "Johny"
 limit = 1
 
-followedPersons = []
+######################################################################## Get all followed Persons ################################################################
+def get_followed(user_id):
 
-followed = mastodon.account_following(id = user.id, limit=None)
+    followedPersons = []
 
-
-for account in followed:
-    user = User(
-        name=account['username'],
-        id=account['id'],
-        display_name=account['display_name'],
-        followers_count=account['followers_count'],
-        signdate=None 
-    )
-    followedPersons.append(user)
-
-print("Follows: ")
-
-# Print the stored user data
-for user in followedPersons:
-    print(f"Username: {user.get_name()}")
-    print(f"Display Name: {user.get_display_name()}")
-    print(f"Followers Count: {user.get_followers_count()}")
-    print()
+    followed = mastodon.account_following(id = user_id, limit=None)
 
 
-print("End")
-print("")
+    for account in followed:
+        user = User(
+            name=account['username'],
+            id=account['id'],
+            display_name=account['display_name'],
+            followers_count=account['followers_count'],
+            signdate=None 
+        )
+        followedPersons.append(user)
+
+    print("Follows: ")
+
+    # Print the stored user data
+    for user in followedPersons:
+        print(f"Username: {user.get_name()}")
+        print(f"Display Name: {user.get_display_name()}")
+        print(f"Followers Count: {user.get_followers_count()}")
+        print()
+
+
+    print("End")
+    print("")
 
 ######################################################################## Search Accounts by Name ################################################################
 
