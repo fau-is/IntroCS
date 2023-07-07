@@ -1,4 +1,5 @@
 from mastodon import Mastodon
+from bs4 import BeautifulSoup
 
 mastodon = Mastodon(
     client_id="SOXp3afnWgFJrQf2_UIlqgPva--ZhdBZHS9fyik8Rvg",
@@ -13,12 +14,12 @@ class User:
     users = []
     
     # Constructor
-    def __init__(self, name, id, display_name, followers_count, signdate):
+    def __init__(self, name, id, display_name, followers_count): #signdate):
         self.name = name
         self.id = id
         self.display_name = display_name
         self.followers_count = followers_count
-        self.signdate = signdate
+        #self.signdate = signdate
         User.users.append(id)
     
     # getter-Methods
@@ -34,12 +35,12 @@ class User:
     def get_followers_count(self):
         return self.followers_count
     
-    def get_signdate(self):
-        return self.signdate
+    #def get_signdate(self):
+        #return self.signdate
     
       
 class Toot:
-    def __init__(self, content, account, user_id, hashtags, bookmark, no_replies, url, toot_id):
+    def __init__(self, content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies):
         self.content = content
         self.account = account
         self.user_id = user_id
@@ -48,22 +49,58 @@ class Toot:
         self.no_replies = no_replies
         self.url = url
         self.toot_id = toot_id
+        self.count_replies = count_replies
         
-    def get_replies(self):
+    def get_replies(self, x):
         toot_id = self.toot_id
+        count_replies = self.count_replies
         # toot_id = "5" 
         # Specify the ID of the toot you want to retrieve replies for 
         context = mastodon.status_context(toot_id) 
         replies = context['descendants'] 
-        return replies
+        all_replies = []
+        for reply in replies: 
+            content_html = reply['content']
+            soup = BeautifulSoup(content_html, 'html.parser')
+            content_text = soup.get_text()
+            antwort = Reply(
+                account = reply['account'],
+                toot_id = reply['id'],
+                from_id = reply['in_reply_to_id'],
+                content = content_text,
+                user_id = reply['account']['id'],
+                hashtags = reply['tags'],
+                bookmark = reply['bookmarked'],
+                no_replies = reply['replies_count'],
+                url = reply['url'],
+                count_replies = reply['replies_count']               
+            )
+            all_replies.append(antwort)
+        if x <= count_replies:
+            return all_replies[x].content
+        return 0
         
        
        
 class Reply(Toot):
-    def __init__(self, content, account, user_id, hashtags, bookmark, no_replies, url, reply_id, toot_id):
-        super().__init__(content, account, user_id, hashtags, bookmark, no_replies, url, toot_id)
-        self.reply_id = reply_id
+    def __init__(self, content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies, from_id):
+        super().__init__(content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies)
+        self.from_id = from_id
         
-    def safe_mother_toot(self):
-        return 1
+    def get_mother_toot(self):
+        mother_toot = self.from_id
+        mother = mastodon.status_context(mother_toot) 
+        content_html = mother['content']
+        soup = BeautifulSoup(content_html, 'html.parser')
+        content_text = soup.get_text()
+        mother1 = Toot(
+            account = mother['account'],
+            toot_id = mother['id'],
+            content = content_text,
+            user_id = mother['account']['id'],
+            hashtags = mother['tags'],
+            bookmark = mother['bookmarked'],
+            no_replies = mother['replies_count'],
+            url = mother['url'])
+        return mother1
         # wenn toot mit der id, dann mach nichts, ansonsten erstelle toot

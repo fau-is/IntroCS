@@ -18,7 +18,7 @@ user = User(
     id=user_data['id'],
     display_name=user_data['display_name'],
     followers_count=user_data['followers_count'],
-    signdate=None
+    #signdate=None
 )
 
 # Print the stored data
@@ -41,7 +41,7 @@ def get_followed(user_id):
             id=account['id'],
             display_name=account['display_name'],
             followers_count=account['followers_count'],
-            signdate=None 
+            #signdate=None 
         )
         followedPersons.append(user)
 
@@ -97,14 +97,17 @@ for toot in toots:
         hashtags = toot['tags'],
         bookmark = toot['bookmarked'],
         no_replies = toot['replies_count'],
-        url = toot['url']   
+        url = toot['url'],
+        count_replies = toot['replies_count']    
     )
     toots_dict.append(toot)
     
 toot_replies = []
     
 for toot in toots_dict:
-    print(toot.content)
-    print(toot.get_replies())
+    print('Og-Toot: {}'.format(toot.content))
+    for x in range(toot.count_replies):
+        print('Reply-Toot: {}'.format(toot.get_replies(x)))
+    # anzahl an antworten/ mehrer antworten printen
     
     
