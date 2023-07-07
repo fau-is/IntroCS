@@ -60,9 +60,7 @@ class Toot:
         replies = context['descendants'] 
         all_replies = []
         for reply in replies: 
-            content_html = reply['content']
-            soup = BeautifulSoup(content_html, 'html.parser')
-            content_text = soup.get_text()
+            content_text = get_text_content(reply)
             antwort = Reply(
                 account = reply['account'],
                 toot_id = reply['id'],
@@ -77,9 +75,9 @@ class Toot:
             )
             all_replies.append(antwort)
         if x <= count_replies:
-            return all_replies[x].content
+            return all_replies[x].content 
         return 0
-        
+
        
        
 class Reply(Toot):
@@ -90,9 +88,7 @@ class Reply(Toot):
     def get_mother_toot(self):
         mother_toot = self.from_id
         mother = mastodon.status_context(mother_toot) 
-        content_html = mother['content']
-        soup = BeautifulSoup(content_html, 'html.parser')
-        content_text = soup.get_text()
+        content_text = get_text_content(mother)
         mother1 = Toot(
             account = mother['account'],
             toot_id = mother['id'],
@@ -104,3 +100,12 @@ class Reply(Toot):
             url = mother['url'])
         return mother1
         # wenn toot mit der id, dann mach nichts, ansonsten erstelle toot
+        
+        
+def get_text_content(toot):
+    content_html = toot['content']
+    soup = BeautifulSoup(content_html, 'html.parser')
+    content_text = soup.get_text()
+    return content_text
+    
+    

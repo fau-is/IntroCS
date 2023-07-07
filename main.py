@@ -1,6 +1,5 @@
 from mastodon import Mastodon
-from bs4 import BeautifulSoup
-from objects import User, Toot
+from objects import User, Toot, get_text_content
 
 mastodon = Mastodon(
     client_id="SOXp3afnWgFJrQf2_UIlqgPva--ZhdBZHS9fyik8Rvg",
@@ -44,7 +43,7 @@ def get_followed(user_id):
             #signdate=None 
         )
         followedPersons.append(user)
-
+        
     print("Follows: ")
 
     # Print the stored user data
@@ -86,9 +85,7 @@ toots = mastodon.timeline_hashtag(hashtag, limit=limit)
 toots_dict = []
 # Process and print the retrieved toots
 for toot in toots:
-    content_html = toot['content']
-    soup = BeautifulSoup(content_html, 'html.parser')
-    content_text = soup.get_text()
+    content_text = get_text_content(toot)
     toot = Toot(
         account = toot['account'],
         toot_id = toot['id'],
@@ -105,9 +102,14 @@ for toot in toots:
 toot_replies = []
     
 for toot in toots_dict:
-    print('Og-Toot: {}'.format(toot.content))
+    print('Og-Toot ({}): {}'.format(toot.toot_id, toot.content))
     for x in range(toot.count_replies):
+        #reply = toot.get_replies(x)
+        #toot_id = reply.toot_id
+        #content = reply.content
+        #print('Reply-Toot({}): {}'.format(toot_id, content))
         print('Reply-Toot: {}'.format(toot.get_replies(x)))
+    
     # anzahl an antworten/ mehrer antworten printen
     
     
