@@ -49,6 +49,8 @@ if __name__ == '__main__':
 
     # ------------ Mastodon (unweighted) User Network --------------
 
+    # TODO: Determine if a graph is connected or not using DFS/BFS
+
     # TODO: Find the most influential user based on the amount of followers (edges branching off)
     #       - Distinguish edge direction between followers and people the person follows?
 
@@ -67,12 +69,31 @@ if __name__ == '__main__':
 
     g.most_influential_3()
 
+    # TODO: Find the shortest path via BFS between two users ("degrees of separation")
+    #       example: Is there an indirect connection between user a and user b, return the connection
+    shortest_connection = g.bfs_find('Jack', 'Marissa')
+    if shortest_connection:
+        print(shortest_connection)
+
+    # Todo: Cycle detection: DFS can be used to detect cycles in a social network graph.
+    #       This could be useful in identifying circular relationships or loops within the network.
+    #       Users are nodes and there exist a connection if node a has retweeted a post of person b
+
+    # Todo: Community detection: BFS can be used to find nodes in close proximity to a specific node.
+    #       This can be used to detect communities or groups in a social network.
+    #       - Density: This measures the number of existing links over the possible number of links within a group of nodes. A higher density indicates a stronger community
+    #       - Girvan Newman Algortihm
+
+    communities = g.get_communities(clusters=4)
+    for i,c in enumerate(communities):
+        print(i,"-",c)
+    print_graph(g)
     # ------------ Mastodon (weighted) Status Network --------------
     print()
     s = Graph()
 
     Mentions = [('TBT', 'MondayMotivation', 300), ('TBT', 'OOTD', 200), ('TBT', 'Love', 200),
-             ('MondayMotivation', 'OOTD', 500), ('MondayMotivation', 'Love', 300), \
+             ('MondayMotivation', 'OOTD', 600), ('MondayMotivation', 'Love', 300), \
              ('MondayMotivation', 'Travel', 100), ('MondayMotivation', 'Foodie', 500), ('Fitness', 'MondayMotivation', 100),
              ('Foodie', 'Travel', 100), ('Travel', 'Love', 100), \
              ('Love', 'OOTD', 100), ('Funny', 'Selfie', 300), ('Funny', 'Music', 100),
@@ -81,10 +102,14 @@ if __name__ == '__main__':
         a, b, c = edge
         s.add_edge(a, b, c)
 
-    print_graph(s)
+    # print_graph(s)
 
     # TODO: Implement task to identify
-    #       - most popular tag pair (highest edge weight)
+    #       - most popular tag pair (highest edge weight) (wrt provided tag)
+    print(s.most_popular())
+    print(s.most_popular('Selfie'))
     #       - tag that appears with the most other tags (amount of edges branching off)
-
+    print(s.most_versatile())
     # TODO: Implement DFS/BFS exercise that filters out pairs that have been tweeted at least 100 times
+
+    # TODO: Idea to store together mentioned tags in tree. first level single tags, second level second tag storing tweets with both tags and so on...

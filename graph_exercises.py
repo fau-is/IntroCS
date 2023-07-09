@@ -1,6 +1,9 @@
+import itertools
+
 class Graph(dict):
     def __init__(self):
         super().__init__()
+        self.sps = None
 
     def add_vertex(self, key):
         self[key] = []
@@ -31,9 +34,22 @@ class Graph(dict):
                 return idx
         return idx
 
-    # # Iterative
-    def dfs(self, start, vertex_list=[]):
+    def remove_edge(self,edge):
+        v1, v2 = edge
+        index = 0
+        while self[v1][index][0] != v2:
+            index+=1
+        del self[v1][index]
 
+        index = 0
+        while self[v2][index][0] != v1:
+            index+=1
+        del self[v2][index]
+
+    # # Iterative
+    def dfs(self, start):
+
+        vertex_list = []
         stack = [start]
         visited = []
         while stack:
@@ -188,3 +204,87 @@ class Graph(dict):
         min_node = min(ranking, key=ranking.get)
         min_mean_distance = ranking[min_node]
         print(f"Based on 'Closeness' the most influential user is {min_node} as it has on avarage the closest distance of {min_mean_distance} to other nodes.")
+
+    def most_popular(self, included=None):
+        if included:
+            return (included,) + max(self[included], key=lambda x: x[1])
+        else:
+            max_per_key = {key:max(self[key], key=lambda x: x[1]) for key in self.keys()}
+            return max([(key,) + value for key,value in max_per_key.items()], key= lambda x: x[2])
+    def most_versatile(self):
+        comb_no = {key:len(value) for key, value in self.items()}
+        return (max(comb_no, key=comb_no.get),max(comb_no.values()))
+
+    def bfs_find(self, start, end):
+        queue = [(start, [start])]
+        visited = set()
+
+        while queue:
+            (node, path) = queue.pop(0)
+            if node not in visited:
+                if node == end:
+                    return path
+                visited.add(node)
+
+                for neighbor in self[node]:
+                    queue.append((neighbor[0], path + [neighbor[0]]))
+
+        return None
+
+    def edge_in_sp(self, pair, sp):
+        if sp == None:
+            return False
+        elif len(sp) <2:
+            return False
+        pairs = [(sp[i],sp[i+1]) for i in range(len(sp)-1)]
+        if pair in pairs:
+            return True
+        elif (pair[1],pair[0]) in pairs:
+            return True
+        else:
+            return False
+
+    def compute_sps(self):
+        mapping = {key: i for key, i in zip(self.keys(), range(len(self.keys())))}
+        mapping_rev = {i: key for key, i in mapping.items()}
+        matrix = [[None for i in range(len(mapping))] for i in range(len(mapping))]
+        for i in range(len(matrix)):
+            for y in range(len(matrix)):
+                matrix[i][y] = self.bfs_find(mapping_rev[i], mapping_rev[y])
+        self.sps = matrix
+
+    def connected_component_subgraphs(self):
+        subs = []
+        to_visit = set(self.keys())
+        while to_visit:
+            connected = set(self.dfs(list(to_visit)[0]))
+            subs.append(connected)
+            to_visit -= connected
+        return subs
+
+    def edge_to_remove(self):
+        pairs = list(itertools.combinations(self.keys(), 2))
+        edge_betweenness = {pair:0 for pair in pairs}
+        max_edges = len(self.keys())*(len(self.keys())-1)
+        for pair in pairs:
+            abs = 0
+            for i in range(len(self.sps)):
+                for y in range(len(self.sps)):
+                    if i ==y:
+                        continue
+                    if self.edge_in_sp(pair, self.sps[i][y]):
+                        abs +=1
+            edge_betweenness[pair] += abs/max_edges
+        list_of_tuples = list(edge_betweenness.items())
+        list_of_tuples.sort(key= lambda x: -x[1])
+        return list_of_tuples[0][0]
+
+
+    def get_communities(self, clusters):
+        c = self.connected_component_subgraphs()
+        while len(c) < clusters:
+            self.compute_sps()
+            edge_to_remove = self.edge_to_remove()
+            self.remove_edge(edge_to_remove)
+            c = self.connected_component_subgraphs()
+        return c
