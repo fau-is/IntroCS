@@ -160,7 +160,7 @@ class Graph(dict):
             if edges > max_count:
                 max_count = edges
                 max_node = node
-        print(f"Based on the number of edges {max_node} is the most influential user with {max_count} edges.")
+        print(f"3.1 Based on the number of edges {max_node} is the most influential user with {max_count} edges.")
 
     def most_influential_2(self):
         mapping = {key:i for key,i in zip(self.keys(),range(len(self.keys())))}
@@ -181,7 +181,7 @@ class Graph(dict):
                        ranking[node] += 1
         max_node = max(ranking, key=ranking.get)
         max_value = ranking[max_node]
-        print(f"Based on 'Betweenness' the most influential user is {max_node} as it belongs to {max_value} shortest paths.")
+        print(f"3.2 BFS/Dijkstra - Based on 'Betweenness' the most influential user is {max_node} as it belongs to {max_value} shortest paths.")
 
     def most_influential_3(self):
         mapping = {key:i for key,i in zip(self.keys(),range(len(self.keys())))}
@@ -203,7 +203,7 @@ class Graph(dict):
         ranking = {key: sum(value)/len(value) for key, value in sps.items()}
         min_node = min(ranking, key=ranking.get)
         min_mean_distance = ranking[min_node]
-        print(f"Based on 'Closeness' the most influential user is {min_node} as it has on avarage the closest distance of {min_mean_distance} to other nodes.")
+        print(f"3.3 BFS/Dijkstra - Based on 'Closeness' the most influential user is {min_node} as it has on avarage the closest distance of {min_mean_distance} to other nodes.")
 
     def most_popular(self, included=None):
         if included:
