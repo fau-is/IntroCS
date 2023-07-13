@@ -245,46 +245,65 @@ class Graph(dict):
             return False
 
     def compute_sps(self):
+        # Mapping keys to indexes i=0,1,...,len(keys())-1
         mapping = {key: i for key, i in zip(self.keys(), range(len(self.keys())))}
+        # Reverse mapping
         mapping_rev = {i: key for key, i in mapping.items()}
+        # Creation of nxn Matrix while n=number of nodes
         matrix = [[None for i in range(len(mapping))] for i in range(len(mapping))]
         for i in range(len(matrix)):
             for y in range(len(matrix)):
+                # populating the sps matrix with shortest paths between all pairs of nodes
                 matrix[i][y] = self.bfs_find(mapping_rev[i], mapping_rev[y])
+        # gets updated after each edge deletion
         self.sps = matrix
 
     def connected_component_subgraphs(self):
         subs = []
         to_visit = set(self.keys())
         while to_visit:
+            # complete subgraph identified via dfs
             connected = set(self.dfs(list(to_visit)[0]))
             subs.append(connected)
+            # all nodes part of the subgraphs are removed from the list "to_visit"
             to_visit -= connected
         return subs
 
     def edge_to_remove(self):
+        # list of all possible pairs = edges
         pairs = list(itertools.combinations(self.keys(), 2))
+        # initializing betweeness metric with 0 for each edge
         edge_betweenness = {pair:0 for pair in pairs}
-        max_edges = len(self.keys())*(len(self.keys())-1)
+        # number of all possible edges
+        all_edges = len(self.keys())*(len(self.keys())-1)
         for pair in pairs:
             abs = 0
+            # iteration over every existing shortest path
             for i in range(len(self.sps)):
                 for y in range(len(self.sps)):
-                    if i ==y:
+                    if i == y:
                         continue
                     if self.edge_in_sp(pair, self.sps[i][y]):
                         abs +=1
-            edge_betweenness[pair] += abs/max_edges
+            # egde_betweeness = # sps with current edge / # all edges
+            edge_betweenness[pair] += abs/all_edges
         list_of_tuples = list(edge_betweenness.items())
+        # sorting based on edge_betweeness
         list_of_tuples.sort(key= lambda x: -x[1])
         return list_of_tuples[0][0]
 
 
     def get_communities(self, clusters):
+        # 1. get disconnected subgraphs
         c = self.connected_component_subgraphs()
         while len(c) < clusters:
+            # 2. Compute shortest paths (via BFS/Dijkstra) between every pair of nodes
             self.compute_sps()
+            # 3. The Betweenness of all existing edges in the network is calculated, edge with the highest Betweenness returned.
             edge_to_remove = self.edge_to_remove()
+            # 4. The edge is removed.
             self.remove_edge(edge_to_remove)
+            # 1. get disconnected subgraphs
             c = self.connected_component_subgraphs()
         return c
+
