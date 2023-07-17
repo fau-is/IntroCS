@@ -23,3 +23,9 @@ To help students understand graphs and trees as well as their benefits using the
 3. Community Detection via Density measure: Using the Density measure, identify the three clusters describing the three most dense communities in the graph.
 > **Density Measure**: This measures the number of existing links over the possible number of links within a group of nodes. A higher density indicates a stronger community
 4. (not yet implemented) Cycle Detection: Identify users who retweeted a retweet of their own post. For this you will need to apply the DFS algorithm to detect cycles in a social network graphs. 
+
+## Tasks for (follower) tree (low level):
+
+1. Implement a binary search tree, that stores all the followers of a user alphabetically. Implement the recursive binary search algorithm to check wether a username is listed in the user tree.
+2. In order to display all of the followers, use the DFS algorithm from the previous exercise and make slight changes to it, such that it can traverse over the tree in a Pre-, In-, and Postorder.
+3. Implement another suitable data structure of your choice, e.g. hash-table, trie, avl-tree, parse the followers onto it and compare the runtime for searching using pythons time library. What do you see?
