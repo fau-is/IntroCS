@@ -7,8 +7,7 @@ mastodon = Mastodon(
     access_token="eJpW5z5P82AYIHSzcd6oeHEPaSrP4SMGYn_nxoICLEE",
     api_base_url="https://mastodon.social"
 )
-
-
+      
 class Toot:
     def __init__(self, content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies):
         self.content = content
