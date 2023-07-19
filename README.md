@@ -18,10 +18,10 @@ Students will access the API data and store users, posts, retweets, and favourit
 ### Pset Structure
 1. Create account
 2. Get access via Credentials API
-3. ~~~ get data
+3. get data
 4. Create objects and methods
 5. Save result as object instances
-6. ~~~ Work with object instances
+6. Work with object instances
 
 
 ### Thoughts
