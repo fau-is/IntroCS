@@ -148,5 +148,5 @@ class OrTrigger(Trigger):
 def filter_stories(stories, triggerlist):
      pass
  
- if __name__ == '__main__':
+if __name__ == '__main__':
      pass
