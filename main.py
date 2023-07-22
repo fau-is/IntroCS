@@ -95,7 +95,8 @@ for toot in toots:
         bookmark = toot['bookmarked'],
         no_replies = toot['replies_count'],
         url = toot['url'],
-        count_replies = toot['replies_count']    
+        count_replies = toot['replies_count'],
+        pubdate = toot['created_at']    
     )
     toots_dict.append(toot)
     

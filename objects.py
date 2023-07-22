@@ -72,7 +72,8 @@ class Toot:
                 bookmark = reply['bookmarked'],
                 no_replies = reply['replies_count'],
                 url = reply['url'],
-                count_replies = reply['replies_count']               
+                count_replies = reply['replies_count'],
+                pubdate = reply['created_at']                
             )
             all_replies.append(antwort)
         if x <= count_replies:
