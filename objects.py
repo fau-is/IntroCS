@@ -82,8 +82,8 @@ class Toot:
        
        
 class Reply(Toot):
-    def __init__(self, content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies, from_id):
-        super().__init__(content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies)
+    def __init__(self, content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies, from_id, pubdate):
+        super().__init__(content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies, pubdate)
         self.from_id = from_id
         
     def get_mother_toot(self):
@@ -98,7 +98,8 @@ class Reply(Toot):
             hashtags = mother['tags'],
             bookmark = mother['bookmarked'],
             no_replies = mother['replies_count'],
-            url = mother['url'])
+            url = mother['url'],
+            pubdate = mother['created_at'])
         return mother1
         # wenn toot mit der id, dann mach nichts, ansonsten erstelle toot
         

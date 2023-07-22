@@ -50,9 +50,8 @@ class Toot:
 # and implement get_text_content
 #======================
 
-def load(url):
+def load(hashtag):
     # load all toots with a specififc hashtag into a dictionary 
-    hashtag = "Moin" 
     toots = mastodon.timeline_hashtag(hashtag, limit=5)
     toots_dict = []
     # Process and print the retrieved toots
