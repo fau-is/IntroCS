@@ -4,8 +4,8 @@ import string
 #import time
 #import threading
 from content_processor_ps7 import Toot, get_text_content
-#from datetime import datetime
-#import pytz
+from datetime import datetime
+import pytz
 from mastodon import Mastodon
 
 mastodon = Mastodon(
@@ -26,7 +26,7 @@ mastodon = Mastodon(
 # Problem 1 
 
 class Toot:
-    def __init__(self, content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies):
+    def __init__(self, content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies, pubdate):
         self.content = content
         self.account = account
         self.user_id = user_id
@@ -36,6 +36,7 @@ class Toot:
         self.url = url
         self.toot_id = toot_id
         self.count_replies = count_replies
+        self.pubdate = pubdate
 
 # hier könnte man alles was in "content_processor_ps7.py" ist implementieren lassen
 
@@ -46,6 +47,7 @@ class Toot:
 #======================
 # Code for loading toots with specific hashtag from mastodon
 # & put toots in objects dictionary
+# and implement get_text_content
 #======================
 
 def load(url):
@@ -65,7 +67,8 @@ def load(url):
             bookmark = toot['bookmarked'],
             no_replies = toot['replies_count'],
             url = toot['url'],
-            count_replies = toot['replies_count']    
+            count_replies = toot['replies_count'],
+            pubdate = toot['created_at']   
         )
         toots_dict.append(toot)
 
@@ -97,6 +100,33 @@ class Media(Trigger):
 
 
 
+# TIME TRIGGERS
+
+# Problem 5
+# TimeTrigger
+# Constructor:
+#        Input: Time has to be in EST and in the format of "%d %b %Y %H:%M:%S".
+#        Convert time from string to a datetime before saving it as an attribute.
+
+class TimeTrigger(Trigger):
+    def __init__(self, ptime):
+        format = '%d %b %Y %H:%M:%S'
+        ptime = datetime.strptime(ptime, format)
+        ptime = ptime.replace(tzinfo=pytz.timezone("EST"))
+        self.ptime = ptime
+
+
+# Problem 6
+# BeforeTrigger and AfterTrigger
+class BeforeTrigger(TimeTrigger):
+    def evaluate(self, story):
+        clock = story.pubdate.replace(tzinfo=pytz.timezone("EST"))
+        return self.ptime > clock
+
+class AfterTrigger(TimeTrigger):
+    def evaluate(self, story):
+        clock = story.pubdate.replace(tzinfo=pytz.timezone("EST"))
+        return self.ptime < clock
 
 
 #======================
@@ -107,11 +137,11 @@ class Media(Trigger):
 # NotTrigger
 
 class NotTrigger(Trigger):
-    def __init__(self, T):
-        self.T = T
+    def __init__(self, trigger):
+        self.trigger = trigger
 
     def evaluate(self, story):
-        result = self.T.evaluate(story)
+        result = self.trigger.evaluate(story)
         return not result
 
 # Problem 8
