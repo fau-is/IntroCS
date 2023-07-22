@@ -50,9 +50,11 @@ class Toot:
 # and implement get_text_content
 #======================
 
+limit = 50
+
 def load(hashtag):
     # load all toots with a specififc hashtag into a dictionary 
-    toots = mastodon.timeline_hashtag(hashtag, limit=5)
+    toots = mastodon.timeline_hashtag(hashtag, limit=limit)
     toots_dict = []
     # Process and print the retrieved toots
     for toot in toots:
@@ -67,9 +69,11 @@ def load(hashtag):
             no_replies = toot['replies_count'],
             url = toot['url'],
             count_replies = toot['replies_count'],
-            pubdate = toot['created_at']   
+            pubdate = toot['created_at'] 
+            # return value '2023-07-22 09:37:34+00:00' 
         )
         toots_dict.append(toot)
+    return toots_dict
 
 
 
@@ -94,9 +98,38 @@ class Media(Trigger):
         self.phrase = toot_id
 
     def is_phrase_in(self, text):
-        
+            pass
+
+
+# Problem 2
+# PhraseTrigger
+# use string.punctuaion to
+class PhraseTrigger(Trigger):
+    def __init__(self, phrase):
+        self.phrase = phrase.lower()
+
+    def evaluate(self, text):
+        text = text.content.lower()
+        for letter in string.punctuation:
+            clean_text = text.replace(letter, ' ')
+        words = clean_text.split()
+        single_phrase = self.phrase.split()
+        #for m in single_phrase:
+        #   for i, word in enumerate(words):
+        #      if m == word:
+        #         test.append(i)
+        list_text = " ".join(words)
+        list_trigger= " ".join(single_phrase)
+
+        if list_trigger in list_text:
+            return True
+        else:
             return False
 
+#class Content(PhraseTrigger):
+ #   def evaluate(self, toot):
+  #      content = toot.content
+   #     return self.is_phrase_in(content)
 
 
 # TIME TRIGGERS
@@ -148,12 +181,12 @@ class NotTrigger(Trigger):
 
 class AndTrigger(Trigger):
     def __init__(self, trigger1, trigger2):
-        self.trig1 = trigger1
-        self.trig2 = trigger2
+        self.trigger1 = trigger1
+        self.trigger2 = trigger2
 
     def evaluate(self, story):
-        result1 = self.trig1.evaluate(story)
-        result2 = self.trig2.evaluate(story)
+        result1 = self.trigger1.evaluate(story)
+        result2 = self.trigger2.evaluate(story)
         return result1 and result2
 
 
@@ -161,12 +194,12 @@ class AndTrigger(Trigger):
 # OrTrigger
 class OrTrigger(Trigger):
     def __init__(self, trigger1, trigger2):
-        self.trig1 = trigger1
-        self.trig2 = trigger2
+        self.trigger1 = trigger1
+        self.trigger2 = trigger2
 
     def evaluate(self, story):
-        result1 = self.trig1.evaluate(story)
-        result2 = self.trig2.evaluate(story)
+        result1 = self.trigger1.evaluate(story)
+        result2 = self.trigger2.evaluate(story)
         return result1 or result2
 
 #======================
@@ -175,7 +208,45 @@ class OrTrigger(Trigger):
 
 # Problem 10
 def filter_stories(stories, triggerlist):
-     pass
+    """
+    Takes in a list of NewsStory instances.
+
+    Returns: a list of only the stories for which a trigger in triggerlist fires.
+    """
+    # Problem 10
+    trigger_stories = []
+    for story in stories:
+        for trigger in triggerlist:
+            if trigger.evaluate(story):
+                trigger_stories.append(story)
+                break
+    return trigger_stories
+
+
  
 if __name__ == '__main__':
-     pass
+
+    dictionary = load('MoIN')
+    gpt = PhraseTrigger(
+        phrase = 'kiel'
+    )
+    ppt = PhraseTrigger(
+        phrase = 'wetter'
+    )
+    not_filter = NotTrigger(
+        trigger= ppt
+    )
+    and_filter = AndTrigger(
+        trigger1= gpt,
+        trigger2= not_filter
+    )
+    
+    triggers = [ and_filter ]
+    results = []
+    #for i in range(35):     
+       # result = gpt.is_phrase_in(dictionary[i].content)
+        #if result:
+          #  results.append(dictionary[i].content)
+    probe = filter_stories(dictionary, triggers)
+    for i in range(len(probe)):     
+        print(probe[i].content)
