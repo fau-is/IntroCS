@@ -3,6 +3,8 @@ import json
 import sys
 import graphviz
 import os
+import timeit
+import time
 
 # TODO: Fetching Followers
 # 2.1 With authentication fetching followers of a specified id:
@@ -12,16 +14,15 @@ id = "15530"
 
 url = f"https://mastodon.social/api/v1/accounts/{id}/followers?limit=80"
 while url:
-
     response = requests.get(url, headers={'Authorization':f'Bearer {access_token}'})
     objects = json.loads(response.text) # this converts the json to a python list of dictionary
     usernames = set([i['username'] for i in objects])
     followers |= usernames
-    url = links = response.links['next']['url'] if 'next' in response.links else None
+    url = response.links['next']['url'] if 'next' in response.links else None
 
 print(len(followers))
-for i in followers:
-    print(i)
+# for i in followers:
+#     print(i)
 
 
 def get_min(node):
@@ -32,10 +33,10 @@ def get_min(node):
 
     while len(queue) > 0:
         thisNode = queue.pop()
-        if thisNode.domain in order:
+        if thisNode.username in order:
             continue
-        order.append(thisNode.domain)
-        if thisNode.domain < min_node.domain:
+        order.append(thisNode.username)
+        if thisNode.username < min_node.username:
             min_node = thisNode
         if thisNode.right is not None:
             queue.append(thisNode.right)
@@ -139,6 +140,21 @@ class BST:
                 CurNode = CurNode.left
         return False
 
+    # Recursive
+    @staticmethod
+    def search(root, key):
+
+        # Base Cases: root is null or key is present at root
+        if root is None or root.username == key:
+            return root
+
+        # Key is greater than root's key
+        if root.username < key:
+            return BST.search(root.right,key)
+
+        # Key is smaller than root's key
+        return BST.search(root.left,key)
+
     @staticmethod
     def bfs():
         """
@@ -227,7 +243,37 @@ if __name__ == '__main__':
     # TODO: 1. Implement a binary search tree class, that stores all the followers of a user alphabetically. Implement the recursive binary search algorithm to check wether a username is listed in the user tree.
     for user in followers:
         BST.add(user)
+    # iterative
+    # found = BST.find("alextee")
+    # if found:
+    #     print(found.username, "is among the followers")
+    # else:
+    #     print("user was not found among the users.")
+
+    # recursive
+    found = BST.search(BST.root, "alextee")
+    if found:
+        print(found.username, "is among the followers.")
+    else:
+        print("user was not found among the users.")
+
     # TODO: 2. In order to display all of the followers, use the DFS algorithm from the previous exercise and make slight changes to it, such that it can traverse over the tree in a Pre-, In-, and Postorder.
     print('DFS (preorder): ', BST.preorder())
     print_tree(BST.root)
     # TODO: 3. Implement another suitable data structure of your choice, e.g. hash-table, trie, avl-tree, parse the followers onto it and compare the runtime for searching using pythons time library.
+    to_find = "xolotl"
+    # Data structure List: Linear search
+    data_list = BST.preorder()
+    def linear_search(data, find):
+        for user in data:
+            if user == find:
+                return True
+        return False
+    exec_time = timeit.repeat(lambda: linear_search(data_list,to_find), number=100)
+    print(f"user was found using linear search in {sum(exec_time)/len(exec_time)} seconds.")
+
+    # Data structure BST: Binary search
+    exec_time = timeit.repeat(lambda:BST.search(BST.root, to_find), number=100)
+    print(f"user was found using binary search in {sum(exec_time)/len(exec_time)} seconds.")
+
+
