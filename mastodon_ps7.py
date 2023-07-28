@@ -26,7 +26,7 @@ mastodon = Mastodon(
 # Problem 1 
 
 class Toot:
-    def __init__(self, content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies, pubdate):
+    def __init__(self, content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies, pubdate, mentions, media, language, poll):
         self.content = content
         self.account = account
         self.user_id = user_id
@@ -37,6 +37,10 @@ class Toot:
         self.toot_id = toot_id
         self.count_replies = count_replies
         self.pubdate = pubdate
+        self.mentions = mentions
+        self.media = media
+        self.language = language
+        self.poll = poll
 
 # hier könnte man alles was in "content_processor_ps7.py" ist implementieren lassen
 
@@ -69,8 +73,12 @@ def load(hashtag):
             no_replies = toot['replies_count'],
             url = toot['url'],
             count_replies = toot['replies_count'],
-            pubdate = toot['created_at'] 
-            # return value '2023-07-22 09:37:34+00:00' 
+            pubdate = toot['created_at'],
+            mentions = toot['mentions'],
+            media = toot['media_attachments'],
+            language = toot['language'], 
+            poll = toot['poll'] 
+            # return value '2023-07-22 09:37:34+00:00' %Y-%b-%d  %H:%M:%S'
         )
         toots_dict.append(toot)
     return toots_dict
@@ -82,7 +90,7 @@ def load(hashtag):
 #======================
 
 class Trigger(object):
-    def evaluate(self, story):
+    def evaluate(self, toot):
         """
         Returns True if an alert should be generated
         for the given news item, or False otherwise.
@@ -93,12 +101,36 @@ class Trigger(object):
 
 # Problem 3
 
-class Media(Trigger):
-    def __init__(self, toot_id):
-        self.phrase = toot_id
-
-    def is_phrase_in(self, text):
-            pass
+class MediaTrigger(Trigger):
+    def evaluate(self, toot):
+        media = toot.media
+        if media:
+            return True 
+        return False
+    
+class LanguageTrigger(Trigger):
+    def __init__(self, language):
+        self.language = language
+        
+    def evaluate(self, toot):
+        langu = toot.language
+        if self.language ==langu:
+            return True 
+        return False
+    
+class PollTrigger(Trigger):
+    def evaluate(self, toot):
+        poll = toot.poll
+        if poll:
+            return True 
+        return False
+    
+class MentionsTrigger(Trigger):
+    def evaluate(self, toot):
+        mentions = toot.mentions
+        if mentions:
+            return True 
+        return False
 
 
 # Problem 2
@@ -108,8 +140,8 @@ class PhraseTrigger(Trigger):
     def __init__(self, phrase):
         self.phrase = phrase.lower()
 
-    def evaluate(self, text):
-        text = text.content.lower()
+    def evaluate(self, toot):
+        text = toot.content.lower()
         for letter in string.punctuation:
             clean_text = text.replace(letter, ' ')
         words = clean_text.split()
@@ -142,7 +174,7 @@ class PhraseTrigger(Trigger):
 
 class TimeTrigger(Trigger):
     def __init__(self, ptime):
-        format = '%d %b %Y %H:%M:%S'
+        format = '%Y-%m-%d %H:%M:%S'
         ptime = datetime.strptime(ptime, format)
         ptime = ptime.replace(tzinfo=pytz.timezone("EST"))
         self.ptime = ptime
@@ -151,13 +183,13 @@ class TimeTrigger(Trigger):
 # Problem 6
 # BeforeTrigger and AfterTrigger
 class BeforeTrigger(TimeTrigger):
-    def evaluate(self, story):
-        clock = story.pubdate.replace(tzinfo=pytz.timezone("EST"))
+    def evaluate(self, toot):
+        clock = toot.pubdate.replace(tzinfo=pytz.timezone("EST"))
         return self.ptime > clock
 
 class AfterTrigger(TimeTrigger):
-    def evaluate(self, story):
-        clock = story.pubdate.replace(tzinfo=pytz.timezone("EST"))
+    def evaluate(self, toot):
+        clock = toot.pubdate.replace(tzinfo=pytz.timezone("EST"))
         return self.ptime < clock
 
 
@@ -172,8 +204,8 @@ class NotTrigger(Trigger):
     def __init__(self, trigger):
         self.trigger = trigger
 
-    def evaluate(self, story):
-        result = self.trigger.evaluate(story)
+    def evaluate(self, toot):
+        result = self.trigger.evaluate(toot)
         return not result
 
 # Problem 8
@@ -184,9 +216,9 @@ class AndTrigger(Trigger):
         self.trigger1 = trigger1
         self.trigger2 = trigger2
 
-    def evaluate(self, story):
-        result1 = self.trigger1.evaluate(story)
-        result2 = self.trigger2.evaluate(story)
+    def evaluate(self, toot):
+        result1 = self.trigger1.evaluate(toot)
+        result2 = self.trigger2.evaluate(toot)
         return result1 and result2
 
 
@@ -197,9 +229,9 @@ class OrTrigger(Trigger):
         self.trigger1 = trigger1
         self.trigger2 = trigger2
 
-    def evaluate(self, story):
-        result1 = self.trigger1.evaluate(story)
-        result2 = self.trigger2.evaluate(story)
+    def evaluate(self, toot):
+        result1 = self.trigger1.evaluate(toot)
+        result2 = self.trigger2.evaluate(toot)
         return result1 or result2
 
 #======================
@@ -207,46 +239,80 @@ class OrTrigger(Trigger):
 #======================
 
 # Problem 10
-def filter_stories(stories, triggerlist):
+def filter_toots(toots, triggerlist):
     """
-    Takes in a list of NewsStory instances.
+    Takes in a list of Toot instances.
 
-    Returns: a list of only the stories for which a trigger in triggerlist fires.
+    Returns: a list of only the toots for which a trigger in triggerlist fires.
     """
     # Problem 10
-    trigger_stories = []
-    for story in stories:
+    trigger_toots = []
+    for toot in toots:
         for trigger in triggerlist:
-            if trigger.evaluate(story):
-                trigger_stories.append(story)
+            if not trigger.evaluate(toot):
                 break
-    return trigger_stories
+            
+        trigger_toots.append(toot)
+    return trigger_toots
 
 
  
 if __name__ == '__main__':
-
-    dictionary = load('MoIN')
-    gpt = PhraseTrigger(
-        phrase = 'kiel'
+    
+    #first hashtag is already a filter (kind of)
+    hashtag = 'ChatGPT'
+    dictionary = load(hashtag)
+    
+    ai = PhraseTrigger(
+        phrase = 'AI'
     )
-    ppt = PhraseTrigger(
-        phrase = 'wetter'
+    ki = PhraseTrigger(
+        phrase = 'KI'
+    )
+    university = PhraseTrigger(
+        phrase = 'university'
+    )
+    application = PhraseTrigger(
+        phrase = 'application'
     )
     not_filter = NotTrigger(
-        trigger= ppt
+        trigger= university
     )
-    and_filter = AndTrigger(
-        trigger1= gpt,
-        trigger2= not_filter
+    or_filter = OrTrigger(
+        trigger1= ai,
+        trigger2= ki
+    )
+
+    media_filter = MediaTrigger()
+    not_media = NotTrigger(
+        trigger= media_filter
     )
     
-    triggers = [ and_filter ]
-    results = []
-    #for i in range(35):     
-       # result = gpt.is_phrase_in(dictionary[i].content)
-        #if result:
-          #  results.append(dictionary[i].content)
-    probe = filter_stories(dictionary, triggers)
-    for i in range(len(probe)):     
+    language_de = LanguageTrigger(
+        language= 'de'
+    )
+    language_en = LanguageTrigger(
+        language= 'en'
+    )
+    or_language = OrTrigger(
+        trigger1= language_de,
+        trigger2= language_en
+    )
+    
+    mentions_filter = MentionsTrigger()
+    poll_filter = PollTrigger()
+    
+    before_filter = BeforeTrigger(
+        ptime= '2023-07-14 13:23:05'
+    )
+    after_filter = AfterTrigger(
+        ptime= '2023-07-14 13:23:05'
+    )
+    
+    
+    triggers = [ or_filter, not_filter, not_media,  after_filter ]
+
+    probe = filter_toots(dictionary, triggers)
+    for i in range(len(probe)): 
+   
         print(probe[i].content)
