@@ -1,4 +1,17 @@
 import itertools
+import graphviz
+import os
+
+def print_graph(g):
+    graph = graphviz.Graph(format='png', strict=True, filename='network')
+    for n in g.keys():
+        graph.node(n, n)
+
+    for n in g.keys():
+        for t, w in g[n]:
+            graph.edge(n, t, label=str(w))
+    graph.render()
+    os.remove('network')
 
 class Graph(dict):
     def __init__(self):

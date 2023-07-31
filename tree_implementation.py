@@ -277,3 +277,5 @@ if __name__ == '__main__':
     print(f"user was found using binary search in {sum(exec_time)/len(exec_time)} seconds.")
 
 
+#TODO: Find a more efficient data structure that beats our BST implementation as a task for students
+
