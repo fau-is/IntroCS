@@ -7,6 +7,8 @@ from content_processor_ps7 import Toot, get_text_content
 from datetime import datetime
 import pytz
 from mastodon import Mastodon
+import xlsxwriter
+import openpyxl
 
 mastodon = Mastodon(
     client_id="SOXp3afnWgFJrQf2_UIlqgPva--ZhdBZHS9fyik8Rvg",
@@ -106,6 +108,39 @@ class MediaTrigger(Trigger):
         media = toot.media
         if media:
             return True 
+        return False
+    
+
+class ImageMediaTrigger(Trigger):
+    def evaluate(self, toot):
+        media = toot.media
+        for content in media:
+            if content["type"] == "image":
+                return True
+        return False
+    
+class VideoMediaTrigger(Trigger):
+    def evaluate(self, toot):
+        media = toot.media
+        for content in media:
+            if content["type"] == "video":
+                return True
+        return False
+    
+class GifMediaTrigger(Trigger):
+    def evaluate(self, toot):
+        media = toot.media
+        for content in media:
+            if content["type"] == "gifv":
+                return True
+        return False
+    
+class AudioMediaTrigger(Trigger):
+    def evaluate(self, toot):
+        media = toot.media
+        for content in media:
+            if content["type"] == "audio":
+                return True
         return False
     
 class LanguageTrigger(Trigger):
@@ -248,11 +283,13 @@ def filter_toots(toots, triggerlist):
     # Problem 10
     trigger_toots = []
     for toot in toots:
+        all_true = True
         for trigger in triggerlist:
             if not trigger.evaluate(toot):
-                break
-            
-        trigger_toots.append(toot)
+                all_true = False
+        if all_true:
+            trigger_toots.append(toot)
+
     return trigger_toots
 
 
@@ -283,7 +320,9 @@ if __name__ == '__main__':
         trigger2= ki
     )
 
+    image_media_filter = ImageMediaTrigger()
     media_filter = MediaTrigger()
+
     not_media = NotTrigger(
         trigger= media_filter
     )
@@ -310,9 +349,46 @@ if __name__ == '__main__':
     )
     
     
-    triggers = [ or_filter, not_filter, not_media,  after_filter ]
+    triggers = [ or_filter, not_filter, not_media,  after_filter, language_en ]
 
     probe = filter_toots(dictionary, triggers)
     for i in range(len(probe)): 
    
-        print(probe[i].content)
+        print(probe[i].account["username"])
+
+
+#document = xlsxwriter.Workbook('objects.xlsx')
+#worksheet = document.add_worksheet()
+
+#worksheet.write(0, 0, "Account")
+#worksheet.write(0, 1, "Pubdate")
+#worksheet.write(0, 2, "Content")
+
+#row = 1
+#column = 0
+#for i in range(len(probe)):
+ #   worksheet.write(row, 0, str(probe[i].account["username"]))
+  #  worksheet.write(row, 1, probe[i].pubdate.replace(tzinfo=None))
+   # worksheet.write(row, 2, probe[i].content)
+
+    #row += 1
+#document.close()
+
+from openpyxl import load_workbook
+
+# Load the existing workbook
+workbook = load_workbook('objects.xlsx')
+
+# Choose the existing worksheet you want to write data into
+worksheet = workbook['Sheet1']  # Replace 'Sheet1' with the actual sheet name
+
+# Get the data in 'probe' list and write it to the existing worksheet
+for row, toot in enumerate(probe, 2):  # Start from row 2 to avoid overwriting the headers
+    worksheet.cell(row=row, column=1, value=toot.account["username"])
+    worksheet.cell(row=row, column=2, value=toot.pubdate.replace(tzinfo=None))
+    worksheet.cell(row=row, column=3, value=toot.content)
+
+# Save the modified workbook
+workbook.save('objects.xlsx')
+
+        
