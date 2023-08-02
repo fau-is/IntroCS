@@ -149,7 +149,7 @@ class LanguageTrigger(Trigger):
         
     def evaluate(self, toot):
         langu = toot.language
-        if self.language ==langu:
+        if self.language == langu:
             return True 
         return False
     
@@ -180,11 +180,8 @@ class PhraseTrigger(Trigger):
         for letter in string.punctuation:
             clean_text = text.replace(letter, ' ')
         words = clean_text.split()
-        single_phrase = self.phrase.split()
-        #for m in single_phrase:
-        #   for i, word in enumerate(words):
-        #      if m == word:
-        #         test.append(i)
+        single_phrase = self.phrase.split()         #Ist Zeile 182 bis 186 nötig? Teilen wir hier nicht alles, nur um es dann wieder
+                                                    #zusammenzusetzen?
         list_text = " ".join(words)
         list_trigger= " ".join(single_phrase)
 
