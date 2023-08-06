@@ -1,4 +1,4 @@
-from graph_implementation import Graph, print_graph
+from graph_implementation_unweighted import Graph, print_graph
 from tree_implementation import *
 import sys
 import graphviz
@@ -8,19 +8,19 @@ import os
 if __name__ == '__main__':
 
     g = Graph()
-    Edges = [('Marissa', 'Sundar', 3), ('Marissa', 'Mark', 2), ('Marissa', 'Elon', 2),
-             ('Sundar', 'Mark', 5), ('Sundar', 'Elon', 3), \
-             ('Sundar', 'Adam', 1), ('Sundar', 'Jack', 5), ('Tim', 'Sundar', 1),
-             ('Jack', 'Adam', 1), ('Adam', 'Elon', 1), \
-             ('Elon', 'Mark', 1), ('Olaf', 'Emanuel', 3), ('Olaf', 'Rishi', 1),
-             ('Rishi', 'Emanuel', 2), ('Emanuel', 'Joe', 1), ('Sundar', "Emanuel",2)]
+    Edges = [('Marissa', 'Sundar'), ('Marissa', 'Mark'), ('Marissa', 'Elon'),
+             ('Sundar', 'Mark'), ('Sundar', 'Elon'), \
+             ('Sundar', 'Adam'), ('Sundar', 'Jack'), ('Tim', 'Sundar'),
+             ('Jack', 'Adam'), ('Adam', 'Elon'), \
+             ('Elon', 'Mark'), ('Olaf', 'Emanuel'), ('Olaf', 'Rishi'),
+             ('Rishi', 'Emanuel'), ('Emanuel', 'Joe'), ('Sundar', "Emanuel")]
 
     for edge in Edges:
-        a, b, c = edge
-        g.add_edge(a, b, c)
+        a, b = edge
+        g.add_edge(a, b)
 
     print(" ------------ Network: Mastodon (unweighted) User Graph -------------- ")
-
+    print_graph(g)
     # 1. Determine if a graph is connected or not using DFS
     if len(g.dfs('Elon')) == len(g):
         print("1. DFS - The graph is connected")
@@ -73,7 +73,7 @@ if __name__ == '__main__':
     communities = g.get_communities(clusters=2)
     for i,c in enumerate(communities):
         print("Community",i,"-",c)
-    print_graph(g)
+    # print_graph(g)
 
     # print(" ------------ Mastodon (weighted) Status Network -------------- ")
     # TODO: BFS/DFS Use cases for this type of network rather limited, therefore not of priority

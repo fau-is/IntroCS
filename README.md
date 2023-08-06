@@ -9,11 +9,12 @@ To help students understand graphs and trees as well as their benefits using the
 5. Performance Analysis: Students will analyse the time and space complexity of their implementations. They will also discuss the efficiency and real-world applicability of their chosen data structures.
 ## Tasks for (user) graph (low level):
 
-1. Determine if the graph of users G is connected or contains disconnected subgraphs. For this you should implement an iterative/recursive Depth-First-Search algorithm that traverses over the graph in a DFS-manner. It should return a list of visited nodes in the order of traversal.
-2. Determine if there exist a mediate connection between two users A and B. Implement an iterative/recursive Breadth-First-Search algorithm that traverses over the graph in a BFS-manner. The BFS algorithm not only finds a connection, it also finds the shortest path in case of an unweighted graph.
-3. Identify the most influential user based on the "Closeness measure" which requires you to compute shortest paths via BFS or Dijkstra. Additionally, answer the following question: "On average, through how many corners are you connected to every other person in the network?"
+1. Create the Graph class with basic functionality (add/delete edge/vertex)
+2. Determine if the graph of users G is connected or contains disconnected subgraphs. For this you should implement an iterative/recursive Depth-First-Search algorithm that traverses over the graph in a DFS-manner. It should return a list of visited nodes in the order of traversal.
+3. Determine if there exist a mediate connection between two users A and B. Implement an iterative/recursive Breadth-First-Search algorithm that traverses over the graph in a BFS-manner. The BFS algorithm not only finds a connection, it also finds the shortest path in case of an unweighted graph.
+4. Identify the most influential user based on the "Closeness measure" which requires you to compute shortest paths via BFS or Dijkstra. Additionally, answer the following question: "On average, through how many corners are you connected to every other person in the network?"
 >  **Closeness**: Average length of the shortest paths between that node and all other nodes in the graph.
-4. Community Detection: Using the Girvan Newman algorithm, identify the three clusters describing the three most dense communities in the graph.
+5. Community Detection: Using the Girvan Newman algorithm, identify the three clusters describing the three most dense communities in the graph.
 
 ### Variants
 
@@ -26,6 +27,7 @@ To help students understand graphs and trees as well as their benefits using the
 
 ## Tasks for (follower) tree (low level):
 
-1. Implement a binary search tree, that stores all the followers of a user alphabetically. Implement the recursive binary search algorithm to check wether a username is listed in the user tree.
-2. In order to display all of the followers, use the DFS algorithm from the previous exercise and make slight changes to it, such that it can traverse over the tree in a Pre-, In-, and Postorder.
-3. Implement another suitable data structure of your choice, e.g. hash-table, trie, avl-tree, parse the followers onto it and compare the runtime for searching using pythons time library. What do you see?
+1. Implement a binary search tree, that stores all the followers of a user alphabetically. 
+2. Implement the recursive (iterative) binary search algorithm to check wether a username is listed in the user tree.
+3. In order to display all of the followers, use the DFS algorithm from the previous exercise and make slight changes to it, such that it can traverse over the tree in a Pre-, In-, and Postorder.
+4. Find a more efficient data structure (in terms of search runtime) and implement it in order to store all the followers. When evaluating the method evaluate_time() your implementation should find a specified user faster than our Binary Search Algorithm
