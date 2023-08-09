@@ -70,7 +70,7 @@ def load(hashtag):
     toots_dict = []
     
     # Load all toots with a specific hashtag into a dictionary, limit to 100 toots
-    toots = mastodon.timeline_hashtag(hashtag, limit=100)
+    toots = mastodon.timeline_hashtag(hashtag, limit=10)
     
     # Process the retrieved toots
     for toot in toots:
@@ -331,7 +331,7 @@ def filter_toots(toots, triggerlist):
 
 # Problem 19
 
-# TODO: Load_to_workbook
+# Load_to_workbook
 def load_to_workbook(dictionary):
     # Load the existing workbook
     workbook = load_workbook('objects.xlsx')
@@ -353,15 +353,15 @@ def load_to_workbook(dictionary):
  
 if __name__ == '__main__':
     
-    #first hashtag is already a filter (kind of)
-    hashtag = 'ChatGPT'
+    #Use your load function to load all toots by a specified hashtag
+    hashtag = 'SMS'
     dictionary = load(hashtag)
     
     ai = PhraseTrigger(
-        phrase = 'AI'
+        phrase = 'Sonne Mond Sterne'
     )
     ki = PhraseTrigger(
-        phrase = 'KI'
+        phrase = 'Ticket'
     )
     university = PhraseTrigger(
         phrase = 'university'
@@ -406,13 +406,10 @@ if __name__ == '__main__':
     )
     
     
-    triggers = [ or_filter, not_filter, not_media,  after_filter, language_en ]
+    triggers = [ ai, ki, language_de ]
 
-    probe = filter_toots(dictionary, triggers)
-    for i in range(len(probe)): 
-   
-        print(probe[i].account["username"])
-
+    filtered_toots = filter_toots(dictionary, triggers)
+    load_to_workbook(filtered_toots)
 
 
 
