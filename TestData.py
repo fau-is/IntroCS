@@ -20,10 +20,7 @@ def print_graph(g):
     os.remove('network')
 
 # define mode (fetch data/draw graph)
-# 'fetch' or 'draw'
-mode = "fetch"
-
-main_user = ("31622", "lpenou")
+mode = "draw"
 
 if mode == "fetch":
     # TODO: Fetching Followers
@@ -31,8 +28,8 @@ if mode == "fetch":
     g = {}
 
     access_token = ""
-    # all_nodes = [main_user]
-    all_nodes = []
+    main_user = ("65633", "dajbelshaw")
+    all_nodes = [main_user]
     followers = set()
 
     url = f"https://mastodon.social/api/v1/accounts/{main_user[0]}/followers?limit=80"
@@ -46,10 +43,10 @@ if mode == "fetch":
 
     all_nodes.extend(list(followers))
     all_ids = [i[0] for i in all_nodes]
-    # g[main_user[1]] = [i[1] for i in followers]
+    g[main_user[1]] = [i[1] for i in followers]
 
     print(f"Iterating over {len(all_nodes)-1} users")
-    for i, (id, username) in enumerate(all_nodes):
+    for i, (id, username) in enumerate(all_nodes[1:]):
         url = f"https://mastodon.social/api/v1/accounts/{id}/followers?limit=80"
         followers = set()
         while url:
@@ -63,17 +60,14 @@ if mode == "fetch":
 
     print(g)
 
-    with open('graph_51n.json', 'w') as fp:
+    with open('graph_50n.json', 'w') as fp:
         json.dump(g, fp)
 
 elif mode == "draw":
     # Create graphviz png
-    with open('graph_51n.json', 'r') as fr:
+    with open('graph_50n.json', 'r') as fr:
         data = json.load(fr)
     data = dict(data)
-    # remove main_users connections from graph, otherwise unnecessary edges from main user to all other users
-    if main_user[1] in data.keys():
-        data.pop(main_user[1], None)
     print_graph(data)
 
 

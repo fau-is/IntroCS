@@ -1,3 +1,6 @@
+import json
+
+
 class User():
     def __init__(self, username):
         self.username = username
@@ -74,4 +77,20 @@ class Graph(dict):
                 if neighbor not in visited:
                     queue.append(neighbor)
         return vertex_list
+
+
+    def build_graph(self, filepath='tests/ressources/graph_51n.json'):
+        with open(filepath, 'r') as f:
+            data = json.load(f)
+
+        # Remove the first key-item pair
+        first_key = list(data.keys())[0]
+        del data[first_key]
+        # Add vertices and edges to the graph
+        for key, neighbors in data.items():
+            key_user = User(key)
+            self.add_vertex(key_user)
+            for neighbor in neighbors:
+                neighbor_user = User(neighbor)
+                self.add_edge(key_user, neighbor_user)
 
