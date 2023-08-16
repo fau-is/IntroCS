@@ -2,40 +2,70 @@ class User():
     def __init__(self, username):
         self.username = username
 
-
-class Edge():
-    def __init__(self, user1, user2, weight=None):
-        self.user1 = user1
-        self.user2 = user2
-        self.weight = weight
+    def __str__(self):
+        return self.username
 
 
-class Graph():
+class Graph(dict):
     def __init__(self):
-        self.nodes = []
-        self.edges = []
+        super().__init__()
+        self.sps = None
 
-    def build_graph(self, path):
-        # Iterate through json
-        # json = pd.read_json()
-        # add user
-        self.add_user(username)
+    def add_vertex(self, user):
+        self[str(user)] = []  # Use the string representation of the user as the key
 
-        # add edge
-        self.add_edge(user1,user2)
+    def add_edge(self, origin, target):
+        if str(origin) not in self.keys():
+            self.add_vertex(origin)
+        if str(target) not in self[str(origin)]:
+            self[str(origin)].append(str(target))
 
-    def add_user(self, username):
-        user = User(username)
-        self.nodes.append(user)
+        if str(target) not in self.keys():
+            self.add_vertex(target)
+        if str(origin) not in self[str(target)]:
+            self[str(target)].append(str(origin))
 
-    def add_edge(self, user1, user2):
-        edge = Edge(user1, user2)
-        self.edges.append(edge)
+    def remove_edge(self, edge):
+        v1 = str(edge[0])
+        v2 = str(edge[1])
+        index = 0
+        while self[v1][index] != v2:
+            index+=1
+        del self[v1][index]
+
+        index = 0
+        while self[v2][index] != v1:
+            index+=1
+        del self[v2][index]
 
 
-    g = Graph("data.csv")
+    def dfs(self, start):
+        vertex_list = []
+        stack = [str(start)]
+        visited = []
+        while stack:
+            node = stack.pop()
+            if node in vertex_list:
+                continue
+            visited.append(node)
+            vertex_list.append(node)
+            for neighbor in self[node][::-1]:
+                if neighbor not in visited:
+                    stack.append(neighbor)
+        return vertex_list
 
-    g = Graph()
-    g.build_graph("data.csv")
 
-
+    def bfs(self, start):
+        vertex_list = []
+        queue = [str(start)]
+        visited = []
+        while queue:
+            node = queue.pop(0)
+            if node in vertex_list:
+                continue
+            vertex_list.append(node)
+            visited.append(node)
+            for neighbor in self[node]:
+                if neighbor not in visited:
+                    queue.append(neighbor)
+        return vertex_list
