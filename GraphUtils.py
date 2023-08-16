@@ -17,13 +17,19 @@ class Graph(dict):
     def add_edge(self, origin, target):
         if str(origin) not in self.keys():
             self.add_vertex(origin)
-        if str(target) not in self[str(origin)]:
-            self[str(origin)].append(str(target))
-
         if str(target) not in self.keys():
             self.add_vertex(target)
+
+        # Insert str(target) into origin's neighbors
+        if str(target) not in self[str(origin)]:
+            self[str(origin)].append(str(target))
+            self[str(origin)].sort()  # sort the list in ascending order
+
+        # Insert str(origin) into target's neighbors
         if str(origin) not in self[str(target)]:
             self[str(target)].append(str(origin))
+            self[str(target)].sort()  # sort the list in ascending order
+
 
     def remove_edge(self, edge):
         v1 = str(edge[0])
@@ -32,7 +38,6 @@ class Graph(dict):
         while self[v1][index] != v2:
             index+=1
         del self[v1][index]
-
         index = 0
         while self[v2][index] != v1:
             index+=1
@@ -69,3 +74,4 @@ class Graph(dict):
                 if neighbor not in visited:
                     queue.append(neighbor)
         return vertex_list
+
