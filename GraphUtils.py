@@ -63,6 +63,18 @@ class Graph(dict):
         return vertex_list
 
 
+    def find_clusters(self):
+        visited = set()
+        clusters = []
+
+        for vertex in self:
+            if vertex not in visited:
+                cluster = self.dfs(vertex)
+                visited.update(cluster)
+                clusters.append(cluster)
+
+        return clusters
+
     def bfs(self, start):
         vertex_list = []
         queue = [str(start)]
@@ -79,7 +91,7 @@ class Graph(dict):
         return vertex_list
 
 
-    def build_graph(self, filepath='tests/ressources/graph_51n.json'):
+    def build_graph(self, filepath='tests/ressources/graph_52n.json'):
         with open(filepath, 'r') as f:
             data = json.load(f)
 
