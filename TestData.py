@@ -20,6 +20,9 @@ def print_graph(g):
     os.remove('network')
 
 # define mode (fetch data/draw graph)
+# 'fetch' or 'draw'
+# main_user = ("65633", "dajbelshaw")
+main_user = ("31622", "lpenou")
 mode = "draw"
 
 if mode == "fetch":
@@ -28,8 +31,7 @@ if mode == "fetch":
     g = {}
 
     access_token = ""
-    main_user = ("65633", "dajbelshaw")
-    all_nodes = [main_user]
+    all_nodes = []
     followers = set()
 
     url = f"https://mastodon.social/api/v1/accounts/{main_user[0]}/followers?limit=80"
@@ -43,10 +45,9 @@ if mode == "fetch":
 
     all_nodes.extend(list(followers))
     all_ids = [i[0] for i in all_nodes]
-    g[main_user[1]] = [i[1] for i in followers]
 
-    print(f"Iterating over {len(all_nodes)-1} users")
-    for i, (id, username) in enumerate(all_nodes[1:]):
+    print(f"Iterating over {len(all_nodes)} users")
+    for i, (id, username) in enumerate(all_nodes):
         url = f"https://mastodon.social/api/v1/accounts/{id}/followers?limit=80"
         followers = set()
         while url:
@@ -55,19 +56,25 @@ if mode == "fetch":
             usernames = set([(i['id'], i['username']) for i in objects if i['id'] in all_ids])
             followers |= usernames
             url = response.links['next']['url'] if 'next' in response.links else None
+            time.sleep(.5) # in order to avoid api call ban
         g[username] = [i[1] for i in followers]
-        print(f"\t user {i}/{len(all_nodes)-1} - fetched {len(followers)} followers for user {username}({id})")
+        print(f"\t user {i}/{len(all_nodes)} - fetched {len(followers)} followers for user {username}({id})")
 
     print(g)
 
-    with open('graph_50n.json', 'w') as fp:
+    # Make graph undirected
+    for user, items in g.items():
+        for follower in items:
+            if user not in g[follower]:
+                g[follower].append(user)
+
+    with open('tests/ressources/graph_52n.json', 'w') as fp:
         json.dump(g, fp)
 
 elif mode == "draw":
     # Create graphviz png
-    with open('graph_50n.json', 'r') as fr:
-        data = json.load(fr)
-    data = dict(data)
+    with open('tests/ressources/graph_52n.json', 'r') as fr:
+        data = dict(json.load(fr))
     print_graph(data)
 
 
