@@ -6,6 +6,7 @@ class TestUser(unittest.TestCase):
 
     def test_username_initialization(self):
         user = User("Alice")
+        self.assertTrue(hasattr(user, 'username'))
         self.assertEqual(user.username, "Alice")
 
 
@@ -90,6 +91,8 @@ class TestGraphMethods(unittest.TestCase):
         self.assertEqual(len(clusters), 1)
         self.assertCountEqual(clusters[0], ["Alice", "Bob", "Charlie", "David"])
 
+        self._test_subgraphs(clusters)
+
     def test_clusters_disconnected(self):
         # Test if multiple separated clusters can be found
         self._setup_graph_disconnected()
@@ -97,6 +100,8 @@ class TestGraphMethods(unittest.TestCase):
         self.assertEqual(len(clusters), 3)
         for cluster in clusters:
             self.assertIn(len(cluster), [2, 2, 2])
+
+        self._test_subgraphs(clusters)
 
 
     # Task 3
@@ -144,8 +149,9 @@ class TestGraphMethods(unittest.TestCase):
                 self.assertIn(str(User(neighbor)), self.graph[str(User(key))])
 
     def test_most_influential(self):
-        self.setUp_JSON_data()
-        self.graph.build_graph(self.filepath)
+        # self.setUp_JSON_data()
+        # self.graph.build_graph(self.filepath)
+        self._setup_graph_4_5()
         result = self.graph.most_influential()
         # Check if result is a tuple of length 2
         self.assertTrue(isinstance(result, tuple))
@@ -153,11 +159,67 @@ class TestGraphMethods(unittest.TestCase):
 
         # Check if the first element of the tuple is a string or instance of User with the value "paulfree14"
         self.assertTrue(isinstance(result[0], (str, User)))
-        self.assertEqual(result[0], "paulfree14")
+        # self.assertEqual(result[0], "paulfree14")
+        self.assertEqual(result[0], "Sundar")
 
         # Check if the second element of the tuple is a float with a value between 2.4 and 2.5
         self.assertTrue(isinstance(result[1], float))
-        self.assertTrue(2.4 <= result[1] <= 2.5)
+        # self.assertTrue(2.4 <= result[1] <= 2.5)
+        self.assertTrue(2.3 <= result[1] <= 2.4)
+
+    # task 5
+    def _setup_graph_4_5(self):
+        self.graph = Graph()
+        Edges = [('Marissa', 'Sundar'), ('Marissa', 'Mark'), ('Marissa', 'Elon'),
+                 ('Sundar', 'Mark'), ('Sundar', 'Elon'), \
+                 ('Sundar', 'Adam'), ('Sundar', 'Jack'), ('Tim', 'Sundar'),
+                 ('Jack', 'Adam'), ('Adam', 'Elon'), \
+                 ('Elon', 'Mark'), ('Olaf', 'Emanuel'), ('Olaf', 'Rishi'),
+                 ('Rishi', 'Emanuel'), ('Emanuel', 'Joe'), ('Sundar', "Emanuel")]
+
+        for edge in Edges:
+            a, b = edge
+            self.graph.add_edge(a, b)
+
+    def test_get_communities(self):
+        self._setup_graph_4_5()
+        for c in range(1,12):
+            communities = self.graph.get_communities(clusters=c)
+            self.assertGreaterEqual(len(communities), c, f"When asked for {c} clusters get_communities(clusters={c}) returns less than {c} clusters.")
+            for subgraph in communities:
+                self.assertTrue(isinstance(subgraph, (list, set, tuple)), "Your returned subgraphs should be of type set")
+                self.assertGreaterEqual(len(subgraph),1, "Make sure get_communities does not return empty subgraphs")
+        self._test_subgraphs(communities)
+
+    def _test_subgraphs(self, result):
+        # every graph node needs to be part of exactly one subgraph
+        users_all = [i for b in result for i in list(b)]
+        for user in self.graph.keys():
+            self.assertEqual(users_all.count(user), 1)
+
+    def test_compute_sps(self):
+        # pre method call
+        self.assertTrue(hasattr(self.graph, 'sps'))
+
+        self._setup_graph_4_5()
+        self.graph.compute_sps()
+
+        # post method call
+        node_count = len(self.graph.keys())
+        self.assertEqual(len(self.graph.sps), node_count)
+        self.assertEqual([len(i) for i in self.graph.sps].count(node_count), node_count)
+
+        sp_flag = False
+        for i in range(node_count):
+            for j in range(node_count):
+                if isinstance(self.graph.sps[i][j],(list, set, tuple)):
+                    sp_flag = True
+                    break
+            if sp_flag:
+                break
+        self.assertTrue(sp_flag)
+
+
 
 
 
