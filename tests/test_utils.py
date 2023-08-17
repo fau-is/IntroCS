@@ -1,5 +1,6 @@
 import unittest
 from GraphUtils import User, Graph
+import json
 
 class TestUser(unittest.TestCase):
 
@@ -22,6 +23,19 @@ class TestGraphMethods(unittest.TestCase):
     def tearDown(self):
         del self.graph
 
+    # Task 1
+    def _setup_graph_dfs_bfs(self):
+        self.graph.add_edge(self.user1, self.user2)
+        self.graph.add_edge(self.user2, self.user3)
+        self.graph.add_edge(self.user3, self.user4)
+        self.graph.add_edge(self.user1, self.user4)
+
+    def _teardown_graph_connections(self):
+        self.graph.remove_edge((self.user1, self.user2))
+        self.graph.remove_edge((self.user2, self.user3))
+        self.graph.remove_edge((self.user3, self.user4))
+        self.graph.remove_edge((self.user1, self.user4))
+
     def test_add_vertex(self):
         self.graph.add_vertex(self.user1)
         self.assertIn("Alice", self.graph)
@@ -38,13 +52,13 @@ class TestGraphMethods(unittest.TestCase):
         self.assertNotIn("Alice", self.graph["Bob"])
 
     def test_dfs(self):
-        self._setup_graph_connections()
+        self._setup_graph_dfs_bfs()
         visited = self.graph.dfs(self.user1)
         self.assertEqual(visited, ["Alice", "Bob", "Charlie", "David"])
         self._teardown_graph_connections()
 
     def test_bfs(self):
-        self._setup_graph_connections()
+        self._setup_graph_dfs_bfs()
         visited = self.graph.bfs(self.user1)
         self.assertEqual(visited, ["Alice", "Bob", "David", "Charlie"])
         self._teardown_graph_connections()
@@ -55,6 +69,9 @@ class TestGraphMethods(unittest.TestCase):
         self.graph.add_edge(self.user1, self.user3)
         self.assertEqual(self.graph["Alice"], ["Bob", "Charlie", "David"])
 
+
+
+    # task 2
     def _setup_graph_connected(self):
         self.graph.add_edge(self.user1, self.user2)
         self.graph.add_edge(self.user2, self.user3)
@@ -64,6 +81,7 @@ class TestGraphMethods(unittest.TestCase):
         self.graph.add_edge(self.user1, self.user2)
         self.graph.add_edge(self.user3, self.user4)
         self.graph.add_edge(self.user5, self.user6)
+
 
     def test_clusters_connected(self):
         # Test if a fully connected cluster is found
@@ -80,17 +98,68 @@ class TestGraphMethods(unittest.TestCase):
         for cluster in clusters:
             self.assertIn(len(cluster), [2, 2, 2])
 
-    def _setup_graph_connections(self):
+
+    # Task 3
+    def _setup_graph(self):
         self.graph.add_edge(self.user1, self.user2)
         self.graph.add_edge(self.user2, self.user3)
         self.graph.add_edge(self.user3, self.user4)
-        self.graph.add_edge(self.user1, self.user4)
+        self.graph.add_edge(self.user4, self.user5)
+        self.graph.add_edge(self.user1, self.user5)
 
-    def _teardown_graph_connections(self):
-        self.graph.remove_edge((self.user1, self.user2))
-        self.graph.remove_edge((self.user2, self.user3))
-        self.graph.remove_edge((self.user3, self.user4))
-        self.graph.remove_edge((self.user1, self.user4))
+    def test_bfs_find_path_exists(self):
+        self._setup_graph()
+        path = self.graph.bfs_find("Alice", "David")
+        self.assertEqual(path, ["Alice", "Eve", "David"])
+
+    def test_bfs_find_no_path(self):
+        self._setup_graph()
+        path = self.graph.bfs_find("Alice", "Frank")
+        self.assertEqual(path, None)
+
+    def test_bfs_find_shortest_path(self):
+        self._setup_graph()
+        path = self.graph.bfs_find("Alice", "Eve")
+        self.assertEqual(path, ["Alice", "Eve"])
+
+    # Task 4
+    def setUp_JSON_data(self):
+        self.graph = Graph()
+        self.filepath = 'ressources/graph_52n.json'
+        with open(self.filepath, 'r') as f:
+            self.data = json.load(f)
+        # Remove the first key-item pair as per the build_graph method
+        first_key = list(self.data.keys())[0]
+        del self.data[first_key]
+
+
+    def test_build_graph(self):
+        self.setUp_JSON_data()
+        self.graph.build_graph(self.filepath)
+
+        # Check if graph has been built correctly
+        for key, neighbors in self.data.items():
+            self.assertTrue(str(User(key)) in self.graph)
+            for neighbor in neighbors:
+                self.assertIn(str(User(neighbor)), self.graph[str(User(key))])
+
+    def test_most_influential(self):
+        self.setUp_JSON_data()
+        self.graph.build_graph(self.filepath)
+        result = self.graph.most_influential()
+        # Check if result is a tuple of length 2
+        self.assertTrue(isinstance(result, tuple))
+        self.assertEqual(len(result), 2)
+
+        # Check if the first element of the tuple is a string or instance of User with the value "paulfree14"
+        self.assertTrue(isinstance(result[0], (str, User)))
+        self.assertEqual(result[0], "paulfree14")
+
+        # Check if the second element of the tuple is a float with a value between 2.4 and 2.5
+        self.assertTrue(isinstance(result[1], float))
+        self.assertTrue(2.4 <= result[1] <= 2.5)
+
+
 
 
 if __name__ == "__main__":

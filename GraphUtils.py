@@ -63,6 +63,7 @@ class Graph(dict):
         return vertex_list
 
 
+
     def find_clusters(self):
         visited = set()
         clusters = []
@@ -90,6 +91,45 @@ class Graph(dict):
                     queue.append(neighbor)
         return vertex_list
 
+    def bfs_find(self, start, end):
+        queue = [(start, [start])]
+        visited = set()
+
+        while queue:
+            (node, path) = queue.pop(0)
+            if node not in visited:
+                if node == end:
+                    return path
+                visited.add(node)
+
+                for neighbor in self[node]:
+                    queue.append((neighbor, path + [neighbor]))
+        return None
+
+
+    def most_influential(self):
+        mapping = {key: i for key, i in zip(self.keys(), range(len(self.keys())))}
+        mapping_rev = {i: key for key, i in mapping.items()}
+        matrix = [[None for i in range(len(mapping))] for i in range(len(mapping))]
+
+        for node in self.keys():
+            for to_node in self.keys():
+                if node == to_node:
+                    continue
+                matrix[mapping[node]][mapping[to_node]] = self.bfs_find(node, to_node)
+                # matrix[mapping[node]][mapping[to_node]] = self.dijkstra(node, to_node)
+
+        sps = {node: [] for node in self.keys()}
+        for y, row in enumerate(matrix):
+            for i in row:
+                if  i:
+                    length = len(i)
+                    # length = i[0]
+                    sps[mapping_rev[y]].append(length)
+        ranking = {key: sum(value) / len(value) for key, value in sps.items() if len(value) > 0}
+        min_node = min(ranking, key=ranking.get)
+        min_mean_distance = ranking[min_node]
+        return(min_node, min_mean_distance)
 
     def build_graph(self, filepath='tests/ressources/graph_52n.json'):
         with open(filepath, 'r') as f:
@@ -106,3 +146,9 @@ class Graph(dict):
                 neighbor_user = User(neighbor)
                 self.add_edge(key_user, neighbor_user)
 
+
+if __name__ == "__main__":
+    graph = Graph()
+    graph.build_graph()
+    print(graph)
+    print(graph.most_influential())
