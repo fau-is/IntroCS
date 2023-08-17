@@ -50,6 +50,41 @@ class TestBST(unittest.TestCase):
         self.assertTrue(is_bst(BST.root))
 
 
+    # Task 2
+    def test_linear_search(self):
+        # Adding some usernames to the BST
+        BST.add("Lopinel")
+        for username in self.usernames:
+            BST.add(username)
+
+        # Test 1: Check if a username can be found
+        self.assertEqual(BST.linear_search('Lopinel').username, 'Lopinel')
+        self.assertEqual(BST.linear_search('mistur').username, 'mistur')
+
+        # Test 2: Check if a non-existing username returns False
+        self.assertFalse(BST.linear_search('NonExistingUser'))
+
+        # Test 3: Check if an empty BST returns False
+        BST.root = None
+        self.assertFalse(BST.linear_search('Lopinel'))
+
+
+    def test_binary_search(self):
+        # Adding some usernames to the BST
+        BST.add("Lopinel")
+        for username in self.usernames:
+            BST.add(username)
+
+        self.assertEqual(BST.binary_search(BST.root, 'Lopinel').username, 'Lopinel')
+        self.assertEqual(BST.binary_search(BST.root, 'mistur').username, 'mistur')
+
+        self.assertFalse(BST.binary_search(BST.root, 'NonExistingUser'))
+
+        BST.root = None
+        self.assertFalse(BST.binary_search(BST.root, 'Lopinel'))
+
+
+
 
 
 if __name__ == '__main__':
