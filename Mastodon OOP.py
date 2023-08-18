@@ -13,6 +13,7 @@ from bs4 import BeautifulSoup
 # Get the different variables from your mastodon account
 #======================
 
+# Problem 0
 
 mastodon = Mastodon(
     client_id="SOXp3afnWgFJrQf2_UIlqgPva--ZhdBZHS9fyik8Rvg",
@@ -136,7 +137,7 @@ class ImageMediaTrigger(MediaTrigger):
                 return True
         return False
 
-# Problem 5
+# Problem 6
 
 # TODO: VideoMediaTrigger
 class VideoMediaTrigger(MediaTrigger):
@@ -147,7 +148,7 @@ class VideoMediaTrigger(MediaTrigger):
                 return True
         return False
 
-# Problem 6
+# Problem 7
 
 # TODO: GifMediaTrigger
 class GifMediaTrigger(MediaTrigger):
@@ -158,7 +159,7 @@ class GifMediaTrigger(MediaTrigger):
                 return True
         return False
 
-# Problem 7
+# Problem 8
 
 # TODO: AudioMediaTrigger
 class AudioMediaTrigger(MediaTrigger):
@@ -169,7 +170,7 @@ class AudioMediaTrigger(MediaTrigger):
                 return True
         return False
     
-# Problem 8
+# Problem 9
 
 # TODO: LanguageTrigger
 class LanguageTrigger(Trigger):
@@ -182,7 +183,7 @@ class LanguageTrigger(Trigger):
             return True 
         return False
     
-# Problem 9
+# Problem 10
 
 # TODO: PollTrigger
 class PollTrigger(Trigger):
@@ -192,7 +193,7 @@ class PollTrigger(Trigger):
             return True 
         return False
     
-# Problem 10
+# Problem 11
 
 # TODO: MentionsTrigger
 class MentionsTrigger(Trigger):
@@ -203,7 +204,7 @@ class MentionsTrigger(Trigger):
         return False
 
 
-# Problem 11
+# Problem 12
 
 # TODO: PhraseTrigger
 class PhraseTrigger(Trigger):
@@ -230,7 +231,7 @@ class PhraseTrigger(Trigger):
 
 # TIME TRIGGERS
 
-# Problem 12
+# Problem 13
 
 # TODO: TimeTrigger
 class TimeTrigger(Trigger):
@@ -241,7 +242,7 @@ class TimeTrigger(Trigger):
         self.ptime = ptime
 
 
-# Problem 13
+# Problem 14
 
 # TODO: BeforeTrigger
 class BeforeTrigger(TimeTrigger):
@@ -249,7 +250,7 @@ class BeforeTrigger(TimeTrigger):
         clock = toot.pubdate.replace(tzinfo=pytz.timezone("EST"))
         return self.ptime > clock
 
-# Problem 14
+# Problem 15
 
 # TODO: AfterTrigger
 class AfterTrigger(TimeTrigger):
@@ -262,7 +263,7 @@ class AfterTrigger(TimeTrigger):
 # COMPOSITE TRIGGERS
 #======================
 
-# Problem 15
+# Problem 16
 
 # TODO: NotTrigger
 class NotTrigger(Trigger):
@@ -273,7 +274,7 @@ class NotTrigger(Trigger):
         result = self.trigger.evaluate(toot)
         return not result
 
-# Problem 16
+# Problem 17
 
 # TODO: AndTrigger
 class AndTrigger(Trigger):
@@ -287,7 +288,7 @@ class AndTrigger(Trigger):
         return result1 and result2
 
 
-# Problem 17
+# Problem 18
 
 # TODO: OrTrigger
 class OrTrigger(Trigger):
@@ -304,7 +305,7 @@ class OrTrigger(Trigger):
 # Filtering
 #======================
 
-# Problem 18
+# Problem 19
 
 # TODO: Filter_toots
 def filter_toots(toots, triggerlist):
