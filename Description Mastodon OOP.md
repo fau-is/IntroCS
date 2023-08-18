@@ -30,7 +30,7 @@ Recall how to use the init method to create your constructor.
 ### Problem 2: Isolate the text from html
 #### Get_text_content
 Your task is it to implement a function called get_text_content() which takes a toot (dictionary) as its input. The dictionary contains a key called 'content', which holds an HTML content string. Writea solution that extracts the plain text content from the HTML and returns it.
-> **_HINT_:_** You can use the Beautiful Soup library.
+> **_HINT_:** You can use the Beautiful Soup library.
 
 
 ### Problem 3: Download the toots from mastodon
@@ -55,25 +55,25 @@ This is an abstract class representing the parent class for all triggers. It con
 - The Image-Trigger is a trigger that fires when a social network post contains one or more image attachments.
 - To implement this trigger, you need to access the media attribute of the post object, which represents the media attachments.
 - Check if the media attribute is not empty and contains at least one image attachment. If it does, return True, indicating that the trigger should fire. Otherwise, return False.
-> **_HINT_:_**  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
+> **_HINT_:**  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
 
 #### GIF-Trigger
 - The GIF-Trigger is a trigger that fires when a social network post contains one or more GIF (Graphics Interchange Format) attachments.
 - To implement this trigger, you need to access the media attribute of the post object, which represents the media attachments.
 - Check if the media attribute is not empty and contains at least one GIF attachment. If it does, return True, indicating that the trigger should fire. Otherwise, return False.
-> **_HINT_:_** For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
+> **_HINT_:** For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
 
 #### Video-Trigger
 - The Video-Trigger is a trigger that fires when a social network post contains one or more video attachments.
 - To implement this trigger, you need to access the media attribute of the post object, which represents the media attachments.
 - Check if the media attribute is not empty and contains at least one video attachment. If it does, return True, indicating that the trigger should fire. Otherwise, return False.
-> **_HINT_:_**  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
+> **_HINT_:**  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
 
 #### Audio-Trigger
 - The Audio-Trigger is a trigger that fires when a social network post contains one or more audio attachments.
 •	To implement this trigger, you need to access the media attribute of the post object, which represents the media attachments.
 - Check if the media attribute is not empty and contains at least one audio attachment. If it does, return True, indicating that the trigger should fire. Otherwise, return False.
-> **_HINT_:_**  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
+> **_HINT_:**  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
 
 ### Problem 9: Implement a Language Trigger
 #### Language-Trigger
