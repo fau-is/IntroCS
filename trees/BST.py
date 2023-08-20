@@ -96,3 +96,47 @@ class BST:
                 queue.append(CurNode.left)
         return order
 
+    @staticmethod
+    def inorder():
+        """
+        This method performs inorder DFS.
+        :return: a list of the domain names in inorder.
+        """
+        order = []
+        stack = []
+        CurNode = BST.root
+
+        while CurNode is not None or len(stack) > 0:
+            while CurNode is not None:
+                stack.append(CurNode)
+                CurNode = CurNode.left
+            CurNode = stack.pop()
+            order.append(CurNode.username)
+            CurNode = CurNode.right
+
+        return order
+
+    @staticmethod
+    def postorder():
+        """
+        This method performs postorder DFS.
+        :return: a list of the domain names in postorder.
+        """
+        order = []
+        stack1 = []
+        stack2 = []
+        stack1.append(BST.root)
+
+        while len(stack1) > 0:
+            CurNode = stack1.pop()
+            stack2.append(CurNode)
+            if CurNode.left is not None:
+                stack1.append(CurNode.left)
+            if CurNode.right is not None:
+                stack1.append(CurNode.right)
+
+        while len(stack2) > 0:
+            node = stack2.pop()
+            order.append(node.username)
+
+        return order

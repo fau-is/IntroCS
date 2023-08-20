@@ -83,9 +83,34 @@ class TestBST(unittest.TestCase):
         BST.root = None
         self.assertFalse(BST.binary_search(BST.root, 'Lopinel'))
 
+    # Task 3
+    def test_preorder(self):
+        BST.add("Lopinel")
+        for username in self.usernames:
+            BST.add(username)
 
+        expected_preorder = ["THD_IT", "Harmonia_Amanda", "Dju", "GeoffreyDorne", "HyP", "Bram_Finkel", "mistur",
+                             "Zestryon", "BrunoBellamy", "Lopinel"]
+        self.assertEqual(BST.preorder(), expected_preorder)
 
+    def test_inorder(self):
+        BST.add("Lopinel")
+        for username in self.usernames:
+            BST.add(username)
 
+        expected_inorder = ["Bram_Finkel", "BrunoBellamy", "Dju", "GeoffreyDorne", "Harmonia_Amanda", "HyP", "Lopinel",
+                            "THD_IT", "Zestryon", "mistur"]
+
+        self.assertEqual(BST.inorder(), expected_inorder)
+
+    def test_postorder(self):
+        BST.add("Lopinel")
+        for username in self.usernames:
+            BST.add(username)
+
+        expected_postorder = ["GeoffreyDorne", "Dju", "Bram_Finkel", "HyP", "Harmonia_Amanda", "BrunoBellamy",
+                              "Zestryon", "Lopinel", "mistur", "THD_IT"]
+        self.assertEqual(BST.postorder(), expected_postorder)
 
 if __name__ == '__main__':
     unittest.main()
