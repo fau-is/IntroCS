@@ -16,7 +16,19 @@ class Test_mediaTriggers(unittest.TestCase):
         nottrigger = MastodonOOP.NotTrigger( MastodonOOP.MediaTrigger() )
         
         self.assertTrue(nottrigger.evaluate(toot_no_media))
-        self.assertFalse(nottrigger.evaluate(toot_media))        
+        self.assertFalse(nottrigger.evaluate(toot_media))   
+            
+    def test_AndTrigger(self):
+        andtrigger = MastodonOOP.AndTrigger(MastodonOOP.MediaTrigger() , MastodonOOP.GifMediaTrigger() )
+        
+        self.assertTrue(andtrigger.evaluate(toot_media, toot_gif))
+        self.assertFalse(andtrigger.evaluate(toot_media, toot_no_gif))
+        
+    def test_OrTrigger(self):
+        ortrigger = MastodonOOP.AndTrigger(MastodonOOP.PollTrigger() , MastodonOOP.MentionTrigger() )
+        
+        self.assertTrue(ortrigger.evaluate(toot_no_mention, toot_poll))
+        self.assertFalse(ortrigger.evaluate(toot_no_poll, toot_no_mention))         
     
 if __name__ == '__main__':
     unittest.main()
