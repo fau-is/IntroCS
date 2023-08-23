@@ -1,0 +1,22 @@
+import unittest
+from IntroCS.MastodonOOP import MastodonOOP
+import json
+
+
+class Test_mediaTriggers(unittest.TestCase):
+    
+    def setUp(self):
+        pass
+    
+    def tearDown(self):
+        pass
+    
+    def test_NotTrigger(self):
+        # not trigger initiation with media trigger 
+        nottrigger = MastodonOOP.NotTrigger( MastodonOOP.MediaTrigger() )
+        
+        self.assertTrue(nottrigger.evaluate(toot_no_media))
+        self.assertFalse(nottrigger.evaluate(toot_media))        
+    
+if __name__ == '__main__':
+    unittest.main()
