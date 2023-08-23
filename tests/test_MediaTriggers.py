@@ -38,6 +38,10 @@ class Test_mediaTriggers(unittest.TestCase):
         self.assertTrue(MastodonOOP.PollTrigger.evaluate(toot_poll))
         self.assertFalse(MastodonOOP.PollTrigger.evaluate(toot_no_poll))
         
+    def test_MentionsTrigger(self):
+        self.assertTrue(MastodonOOP.MentionsTrigger.evaluate(toot_mention))
+        self.assertFalse(MastodonOOP.MentionsTrigger.evaluate(toot_no_mention))
+        
     def test_PhraseTrigger(self):
         phrase = MastodonOOP.NotTrigger("dog")
         
