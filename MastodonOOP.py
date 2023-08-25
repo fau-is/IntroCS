@@ -144,7 +144,7 @@ class VideoMediaTrigger(MediaTrigger):
     def evaluate(self, toot):
         media = toot.media
         for content in media:
-            if content["type"] == "video":
+            if content["type"] == "video": #hier TypeError: string indices must be integers, not 'str', mit [1] hat es gelaufen, aber falsches ergebnis rausgekommen  
                 return True
         return False
 
