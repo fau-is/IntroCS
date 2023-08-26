@@ -2,7 +2,7 @@ import unittest
 import MastodonOOP
 
 
-class Test_mediaTriggers(unittest.TestCase):
+class Test_AttributeTriggers(unittest.TestCase):
     
     def setUp(self):
         self.toot_true = MastodonOOP.Toot (
