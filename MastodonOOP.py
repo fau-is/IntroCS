@@ -236,7 +236,7 @@ class PhraseTrigger(Trigger):
 # TODO: TimeTrigger
 class TimeTrigger(Trigger):
     def __init__(self, ptime):
-        format = '%Y-%m-%d %H:%M:%S'
+        format = '%Y-%m-%d %H:%M:%S%z'
         ptime = datetime.strptime(ptime, format)
         ptime = ptime.replace(tzinfo=pytz.timezone("EST"))
         self.ptime = ptime
