@@ -79,6 +79,7 @@ class Test_mediaTriggers(unittest.TestCase):
         
     def test_OrTrigger(self):
         # TypeError: OrTrigger.evaluate() takes 2 positional arguments but 3 were given
+        # Error solved? Sieht so aus als gäbe es da kein Problem mehr
         poll = MastodonOOP.PollTrigger()
         mentions = MastodonOOP.MentionsTrigger()
         ortrigger = MastodonOOP.OrTrigger(

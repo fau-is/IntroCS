@@ -53,13 +53,14 @@ class Test_TimeTriggers(unittest.TestCase):
 
             
     def test_BeforeTrigger(self):
-        time =  self.clock > self.toot_before.pubdate
-        time2 = self.clock > self.toot_after.pubdate
-        before = MastodonOOP.BeforeTrigger(self.clock)
-        self.assertEqual(before.evaluate(self.toot_before), time)
-        self.assertEqual(before.evaluate(self.toot_after), time2)
-        
+        toot_before = self.toot_before
+        toot_after = self.toot_after
+        before = MastodonOOP.BeforeTrigger(ptime= self.clock)
+
+        self.assertTrue(before.evaluate(toot_before))
+        self.assertFalse(before.evaluate(toot_after))
         # TypeError: str.replace() takes no keyword arguments
+        # Wenn das so funktioniert können wir das auf AfterTrigger auch anwenden
 
     def test_AfterTrigger(self):
         time = self.clock < self.toot_after.pubdate

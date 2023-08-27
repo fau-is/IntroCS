@@ -83,7 +83,7 @@ def load(hashtag):
             user_id = toot['account']['id'],
             hashtags = toot['tags'],
             bookmark = toot['bookmarked'],
-            no_replies = toot['replies_count'],
+            no_replies = toot['reblogs_count'],
             url = toot['url'],
             count_replies = toot['replies_count'],
             pubdate = toot['created_at'],
@@ -331,11 +331,10 @@ def filter_toots(toots, triggerlist):
 #======================
 
 # Problem 20
-
 # TODO: Load_to_workbook
-def load_to_workbook(dictionary):
+def load_to_workbook(dictionary, workbook):
     # Load the existing workbook
-    workbook = load_workbook('objects.xlsx')
+    workbook = load_workbook(workbook) #neu
 
     # Choose the existing worksheet you want to write data into
     worksheet = workbook['Sheet1']  # Replace 'Sheet1' with the actual sheet name
@@ -347,7 +346,7 @@ def load_to_workbook(dictionary):
         worksheet.cell(row=row, column=3, value=toot.content)
 
     # Save the modified workbook
-    workbook.save('objects.xlsx')
+    workbook.save(workbook) #neu
     return 
 
 
@@ -410,7 +409,8 @@ if __name__ == '__main__':
     triggers = [ ai, ki, language_de ]
 
     filtered_toots = filter_toots(dictionary, triggers)
-    load_to_workbook(filtered_toots)
+    workbook = 'objects.xlsx' # neu
+    load_to_workbook(filtered_toots, workbook= workbook) #neu
 
 
 
