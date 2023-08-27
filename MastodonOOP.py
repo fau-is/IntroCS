@@ -334,10 +334,14 @@ def filter_toots(toots, triggerlist):
 # TODO: Load_to_workbook
 def load_to_workbook(dictionary, workbook):
     # Load the existing workbook
-    workbook = load_workbook(workbook) #neu
+    workbook_2 = load_workbook(workbook) #neu
 
+    if 'Sheet1' not in workbook_2.sheetnames:
+        worksheet = workbook_2.create_sheet('Sheet1')
+    else:
+        worksheet = workbook_2['Sheet1']
     # Choose the existing worksheet you want to write data into
-    worksheet = workbook['Sheet1']  # Replace 'Sheet1' with the actual sheet name
+    #worksheet = workbook['Sheet1']  # Replace 'Sheet1' with the actual sheet name
 
     # Get the data in 'probe' list and write it to the existing worksheet
     for row, toot in enumerate(dictionary, 2):  # Start from row 2 to avoid overwriting the headers
@@ -346,7 +350,7 @@ def load_to_workbook(dictionary, workbook):
         worksheet.cell(row=row, column=3, value=toot.content)
 
     # Save the modified workbook
-    workbook.save(workbook) #neu
+    workbook_2.save(workbook) #neu
     return 
 
 
