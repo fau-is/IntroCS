@@ -1,5 +1,13 @@
 import unittest
 import MastodonOOP
+from mastodon import Mastodon
+from bs4 import BeautifulSoup
+
+def get_text_content(toot):
+    content_html = toot['content']
+    soup = BeautifulSoup(content_html, 'html.parser')
+    content_text = soup.get_text()
+    return content_text
 
 
 class Test_API_Object_Download_Content(unittest.TestCase):
@@ -41,15 +49,75 @@ class Test_API_Object_Download_Content(unittest.TestCase):
     def tearDown(self):
         pass
     
-    def test_TimeTrigger(self):
-        pass
-            
-    def test_BeforeTrigger(self):
-        pass
 
-    def test_AfterTrigger(self):
-        pass
-    
+    def test_API(self):
+
+        self.assertIsInstance(MastodonOOP.mastodon, Mastodon)
+        # KP ob das so klappt 
+
+
+    def test_Toot(self):
+
+        self.assertTrue(hasattr(self.toot_true, "content"))
+        self.assertTrue(hasattr(self.toot_true, "account"))
+        self.assertTrue(hasattr(self.toot_true, "toot_id"))
+        self.assertTrue(hasattr(self.toot_true, "user_id"))
+        self.assertTrue(hasattr(self.toot_true, "hashtags"))
+        self.assertTrue(hasattr(self.toot_true, "bookmark"))
+        self.assertTrue(hasattr(self.toot_true, "no_replies"))
+        self.assertTrue(hasattr(self.toot_true, "url"))
+        self.assertTrue(hasattr(self.toot_true, "count_replies"))
+        self.assertTrue(hasattr(self.toot_true, "pubdate"))
+        self.assertTrue(hasattr(self.toot_true, "mentions"))
+        self.assertTrue(hasattr(self.toot_true, "media"))
+        self.assertTrue(hasattr(self.toot_true, "language"))
+        self.assertTrue(hasattr(self.toot_true, "poll"))
+
+
+    def test_load(self):
+        toots_dict = []
+        hashtag = "AI"
+        mastodon = Mastodon(
+            client_id="SOXp3afnWgFJrQf2_UIlqgPva--ZhdBZHS9fyik8Rvg",
+            client_secret="HW8bhQJlzAx1eGmLGUvK-qxi4ej8QRDylPFro0El6To",
+            access_token="eJpW5z5P82AYIHSzcd6oeHEPaSrP4SMGYn_nxoICLEE",
+            api_base_url="https://mastodon.social"
+        )
+        # Load all toots with a specific hashtag into a dictionary, limit to 100 toots
+        toots = mastodon.timeline_hashtag(hashtag, limit=10)
+        result = MastodonOOP.load(hashtag= "AI")
+
+        # Process the retrieved toots
+        for toot in toots:
+            content_text = get_text_content(toot)
+            toot = MastodonOOP.Toot(
+                account = toot['account'],
+                toot_id = toot['id'],
+                content = content_text,
+                user_id = toot['account']['id'],
+                hashtags = toot['tags'],
+                bookmark = toot['bookmarked'],
+                no_replies = toot['reblogs_count'],
+                url = toot['url'],
+                count_replies = toot['replies_count'],
+                pubdate = toot['created_at'],
+                mentions = toot['mentions'],
+                media = toot['media_attachments'],
+                language = toot['language'], 
+                poll = toot['poll'] 
+            )
+            toots_dict.append(toot)
+
+            self.assertEqual(result, toots_dict)
+
+
+    def test_GetTextContent(self):
+        text = "Test 123"
+        toot = "tbd"
+        # Hierfür muss noch ein Toot-Object erstellt werden mit originalem HTML-Text
+        text_content = MastodonOOP.get_text_content(toot)
+
+        self.assertEqual(text, text_content)
     
 if __name__ == '__main__':
     unittest.main()
