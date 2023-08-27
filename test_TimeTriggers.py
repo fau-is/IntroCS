@@ -48,8 +48,10 @@ class Test_TimeTriggers(unittest.TestCase):
         triggered_time = MastodonOOP.TimeTrigger(self.clock)
         
         self.assertEqual(triggered_time.ptime, formatted_time)
+        # Chat gpt vorschlag isoformat() nach ptime
         # ValueError: unconverted data remains: +00:00 (behoben)
         # AssertionError: datetime.datetime(2023, 7, 22, 9, 37, 34, tzinfo=<StaticTzInfo 'EST'>) != '2023-07-22 09:37:34-05:00'
+        # LAU --> weißt du wo hier das Problem sein könnte 
 
             
     def test_BeforeTrigger(self):
@@ -61,6 +63,7 @@ class Test_TimeTriggers(unittest.TestCase):
         self.assertFalse(before.evaluate(toot_after))
         # TypeError: str.replace() takes no keyword arguments
         # Wenn das so funktioniert können wir das auf AfterTrigger auch anwenden
+        # ne, leider nicht --> TypeError: str.replace() takes no keyword arguments
 
     def test_AfterTrigger(self):
         time = self.clock < self.toot_after.pubdate

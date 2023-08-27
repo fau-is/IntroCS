@@ -2,6 +2,8 @@ import unittest
 import MastodonOOP
 from mastodon import Mastodon
 from bs4 import BeautifulSoup
+# import resources_tests.toots
+
 
 def get_text_content(toot):
     content_html = toot['content']
@@ -18,7 +20,7 @@ class Test_API_Object_Download_Content(unittest.TestCase):
             toot_id = True,
             content = 'dog',
             user_id = True,
-            hashtags = True,
+            hashtags = 'dog',
             bookmark = True,
             no_replies = True,
             url = True,
@@ -51,13 +53,12 @@ class Test_API_Object_Download_Content(unittest.TestCase):
     
 
     def test_API(self):
-
         self.assertIsInstance(MastodonOOP.mastodon, Mastodon)
-        # KP ob das so klappt 
+        # KP ob das so klappt
+        # --> hier wird kein Error angegeben
 
 
     def test_Toot(self):
-
         self.assertTrue(hasattr(self.toot_true, "content"))
         self.assertTrue(hasattr(self.toot_true, "account"))
         self.assertTrue(hasattr(self.toot_true, "toot_id"))
@@ -72,6 +73,11 @@ class Test_API_Object_Download_Content(unittest.TestCase):
         self.assertTrue(hasattr(self.toot_true, "media"))
         self.assertTrue(hasattr(self.toot_true, "language"))
         self.assertTrue(hasattr(self.toot_true, "poll"))
+        
+        # Traceback (most recent call last):
+        # File "/Users/hannajobst/Documents/FAU Informatik/Industrial Digital/PSet/IntroCS/test_API_Object_Download_Content.py", line 66, in test_Toot
+        # self.assertTrue(hasattr(self.toot_true, "hashtags"))
+        # AssertionError: False is not true
 
 
     def test_load(self):
@@ -85,7 +91,7 @@ class Test_API_Object_Download_Content(unittest.TestCase):
         )
         # Load all toots with a specific hashtag into a dictionary, limit to 100 toots
         toots = mastodon.timeline_hashtag(hashtag, limit=10)
-        result = MastodonOOP.load(hashtag= "AI")
+        result = MastodonOOP.load(hashtag)
 
         # Process the retrieved toots
         for toot in toots:
@@ -109,6 +115,8 @@ class Test_API_Object_Download_Content(unittest.TestCase):
             toots_dict.append(toot)
 
             self.assertEqual(result, toots_dict)
+            
+            # AssertionError: Lists differ: [<Mas[23 chars] 0x111decb90>, <MastodonOOP.Toot object at 0x1[341 chars]d10>] != [<Mas[23 chars] 0x114c42490>]
 
 
     def test_GetTextContent(self):

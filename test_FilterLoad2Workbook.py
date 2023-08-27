@@ -59,9 +59,15 @@ class Test_FilterExcel(unittest.TestCase):
         self.assertEqual(filter_true, toot_list_true)
 
         self.assertIsNone(filter_false)
+        
+        # Traceback (most recent call last):
+        # File "/Users/hannajobst/Documents/FAU Informatik/Industrial Digital/PSet/IntroCS/test_FilterLoad2Workbook.py", line 61, in test_Filter
+        # self.assertIsNone(filter_false)
+        # AssertionError: [<MastodonOOP.Toot object at 0x109f81910>] is not None
             
     def test_Load_to_Workbook(self):
         # Wollen wir den Studis das überhaupt selber schreiben lassen oder vorgeben?
+        # mir egal, denke Sebi würde schreiben lassen
 
         temp_filename = 'test_objects.xlsx'
 
@@ -87,6 +93,8 @@ class Test_FilterExcel(unittest.TestCase):
         saved_workbook.close()
 
         os.remove(temp_filename)
+        
+        # FileNotFoundError: [Errno 2] No such file or directory: 'test_objects.xlsx'
 
     
     
