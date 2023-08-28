@@ -47,6 +47,12 @@ class Graph(dict):
             index+=1
         del self[v2][index]
 
+    def remove_vertex(self, user):
+        for neighbors in self.values():
+            if user in neighbors:
+                neighbors.remove(user)
+        del self[user]
+
 
     def dfs(self, start):
         vertex_list = []

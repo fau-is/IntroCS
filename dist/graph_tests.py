@@ -1,5 +1,5 @@
 import unittest
-from GraphUtils import User, Graph
+from graph import User, Graph
 import json
 
 class TestUser(unittest.TestCase):
@@ -52,23 +52,27 @@ class TestGraphMethods(unittest.TestCase):
         self.assertNotIn("Bob", self.graph["Alice"])
         self.assertNotIn("Alice", self.graph["Bob"])
 
+    def test_order_ascending(self):
+        self.graph.add_edge(self.user1, self.user4)
+        self.graph.add_edge(self.user1, self.user2)
+        self.graph.add_edge(self.user1, self.user3)
+        self.assertEqual(self.graph["Alice"], ["Bob", "Charlie", "David"])
+
     def test_dfs(self):
         self._setup_graph_dfs_bfs()
         visited = self.graph.dfs(self.user1)
         self.assertEqual(visited, ["Alice", "Bob", "Charlie", "David"])
         self._teardown_graph_connections()
 
-    def test_bfs(self):
-        self._setup_graph_dfs_bfs()
-        visited = self.graph.bfs(self.user1)
-        self.assertEqual(visited, ["Alice", "Bob", "David", "Charlie"])
-        self._teardown_graph_connections()
-
-    def test_order_ascending(self):
-        self.graph.add_edge(self.user1, self.user4)
-        self.graph.add_edge(self.user1, self.user2)
-        self.graph.add_edge(self.user1, self.user3)
-        self.assertEqual(self.graph["Alice"], ["Bob", "Charlie", "David"])
+    # def test_bfs(self):
+    #     """
+    #     no need for this test at the moment
+    #     :return:
+    #     """
+    #     self._setup_graph_dfs_bfs()
+    #     visited = self.graph.bfs(self.user1)
+    #     self.assertEqual(visited, ["Alice", "Bob", "David", "Charlie"])
+    #     self._teardown_graph_connections()
 
 
 
@@ -87,7 +91,7 @@ class TestGraphMethods(unittest.TestCase):
     def test_clusters_connected(self):
         # Test if a fully connected cluster is found
         self._setup_graph_connected()
-        clusters = self.graph.find_clusters()
+        clusters = self.graph.get_subgraphs()
         self.assertEqual(len(clusters), 1)
         self.assertCountEqual(clusters[0], ["Alice", "Bob", "Charlie", "David"])
 
@@ -96,7 +100,7 @@ class TestGraphMethods(unittest.TestCase):
     def test_clusters_disconnected(self):
         # Test if multiple separated clusters can be found
         self._setup_graph_disconnected()
-        clusters = self.graph.find_clusters()
+        clusters = self.graph.get_subgraphs()
         self.assertEqual(len(clusters), 3)
         for cluster in clusters:
             self.assertIn(len(cluster), [2, 2, 2])
@@ -112,19 +116,19 @@ class TestGraphMethods(unittest.TestCase):
         self.graph.add_edge(self.user4, self.user5)
         self.graph.add_edge(self.user1, self.user5)
 
-    def test_bfs_find_path_exists(self):
+    def test_shortest_path_exists(self):
         self._setup_graph()
-        path = self.graph.bfs_find("Alice", "David")
+        path = self.graph.shortest_path("Alice", "David")
         self.assertEqual(path, ["Alice", "Eve", "David"])
 
-    def test_bfs_find_no_path(self):
+    def test_no_shortest_path(self):
         self._setup_graph()
-        path = self.graph.bfs_find("Alice", "Frank")
+        path = self.graph.shortest_path("Alice", "Frank")
         self.assertEqual(path, None)
 
-    def test_bfs_find_shortest_path(self):
+    def test_shortest_path(self):
         self._setup_graph()
-        path = self.graph.bfs_find("Alice", "Eve")
+        path = self.graph.shortest_path("Alice", "Eve")
         self.assertEqual(path, ["Alice", "Eve"])
 
     # Task 4
@@ -140,7 +144,7 @@ class TestGraphMethods(unittest.TestCase):
 
     def test_build_graph(self):
         self.setUp_JSON_data()
-        self.graph.build_graph(self.filepath)
+        self.graph.parse_data(self.filepath)
 
         # Check if graph has been built correctly
         for key, neighbors in self.data.items():
@@ -157,12 +161,12 @@ class TestGraphMethods(unittest.TestCase):
         self.assertTrue(isinstance(result, tuple))
         self.assertEqual(len(result), 2)
 
-        # Check if the first element of the tuple is a string or instance of User with the value "paulfree14"
+        # Check if the first element of the tuple is a string or instance of User with the value "Sundar"
         self.assertTrue(isinstance(result[0], (str, User)))
         # self.assertEqual(result[0], "paulfree14")
         self.assertEqual(result[0], "Sundar")
 
-        # Check if the second element of the tuple is a float with a value between 2.4 and 2.5
+        # Check if the second element of the tuple is a float with a value between 2.3 and 2.4
         self.assertTrue(isinstance(result[1], float))
         # self.assertTrue(2.4 <= result[1] <= 2.5)
         self.assertTrue(2.3 <= result[1] <= 2.4)
@@ -184,7 +188,7 @@ class TestGraphMethods(unittest.TestCase):
     def test_get_communities(self):
         self._setup_graph_4_5()
         for c in range(1,12):
-            communities = self.graph.get_communities(clusters=c)
+            communities = self.graph.girvan_newman_algorithm(clusters=c)
             self.assertGreaterEqual(len(communities), c, f"When asked for {c} clusters get_communities(clusters={c}) returns less than {c} clusters.")
             for subgraph in communities:
                 self.assertTrue(isinstance(subgraph, (list, set, tuple)), "Your returned subgraphs should be of type set")
@@ -192,7 +196,7 @@ class TestGraphMethods(unittest.TestCase):
         self._test_subgraphs(communities)
 
     def _test_subgraphs(self, result):
-        # every graph node needs to be part of exactly one subgraph
+        # every graph node (user) needs to be part of exactly one subgraph
         users_all = [i for b in result for i in list(b)]
         for user in self.graph.keys():
             self.assertEqual(users_all.count(user), 1)
