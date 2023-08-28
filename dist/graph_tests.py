@@ -1,5 +1,6 @@
 import unittest
-from graph import User, Graph
+from graph import User
+from solutions.graph_sol import Graph
 import json
 
 class TestUser(unittest.TestCase):
@@ -175,7 +176,7 @@ class TestGraphMethods(unittest.TestCase):
     def _setup_graph_4_5(self):
         self.graph = Graph()
         Edges = [('Marissa', 'Sundar'), ('Marissa', 'Mark'), ('Marissa', 'Elon'),
-                 ('Sundar', 'Mark'), ('Sundar', 'Elon'), \
+                 ('Sundar', 'Mark'), ('Sundar', 'Elon'), ('Brandon', 'Henry'), \
                  ('Sundar', 'Adam'), ('Sundar', 'Jack'), ('Tim', 'Sundar'),
                  ('Jack', 'Adam'), ('Adam', 'Elon'), \
                  ('Elon', 'Mark'), ('Olaf', 'Emanuel'), ('Olaf', 'Rishi'),

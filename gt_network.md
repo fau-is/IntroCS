@@ -16,13 +16,15 @@ It can provide answers to exciting questions such as:
 
 These insights from sociology, psychology, economics, and society can help us to view the world in a more nuanced way and to make progressive decisions based on it.
 
-In this problem set, you will implement a graph representing an artificial part of the Mastodon network based on the objects that you implemented in the previous week. An example can be seen below. Optionally you will 
-be able to parse real world data from the Mastodon API to your graph. Based on the Graph, we will conduct a social network analysis which will require you to implement certain algorithms in order to answer questions about the network. 
-In our example, a vertex represents a user located at that relative position in the network. As edges we depict connections between user. Notice that for simplicity reasons we opted for an undirected graph were there exist a connection if one of the two vertices spanning the edge follows the other. 
-Furthermore the network might be a disconnected graph which means that the network comprises multiple sub-networks without a connection between them. As we depict a so called "small world network" of a user which represents all his relations, a disconnected graph is likely as you probably also have a facebook friend that is not befriended with any of your other friends.
-Therefore, the program you will write can build networks that are not interconnected to one another. Which means they are only accessible separately.
+In this problem set, you will implement a graph representing a personal network of a Mastodon user. While exercises are described based on an artificial example (displayed below) you will 
+directly apply your implementation to real world data from the Mastodon API. Based on the established Graph and algorithms we will be able to conduct a social network analysis which answers questions about a network. 
+In our graph, a vertex represents a user located at that relative position in the network. As edges we depict connections between user. Notice that for simplicity reasons we opted for an undirected graph where there exist a connection if one of the two vertices spanning the edge follows the other. 
+Furthermore the network might be a disconnected graph which means that the network comprises multiple sub-networks without a connection between them. A disconnected graph is likely in real world data as you probably also have a facebook friend that is not befriended with any of your other friends.
+Therefore, the program you will write can build networks that are not interconnected to one another.
 
-<img src="/network.png" alt="network" width="570"> <br>
+<p align="center">
+<img src="network_web.png" alt="network" width="570"> <br>
+</p>
 
 ***
 
@@ -44,17 +46,17 @@ your home directory.
 ZIP file with this problem's distribution.
 5. Execute `unzip network.zip` to uncompress that file.
 6. Execute `rm network.zip` followed by `yes` or `y` to delete that ZIP file.
-7. Execute `ls`. You should see this problem's distribution: `network.py and main.py`
-8. In order to run the `main.py` file you will have to execute the following command first in your command line: `pip3 install graphviz`
+7. Execute `ls`. You should see this problem's distribution: `graph.py, graph_tests.py and network_analysis.py`
+8. In order to run the `network_analysis.py` file you will have to execute the following command first in your command line: `pip3 install graphviz`
 
-**Do not change anything in `main.py`.**
+**Do not change anything in `network_analysis.py`.**
 
 ## Specification
 
 To give you a brief overview of how we were hoping you could implement the Pythonic graph, let us look at the data 
 structure you should use. 
 
-In total, you will implement 8 methods. Notice that our provided class Graph in **network.py** inherits the properties 
+Notice that our provided class Graph in **graph.py** inherits the properties 
 of a dictionary (dict). As a result, when you have implemented your network correctly, your representation should be a 
 dictionary that somewhat looks like this: 
 ~~~
@@ -65,21 +67,26 @@ dictionary that somewhat looks like this:
 
 **Be aware that you can not change anything about the parameters and arguments a method can take.**
 
+We divided this exercise into 5 separate logical chapters which together require the implementation of **12 methods** in total. Notice that 2 auxiliary methods are already given to you.
+- **parse_data()**: parses real world data from Mastodon to your graph implementation
+- **show()**: uses the graphviz library to visualizes your graph by creating a png-file. You can always execute this method to check the current state of your graph.
+
+Let us now start with the first chapter...
+
+## 1. Graph implementation
+
 ### add_vertex()
 
 Adds a vertex to the dictionary. Notice, the method only takes one argument, a key. This key is an object of the class <em>User</em> for our 
 vertex in our network, i.e. the user _Mark_. When creating an object of type Graph, you create a dictionary, as you can see
 from the class constructor. Thus, you will have to insert every vertex of the network as a key to your dictionary. The 
-element mapped to every key/vertex in your dictionary is an empty list. Later, the edges can then be added to those lists.
+element mapped to every key/vertex in your dictionary is an empty list. Later, the neighbors can then be added to those lists.
 For instance, if we added _Mark_, the graph vertex that we add to our graph with this method would look like this:
 ~~~
 {Mark : []}
 ~~~
 
 Hint: This is straight forward; the best implementation requires you to write a single line of code.
-
-Hint: You can already check the correct implementation of the add function by using the check50 command in your terminal: 
-check50 fau-is/IntroCS/PyGraphsTrees/Network
 
 ### add_edge()
 
@@ -90,36 +97,46 @@ from ‘origin’. Looking at the connection between _Sundar_ and _Adam_ in our 
 {Sundar : [Adam], Adam : [Sundar]}
 ~~~
 
+When creating an edge in the method, both vertices that the edge belongs to must be added to or exist in the graph dictionary. 
 Be careful! Since our network is an **undirected graph**, every edge goes both ways. This means that there exist a connection if only one of the two users follows the other. Thus, if we have _Adam_ as the 
 origin and _Sundar_ as the target, the connection also exists vice versa. _Sundar_ can be the origin with _Adam_
-as the target. When creating an edge in the method, both vertices that the edge belongs to must be added to or exist in the graph dictionary.
-When the vertices exist, you can add the edge to both vertices.
-
-Hint: You might want to sort your edges alphabetically when adding them to a vertex
+as the target. **Important**: You should sort your edges alphabetically when adding them to a vertex.
 
 ### remove_edge()
 
 We need this method to delete the connections between our users, i.e. the vertices in our network. This method will play a significant role when we detect communities in our network. 
 This method should be designed analogous to the _add_vertex()_ funtion. It receives two parameters while the order of the parameters does not matter.
 
-Later: populate the graph with our provided network in the zip file which is also used for checking your implementations or follow the instructions for populating the graph with real-time data using the Mastodon API.
+### remove_vertex()
 
-### DFS
+Like for edges we also need a method that removes a vertex from the graph. Make sure to handle all its edges that still exist with this vertex accordingly.
 
-**Social-Network-Analysis:** Using the DFS algorithm we want to determine how many "sub"-networks the user _Mark_ connects.
-Does Mark belong to one big community (resulting in one big connected graph) or is he part of many seperate subnetworks (many detached subnetworks)
+**Hint: You can now check the correct implementation of the add- and remove-functions by using the check50 command in your terminal:**
+~~~
+check50 fau-is/IntroCS/PyGraphsTrees/Network
+~~~
+**With these four methods we are now able to populate the graph with our provided network in the json format. Exercise 1.1 in network_analysis.py should run properly and generate a png file of the Mastodon network.**
+
+## 2. Network Connectivity (DFS)
+
+**Social-Network-Analysis:** Using the DFS algorithm we want to determine how many "sub"-networks exists in our graph. As we deal with a personal network
+of an individual Mastodon user, we can thereby answer the question if that user is part of one big community or connects separate subnetworks (networks that are not connected with each other).
+
+Implement the get_subgraphs() method that finds disconnected subgraphs (clusters) in the graph. This method should return a list of subgraphs, where each subgraph is a list of vertices that can be reached from each other.
+If there exists no detached vertex or subgraph than the returned list only includes one list of all vertices present in the graph.
+For the implementation of this method you will first need to implement the following dfs()-method.
+
+### Depht-First-Search (DFS)
 
 When we create a network we want to be able to traverse our graph and discover all other vertices that
-can be reached when we start at a defined vertex. For this purpose we can use a **pre-order 
-depth-first search**. Therefore, the method  dfs() takes two arguments ‘start’ and “vertex=list”. 
-You do not have to give a vertex list as an argument as every time this method will be called, a list will inherently 
-be created. You will now have to write the pre-order depth-first search algorithm that traverses the network in a 
-pre-order fashion, starting at your ‘start’ point and storing the correct path in the vertex list, returning it at 
+can be reached when we start at a defined vertex. For this purpose we can use a (pre-order) **depth-first search**. Therefore, the method  dfs() takes one argument ‘start’. 
+You will now have to write the pre-order depth-first search algorithm that traverses the network in a 
+pre-order fashion, starting at your ‘start’ point and storing the correct path in a list of visited vertices, returning it at 
 the end of the method. 
 
 For our example, if we started our pre-order DFS at _Mark_, the returned list ‘vertex’ should look like this:
 ~~~
-['Mark', 'Marissa', 'Sundar', 'Elon', 'Adam', 'Jack', 'Tim', 'Emanuel', 'Olaf', 'Rishi', 'Joe']
+['Mark', 'Elon', 'Adam', 'Jack', 'Sundar', 'Emanuel', 'Joe', 'Olaf', 'Rishi', 'Marissa', 'Tim']
 ~~~
 
 

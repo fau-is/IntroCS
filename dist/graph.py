@@ -29,8 +29,8 @@ class Graph(dict):
         """
         Initialize the Graph object as an empty dictionary.
         """
-        # Shortest path matrix, initialized as None
-        pass
+        super().__init__()
+        self.sps = None  # Shortest path matrix, initialized as None
 
     def add_vertex(self, user: object) -> None:
         """
