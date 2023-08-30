@@ -18,9 +18,9 @@ class Test_API_Object_Download_Content(unittest.TestCase):
         self.toot_true = MastodonOOP.Toot (
             account = True,
             toot_id = True,
-            content = 'dog',
+            content = '<p>Hello from Python</p>',
             user_id = True,
-            hashtags = 'dog',
+            hashtags = [{'name': 'dog', 'url': True, 'history': ''}],
             bookmark = True,
             no_replies = True,
             url = True,
@@ -58,7 +58,7 @@ class Test_API_Object_Download_Content(unittest.TestCase):
         # --> hier wird kein Error angegeben
 
 
-    def test_Toot(self):
+    def test_Toot(self):        
         self.assertTrue(hasattr(self.toot_true, "content"))
         self.assertTrue(hasattr(self.toot_true, "account"))
         self.assertTrue(hasattr(self.toot_true, "toot_id"))
@@ -73,16 +73,11 @@ class Test_API_Object_Download_Content(unittest.TestCase):
         self.assertTrue(hasattr(self.toot_true, "media"))
         self.assertTrue(hasattr(self.toot_true, "language"))
         self.assertTrue(hasattr(self.toot_true, "poll"))
-        
-        # Traceback (most recent call last):
-        # File "/Users/hannajobst/Documents/FAU Informatik/Industrial Digital/PSet/IntroCS/test_API_Object_Download_Content.py", line 66, in test_Toot
-        # self.assertTrue(hasattr(self.toot_true, "hashtags"))
-        # AssertionError: False is not true
 
 
     def test_load(self):
-        toots_dict = []
-        hashtag = "AI"
+        self.toots_dict = []
+        hashtag = "Moin"
         mastodon = Mastodon(
             client_id="SOXp3afnWgFJrQf2_UIlqgPva--ZhdBZHS9fyik8Rvg",
             client_secret="HW8bhQJlzAx1eGmLGUvK-qxi4ej8QRDylPFro0El6To",
@@ -91,7 +86,7 @@ class Test_API_Object_Download_Content(unittest.TestCase):
         )
         # Load all toots with a specific hashtag into a dictionary, limit to 100 toots
         toots = mastodon.timeline_hashtag(hashtag, limit=10)
-        result = MastodonOOP.load(hashtag)
+        self.result = MastodonOOP.load(hashtag)
 
         # Process the retrieved toots
         for toot in toots:
@@ -112,19 +107,16 @@ class Test_API_Object_Download_Content(unittest.TestCase):
                 language = toot['language'], 
                 poll = toot['poll'] 
             )
-            toots_dict.append(toot)
+            self.toots_dict.append(toot)
 
-            self.assertEqual(result, toots_dict)
+        self.assertListEqual(self.result, self.toots_dict)
             
-            # AssertionError: Lists differ: [<Mas[23 chars] 0x111decb90>, <MastodonOOP.Toot object at 0x1[341 chars]d10>] != [<Mas[23 chars] 0x114c42490>]
+        # AssertionError: Lists differ: [<Mas[23 chars] 0x111decb90>, <MastodonOOP.Toot object at 0x1[341 chars]d10>] != [<Mas[23 chars] 0x114c42490>]
 
 
     def test_GetTextContent(self):
-        text = "Test 123"
-        toot = "tbd"
-        # Hierfür muss noch ein Toot-Object erstellt werden mit originalem HTML-Text
-        text_content = MastodonOOP.get_text_content(toot)
-
+        text = 'Hello from Python'
+        text_content = MastodonOOP.get_text_content(self.toot_true)
         self.assertEqual(text, text_content)
     
 if __name__ == '__main__':

@@ -16,7 +16,7 @@ class Test_mediaTriggers(unittest.TestCase):
             url = True,
             count_replies = True,
             pubdate = True,
-            mentions = True,
+            mentions = '',
             media = [{"id": "123","type":"image"}],
             language = 'en',
             poll = True        
@@ -74,8 +74,8 @@ class Test_mediaTriggers(unittest.TestCase):
             trigger2 = gif
             )
         
-        self.assertTrue(andtrigger.evaluate(self.toot_true, self.toot_gif))
-        self.assertFalse(andtrigger.evaluate(self.toot_true, self.toot_true))
+        self.assertTrue(andtrigger.evaluate(self.toot_gif))
+        self.assertFalse(andtrigger.evaluate(self.toot_true))
         
     def test_OrTrigger(self):
         # TypeError: OrTrigger.evaluate() takes 2 positional arguments but 3 were given
@@ -87,8 +87,8 @@ class Test_mediaTriggers(unittest.TestCase):
             trigger2 = mentions
             )
         
-        self.assertTrue(ortrigger.evaluate(self.toot_false, self.toot_true))
-        self.assertFalse(ortrigger.evaluate(self.toot_false, self.toot_false))         
+        self.assertTrue(ortrigger.evaluate(self.toot_true))
+        self.assertFalse(ortrigger.evaluate(self.toot_false))         
     
 if __name__ == '__main__':
     unittest.main()

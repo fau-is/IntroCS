@@ -36,7 +36,7 @@ class Toot:
         self.content = content
         self.account = account
         self.user_id = user_id
-        self.hashtag = hashtags
+        self.hashtags = hashtags
         self.bookmark = bookmark
         self.no_replies = no_replies
         self.url = url
@@ -53,7 +53,7 @@ class Toot:
 
 # TODO: get_text_content (global function)
 def get_text_content(toot):
-    content_html = toot['content']
+    content_html = toot.content
     soup = BeautifulSoup(content_html, 'html.parser')
     content_text = soup.get_text()
     return content_text
@@ -345,7 +345,7 @@ def load_to_workbook(dictionary, workbook):
 
     # Get the data in 'probe' list and write it to the existing worksheet
     for row, toot in enumerate(dictionary, 2):  # Start from row 2 to avoid overwriting the headers
-        worksheet.cell(row=row, column=1, value=toot.account["username"])
+        worksheet.cell(row=row, column=1, value=toot.account[0]["username"])
         worksheet.cell(row=row, column=2, value=toot.pubdate.replace(tzinfo=None))
         worksheet.cell(row=row, column=3, value=toot.content)
 

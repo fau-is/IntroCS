@@ -13,7 +13,7 @@ class Test_FilterExcel(unittest.TestCase):
             toot_id = True,
             content = 'dog',
             user_id = True,
-            hashtags = True,
+            hashtags = [{'name': 'dog', 'url': True, 'history': ''}],
             bookmark = True,
             no_replies = True,
             url = True,
@@ -69,22 +69,16 @@ class Test_FilterExcel(unittest.TestCase):
         # Entweder ich hab es so behoben, indem ich False anstat '' gemacht habe ansonsten müssen wir nochmal schauen was in Realität returnt wird
 
     def test_Load_to_Workbook(self):
-        # Wollen wir den Studis das überhaupt selber schreiben lassen oder vorgeben?
-        # mir egal, denke Sebi würde schreiben lassen
-
         temp_filename = 'test_objects.xlsx'
         workbook = openpyxl.Workbook()
         workbook.save(temp_filename)
-
-        hashtag = 'SMS'
-        toot_list = MastodonOOP.load(hashtag)
+        toot_list = [self.toot_true]
+        # hashtag = 'SMS'
+        # toot_list = MastodonOOP.load(hashtag)
         MastodonOOP.load_to_workbook(toot_list, temp_filename)
 
-        # oder || eins muss auskommentiert werden sonst nimmts immer die Mock-Up Variante, weil Neu-Initialisierung
-
-        toot_list = [self.toot_true] # Aber hier ist das Problem dass wir Username und Pubdate nur als True speichern, das müssten wir ändern
-                                     # Bei der "Live-Daten"-Methode wäre das kein Problem-
-
+        # Aber hier ist das Problem dass wir Username und Pubdate nur als True speichern, das müssten wir ändern
+        # Bei der "Live-Daten"-Methode wäre das kein Problem-
 
         saved_workbook = load_workbook(temp_filename)
         saved_worksheet = saved_workbook.active
@@ -97,8 +91,8 @@ class Test_FilterExcel(unittest.TestCase):
         saved_workbook.close()
 
         os.remove(temp_filename)
-        
-        # FileNotFoundError: [Errno 2] No such file or directory: 'test_objects.xlsx'
+        # AssertionError: None != 'Marco'
+        # AttributeError: 'bool' object has no attribute 'replace'
 
     
     
