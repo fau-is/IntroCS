@@ -1,3 +1,7 @@
+---
+files: [inverse.c]
+window: [terminal]
+---
 ![fau-logo](https://introcs.is.rw.fau.de/img/logos/ReWi_logo.png)
 # Complete inverse.c
 Write a program that takes a command line input only allowing 1 Word. 
