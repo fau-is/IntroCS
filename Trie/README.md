@@ -1,5 +1,5 @@
 ---
-files: [trie.c]
+files: [tries.c]
 window: [terminal]
 ---
 ![fau-logo](https://introcs.is.rw.fau.de/img/logos/ReWi_logo.png)
