@@ -1,6 +1,6 @@
 import unittest
 import MastodonOOP
-
+import datetime
 
 class Test_TimeTriggers(unittest.TestCase):
     
@@ -21,6 +21,9 @@ class Test_TimeTriggers(unittest.TestCase):
             language = 'en',
             poll = True        
         )
+
+        self.toot_before.pubdate = datetime.datetime.strptime(self.toot_before.pubdate, "%Y-%m-%d %H:%M:%S%z")
+
         self.toot_after = MastodonOOP.Toot (
             account = '',
             toot_id = '',
@@ -37,14 +40,15 @@ class Test_TimeTriggers(unittest.TestCase):
             language = '',
             poll = ''        
         )
+        self.toot_after.pubdate = datetime.datetime.strptime(self.toot_after.pubdate, "%Y-%m-%d %H:%M:%S%z")
 
-        self.clock = '2023-07-22 09:37:34+00:00' 
+        self.clock = '2023-07-22 09:37:34+00:00'
     
     def tearDown(self):
         pass
     
     def test_TimeTrigger(self):
-        formatted_time = '2023-07-22 09:37:34-05:00'
+        formatted_time = datetime.datetime.strptime('2023-07-22 09:37:34-05:00', "%Y-%m-%d %H:%M:%S%z")
         triggered_time = MastodonOOP.TimeTrigger(self.clock)
         
         self.assertEqual(triggered_time.ptime, formatted_time)
@@ -66,8 +70,9 @@ class Test_TimeTriggers(unittest.TestCase):
         # ne, leider nicht --> TypeError: str.replace() takes no keyword arguments
 
     def test_AfterTrigger(self):
-        time = self.clock < self.toot_after.pubdate
-        time2 = self.clock < self.toot_before.pubdate
+        test_clock = datetime.datetime.strptime(self.clock, "%Y-%m-%d %H:%M:%S%z")
+        time = test_clock < self.toot_after.pubdate
+        time2 = test_clock < self.toot_before.pubdate
         after = MastodonOOP.AfterTrigger(self.clock)
         self.assertEqual(after.evaluate(self.toot_after), time)
         self.assertEqual(after.evaluate(self.toot_before), time2)

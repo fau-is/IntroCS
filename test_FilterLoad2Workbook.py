@@ -3,6 +3,7 @@ import MastodonOOP
 from openpyxl import load_workbook
 import openpyxl
 import os
+import datetime
 
 
 class Test_FilterExcel(unittest.TestCase):
@@ -18,12 +19,15 @@ class Test_FilterExcel(unittest.TestCase):
             no_replies = True,
             url = True,
             count_replies = True,
-            pubdate = True,
+            pubdate = "2023-07-14 13:23:05",
             mentions = True,
             media = [{"id": "123","type":"image"}],
             language = 'en',
             poll = True        
         )
+
+        self.toot_true.pubdate = datetime.datetime.strptime(self.toot_true.pubdate, "%Y-%m-%d %H:%M:%S")
+
         self.toot_false = MastodonOOP.Toot (
             account = '',
             toot_id = '',
@@ -61,20 +65,16 @@ class Test_FilterExcel(unittest.TestCase):
 
         self.assertEqual(filter_false, [])
         
-        # Traceback (most recent call last):
-        # File "/Users/hannajobst/Documents/FAU Informatik/Industrial Digital/PSet/IntroCS/test_FilterLoad2Workbook.py", line 61, in test_Filter
-        # self.assertIsNone(filter_false)
-        # AssertionError: [<MastodonOOP.Toot object at 0x109f81910>] is not None
         
-        # Entweder ich hab es so behoben, indem ich False anstat '' gemacht habe ansonsten müssen wir nochmal schauen was in Realität returnt wird
-
     def test_Load_to_Workbook(self):
         temp_filename = 'test_objects.xlsx'
         workbook = openpyxl.Workbook()
         workbook.save(temp_filename)
         toot_list = [self.toot_true]
+
         # hashtag = 'SMS'
         # toot_list = MastodonOOP.load(hashtag)
+        
         MastodonOOP.load_to_workbook(toot_list, temp_filename)
 
         # Aber hier ist das Problem dass wir Username und Pubdate nur als True speichern, das müssten wir ändern
@@ -91,8 +91,7 @@ class Test_FilterExcel(unittest.TestCase):
         saved_workbook.close()
 
         os.remove(temp_filename)
-        # AssertionError: None != 'Marco'
-        # AttributeError: 'bool' object has no attribute 'replace'
+
 
     
     

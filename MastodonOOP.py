@@ -336,10 +336,10 @@ def load_to_workbook(dictionary, workbook):
     # Load the existing workbook
     workbook_2 = load_workbook(workbook) #neu
 
-    if 'Sheet1' not in workbook_2.sheetnames:
-        worksheet = workbook_2.create_sheet('Sheet1')
+    if 'Sheet' not in workbook_2.sheetnames:
+        worksheet = workbook_2.create_sheet('Sheet')
     else:
-        worksheet = workbook_2['Sheet1']
+        worksheet = workbook_2['Sheet']
     # Choose the existing worksheet you want to write data into
     #worksheet = workbook['Sheet1']  # Replace 'Sheet1' with the actual sheet name
 
