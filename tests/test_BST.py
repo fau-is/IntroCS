@@ -28,7 +28,7 @@ class TestBST(unittest.TestCase):
         for username in self.usernames:
             BST.add(username)
 
-        # Let's check a few to ensure they're in the correct position
+        # Check a few to ensure they're in the correct position
         self.assertEqual(BST.root.username, 'Lopinel')
         self.assertEqual(BST.root.right.username, 'THD_IT')
         self.assertEqual(BST.root.right.right.username, 'mistur')
@@ -88,16 +88,14 @@ class TestBST(unittest.TestCase):
         BST.add("Lopinel")
         for username in self.usernames:
             BST.add(username)
-
-        expected_preorder = ["THD_IT", "Harmonia_Amanda", "Dju", "GeoffreyDorne", "HyP", "Bram_Finkel", "mistur",
-                             "Zestryon", "BrunoBellamy", "Lopinel"]
+        expected_preorder = ["Lopinel", "Harmonia_Amanda", "Dju", "Bram_Finkel", "BrunoBellamy", "GeoffreyDorne", "HyP",
+                             "THD_IT", "mistur", "Zestryon"]
         self.assertEqual(BST.preorder(), expected_preorder)
 
     def test_inorder(self):
         BST.add("Lopinel")
         for username in self.usernames:
             BST.add(username)
-
         expected_inorder = ["Bram_Finkel", "BrunoBellamy", "Dju", "GeoffreyDorne", "Harmonia_Amanda", "HyP", "Lopinel",
                             "THD_IT", "Zestryon", "mistur"]
 
@@ -108,8 +106,8 @@ class TestBST(unittest.TestCase):
         for username in self.usernames:
             BST.add(username)
 
-        expected_postorder = ["GeoffreyDorne", "Dju", "Bram_Finkel", "HyP", "Harmonia_Amanda", "BrunoBellamy",
-                              "Zestryon", "Lopinel", "mistur", "THD_IT"]
+        expected_postorder = ["BrunoBellamy", "Bram_Finkel", "GeoffreyDorne", "Dju",  "HyP", "Harmonia_Amanda",
+                              "Zestryon", "mistur", "THD_IT", "Lopinel"]
         self.assertEqual(BST.postorder(), expected_postorder)
 
 if __name__ == '__main__':
