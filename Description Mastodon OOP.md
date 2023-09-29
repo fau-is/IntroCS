@@ -1,4 +1,48 @@
-# Mastodon OOP Description
+# Mastodon OOP 
+**Be sure to read this specification in its entirety before starting so you know what to do and how to do it!**
+For this problem, you’ll implement a program that...
+
+```
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+```
+
+## Getting Started
+Log into IntroCS - GitHub, click on your terminal window, and execute cd by itself. You should find that your terminal window’s prompt resembles the below:
+```
+{
+  $
+}
+```
+Create a new folder called 'pset7' with 
+```
+{
+  mkdir pset7 
+}
+```
+
+Next direct to the folder with 'cd pset7' and execute the following wget commands
+```
+{
+  wget ??????
+}
+```
+
+Execute 'ls' by itself, and you should see a few files and folders:
+
+```
+{
+  mastodon.py test.py
+}
+```
+
+**Don't change anything in ```{test.py}```.**
+
+If you run into any trouble, follow these same steps again and see if you can determine where you went wrong!
+
 
 ## API Access
 An API access refers to the ability to interact with and make use of an Application Programming Interface (API). An API is a set of rules and protocols that allows different software applications to communicate and interact with each other. It defines the methods and data formats that applications can use to request and exchange information.
