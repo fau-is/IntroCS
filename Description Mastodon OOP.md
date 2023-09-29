@@ -40,7 +40,7 @@ API access is typically provided through a combination of an API key or token an
 APIs are crucial for enabling the integration of various services and systems, allowing developers to build more powerful and complex applications by leveraging the functionality and data provided by other services.
 
 ### Mastodon API
-Mastodon is a social networking platform that is part of the decentralized social media movement.
+[Mastodon](https://mastodon.social/explore) is a social networking platform that is part of the decentralized social media movement.
 
 It was created by Eugen Rochko and launched in 2016 as an alternative to traditional, centralized social media platforms like Twitter. Mastodon is an open-source software, which means its source code is freely available for anyone to use, modify, and distribute.
 
