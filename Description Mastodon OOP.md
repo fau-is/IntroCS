@@ -1,5 +1,6 @@
 # Mastodon OOP 
 **Be sure to read this specification in its entirety before starting so you know what to do and how to do it!**
+
 For this problem, you’ll implement a program that...
 
 ```
