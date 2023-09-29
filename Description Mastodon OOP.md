@@ -32,15 +32,20 @@ If you run into any trouble, follow these same steps again and see if you can de
 **Don't change anything in ```test.py```.**
 
 ## API Access
-An API access refers to the ability to interact with and make use of an Application Programming Interface (API). An API is a set of rules and protocols that allows different software applications to communicate and interact with each other. It defines the methods and data formats that applications can use to request and exchange information.
+An API access refers to the ability to interact with and make use of an Application Programming Interface (API). It is a set of rules and protocols that allows different software applications to communicate and interact with each other. It defines the methods and data formats that applications can use to request and exchange information.
+
 APIs enable developers to access the functionality of a specific software, service, or platform, such as retrieving data, performing operations, or integrating with other systems. For example, social media platforms like Facebook, Twitter or Mastodon provide APIs that allow developers to access user data, post updates, or retrieve posts.
+
 API access is typically provided through a combination of an API key or token and specific endpoints or URLs. The API key acts as a unique identifier that grants permission to access the API, while endpoints are URLs that specify the different actions or operations available through the API.
 APIs are crucial for enabling the integration of various services and systems, allowing developers to build more powerful and complex applications by leveraging the functionality and data provided by other services.
 
 ### Mastodon API
 Mastodon is a social networking platform that is part of the decentralized social media movement.
+
 It was created by Eugen Rochko and launched in 2016 as an alternative to traditional, centralized social media platforms like Twitter. Mastodon is an open-source software, which means its source code is freely available for anyone to use, modify, and distribute.
+
 Unlike traditional social media platforms, Mastodon operates on a federated model. Instead of having a single central server that hosts all user accounts and content, Mastodon instances are independently operated servers, known as "instances", which are connected to form a larger network. Each instance is its own community with its own rules and moderation policies, and users can choose which instance they want to join based on their interests or preferences.
+
 Users on Mastodon can post messages, called "toots," which can include text, images, videos, and links. They can follow other users from their own instance or other instances, and interactions are possible across instances within the Mastodon network.
 
 ## Getting Started
