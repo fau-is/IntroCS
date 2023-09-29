@@ -61,6 +61,7 @@ Users on Mastodon can post messages, called "toots," which can include text, ima
 #### Toot-Object
 A toot in Mastodon is like a tweet in Twitter. In this problem set you are going to filter those toots, to which you got access to using the API. 
 We want to store any information about an object that we can then pass around in the rest of our program. Your task, in this problem, is to write a class, toot, starting with a constructor that takes (content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies, pubdate, mentions, media, language, poll) as arguments and stores them appropriately. 
+
 Recall how to use the init method to create your constructor. 
 
 
@@ -73,11 +74,15 @@ Your task is it to implement a function called get_text_content() which takes a 
 ### Problem 3: Download the toots from mastodon
 #### Load-Function
 The Mastodon.py documentation includes a function, “timeline_hashtag” that takes a hashtag, and returns a JSON-like dictionary with various information about all toots which have that particular hashtag. This information should be stored in the object “toot” described above. Limit this function to 100 toots that get loaded.
+
 It is your turn now to write a function called “load” which takes as input a hashtag. At first you need to initialize an empty list where you will store your toots in the later process. Then you access the Mastodon API to get all toots based on a hashtag you set (recall to limit this, as otherwise you potentially load a lot of toots). Now use this toots to store them as a toot object instance and load it into your toot list. At the end you should return your filled toot list.
+
 When writing this function, make sure to save the toot context as a string and not as html script. To do so you can use the ”get_text_content()” function. We already implemented this function in the file “content_Processor_ps7.py”, so you don’t have to worry about that.
 
 ## Triggers
-Triggers are rules that determine whether or not a social network post on Mastodon meets the triggers criteria. They can be based on the content of the posts, such as specific phrases or media types, or on the time when the posts were published. Triggers can be used individually or combined using composite triggers to create more sophisticated filtering rules. It is your task to create these filters which are using the posts (e.g. Toots) you are loading in the Load-Function. After creating all trigger classes you then need to write a function that goes through a sample of triggers and posts and checks whether or not a specific post meets all given trigger criteria.
+Triggers are rules that determine whether or not a social network post on Mastodon meets the triggers criteria. They can be based on the content of the posts, such as specific phrases or media types, or on the time when the posts were published. Triggers can be used individually or combined using composite triggers to create more sophisticated filtering rules. 
+
+It is your task to create these filters which are using the posts (e.g. Toots) you are loading in the Load-Function. After creating all trigger classes you then need to write a function that goes through a sample of triggers and posts and checks whether or not a specific post meets all given trigger criteria.
 
 #### Trigger-Parent
 This is an abstract class representing the parent class for all triggers. It contains the evaluate method, which is used to evaluate whether an alert should be generated for a given social network post on Mastodon. All trigger classes inherit from this class. Because -as you know- if an inheriting subclass does not overwrite the methods of the super class, it uses the super class method instead of an own. Therefore you need to overwrite the evaluate method in the subclasses as otherwise the evaluate method from the super class (Trigger) will get called and return a NotImplementedError.
@@ -192,7 +197,9 @@ This function could also be referred to as the evaluation function. All the trig
 
 ### Problem 19:  
 #### How to make everything work:
-After you managed to implement all triggers and functions of the problem set you can start filtering toots. To do so start by loading toots. Then go on and specify all your wanted triggers and trigger compositions. Make sure that your trigger arrangement is logically structured, and triggers don’t “block” each other, e.g., AND-Trigger (Before-Triger: 01.01.2024, After-Triger: 01.01.2024). Now make a list of all the triggers you want to check for. With this trigger list and the list of toots you can now call your filter_toots function. At the end you can decide what you want to do with your now filtered toots. Either you can create your own function to go through all of your toots contents or you can use our premade load_to_workbook function to store them in a Excel-Sheet. 
+After you managed to implement all triggers and functions of the problem set you can start filtering toots. To do so start by loading toots. Then go on and specify all your wanted triggers and trigger compositions. Make sure that your trigger arrangement is logically structured, and triggers don’t “block” each other, e.g., AND-Trigger (Before-Triger: 01.01.2024, After-Triger: 01.01.2024). 
+
+Now make a list of all the triggers you want to check for. With this trigger list and the list of toots you can now call your filter_toots function. At the end you can decide what you want to do with your now filtered toots. Either you can create your own function to go through all of your toots contents or you can use our premade load_to_workbook function to store them in a Excel-Sheet. 
 
 ## Testing
 ???
