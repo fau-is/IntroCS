@@ -1,11 +1,11 @@
 import unittest
-import MastodonOOP
+import MastodonOOPsolution
 
 
 class Test_AttributeTriggers(unittest.TestCase):
     
     def setUp(self):
-        self.toot_true = MastodonOOP.Toot (
+        self.toot_true = MastodonOOPsolution.Toot (
             account = True,
             toot_id = True,
             content = 'dog',
@@ -26,7 +26,7 @@ class Test_AttributeTriggers(unittest.TestCase):
             language = 'en',
             poll = True        
         )
-        self.toot_false = MastodonOOP.Toot (
+        self.toot_false = MastodonOOPsolution.Toot (
             account = '',
             toot_id = '',
             content = 'sun',
@@ -47,55 +47,55 @@ class Test_AttributeTriggers(unittest.TestCase):
         pass
     
     def test_MediaTrigger(self):
-        media = MastodonOOP.MediaTrigger()
+        media = MastodonOOPsolution.MediaTrigger()
         
         self.assertTrue(media.evaluate(self.toot_true))
         self.assertFalse(media.evaluate(self.toot_false))
             
     def test_ImageMediaTrigger(self):
-        video = MastodonOOP.ImageMediaTrigger()
+        video = MastodonOOPsolution.ImageMediaTrigger()
         
         self.assertTrue(video.evaluate(self.toot_true))
         self.assertFalse(video.evaluate(self.toot_false))
 
     def test_VideoMediaTrigger(self):
-        video = MastodonOOP.VideoMediaTrigger()
+        video = MastodonOOPsolution.VideoMediaTrigger()
         
         self.assertTrue(video.evaluate(self.toot_true))   
         self.assertFalse(video.evaluate(self.toot_false))
         
     def test_GifMediaTrigger(self):
-        gif = MastodonOOP.GifMediaTrigger()
+        gif = MastodonOOPsolution.GifMediaTrigger()
         
         self.assertTrue(gif.evaluate(self.toot_true))   
         self.assertFalse(gif.evaluate(self.toot_false))
         
     def test_AudioMediaTrigger(self):
-        audio = MastodonOOP.AudioMediaTrigger()
+        audio = MastodonOOPsolution.AudioMediaTrigger()
         
         self.assertTrue(audio.evaluate(self.toot_true))   
         self.assertFalse(audio.evaluate(self.toot_false))
         
     def test_LanguageTrigger(self):
-        english = MastodonOOP.LanguageTrigger("en")
+        english = MastodonOOPsolution.LanguageTrigger("en")
         
         self.assertTrue(english.evaluate(self.toot_true))
         self.assertFalse(english.evaluate(self.toot_false))  
     
     def test_PollTrigger(self):
-        poll_filter = MastodonOOP.PollTrigger()
+        poll_filter = MastodonOOPsolution.PollTrigger()
         
         self.assertTrue(poll_filter.evaluate(self.toot_true))
         self.assertFalse(poll_filter.evaluate(self.toot_false))
         
     def test_MentionsTrigger(self):
-        mentions = MastodonOOP.MentionsTrigger()
+        mentions = MastodonOOPsolution.MentionsTrigger()
         
         self.assertTrue(mentions.evaluate(self.toot_true))
         self.assertFalse(mentions.evaluate(self.toot_false))
         
     def test_PhraseTrigger(self):
-        phrase = MastodonOOP.PhraseTrigger("dog")
+        phrase = MastodonOOPsolution.PhraseTrigger("dog")
         
         self.assertTrue(phrase.evaluate(self.toot_true))
         self.assertFalse(phrase.evaluate(self.toot_false)) 

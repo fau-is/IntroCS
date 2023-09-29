@@ -1,11 +1,11 @@
 import unittest
-import MastodonOOP
+import MastodonOOPsolution
 import datetime
 
 class Test_TimeTriggers(unittest.TestCase):
     
     def setUp(self):
-        self.toot_before = MastodonOOP.Toot (
+        self.toot_before = MastodonOOPsolution.Toot (
             account = True,
             toot_id = True,
             content = 'dog',
@@ -24,7 +24,7 @@ class Test_TimeTriggers(unittest.TestCase):
 
         self.toot_before.pubdate = datetime.datetime.strptime(self.toot_before.pubdate, "%Y-%m-%d %H:%M:%S%z")
 
-        self.toot_after = MastodonOOP.Toot (
+        self.toot_after = MastodonOOPsolution.Toot (
             account = '',
             toot_id = '',
             content = 'sun',
@@ -49,7 +49,7 @@ class Test_TimeTriggers(unittest.TestCase):
     
     def test_TimeTrigger(self):
         formatted_time = datetime.datetime.strptime('2023-07-22 09:37:34-05:00', "%Y-%m-%d %H:%M:%S%z")
-        triggered_time = MastodonOOP.TimeTrigger(self.clock)
+        triggered_time = MastodonOOPsolution.TimeTrigger(self.clock)
         
         self.assertEqual(triggered_time.ptime, formatted_time)
         # Chat gpt vorschlag isoformat() nach ptime
@@ -61,7 +61,7 @@ class Test_TimeTriggers(unittest.TestCase):
     def test_BeforeTrigger(self):
         toot_before = self.toot_before
         toot_after = self.toot_after
-        before = MastodonOOP.BeforeTrigger(ptime= self.clock)
+        before = MastodonOOPsolution.BeforeTrigger(ptime= self.clock)
 
         self.assertTrue(before.evaluate(toot_before))
         self.assertFalse(before.evaluate(toot_after))
@@ -73,7 +73,7 @@ class Test_TimeTriggers(unittest.TestCase):
         test_clock = datetime.datetime.strptime(self.clock, "%Y-%m-%d %H:%M:%S%z")
         time = test_clock < self.toot_after.pubdate
         time2 = test_clock < self.toot_before.pubdate
-        after = MastodonOOP.AfterTrigger(self.clock)
+        after = MastodonOOPsolution.AfterTrigger(self.clock)
         self.assertEqual(after.evaluate(self.toot_after), time)
         self.assertEqual(after.evaluate(self.toot_before), time2)
     

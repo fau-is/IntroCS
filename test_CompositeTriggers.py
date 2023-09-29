@@ -1,11 +1,11 @@
 import unittest
-import MastodonOOP
+import MastodonOOPsolution
 
 
 class Test_mediaTriggers(unittest.TestCase):
     
     def setUp(self):
-        self.toot_true = MastodonOOP.Toot (
+        self.toot_true = MastodonOOPsolution.Toot (
             account = True,
             toot_id = True,
             content = 'dog',
@@ -21,7 +21,7 @@ class Test_mediaTriggers(unittest.TestCase):
             language = 'en',
             poll = True        
         )
-        self.toot_false = MastodonOOP.Toot (
+        self.toot_false = MastodonOOPsolution.Toot (
             account = '',
             toot_id = '',
             content = 'sun',
@@ -43,14 +43,14 @@ class Test_mediaTriggers(unittest.TestCase):
     
     def test_NotTrigger(self):
         # not trigger initiation with media trigger 
-        nottrigger = MastodonOOP.NotTrigger( MastodonOOP.MediaTrigger() )
+        nottrigger = MastodonOOPsolution.NotTrigger( MastodonOOPsolution.MediaTrigger() )
         
         self.assertTrue(nottrigger.evaluate(self.toot_false))
         self.assertFalse(nottrigger.evaluate(self.toot_true))   
             
     def test_AndTrigger(self):
         # TypeError: OrTrigger.evaluate() takes 2 positional arguments but 3 were given
-        self.toot_gif = MastodonOOP.Toot (
+        self.toot_gif = MastodonOOPsolution.Toot (
             account = True,
             toot_id = True,
             content = 'dog',
@@ -67,9 +67,9 @@ class Test_mediaTriggers(unittest.TestCase):
             poll = True        
         )
         
-        media = MastodonOOP.MediaTrigger()
-        gif = MastodonOOP.GifMediaTrigger()
-        andtrigger = MastodonOOP.AndTrigger(
+        media = MastodonOOPsolution.MediaTrigger()
+        gif = MastodonOOPsolution.GifMediaTrigger()
+        andtrigger = MastodonOOPsolution.AndTrigger(
             trigger1 = media, 
             trigger2 = gif
             )
@@ -80,9 +80,9 @@ class Test_mediaTriggers(unittest.TestCase):
     def test_OrTrigger(self):
         # TypeError: OrTrigger.evaluate() takes 2 positional arguments but 3 were given
         # Error solved? Sieht so aus als gäbe es da kein Problem mehr
-        poll = MastodonOOP.PollTrigger()
-        mentions = MastodonOOP.MentionsTrigger()
-        ortrigger = MastodonOOP.OrTrigger(
+        poll = MastodonOOPsolution.PollTrigger()
+        mentions = MastodonOOPsolution.MentionsTrigger()
+        ortrigger = MastodonOOPsolution.OrTrigger(
             trigger1 = poll, 
             trigger2 = mentions
             )

@@ -1,5 +1,5 @@
 import unittest
-import MastodonOOP
+import MastodonOOPsolution
 from openpyxl import load_workbook
 import openpyxl
 import os
@@ -9,7 +9,7 @@ import datetime
 class Test_FilterExcel(unittest.TestCase):
     
     def setUp(self):
-        self.toot_true = MastodonOOP.Toot (
+        self.toot_true = MastodonOOPsolution.Toot (
             account = [{"id": 123, "username": "Marco"}],
             toot_id = True,
             content = 'dog',
@@ -28,7 +28,7 @@ class Test_FilterExcel(unittest.TestCase):
 
         self.toot_true.pubdate = datetime.datetime.strptime(self.toot_true.pubdate, "%Y-%m-%d %H:%M:%S")
 
-        self.toot_false = MastodonOOP.Toot (
+        self.toot_false = MastodonOOPsolution.Toot (
             account = '',
             toot_id = '',
             content = 'sun',
@@ -49,16 +49,16 @@ class Test_FilterExcel(unittest.TestCase):
         pass
     
     def test_Filter(self):
-        poll = MastodonOOP.PollTrigger()
-        mentions = MastodonOOP.MentionsTrigger()
-        media = MastodonOOP.MediaTrigger()
+        poll = MastodonOOPsolution.PollTrigger()
+        mentions = MastodonOOPsolution.MentionsTrigger()
+        media = MastodonOOPsolution.MediaTrigger()
 
         toot_list_true = [self.toot_true]
         toot_list_false = [self.toot_false]
         trigger_list = [poll, mentions, media]
 
-        filter_true = MastodonOOP.filter_toots(toots = toot_list_true, triggerlist = trigger_list)
-        filter_false = MastodonOOP.filter_toots(toots = toot_list_false, triggerlist = trigger_list)
+        filter_true = MastodonOOPsolution.filter_toots(toots = toot_list_true, triggerlist = trigger_list)
+        filter_false = MastodonOOPsolution.filter_toots(toots = toot_list_false, triggerlist = trigger_list)
 
         self.assertIsNotNone(filter_true)
         self.assertEqual(filter_true, toot_list_true)
@@ -75,7 +75,7 @@ class Test_FilterExcel(unittest.TestCase):
         # hashtag = 'SMS'
         # toot_list = MastodonOOP.load(hashtag)
         
-        MastodonOOP.load_to_workbook(toot_list, temp_filename)
+        MastodonOOPsolution.load_to_workbook(toot_list, temp_filename)
 
         # Aber hier ist das Problem dass wir Username und Pubdate nur als True speichern, das müssten wir ändern
         # Bei der "Live-Daten"-Methode wäre das kein Problem-

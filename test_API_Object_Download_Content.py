@@ -1,5 +1,5 @@
 import unittest
-import MastodonOOP
+import MastodonOOPsolution
 from mastodon import Mastodon
 from bs4 import BeautifulSoup
 # import resources_tests.toots
@@ -15,7 +15,7 @@ def get_text_content(toot):
 class Test_API_Object_Download_Content(unittest.TestCase):
     
     def setUp(self):
-        self.toot_true = MastodonOOP.Toot (
+        self.toot_true = MastodonOOPsolution.Toot (
             account = True,
             toot_id = True,
             content = '<p>Hello from Python</p>',
@@ -31,7 +31,7 @@ class Test_API_Object_Download_Content(unittest.TestCase):
             language = 'en',
             poll = True        
         )
-        self.toot_false = MastodonOOP.Toot (
+        self.toot_false = MastodonOOPsolution.Toot (
             account = '',
             toot_id = '',
             content = 'sun',
@@ -53,7 +53,7 @@ class Test_API_Object_Download_Content(unittest.TestCase):
     
 
     def test_API(self):
-        self.assertIsInstance(MastodonOOP.mastodon, Mastodon)
+        self.assertIsInstance(MastodonOOPsolution.mastodon, Mastodon)
         # KP ob das so klappt
         # --> hier wird kein Error angegeben
 
@@ -86,12 +86,12 @@ class Test_API_Object_Download_Content(unittest.TestCase):
         )
         # Load all toots with a specific hashtag into a dictionary, limit to 100 toots
         toots = mastodon.timeline_hashtag(hashtag, limit=10)
-        self.result = MastodonOOP.load(hashtag)
+        self.result = MastodonOOPsolution.load(hashtag)
 
         # Process the retrieved toots
         for toot in toots:
             content_text = get_text_content(toot)
-            toot = MastodonOOP.Toot(
+            toot = MastodonOOPsolution.Toot(
                 account = toot['account'],
                 toot_id = toot['id'],
                 content = content_text,
@@ -116,7 +116,7 @@ class Test_API_Object_Download_Content(unittest.TestCase):
 
     def test_GetTextContent(self):
         text = 'Hello from Python'
-        text_content = MastodonOOP.get_text_content(self.toot_true)
+        text_content = MastodonOOPsolution.get_text_content(self.toot_true)
         self.assertEqual(text, text_content)
     
 if __name__ == '__main__':
