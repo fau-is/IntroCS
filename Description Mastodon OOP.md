@@ -19,7 +19,11 @@ Create a new folder called 'pset7' with
 
 Next direct to the folder with 'cd pset7' and execute the following wget commands
 ```
-  wget ??????
+  wget https://raw.githubusercontent.com/fau-is/IntroCS/Mastodon_OOP/MastodonOOP.py
+```
+
+```
+  wget tests.py
 ```
 
 Execute 'ls' by itself, and you should see a few files and folders:
