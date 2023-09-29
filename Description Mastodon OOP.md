@@ -43,7 +43,6 @@ Execute 'ls' by itself, and you should see a few files and folders:
 
 If you run into any trouble, follow these same steps again and see if you can determine where you went wrong!
 
-
 ## API Access
 An API access refers to the ability to interact with and make use of an Application Programming Interface (API). An API is a set of rules and protocols that allows different software applications to communicate and interact with each other. It defines the methods and data formats that applications can use to request and exchange information.
 APIs enable developers to access the functionality of a specific software, service, or platform, such as retrieving data, performing operations, or integrating with other systems. For example, social media platforms like Facebook, Twitter or Mastodon provide APIs that allow developers to access user data, post updates, or retrieve posts.
@@ -56,7 +55,8 @@ It was created by Eugen Rochko and launched in 2016 as an alternative to traditi
 Unlike traditional social media platforms, Mastodon operates on a federated model. Instead of having a single central server that hosts all user accounts and content, Mastodon instances are independently operated servers, known as "instances", which are connected to form a larger network. Each instance is its own community with its own rules and moderation policies, and users can choose which instance they want to join based on their interests or preferences.
 Users on Mastodon can post messages, called "toots," which can include text, images, videos, and links. They can follow other users from their own instance or other instances, and interactions are possible across instances within the Mastodon network.
 
-## Problem 0: Get Access to the Mastodon API
+## Getting Started
+### Problem 0: Get Access to the Mastodon API
 1.	Create a Mastodon account at the 'Mastodon.social’ server.
 2.	Generate an access token, that will allow your code to interact with the Mastodon API on your behalf.
 (Log-in into your account --> Go to your account settings --> Look for “Development” or “API” in settings --> Create a new application by providing a name, website and brief description)
@@ -64,7 +64,7 @@ Users on Mastodon can post messages, called "toots," which can include text, ima
 4.	Authenticate your application using “Client ID”, “Client Secret” and “Access token”, as well as the server (“api_base_url”) your profile is hosted at.
 5.	If you need help throughout the whole problem Set, the documentation of Mastodon.py is your way to go. (Mastodon.py — Mastodon.py 1.8.1 documentation (mastodonpy.readthedocs.io))
 
-## Problem 1: Implement a Toot Object
+### Problem 1: Implement a Toot Object
 #### Toot-Object
 A toot in Mastodon is like a tweet in Twitter. In this problem set you are going to filter those toots, to which you got access to using the API. 
 We want to store any information about an object that we can then pass around in the rest of our program. Your task, in this problem, is to write a class, toot, starting with a constructor that takes (content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies, pubdate, mentions, media, language, poll) as arguments and stores them appropriately. 
@@ -198,5 +198,5 @@ This function could also be referred to as the evaluation function. All the trig
 - Finally, return the triggered_toots list containing only the toots that satisfy all the specified triggers.
 
 ### Problem 19:  
-### How to make everything work:
+#### How to make everything work:
 After you managed to implement all triggers and functions of the problem set you can start filtering toots. To do so start by loading toots. Then go on and specify all your wanted triggers and trigger compositions. Make sure that your trigger arrangement is logically structured, and triggers don’t “block” each other, e.g., AND-Trigger (Before-Triger: 01.01.2024, After-Triger: 01.01.2024). Now make a list of all the triggers you want to check for. With this trigger list and the list of toots you can now call your filter_toots function. At the end you can decide what you want to do with your now filtered toots. Either you can create your own function to go through all of your toots contents or you can use our premade load_to_workbook function to store them in a Excel-Sheet. 
