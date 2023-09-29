@@ -187,3 +187,12 @@ This function could also be referred to as the evaluation function. All the trig
 ### Problem 19:  
 #### How to make everything work:
 After you managed to implement all triggers and functions of the problem set you can start filtering toots. To do so start by loading toots. Then go on and specify all your wanted triggers and trigger compositions. Make sure that your trigger arrangement is logically structured, and triggers don’t “block” each other, e.g., AND-Trigger (Before-Triger: 01.01.2024, After-Triger: 01.01.2024). Now make a list of all the triggers you want to check for. With this trigger list and the list of toots you can now call your filter_toots function. At the end you can decide what you want to do with your now filtered toots. Either you can create your own function to go through all of your toots contents or you can use our premade load_to_workbook function to store them in a Excel-Sheet. 
+
+## Testing
+???
+
+## submit50
+To submit your program use this line of code.
+```
+submit50 ????
+```
