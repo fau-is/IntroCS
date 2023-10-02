@@ -1,5 +1,5 @@
 import unittest
-from graph import User, Graph
+from solutions.graph_sol import User, Graph
 import json
 
 class TestUser(unittest.TestCase):
@@ -39,29 +39,30 @@ class TestGraphMethods(unittest.TestCase):
 
     def test_add_vertex(self):
         self.graph.add_vertex(self.user1)
-        self.assertIn("Alice", self.graph)
+        self.assertIn("Alice", self.graph, "Failed to add vertex 'Alice' to the graph.")
 
     def test_add_edge(self):
         self.graph.add_edge(self.user1, self.user2)
-        self.assertIn("Bob", self.graph["Alice"])
-        self.assertIn("Alice", self.graph["Bob"])
+        self.assertIn("Bob", self.graph["Alice"], "Failed to establish an edge between 'Alice' and 'Bob'.")
+        self.assertIn("Alice", self.graph["Bob"], "Failed to establish an edge between 'Bob' and 'Alice'.")
 
     def test_remove_edge(self):
         self.graph.add_edge(self.user1, self.user2)
         self.graph.remove_edge((self.user1, self.user2))
-        self.assertNotIn("Bob", self.graph["Alice"])
-        self.assertNotIn("Alice", self.graph["Bob"])
+        self.assertNotIn("Bob", self.graph["Alice"], "Failed to remove edge between 'Alice' and 'Bob'.")
+        self.assertNotIn("Alice", self.graph["Bob"], "Failed to remove edge between 'Bob' and 'Alice'.")
+
 
     def test_order_ascending(self):
         self.graph.add_edge(self.user1, self.user4)
         self.graph.add_edge(self.user1, self.user2)
         self.graph.add_edge(self.user1, self.user3)
-        self.assertEqual(self.graph["Alice"], ["Bob", "Charlie", "David"])
+        self.assertEqual(self.graph["Alice"], ["Bob", "Charlie", "David"], "Neighbors of 'Alice' are not in ascending order.")
 
     def test_dfs(self):
         self._setup_graph_dfs_bfs()
         visited = self.graph.dfs(self.user1)
-        self.assertEqual(visited, ["Alice", "Bob", "Charlie", "David"])
+        self.assertEqual(visited, ["Alice", "Bob", "Charlie", "David"], "Depth-first search did not return the expected order.")
         self._teardown_graph_connections()
 
     # def test_bfs(self):
@@ -92,19 +93,17 @@ class TestGraphMethods(unittest.TestCase):
         # Test if a fully connected cluster is found
         self._setup_graph_connected()
         clusters = self.graph.get_subgraphs()
-        self.assertEqual(len(clusters), 1)
-        self.assertCountEqual(clusters[0], ["Alice", "Bob", "Charlie", "David"])
-
+        self.assertEqual(len(clusters), 1, "Expected 1 cluster for a fully connected graph.")
+        self.assertCountEqual(clusters[0], ["Alice", "Bob", "Charlie", "David"], "Connected cluster doesn't match the expected users.")
         self._test_subgraphs(clusters)
 
     def test_clusters_disconnected(self):
         # Test if multiple separated clusters can be found
         self._setup_graph_disconnected()
         clusters = self.graph.get_subgraphs()
-        self.assertEqual(len(clusters), 3)
+        self.assertEqual(len(clusters), 3, "Expected 3 separate clusters for the given graph.")
         for cluster in clusters:
-            self.assertIn(len(cluster), [2, 2, 2])
-
+            self.assertIn(len(cluster), [2, 2, 2], "Each disconnected cluster should have 2 users.")
         self._test_subgraphs(clusters)
 
 
@@ -119,17 +118,17 @@ class TestGraphMethods(unittest.TestCase):
     def test_shortest_path_exists(self):
         self._setup_graph()
         path = self.graph.shortest_path("Alice", "David")
-        self.assertEqual(path, ["Alice", "Eve", "David"])
+        self.assertEqual(path, ["Alice", "Eve", "David"], "Shortest path from 'Alice' to 'David' is incorrect.")
 
     def test_no_shortest_path(self):
         self._setup_graph()
         path = self.graph.shortest_path("Alice", "Frank")
-        self.assertEqual(path, None)
+        self.assertEqual(path, None, "Expected no path between 'Alice' and 'Frank', but a path was returned.")
 
     def test_shortest_path(self):
         self._setup_graph()
         path = self.graph.shortest_path("Alice", "Eve")
-        self.assertEqual(path, ["Alice", "Eve"])
+        self.assertEqual(path, ["Alice", "Eve"], "Shortest path between 'Alice' and 'Eve' is incorrect.")
 
     # Task 4
     def setUp_JSON_data(self):
@@ -145,31 +144,27 @@ class TestGraphMethods(unittest.TestCase):
     def test_build_graph(self):
         self.setUp_JSON_data()
         self.graph.parse_data(self.filepath)
-
         # Check if graph has been built correctly
         for key, neighbors in self.data.items():
-            self.assertTrue(str(User(key)) in self.graph)
+            self.assertTrue(str(User(key)) in self.graph, f"User {key} is missing in the graph.")
             for neighbor in neighbors:
-                self.assertIn(str(User(neighbor)), self.graph[str(User(key))])
+                self.assertIn(str(User(neighbor)), self.graph[str(User(key))], f"Neighbor {neighbor} missing for user {key} in the graph.")
 
     def test_most_influential(self):
-        # self.setUp_JSON_data()
-        # self.graph.build_graph(self.filepath)
         self._setup_graph_4_5()
         result = self.graph.most_influential()
         # Check if result is a tuple of length 2
-        self.assertTrue(isinstance(result, tuple))
-        self.assertEqual(len(result), 2)
+        self.assertTrue(isinstance(result, tuple), "Expected result to be a tuple.")
+        self.assertEqual(len(result), 2, "Expected tuple of length 2 for most influential result.")
 
-        # Check if the first element of the tuple is a string or instance of User with the value "Sundar"
-        self.assertTrue(isinstance(result[0], (str, User)))
-        # self.assertEqual(result[0], "paulfree14")
-        self.assertEqual(result[0], "Sundar")
+        # Check first element of the tuple
+        self.assertTrue(isinstance(result[0], (str, User)), "First element of the result should be a string or User instance.")
+        self.assertEqual(result[0], "Sundar", "Expected 'Sundar' as the most influential user.")
 
-        # Check if the second element of the tuple is a float with a value between 2.3 and 2.4
-        self.assertTrue(isinstance(result[1], float))
-        # self.assertTrue(2.4 <= result[1] <= 2.5)
-        self.assertTrue(2.3 <= result[1] <= 2.4)
+        # Check second element of the tuple
+        self.assertTrue(isinstance(result[1], float), "Second element of the result should be a float.")
+        self.assertTrue(2.3 <= result[1] <= 2.4, "Expected influence score between 2.3 and 2.4.")
+
 
     # task 5
     def _setup_graph_4_5(self):
@@ -190,29 +185,28 @@ class TestGraphMethods(unittest.TestCase):
         self._setup_graph_4_5()
         for c in range(1,12):
             communities = self.graph.girvan_newman_algorithm(clusters=c)
-            self.assertGreaterEqual(len(communities), c, f"When asked for {c} clusters get_communities(clusters={c}) returns less than {c} clusters.")
+            self.assertGreaterEqual(len(communities), c, f"When asked for {c} clusters, get_communities(clusters={c}) should return at least {c} clusters.")
             for subgraph in communities:
-                self.assertTrue(isinstance(subgraph, (list, set, tuple)), "Your returned subgraphs should be of type set")
-                self.assertGreaterEqual(len(subgraph),1, "Make sure get_communities does not return empty subgraphs")
+                self.assertTrue(isinstance(subgraph, (list, set, tuple)), "Returned subgraphs should be of type list, set, or tuple.")
+                self.assertGreaterEqual(len(subgraph), 1, "Ensure get_communities does not return empty subgraphs.")
         self._test_subgraphs(communities)
 
     def _test_subgraphs(self, result):
         # every graph node (user) needs to be part of exactly one subgraph
         users_all = [i for b in result for i in list(b)]
         for user in self.graph.keys():
-            self.assertEqual(users_all.count(user), 1)
+            self.assertEqual(users_all.count(user), 1, f"User {user} is not unique across the subgraphs.")
+
 
     def test_compute_sps(self):
-        # pre method call
-        self.assertTrue(hasattr(self.graph, 'sps'))
+        self.assertTrue(hasattr(self.graph, 'sps'), "Graph should have an attribute named 'sps'.")
 
         self._setup_graph_4_5()
         self.graph.compute_sps()
 
-        # post method call
         node_count = len(self.graph.keys())
-        self.assertEqual(len(self.graph.sps), node_count)
-        self.assertEqual([len(i) for i in self.graph.sps].count(node_count), node_count)
+        self.assertEqual(len(self.graph.sps), node_count, "SPS matrix dimensions don't match the number of nodes.")
+        self.assertEqual([len(i) for i in self.graph.sps].count(node_count), node_count, "SPS matrix dimensions are inconsistent.")
 
         sp_flag = False
         for i in range(node_count):
@@ -222,7 +216,8 @@ class TestGraphMethods(unittest.TestCase):
                     break
             if sp_flag:
                 break
-        self.assertTrue(sp_flag)
+        self.assertTrue(sp_flag, "SPS matrix doesn't seem to contain valid shortest paths.")
+
 
 
 
