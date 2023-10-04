@@ -128,7 +128,7 @@ class Graph(dict):
         # Calculate the average shortest path length for each node
 
         # Identify the most influential node based on minimum average shortest path length and return both
-        
+
 
     def edge_in_sp(self, pair: Tuple[str, str], sp: List[str]) -> bool:
         """

@@ -1,5 +1,5 @@
 import unittest
-from solutions.graph_sol import User, Graph
+from graph import User, Graph
 import json
 
 class TestUser(unittest.TestCase):
