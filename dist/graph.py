@@ -121,19 +121,14 @@ class Graph(dict):
         ----------
         Tuple containing the most influential user and its average shortest path length.
         """
-        # Create mappings from node keys to indices and vice versa
-
         # Initialize a matrix to store shortest paths between nodes with 'None' values
 
         # Populate the matrix with shortest paths between all possible node combinations
 
-        # Initialize a dictionary to store the lengths of shortest paths for each node
-
-        # Populate the sps_lengths dictionary with the lengths of shortest paths
-
         # Calculate the average shortest path length for each node
 
         # Identify the most influential node based on minimum average shortest path length and return both
+        
 
     def edge_in_sp(self, pair: Tuple[str, str], sp: List[str]) -> bool:
         """

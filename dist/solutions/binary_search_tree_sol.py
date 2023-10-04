@@ -1,27 +1,42 @@
+from typing import Tuple, List
+
 class BST:
     """
-    Class that represents our Binary Search Tree.
+    A class that represents a Binary Search Tree (BST).
+
+    Attributes:
+    ----------
+    root: BST
+        The root node of the BST.
+
     """
 
     # The root node of the BST
     root = None
 
-    def __init__(self, username):
+    def __init__(self, username: str) -> None:
         """
-        Constructor of the BST objects.
-        :param username: The username to be stored in a BST object.
+        Constructor for the BST objects.
+
+        Parameters:
+        ----------
+        username: str
+            The username to be stored in a BST object.
         """
         self.username = username
         self.left = None
         self.right = None
 
+
     @staticmethod
-    def add(username):
+    def add(username: str) -> None:
         """
-        The method creates a root if the BST does not have one yet, otherwise it adds a new BST object at the right
-        place in the tree.
-        :param username: The username of the added node (vertex).
-        :return:
+        Creates a root if the BST does not have one yet, otherwise adds a new BST object at the right place in the tree.
+
+        Parameters:
+        ----------
+        username: str
+            The username of the added node (vertex).
         """
         if BST.root is None:
             BST.root = BST(username)
@@ -29,9 +44,16 @@ class BST:
             BST._add_recursive(BST.root, username)
 
     @staticmethod
-    def _add_recursive(current, username):
+    def _add_recursive(current: 'BST', username: str) -> None:
         """
         Recursive helper method for adding a new node.
+
+        Parameters:
+        ----------
+        current: BST
+            The current node in the BST where the new node might be added.
+        username: str
+            The username of the new node.
         """
         if username < current.username:
             if current.left is None:
@@ -44,9 +66,21 @@ class BST:
             else:
                 BST._add_recursive(current.right, username)
 
-
     @staticmethod
-    def linear_search(to_find):
+    def linear_search(to_find: str) -> Tuple['BST', bool]:
+        """
+        Searches for a node in the BST using a linear approach.
+
+        Parameters:
+        ----------
+        to_find: str
+            The username to find in the BST.
+
+        Returns:
+        -------
+        Union[BST, bool]
+            The found BST node or False if not found.
+        """
         CurNode = BST.root
         while CurNode is not None:
             if CurNode.username == to_find:
@@ -57,29 +91,44 @@ class BST:
                 CurNode = CurNode.left
         return False
 
-
-
     @staticmethod
-    def binary_search(root, to_find):
-        # Base Cases: root is null or key is present at root
+    def binary_search(root: 'BST', to_find: str) -> Tuple['BST', bool]:
+        """
+        Searches for a node in the BST using a binary search approach.
+
+        Parameters:
+        ----------
+        root: BST
+            The current root node for the binary search.
+        to_find: str
+            The username to find in the BST.
+
+        Returns:
+        -------
+        Union[BST, bool]
+            The found BST node or False if not found.
+        """
         if root is None:
             return False
-        if root is None or root.username == to_find:
+        if root.username == to_find:
             return root
 
         # Key is greater than root's key
         if root.username < to_find:
-            return BST.binary_search(root.right,to_find)
+            return BST.binary_search(root.right, to_find)
 
         # Key is smaller than root's key
-        return BST.binary_search(root.left,to_find)
-
+        return BST.binary_search(root.left, to_find)
 
     @staticmethod
-    def preorder():
+    def preorder() -> List[str]:
         """
-        This method is supposed to perform preorder DFS.
-        :return: a list of the domain names in preorder.
+        Performs a preorder Depth-First Search (DFS) on the BST.
+
+        Returns:
+        -------
+        List[str]
+            A list of the usernames in preorder.
         """
         order = []
         queue = []
@@ -97,10 +146,14 @@ class BST:
         return order
 
     @staticmethod
-    def inorder():
+    def inorder() -> List[str]:
         """
-        This method performs inorder DFS.
-        :return: a list of the domain names in inorder.
+        Performs an inorder Depth-First Search (DFS) on the BST.
+
+        Returns:
+        -------
+        List[str]
+            A list of the usernames in inorder.
         """
         order = []
         stack = []
@@ -117,10 +170,14 @@ class BST:
         return order
 
     @staticmethod
-    def postorder():
+    def postorder() -> List[str]:
         """
-        This method performs postorder DFS.
-        :return: a list of the domain names in postorder.
+        Performs a postorder Depth-First Search (DFS) on the BST.
+
+        Returns:
+        -------
+        List[str]
+            A list of the usernames in postorder.
         """
         order = []
         stack1 = []

@@ -57,7 +57,7 @@ class TestGraphMethods(unittest.TestCase):
         self.graph.add_edge(self.user1, self.user4)
         self.graph.add_edge(self.user1, self.user2)
         self.graph.add_edge(self.user1, self.user3)
-        self.assertEqual(self.graph["Alice"], ["Bob", "Charlie", "David"], "Neighbors of 'Alice' are not in ascending order.")
+        self.assertEqual(self.graph["Alice"], ["Bob", "Charlie", "David"], "Neighbors of vertex are not in ascending order.")
 
     def test_dfs(self):
         self._setup_graph_dfs_bfs()
