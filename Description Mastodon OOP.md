@@ -85,7 +85,6 @@ Your task, in this problem, is to write a class 'toot', starting with a construc
 Your task is it to implement a function called get_text_content() which takes a toot (dictionary) as its input. The dictionary contains a key called 'content', which holds an HTML content string. Write a solution that extracts the plain text content from the HTML and returns it.
 <details>
 <summary>Hint</summary>
-<br>
   You can use the [Beautiful Soup library](https://beautiful-soup-4.readthedocs.io/en/latest/).
 </details>
 
