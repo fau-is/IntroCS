@@ -75,7 +75,6 @@ We want to store any information about an object that we can then pass around in
 Your task, in this problem, is to write a class 'toot', starting with a constructor that takes (content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies, pubdate, mentions, media, language, poll) as arguments and stores them appropriately. 
 <details>
 <summary>Hint</summary>
-<br>
   Recall how to use the init method to create your constructor.
 </details>
 
@@ -117,7 +116,6 @@ This is an abstract class representing the parent class for all triggers. It con
 - Check if the media attribute is not empty and contains at least one image attachment. If it does, return True, indicating that the trigger should fire. Otherwise, return False.
 <details>
 <summary>Hint</summary>
-<br>
   For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
 </details>
 
