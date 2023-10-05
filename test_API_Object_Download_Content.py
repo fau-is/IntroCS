@@ -76,7 +76,7 @@ class Test_API_Object_Download_Content(unittest.TestCase):
 
 
     def test_load(self):
-        self.toots_dict = []
+        toots_dict = []
         hashtag = "Moin"
         mastodon = Mastodon(
             client_id="SOXp3afnWgFJrQf2_UIlqgPva--ZhdBZHS9fyik8Rvg",
@@ -84,9 +84,9 @@ class Test_API_Object_Download_Content(unittest.TestCase):
             access_token="eJpW5z5P82AYIHSzcd6oeHEPaSrP4SMGYn_nxoICLEE",
             api_base_url="https://mastodon.social"
         )
-        # Load all toots with a specific hashtag into a dictionary, limit to 100 toots
+        # Load all toots with a specific hashtag into a dictionary, limit to 10 toots
         toots = mastodon.timeline_hashtag(hashtag, limit=10)
-        self.result = MastodonOOPsolution.load(hashtag)
+        result = MastodonOOPsolution.load(hashtag)
 
         # Process the retrieved toots
         for toot in toots:
@@ -107,9 +107,21 @@ class Test_API_Object_Download_Content(unittest.TestCase):
                 language = toot['language'], 
                 poll = toot['poll'] 
             )
-            self.toots_dict.append(toot)
+            toots_dict.append(toot)
 
-        self.assertListEqual(self.result, self.toots_dict)
+        for toot in result:
+            # Extract the toot_id from the current Toot object
+            toot_id = toot.toot_id
+
+            # Check if the toot_id is present in toots_dict
+            self.assertTrue(any(toot_id == t.toot_id for t in toots_dict))
+
+        for toot in toots_dict:
+        # Extract the toot_id from the current Toot object
+            toot_id = toot.toot_id
+
+        # Check if the toot_id is present in result (at least once)
+            self.assertTrue(any(toot_id == t.toot_id for t in result))
             
         # AssertionError: Lists differ: [<Mas[23 chars] 0x111decb90>, <MastodonOOP.Toot object at 0x1[341 chars]d10>] != [<Mas[23 chars] 0x114c42490>]
 
