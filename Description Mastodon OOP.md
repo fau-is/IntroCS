@@ -16,6 +16,10 @@ Create a new folder called 'pset7' with
 ```
   mkdir pset7 
 ```
+Direct to the newly created folder with:
+```
+  cd pset7
+```
 
 Next direct to the folder with 'cd pset7' and execute the following wget commands
 ```
@@ -26,7 +30,7 @@ Next direct to the folder with 'cd pset7' and execute the following wget command
   wget tests.py
 ```
 
-Execute 'ls' by itself, and you should see a few files and folders:
+Execute 'ls' by itself, and you should see a the following files:
 
 ```
   mastodon.py test.py
@@ -56,23 +60,34 @@ Users on Mastodon can post messages, called "toots," which can include text, ima
 ### Problem 0: Get Access to the Mastodon API
 1.	Create a Mastodon account at the 'Mastodon.social’ server.
 2.	Generate an access token, that will allow your code to interact with the Mastodon API on your behalf.
-(Log-in into your account --> Go to your account settings --> Look for “Development” or “API” in settings --> Create a new application by providing a name, website and brief description)
+
+  (Log-in into your account --> Go to your account settings --> Look for “Development” or “API” in settings --> Create a new application by providing a name, website and brief description)
+
 3.	Use the API Library Mastodon.py to make calls from your application to the API.
 4.	Authenticate your application using “Client ID”, “Client Secret” and “Access token”, as well as the server (“api_base_url”) your profile is hosted at.
-5.	If you need help throughout the whole problem Set, the documentation of Mastodon.py is your way to go. (Mastodon.py — Mastodon.py 1.8.1 documentation (mastodonpy.readthedocs.io))
+5.	If you need help throughout the whole problem Set, the [documentation of Mastodon.py](mastodonpy.readthedocs.io) is your way to go. 
 
 ### Problem 1: Implement a Toot Object
 #### Toot-Object
-A toot in Mastodon is like a tweet in Twitter. In this problem set you are going to filter those toots, to which you got access to using the API. 
-We want to store any information about an object that we can then pass around in the rest of our program. Your task, in this problem, is to write a class, toot, starting with a constructor that takes (content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies, pubdate, mentions, media, language, poll) as arguments and stores them appropriately. 
+A toot in Mastodon is like a tweet on Twitter. In this problem set you are going to filter those toots, to which you got access to using the API. 
+We want to store any information about an object that we can then pass around in the rest of our program. 
 
-Recall how to use the init method to create your constructor. 
+Your task, in this problem, is to write a class 'toot', starting with a constructor that takes (content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies, pubdate, mentions, media, language, poll) as arguments and stores them appropriately. 
+<details>
+<summary>Hint</summary>
+<br>
+  Recall how to use the init method to create your constructor.
+</details>
 
 
 ### Problem 2: Isolate the text from html
 #### Get_text_content
-Your task is it to implement a function called get_text_content() which takes a toot (dictionary) as its input. The dictionary contains a key called 'content', which holds an HTML content string. Writea solution that extracts the plain text content from the HTML and returns it.
-> **_HINT_:** You can use the Beautiful Soup library.
+Your task is it to implement a function called get_text_content() which takes a toot (dictionary) as its input. The dictionary contains a key called 'content', which holds an HTML content string. Write a solution that extracts the plain text content from the HTML and returns it.
+<details>
+<summary>Hint</summary>
+<br>
+  You can use the [Beautiful Soup library](https://beautiful-soup-4.readthedocs.io/en/latest/).
+</details>
 
 
 ### Problem 3: Download the toots from mastodon
@@ -101,7 +116,11 @@ This is an abstract class representing the parent class for all triggers. It con
 - The Image-Trigger is a trigger that fires when a social network post contains one or more image attachments.
 - To implement this trigger, you need to access the media attribute of the post object, which represents the media attachments.
 - Check if the media attribute is not empty and contains at least one image attachment. If it does, return True, indicating that the trigger should fire. Otherwise, return False.
-> **_HINT_:**  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
+<details>
+<summary>Hint</summary>
+<br>
+  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
+</details>
 
 #### GIF-Trigger
 - The GIF-Trigger is a trigger that fires when a social network post contains one or more GIF (Graphics Interchange Format) attachments.
