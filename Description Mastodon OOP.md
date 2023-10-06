@@ -118,31 +118,16 @@ This is an abstract class representing the parent class for all triggers. It con
 - The Image-Trigger is a trigger that fires when a social network post contains one or more image attachments.
 - To implement this trigger, you need to access the media attribute of the post object, which represents the media attachments.
 - Check if the media attribute is not empty and contains at least one image attachment. If it does, return True, indicating that the trigger should fire. Otherwise, return False.
-<details>
-<summary>Hint</summary>
-<br>
-  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
-</details>
 
 #### GIF-Trigger
 - The GIF-Trigger is a trigger that fires when a social network post contains one or more GIF (Graphics Interchange Format) attachments.
 - To implement this trigger, you need to access the media attribute of the post object, which represents the media attachments.
 - Check if the media attribute is not empty and contains at least one GIF attachment. If it does, return True, indicating that the trigger should fire. Otherwise, return False.
-<details>
-<summary>Hint</summary>
-<br>
-  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
-</details>
 
 #### Video-Trigger
 - The Video-Trigger is a trigger that fires when a social network post contains one or more video attachments.
 - To implement this trigger, you need to access the media attribute of the post object, which represents the media attachments.
 - Check if the media attribute is not empty and contains at least one video attachment. If it does, return True, indicating that the trigger should fire. Otherwise, return False.
-<details>
-<summary>Hint</summary>
-<br>
-  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
-</details>
 
 #### Audio-Trigger
 - The Audio-Trigger is a trigger that fires when a social network post contains one or more audio attachments.
