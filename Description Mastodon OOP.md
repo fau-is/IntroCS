@@ -60,8 +60,10 @@ Users on Mastodon can post messages, called "toots," which can include text, ima
 ### Problem 0: Get Access to the Mastodon API
 1.	Create a Mastodon account at the 'Mastodon.social’ server.
 2.	Generate an access token, that will allow your code to interact with the Mastodon API on your behalf.
-
-  (Log-in into your account --> Go to your account settings --> Look for “Development” or “API” in settings --> Create a new application by providing a name, website and brief description)
+    - Log-in into your account 
+    - Go to your account settings
+    - Look for “Development” or “API” in settings
+    - Create a new application by providing a name, website and a brief description
 
 3.	Use the API Library Mastodon.py to make calls from your application to the API.
 4.	Authenticate your application using “Client ID”, “Client Secret” and “Access token”, as well as the server (“api_base_url”) your profile is hosted at.
