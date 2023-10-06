@@ -75,6 +75,7 @@ We want to store any information about an object that we can then pass around in
 Your task, in this problem, is to write a class 'toot', starting with a constructor that takes (content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies, pubdate, mentions, media, language, poll) as arguments and stores them appropriately. 
 <details>
 <summary>Hint</summary>
+<br>
   Recall how to use the init method to create your constructor.
 </details>
 
@@ -84,6 +85,7 @@ Your task, in this problem, is to write a class 'toot', starting with a construc
 Your task is it to implement a function called get_text_content() which takes a toot (dictionary) as its input. The dictionary contains a key called 'content', which holds an HTML content string. Write a solution that extracts the plain text content from the HTML and returns it.
 <details>
 <summary>Hint</summary>
+<br>
   You can use the [Beautiful Soup library](https://beautiful-soup-4.readthedocs.io/en/latest/).
 </details>
 
@@ -116,6 +118,7 @@ This is an abstract class representing the parent class for all triggers. It con
 - Check if the media attribute is not empty and contains at least one image attachment. If it does, return True, indicating that the trigger should fire. Otherwise, return False.
 <details>
 <summary>Hint</summary>
+<br>
   For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
 </details>
 
@@ -123,19 +126,31 @@ This is an abstract class representing the parent class for all triggers. It con
 - The GIF-Trigger is a trigger that fires when a social network post contains one or more GIF (Graphics Interchange Format) attachments.
 - To implement this trigger, you need to access the media attribute of the post object, which represents the media attachments.
 - Check if the media attribute is not empty and contains at least one GIF attachment. If it does, return True, indicating that the trigger should fire. Otherwise, return False.
-> **_HINT_:** For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
+<details>
+<summary>Hint</summary>
+<br>
+  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
+</details>
 
 #### Video-Trigger
 - The Video-Trigger is a trigger that fires when a social network post contains one or more video attachments.
 - To implement this trigger, you need to access the media attribute of the post object, which represents the media attachments.
 - Check if the media attribute is not empty and contains at least one video attachment. If it does, return True, indicating that the trigger should fire. Otherwise, return False.
-> **_HINT_:**  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
+<details>
+<summary>Hint</summary>
+<br>
+  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
+</details>
 
 #### Audio-Trigger
 - The Audio-Trigger is a trigger that fires when a social network post contains one or more audio attachments.
 •	To implement this trigger, you need to access the media attribute of the post object, which represents the media attachments.
 - Check if the media attribute is not empty and contains at least one audio attachment. If it does, return True, indicating that the trigger should fire. Otherwise, return False.
-> **_HINT_:**  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
+<details>
+<summary>Hint</summary>
+<br>
+  For this task it is very helpful to check the mastodon documentation about the returning dictionaries, especially media dicts.
+</details>
 
 ### Problem 9: Implement a Language Trigger
 #### Language-Trigger
@@ -224,8 +239,15 @@ Now make a list of all the triggers you want to check for. With this trigger lis
 ## Testing
 ???
 
+<details>
+<summary>Hint</summary>
+<br>
+  You can always go to the tutorium with your questions or contact online support of Intro CS via Teams, if you feel like additional help would be great.
+</details>
+
 ## submit50
 To submit your program use this line of code.
 ```
 submit50 ????
 ```
+
