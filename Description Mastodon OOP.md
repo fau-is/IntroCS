@@ -131,7 +131,7 @@ This is an abstract class representing the parent class for all triggers. It con
 
 #### Audio-Trigger
 - The Audio-Trigger is a trigger that fires when a social network post contains one or more audio attachments.
-•	To implement this trigger, you need to access the media attribute of the post object, which represents the media attachments.
+-	To implement this trigger, you need to access the media attribute of the post object, which represents the media attachments.
 - Check if the media attribute is not empty and contains at least one audio attachment. If it does, return True, indicating that the trigger should fire. Otherwise, return False.
 <details>
 <summary>Hint</summary>
@@ -210,8 +210,8 @@ This is an abstract class representing the parent class for all triggers. It con
 
 ### Problem 19: Implement a Function which checks for Triggers in a List of Toots
 #### Filter-Toots
-This function could also be referred to as the evaluation function. All the triggers you implemented, and the loading of toots come together in this function. This function returns all the toots which meet the criteria of the filters you specify before.
-- The filter_toots function takes a list of posts (toots) and a list of triggers as input.
+This function could also be referred to as the evaluation function. All the triggers you implemented, and the loading of toots come together in this function. This function returns all the toots which meet the criteria of the filters you have specified before.
+- The filter_toots function takes a list of toots (posts) and a list of triggers as input.
 - It returns a list of only the toots for which all trigger in the trigger list fire.
 - Iterate over each toot in the toots list and then iterate over each trigger in the trigger list.
 - Evaluate each trigger for the toot using the triggers evaluate method. If all triggers return True for the toot, add the toot to the triggered_toots list.
