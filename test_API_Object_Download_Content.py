@@ -52,28 +52,13 @@ class Test_API_Object_Download_Content(unittest.TestCase):
         pass
     
 
-    def test_API(self):
+    def test_api(self):
         self.assertIsInstance(MastodonOOPsolution.mastodon, Mastodon)
-        # KP ob das so klappt
-        # --> hier wird kein Error angegeben
 
 
-    def test_Toot(self):        
-        self.assertTrue(hasattr(self.toot_true, "content"))
-        self.assertTrue(hasattr(self.toot_true, "account"))
-        self.assertTrue(hasattr(self.toot_true, "toot_id"))
-        self.assertTrue(hasattr(self.toot_true, "user_id"))
-        self.assertTrue(hasattr(self.toot_true, "hashtags"))
-        self.assertTrue(hasattr(self.toot_true, "bookmark"))
-        self.assertTrue(hasattr(self.toot_true, "no_replies"))
-        self.assertTrue(hasattr(self.toot_true, "url"))
-        self.assertTrue(hasattr(self.toot_true, "count_replies"))
-        self.assertTrue(hasattr(self.toot_true, "pubdate"))
-        self.assertTrue(hasattr(self.toot_true, "mentions"))
-        self.assertTrue(hasattr(self.toot_true, "media"))
-        self.assertTrue(hasattr(self.toot_true, "language"))
-        self.assertTrue(hasattr(self.toot_true, "poll"))
-
+    def test_toot(self):   
+        assert all(hasattr(self.toot_true, attr) for attr in ["content", "account", "toot_id", "user_id", "hashtags", "bookmark", "no_replies", "url", "count_replies", "pubdate", "mentions", "media", "language", "poll"]), "You are missing an attribute, check again!"
+        # eine Nachricht
 
     def test_load(self):
         toots_dict = []
@@ -84,11 +69,11 @@ class Test_API_Object_Download_Content(unittest.TestCase):
             access_token="eJpW5z5P82AYIHSzcd6oeHEPaSrP4SMGYn_nxoICLEE",
             api_base_url="https://mastodon.social"
         )
-        # Load all toots with a specific hashtag into a dictionary, limit to 10 toots
+
         toots = mastodon.timeline_hashtag(hashtag, limit=10)
         result = MastodonOOPsolution.load(hashtag)
+        true_bool = True
 
-        # Process the retrieved toots
         for toot in toots:
             content_text = get_text_content(toot)
             toot = MastodonOOPsolution.Toot(
@@ -115,6 +100,9 @@ class Test_API_Object_Download_Content(unittest.TestCase):
 
             # Check if the toot_id is present in toots_dict
             self.assertTrue(any(toot_id == t.toot_id for t in toots_dict))
+            
+            if not any(toot_id == t.toot_id for t in toots_dict):
+                true_bool = False
 
         for toot in toots_dict:
         # Extract the toot_id from the current Toot object
@@ -123,13 +111,18 @@ class Test_API_Object_Download_Content(unittest.TestCase):
         # Check if the toot_id is present in result (at least once)
             self.assertTrue(any(toot_id == t.toot_id for t in result))
             
-        # AssertionError: Lists differ: [<Mas[23 chars] 0x111decb90>, <MastodonOOP.Toot object at 0x1[341 chars]d10>] != [<Mas[23 chars] 0x114c42490>]
-
+            if not any(toot_id == t.toot_id for t in result):
+                true_bool = False
+            
+        # eine Nachricht basierend auf einer BOOL Variable!
+        self.assertTrue(true_bool, "Your Loading-Function does not work correctly, check again!")
 
     def test_GetTextContent(self):
         text = 'Hello from Python'
         text_content = MastodonOOPsolution.get_text_content(self.toot_true)
-        self.assertEqual(text, text_content)
+        self.assertEqual(text, text_content, "Your GetTextContent-Function does not work correctly, check again!")
+    # passt
+    
     
 if __name__ == '__main__':
     unittest.main()
