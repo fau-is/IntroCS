@@ -6,14 +6,6 @@ import openpyxl
 import os
 import datetime
 
-
-def get_text_content(toot):
-    content_html = toot['content']
-    soup = BeautifulSoup(content_html, 'html.parser')
-    content_text = soup.get_text()
-    return content_text
-
-
 class Test_Mastodon(unittest.TestCase):
     
     def setUp(self):
@@ -27,7 +19,7 @@ class Test_Mastodon(unittest.TestCase):
             no_replies = True,
             url = True,
             count_replies = True,
-            pubdate = "2022-07-22 09:37:34",
+            pubdate = '2022-07-22 09:37:34+00:00',
             mentions = True,
             media = [{"id": 123,"type":"image"},
                      {"id": 1234,"type":"video"},
@@ -48,79 +40,26 @@ class Test_Mastodon(unittest.TestCase):
             no_replies = '',
             url = '',
             count_replies = '',
-            pubdate = '',
+            pubdate = '2024-07-22 09:37:34+00:00',
             mentions = False,
             media = '',
             language = '',
             poll = False        
         )
         
-        self.toot_before = MastodonOOPsolution.Toot (
-            account = [{"id": 123, "username": "Marco"}],
-            toot_id = True,
-            content = 'dog',
-            user_id = True,
-            hashtags = True,
-            bookmark = True,
-            no_replies = True,
-            url = True,
-            count_replies = True,
-            pubdate = '2022-07-22 09:37:34+00:00' ,
-            mentions = True,
-            media = [{"id": "123","type":"image"}],
-            language = 'en',
-            poll = True        
-        )
+        self.toot_true.pubdate = datetime.datetime.strptime(self.toot_true.pubdate, "%Y-%m-%d %H:%M:%S%z")
+        self.toot_false.pubdate = datetime.datetime.strptime(self.toot_false.pubdate, "%Y-%m-%d %H:%M:%S%z")
 
-        self.toot_before.pubdate = datetime.datetime.strptime(self.toot_before.pubdate, "%Y-%m-%d %H:%M:%S%z")
-
-        self.toot_after = MastodonOOPsolution.Toot (
-            account = '',
-            toot_id = '',
-            content = 'sun',
-            user_id = '',
-            hashtags = '',
-            bookmark = '',
-            no_replies = '',
-            url = '',
-            count_replies = '',
-            pubdate = '2024-07-22 09:37:34+00:00' ,
-            mentions = '',
-            media = '',
-            language = '',
-            poll = ''        
-        )
-        self.toot_after.pubdate = datetime.datetime.strptime(self.toot_after.pubdate, "%Y-%m-%d %H:%M:%S%z")
-
-        
         self.clock = '2023-07-22 09:37:34+00:00'
     
     def tearDown(self):
         pass
-    
 
     def test_API(self):
         self.assertIsInstance(MastodonOOPsolution.mastodon, Mastodon)
-        # KP ob das so klappt
-        # --> hier wird kein Error angegeben
-
 
     def test_Toot(self):        
-        self.assertTrue(hasattr(self.toot_true, "content"))
-        self.assertTrue(hasattr(self.toot_true, "account"))
-        self.assertTrue(hasattr(self.toot_true, "toot_id"))
-        self.assertTrue(hasattr(self.toot_true, "user_id"))
-        self.assertTrue(hasattr(self.toot_true, "hashtags"))
-        self.assertTrue(hasattr(self.toot_true, "bookmark"))
-        self.assertTrue(hasattr(self.toot_true, "no_replies"))
-        self.assertTrue(hasattr(self.toot_true, "url"))
-        self.assertTrue(hasattr(self.toot_true, "count_replies"))
-        self.assertTrue(hasattr(self.toot_true, "pubdate"))
-        self.assertTrue(hasattr(self.toot_true, "mentions"))
-        self.assertTrue(hasattr(self.toot_true, "media"))
-        self.assertTrue(hasattr(self.toot_true, "language"))
-        self.assertTrue(hasattr(self.toot_true, "poll"))
-
+        assert all(hasattr(self.toot_true, attr) for attr in ["content", "account", "toot_id", "user_id", "hashtags", "bookmark", "no_replies", "url", "count_replies", "pubdate", "mentions", "media", "language", "poll"]), "You are missing an attribute, check again!"
 
     def test_load(self):
         toots_dict = []
@@ -137,7 +76,9 @@ class Test_Mastodon(unittest.TestCase):
 
         # Process the retrieved toots
         for toot in toots:
-            content_text = get_text_content(toot)
+            content_html = toot['content']
+            soup = BeautifulSoup(content_html, 'html.parser')
+            content_text = soup.get_text()
             toot = MastodonOOPsolution.Toot(
                 account = toot['account'],
                 toot_id = toot['id'],
@@ -156,12 +97,17 @@ class Test_Mastodon(unittest.TestCase):
             )
             toots_dict.append(toot)
 
+        true_bool = True
+        
         for toot in result:
             # Extract the toot_id from the current Toot object
             toot_id = toot.toot_id
 
             # Check if the toot_id is present in toots_dict
             self.assertTrue(any(toot_id == t.toot_id for t in toots_dict))
+            
+            if not any(toot_id == t.toot_id for t in toots_dict):
+                true_bool = False
 
         for toot in toots_dict:
         # Extract the toot_id from the current Toot object
@@ -170,14 +116,18 @@ class Test_Mastodon(unittest.TestCase):
         # Check if the toot_id is present in result (at least once)
             self.assertTrue(any(toot_id == t.toot_id for t in result))
             
-        # AssertionError: Lists differ: [<Mas[23 chars] 0x111decb90>, <MastodonOOPsolution.Toot object at 0x1[341 chars]d10>] != [<Mas[23 chars] 0x114c42490>]
+            if not any(toot_id == t.toot_id for t in result):
+                true_bool = False
+                
+         # eine Nachricht basierend auf einer BOOL Variable!
+        self.assertTrue(true_bool, "Your Loading-Function does not work correctly, check again!")
 
 
     def test_GetTextContent(self):
         text = 'Hello from Python, dog'
         text_content = MastodonOOPsolution.get_text_content(self.toot_true)
-        self.assertEqual(text, text_content)
-        
+        self.assertEqual(text, text_content, "Your GetTextContent-Function does not work correctly, check again!")
+    
     def test_MediaTrigger(self):
         media = MastodonOOPsolution.MediaTrigger()
         
@@ -238,57 +188,30 @@ class Test_Mastodon(unittest.TestCase):
         triggered_time = MastodonOOPsolution.TimeTrigger(self.clock)
         
         self.assertEqual(triggered_time.ptime, formatted_time)
-        # Chat gpt vorschlag isoformat() nach ptime
-        # ValueError: unconverted data remains: +00:00 (behoben)
-        # AssertionError: datetime.datetime(2023, 7, 22, 9, 37, 34, tzinfo=<StaticTzInfo 'EST'>) != '2023-07-22 09:37:34-05:00'
-        # LAU --> weißt du wo hier das Problem sein könnte 
-
             
     def test_BeforeTrigger(self):
-        toot_before = self.toot_before
-        toot_after = self.toot_after
+        toot_true = self.toot_true
+        toot_false = self.toot_false
         before = MastodonOOPsolution.BeforeTrigger(ptime= self.clock)
 
-        self.assertTrue(before.evaluate(toot_before))
-        self.assertFalse(before.evaluate(toot_after))
-        # TypeError: str.replace() takes no keyword arguments
-        # Wenn das so funktioniert können wir das auf AfterTrigger auch anwenden
-        # ne, leider nicht --> TypeError: str.replace() takes no keyword arguments
+        self.assertTrue(before.evaluate(toot_true))
+        self.assertFalse(before.evaluate(toot_false))
 
     def test_AfterTrigger(self):
         test_clock = datetime.datetime.strptime(self.clock, "%Y-%m-%d %H:%M:%S%z")
-        time = test_clock < self.toot_after.pubdate
-        time2 = test_clock < self.toot_before.pubdate
+        time = test_clock < self.toot_false.pubdate
+        time2 = test_clock < self.toot_true.pubdate
         after = MastodonOOPsolution.AfterTrigger(self.clock)
-        self.assertEqual(after.evaluate(self.toot_after), time)
-        self.assertEqual(after.evaluate(self.toot_before), time2)
+        self.assertEqual(after.evaluate(self.toot_false), time)
+        self.assertEqual(after.evaluate(self.toot_true), time2)
         
     def test_NotTrigger(self):
-        # not trigger initiation with media trigger 
         nottrigger = MastodonOOPsolution.NotTrigger( MastodonOOPsolution.MediaTrigger() )
         
         self.assertTrue(nottrigger.evaluate(self.toot_false))
         self.assertFalse(nottrigger.evaluate(self.toot_true))   
             
-    def test_AndTrigger(self):
-        # TypeError: OrTrigger.evaluate() takes 2 positional arguments but 3 were given
-        self.toot_gif = MastodonOOPsolution.Toot (
-            account = True,
-            toot_id = True,
-            content = 'dog',
-            user_id = True,
-            hashtags = True,
-            bookmark = True,
-            no_replies = True,
-            url = True,
-            count_replies = True,
-            pubdate = True,
-            mentions = True,
-            media = [{"id": "123","type":"gifv"}],
-            language = 'en',
-            poll = True        
-        )
-        
+    def test_AndTrigger(self):        
         media = MastodonOOPsolution.MediaTrigger()
         gif = MastodonOOPsolution.GifMediaTrigger()
         andtrigger = MastodonOOPsolution.AndTrigger(
@@ -296,12 +219,10 @@ class Test_Mastodon(unittest.TestCase):
             trigger2 = gif
             )
         
-        self.assertTrue(andtrigger.evaluate(self.toot_gif))
+        self.assertTrue(andtrigger.evaluate(self.toot_true))
         self.assertFalse(andtrigger.evaluate(self.toot_false))
         
     def test_OrTrigger(self):
-        # TypeError: OrTrigger.evaluate() takes 2 positional arguments but 3 were given
-        # Error solved? Sieht so aus als gäbe es da kein Problem mehr
         poll = MastodonOOPsolution.PollTrigger()
         mentions = MastodonOOPsolution.MentionsTrigger()
         ortrigger = MastodonOOPsolution.OrTrigger(
@@ -334,15 +255,9 @@ class Test_Mastodon(unittest.TestCase):
         temp_filename = 'test_objects.xlsx'
         workbook = openpyxl.Workbook()
         workbook.save(temp_filename)
-        toot_list = [self.toot_before]
-
-        # hashtag = 'SMS'
-        # toot_list = MastodonOOP.load(hashtag)
+        toot_list = [self.toot_true]
         
         MastodonOOPsolution.load_to_workbook(toot_list, temp_filename)
-
-        # Aber hier ist das Problem dass wir Username und Pubdate nur als True speichern, das müssten wir ändern
-        # Bei der "Live-Daten"-Methode wäre das kein Problem-
 
         saved_workbook = openpyxl.load_workbook(temp_filename)
         saved_worksheet = saved_workbook.active
