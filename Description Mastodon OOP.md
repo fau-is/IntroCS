@@ -27,7 +27,7 @@ Next direct to the folder with 'cd pset7' and execute the following wget command
 ```
 
 ```
-  wget tests.py
+  wget https://raw.githubusercontent.com/fau-is/IntroCS/Mastodon_OOP/test.py
 ```
 
 Execute 'ls' by itself, and you should see a the following files:
