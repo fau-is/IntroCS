@@ -119,7 +119,7 @@ class Test_Mastodon(unittest.TestCase):
             if not any(toot_id == t.toot_id for t in result):
                 true_bool = False
                 
-         # eine Nachricht basierend auf einer BOOL Variable!
+        # eine Nachricht basierend auf einer BOOL Variable!
         self.assertTrue(true_bool, "Your Loading-Function does not work correctly, check again!")
 
 
@@ -130,9 +130,10 @@ class Test_Mastodon(unittest.TestCase):
     
     def test_MediaTrigger(self):
         media = MastodonOOPsolution.MediaTrigger()
-        
-        self.assertTrue(media.evaluate(self.toot_true))
-        self.assertFalse(media.evaluate(self.toot_false))
+        result_toot_true = media.evaluate(self.toot_true)
+        result_toot_false = media.evaluate(self.toot_false)
+    
+        assert result_toot_true and not result_toot_false, "Your Media-Trigger does not work correctly, check again!"
             
     def test_ImageMediaTrigger(self):
         video = MastodonOOPsolution.ImageMediaTrigger()
