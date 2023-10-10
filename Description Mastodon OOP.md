@@ -224,7 +224,10 @@ After you managed to implement all triggers and functions of the problem set you
 Now make a list of all the triggers you want to check for. With this trigger list and the list of toots you can now call your filter_toots function. At the end you can decide what you want to do with your now filtered toots. Either you can create your own function to go through all of your toots contents or you can use our premade load_to_workbook function to store them in a Excel-Sheet. 
 
 ## Testing
-???
+Execute the below to evaluate the correctness of your code using check50. But be sure to compile and test it yourself as well! 
+```
+check50 fau-is/IntroCS/MastodonOOP/MastodonOOP
+```
 
 <details>
 <summary>Hint</summary>
@@ -235,6 +238,6 @@ Now make a list of all the triggers you want to check for. With this trigger lis
 ## submit50
 To submit your program use this line of code.
 ```
-submit50 ????
+submit50 fau-is/IntroCS/Mastodon_OOP/MastodonOOP
 ```
 
