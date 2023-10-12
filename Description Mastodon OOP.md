@@ -226,7 +226,7 @@ Now make a list of all the triggers you want to check for. With this trigger lis
 ## Testing
 Execute the below to evaluate the correctness of your code using check50. But be sure to compile and test it yourself as well! 
 ```
-check50 fau-is/IntroCS/MastodonOOP/MastodonOOP
+check50 fau-is/IntroCS/Mastodon_OOP/MastodonOOP
 ```
 
 <details>
