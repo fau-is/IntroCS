@@ -6,7 +6,7 @@ import openpyxl
 import os
 import datetime
 
-class Test_Mastodon(unittest.TestCase):
+class Mastodon(unittest.TestCase):
     
     def setUp(self):
         self.toot_true = MastodonOOPsolution.Toot (

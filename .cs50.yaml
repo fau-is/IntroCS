@@ -1,0 +1,10 @@
+submit50:
+  files:
+    - !exclude "*"
+    - !require test.py
+    - !require Mastodon.py
+check50:
+  files:
+    - !exclude "*"
+    - !require test.py
+    - !require Mastodon.py
