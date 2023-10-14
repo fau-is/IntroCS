@@ -216,9 +216,8 @@ class PhraseTrigger(Trigger):
         for letter in string.punctuation:
             clean_text = text.replace(letter, ' ')
         words = clean_text.split()
-        single_phrase = self.phrase.split()         #Ist Zeile 182 bis 186 nötig? Teilen wir hier nicht alles, nur um es dann wieder
-                                                    #zusammenzusetzen? --> ja sieht so aus. Ich wollte es auskommentiert mal runnen, 
-                                                    #aber hab die xlsx libraries nicht installiert, kannst du aj evtl. bitte mal machen
+        single_phrase = self.phrase.split()         
+        
         list_text = " ".join(words)
         list_trigger= " ".join(single_phrase)
 

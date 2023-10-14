@@ -6,7 +6,7 @@ import openpyxl
 import os
 import datetime
 
-class Mastodon(unittest.TestCase):
+class Mastodon_test(unittest.TestCase):
     
     def setUp(self):
         self.toot_true = MastodonOOPsolution.Toot (
@@ -56,10 +56,10 @@ class Mastodon(unittest.TestCase):
         pass
 
     def test_API(self):
-        self.assertIsInstance(MastodonOOPsolution.mastodon, Mastodon)
+        self.assertIsInstance(MastodonOOPsolution.mastodon, Mastodon, "Your API-Initiation does not correctly work, check again if you are missing anything!")
 
     def test_Toot(self):        
-        assert all(hasattr(self.toot_true, attr) for attr in ["content", "account", "toot_id", "user_id", "hashtags", "bookmark", "no_replies", "url", "count_replies", "pubdate", "mentions", "media", "language", "poll"]), "You are missing an attribute, check again!"
+        assert all(hasattr(self.toot_true, attr) for attr in ["content", "account", "toot_id", "user_id", "hashtags", "bookmark", "no_replies", "url", "count_replies", "pubdate", "mentions", "media", "language", "poll"]), "Your Toot-Class does not correctly work, check again if you are missing one or more attributes!"
 
     def test_load(self):
         toots_dict = []
@@ -120,97 +120,95 @@ class Mastodon(unittest.TestCase):
                 true_bool = False
                 
         # eine Nachricht basierend auf einer BOOL Variable!
-        self.assertTrue(true_bool, "Your Loading-Function does not work correctly, check again!")
+        self.assertTrue(true_bool, "Your Loading-Function does not work correctly, check again if you load all Toots in the way they should!")
 
 
     def test_GetTextContent(self):
         text = 'Hello from Python, dog'
         text_content = MastodonOOPsolution.get_text_content(self.toot_true)
-        self.assertEqual(text, text_content, "Your GetTextContent-Function does not work correctly, check again!")
+        self.assertEqual(text, text_content, "Your GetTextContent-Function does not work correctly, check again if only the text remains and no HTML is left!")
     
     def test_MediaTrigger(self):
         media = MastodonOOPsolution.MediaTrigger()
-        result_toot_true = media.evaluate(self.toot_true)
-        result_toot_false = media.evaluate(self.toot_false)
-    
-        assert result_toot_true and not result_toot_false, "Your Media-Trigger does not work correctly, check again!"
+        self.assertTrue(media.evaluate(self.toot_true), "Media-Trigger: Expected True but Output is False.")
+        self.assertFalse(media.evaluate(self.toot_false), "Media-Trigger: Expected False but Output is True.")
             
     def test_ImageMediaTrigger(self):
         video = MastodonOOPsolution.ImageMediaTrigger()
         
-        self.assertTrue(video.evaluate(self.toot_true))
-        self.assertFalse(video.evaluate(self.toot_false))
+        self.assertTrue(video.evaluate(self.toot_true), "Image-Media-Trigger: Expected True but Output is False.")
+        self.assertFalse(video.evaluate(self.toot_false), "Image-Media-Trigger: Expected False but Output is True.")
 
     def test_VideoMediaTrigger(self):
         video = MastodonOOPsolution.VideoMediaTrigger()
         
-        self.assertTrue(video.evaluate(self.toot_true))   
-        self.assertFalse(video.evaluate(self.toot_false))
+        self.assertTrue(video.evaluate(self.toot_true), "Video-Media-Trigger: Expected True but Output is False.")   
+        self.assertFalse(video.evaluate(self.toot_false), "Video-Media-Trigger: Expected False but Output is True.")
         
     def test_GifMediaTrigger(self):
         gif = MastodonOOPsolution.GifMediaTrigger()
         
-        self.assertTrue(gif.evaluate(self.toot_true))   
-        self.assertFalse(gif.evaluate(self.toot_false))
+        self.assertTrue(gif.evaluate(self.toot_true), "GIF-Media-Trigger: Expected True but Output is False.")   
+        self.assertFalse(gif.evaluate(self.toot_false), "GIF-Media-Trigger: Expected False but Output is True.")
         
     def test_AudioMediaTrigger(self):
         audio = MastodonOOPsolution.AudioMediaTrigger()
         
-        self.assertTrue(audio.evaluate(self.toot_true))   
-        self.assertFalse(audio.evaluate(self.toot_false))
+        self.assertTrue(audio.evaluate(self.toot_true), "Audio-Media-Trigger: Expected True but Output is False.")   
+        self.assertFalse(audio.evaluate(self.toot_false), "Audio-Media-Trigger: Expected False but Output is True.")
         
     def test_LanguageTrigger(self):
         english = MastodonOOPsolution.LanguageTrigger("en")
         
-        self.assertTrue(english.evaluate(self.toot_true))
-        self.assertFalse(english.evaluate(self.toot_false))  
+        self.assertTrue(english.evaluate(self.toot_true), "Language-Trigger: Expected True but Output is False.")
+        self.assertFalse(english.evaluate(self.toot_false), "Language-Trigger: Expected False but Output is True.")  
     
     def test_PollTrigger(self):
         poll_filter = MastodonOOPsolution.PollTrigger()
         
-        self.assertTrue(poll_filter.evaluate(self.toot_true))
-        self.assertFalse(poll_filter.evaluate(self.toot_false))
+        self.assertTrue(poll_filter.evaluate(self.toot_true), "Poll-Trigger: Expected True but Output is False.")
+        self.assertFalse(poll_filter.evaluate(self.toot_false), "Poll-Trigger: Expected False but Output is True.")
         
     def test_MentionsTrigger(self):
         mentions = MastodonOOPsolution.MentionsTrigger()
         
-        self.assertTrue(mentions.evaluate(self.toot_true))
-        self.assertFalse(mentions.evaluate(self.toot_false))
+        self.assertTrue(mentions.evaluate(self.toot_true), "Mentions-Trigger: Expected True but Output is False.")
+        self.assertFalse(mentions.evaluate(self.toot_false), "Mentions-Trigger: Expected False but Output is True.")
         
     def test_PhraseTrigger(self):
         phrase = MastodonOOPsolution.PhraseTrigger("dog")
         
-        self.assertTrue(phrase.evaluate(self.toot_true))
-        self.assertFalse(phrase.evaluate(self.toot_false))
+        self.assertTrue(phrase.evaluate(self.toot_true), "Phrase-Trigger: Expected True but Output is False.")
+        self.assertFalse(phrase.evaluate(self.toot_false), "Phrase-Trigger: Expected False but Output is True.")
         
         
     def test_TimeTrigger(self):
         formatted_time = datetime.datetime.strptime('2023-07-22 09:37:34-05:00', "%Y-%m-%d %H:%M:%S%z")
         triggered_time = MastodonOOPsolution.TimeTrigger(self.clock)
         
-        self.assertEqual(triggered_time.ptime, formatted_time)
+        self.assertEqual(triggered_time.ptime, formatted_time, "Time-Trigger: The format of the trigger does not fit the wanted format YYYY-MM-DD hh:mm:ss+TZ'!")
             
     def test_BeforeTrigger(self):
         toot_true = self.toot_true
         toot_false = self.toot_false
         before = MastodonOOPsolution.BeforeTrigger(ptime= self.clock)
 
-        self.assertTrue(before.evaluate(toot_true))
-        self.assertFalse(before.evaluate(toot_false))
+        self.assertTrue(before.evaluate(toot_true), "Before-Trigger: Expected True but Output is False.")
+        self.assertFalse(before.evaluate(toot_false), "Before-Trigger: Expected False but Output is True.")
 
     def test_AfterTrigger(self):
         test_clock = datetime.datetime.strptime(self.clock, "%Y-%m-%d %H:%M:%S%z")
         time = test_clock < self.toot_false.pubdate
         time2 = test_clock < self.toot_true.pubdate
         after = MastodonOOPsolution.AfterTrigger(self.clock)
-        self.assertEqual(after.evaluate(self.toot_false), time)
-        self.assertEqual(after.evaluate(self.toot_true), time2)
+        self.assertEqual(after.evaluate(self.toot_false), time, "After-Trigger: Expected True but Output is False.")
+        self.assertEqual(after.evaluate(self.toot_true), time2, "After-Trigger: Expected False but Output is True.")
         
     def test_NotTrigger(self):
         nottrigger = MastodonOOPsolution.NotTrigger( MastodonOOPsolution.MediaTrigger() )
         
-        self.assertTrue(nottrigger.evaluate(self.toot_false))
-        self.assertFalse(nottrigger.evaluate(self.toot_true))   
+        self.assertTrue(nottrigger.evaluate(self.toot_false), "Not-Trigger: Expected True but Output is False.")
+        self.assertFalse(nottrigger.evaluate(self.toot_true), "Not-Trigger: Expected False but Output is True.")   
             
     def test_AndTrigger(self):        
         media = MastodonOOPsolution.MediaTrigger()
@@ -220,8 +218,8 @@ class Mastodon(unittest.TestCase):
             trigger2 = gif
             )
         
-        self.assertTrue(andtrigger.evaluate(self.toot_true))
-        self.assertFalse(andtrigger.evaluate(self.toot_false))
+        self.assertTrue(andtrigger.evaluate(self.toot_true), "And-Trigger: Expected True but Output is False.")
+        self.assertFalse(andtrigger.evaluate(self.toot_false), "And-Trigger: Expected False but Output is True.")
         
     def test_OrTrigger(self):
         poll = MastodonOOPsolution.PollTrigger()
@@ -231,8 +229,8 @@ class Mastodon(unittest.TestCase):
             trigger2 = mentions
             )
         
-        self.assertTrue(ortrigger.evaluate(self.toot_true))
-        self.assertFalse(ortrigger.evaluate(self.toot_false))
+        self.assertTrue(ortrigger.evaluate(self.toot_true), "Or-Trigger: Expected True but Output is False.")
+        self.assertFalse(ortrigger.evaluate(self.toot_false), "Or-Trigger: Expected False but Output is True.")
         
     def test_Filter(self):
         poll = MastodonOOPsolution.PollTrigger()
@@ -246,10 +244,10 @@ class Mastodon(unittest.TestCase):
         filter_true = MastodonOOPsolution.filter_toots(toots = toot_list_true, triggerlist = trigger_list)
         filter_false = MastodonOOPsolution.filter_toots(toots = toot_list_false, triggerlist = trigger_list)
 
-        self.assertIsNotNone(filter_true)
-        self.assertEqual(filter_true, toot_list_true)
+        self.assertIsNotNone(filter_true, "Filter_Toots: Expected A but Output is None.")
+        self.assertEqual(filter_true, toot_list_true, "Filter-Toots: Expected [A,B,C] but Output is not [A,B,C].")
 
-        self.assertEqual(filter_false, [])
+        self.assertEqual(filter_false, [], "Filter-Toots: Expected [] but Output is not [A,B,C], maybe check again if all of your trigger in the trigger-list get checked.")
         
         
     def test_Load_to_Workbook(self):
@@ -264,9 +262,9 @@ class Mastodon(unittest.TestCase):
         saved_worksheet = saved_workbook.active
 
         # Check if the written data matches our expectations
-        self.assertEqual(saved_worksheet['A2'].value, toot_list[0].account[0]["username"])
-        self.assertEqual(saved_worksheet['B2'].value, toot_list[0].pubdate.replace(tzinfo=None))
-        self.assertEqual(saved_worksheet['C2'].value, toot_list[0].content)
+        self.assertEqual(saved_worksheet['A2'].value, toot_list[0].account[0]["username"], "Load-To-Workbook: A2-Value differs from the value in the toot-list")
+        self.assertEqual(saved_worksheet['B2'].value, toot_list[0].pubdate.replace(tzinfo=None), "Load-To-Workbook: B2-Value differs from the value in the toot-list")
+        self.assertEqual(saved_worksheet['C2'].value, toot_list[0].content, "Load-To-Workbook: C2-Value differs from the value in the toot-list")
 
         saved_workbook.close()
 
