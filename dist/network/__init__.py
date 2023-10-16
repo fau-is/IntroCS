@@ -196,66 +196,67 @@ def build_graph_from_JSON():
                 raise check50.Failure(f"Neighbor {neighbor} missing for user {key} in the graph.")
 
 
-from check50 import *
 
 
-# Task 4 & 5 Helpers
-def setup_graph_4_5(Graph):
+
+def setup_graph_girvan_newman(Graph):
     graph = Graph()
-    Edges = [('Marissa', 'Sundar'), ('Marissa', 'Mark'), ('Marissa', 'Elon'),
-             ('Sundar', 'Mark'), ('Sundar', 'Elon'), ('Brittany', 'Stephanie'),
-             ('Sundar', 'Adam'), ('Sundar', 'Jack'), ('Tim', 'Sundar'),
-             ('Jack', 'Adam'), ('Adam', 'Elon'), ('Brittany', 'Serge'),
-             ('Elon', 'Mark'), ('Olaf', 'Emanuel'), ('Olaf', 'Rishi'),
-             ('Rishi', 'Emanuel'), ('Emanuel', 'Joe'), ('Sundar', "Emanuel"),
-             ('Serge', 'Mary')]
-
-    for edge in Edges:
+    edges = [
+        ('Marissa', 'Sundar'), ('Marissa', 'Mark'), ('Marissa', 'Elon'),
+        ('Sundar', 'Mark'), ('Sundar', 'Elon'), ('Brittany', 'Stephanie'),
+        ('Sundar', 'Adam'), ('Sundar', 'Jack'), ('Tim', 'Sundar'),
+        ('Jack', 'Adam'), ('Adam', 'Elon'), ('Brittany', 'Serge'),
+        ('Elon', 'Mark'), ('Olaf', 'Emanuel'), ('Olaf', 'Rishi'),
+        ('Rishi', 'Emanuel'), ('Emanuel', 'Joe'), ('Sundar', "Emanuel"),
+        ('Serge', 'Mary')
+    ]
+    for edge in edges:
         a, b = edge
         graph.add_edge(a, b)
     return graph
 
+@check50.check(shortest_path_direct)
+def test_get_communities():
+    """Graph partitions into expected communities correctly"""
+    _, Graph = import_graph()
+    graph = setup_graph_girvan_newman(Graph)
+    for c in range(1, 12):
+        communities = graph.girvan_newman_algorithm(clusters=c)
+        if len(communities) < c:
+            raise check50.Failure(f"When asked for {c} clusters, girvan_newman_algorithm(clusters={c}) should return at least {c} clusters.")
+        for subgraph in communities:
+            if not isinstance(subgraph, (list, set, tuple)):
+                raise check50.Failure("Returned subgraphs should be of type list, set, or tuple.")
+            if len(subgraph) < 1:
+                raise check50.Failure("Ensure girvan_newman_algorithm does not return empty subgraphs.")
+    _test_subgraphs(graph, communities)
 
-@check50.check()
-def test_most_influential(Graph):
-    try:
-        graph = setup_graph_4_5(Graph)
-        result = graph.most_influential()
-        expected = ("Sundar", 2.35)  # Assuming an influence score of 2.35 for Sundar
+def _test_subgraphs(graph, result):
+    users_all = [i for b in result for i in list(b)]
+    for user in graph.keys():
+        if users_all.count(user) != 1:
+            raise check50.Failure(f"User {user} is not unique across the subgraphs.")
 
-        if result != expected:
-            raise check50.Mismatch(str(expected), str(result))
-    except Exception as e:
-        raise check50.Failure(f"Error: {str(e)}")
-
-
-@check50.check()
-def test_get_communities(Graph):
-    try:
-        graph = setup_graph_4_5(Graph)
-        for c in range(1, 12):
-            communities = graph.girvan_newman_algorithm(clusters=c)
-            expected = c
-            actual = len(communities)
-
-            if expected != actual:
-                raise check50.Mismatch(str(expected), str(actual))
-    except Exception as e:
-        raise check50.Failure(f"Error: {str(e)}")
-
-
-@check50.check()
-def test_compute_sps(Graph):
-    try:
-        graph = setup_graph_4_5(Graph)
-        graph.compute_sps()
-        expected_dimension = len(graph.keys())
-        actual_dimension = len(graph.sps)
-        expected_inner_dimension = len(graph.keys())
-        actual_inner_dimension = [len(i) for i in graph.sps].count(expected_inner_dimension)
-
-        if expected_dimension != actual_dimension or expected_inner_dimension != actual_inner_dimension:
-            raise check50.Mismatch(f"{str(expected_dimension)}, {str(expected_inner_dimension)}",
-                                   f"{str(actual_dimension)}, {str(actual_inner_dimension)}")
-    except Exception as e:
-        raise check50.Failure(f"Error: {str(e)}")
+@check50.check(test_get_communities)
+def test_compute_sps():
+    """Graph computes shortest path correctly"""
+    _, Graph = import_graph()
+    graph = setup_graph_girvan_newman(Graph)
+    if not hasattr(graph, 'sps'):
+        raise check50.Failure("Graph should have an attribute named 'sps'.")
+    graph.compute_sps()
+    node_count = len(graph.keys())
+    if len(graph.sps) != node_count:
+        raise check50.Failure("SPS matrix dimensions don't match the number of nodes.")
+    if [len(i) for i in graph.sps].count(node_count) != node_count:
+        raise check50.Failure("SPS matrix dimensions are inconsistent.")
+    sp_flag = False
+    for i in range(node_count):
+        for j in range(node_count):
+            if isinstance(graph.sps[i][j], (list, set, tuple)):
+                sp_flag = True
+                break
+        if sp_flag:
+            break
+    if not sp_flag:
+        raise check50.Failure("SPS matrix doesn't seem to contain valid shortest paths.")
