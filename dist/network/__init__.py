@@ -49,11 +49,12 @@ def remove_edge():
     _, Graph = import_graph()
     graph = Graph()
     graph.add_edge("Alice", "Bob")
-    graph.remove_edge("Alice", "Bob")
+    graph.remove_edge(("Alice", "Bob"))
     if "Bob" in graph["Alice"]:
         raise check50.Failure("Failed to remove edge between 'Alice' and 'Bob'.")
     if "Alice" in graph["Bob"]:
         raise check50.Failure("Failed to remove edge between 'Bob' and 'Alice'.")
+
 
 
 @check50.check(remove_edge)
