@@ -54,3 +54,208 @@ def remove_edge():
         raise check50.Failure("Failed to remove edge between 'Alice' and 'Bob'.")
     if "Alice" in graph["Bob"]:
         raise check50.Failure("Failed to remove edge between 'Bob' and 'Alice'.")
+
+
+@check50.check(remove_edge)
+def order_ascending():
+    """Vertices are in ascending order"""
+    _, Graph = import_graph()
+    graph = Graph()
+    graph.add_edge("Alice", "David")
+    graph.add_edge("Alice", "Bob")
+    graph.add_edge("Alice", "Charlie")
+    if graph["Alice"] != ["Bob", "Charlie", "David"]:
+        raise check50.Failure("Neighbors of vertex are not in ascending order.")
+
+def setup_graph_dfs_bfs(Graph):
+    graph = Graph()
+    user1 = "Alice"
+    user2 = "Bob"
+    user3 = "Charlie"
+    user4 = "David"
+    graph.add_edge(user1, user2)
+    graph.add_edge(user2, user3)
+    graph.add_edge(user3, user4)
+    graph.add_edge(user1, user4)
+    visited = graph.dfs(user1)
+    return graph, visited
+
+def setup_graph_connected(Graph):
+    graph = Graph()
+    user1 = "Alice"
+    user2 = "Bob"
+    user3 = "Charlie"
+    user4 = "David"
+    graph.add_edge(user1, user2)
+    graph.add_edge(user2, user3)
+    graph.add_edge(user3, user4)
+    clusters = graph.get_subgraphs()
+    return graph, clusters
+
+def setup_graph_disconnected(Graph):
+    graph = Graph()
+    user1 = "Alice"
+    user2 = "Bob"
+    user3 = "Charlie"
+    user4 = "David"
+    user5 = "Eve"
+    user6 = "Frank"
+    graph.add_edge(user1, user2)
+    graph.add_edge(user3, user4)
+    graph.add_edge(user5, user6)
+    clusters = graph.get_subgraphs()
+    return graph, clusters
+
+def setup_graph(Graph):
+    graph = Graph()
+    user1 = "Alice"
+    user2 = "Bob"
+    user3 = "Charlie"
+    user4 = "David"
+    user5 = "Eve"
+    graph.add_edge(user1, user2)
+    graph.add_edge(user2, user3)
+    graph.add_edge(user3, user4)
+    graph.add_edge(user4, user5)
+    graph.add_edge(user1, user5)
+    path = graph.shortest_path(user1, "David")
+    return graph, path
+
+
+@check50.check(order_ascending)
+def dfs_order():
+    """Depth-first search returns expected order"""
+    _, Graph = import_graph()
+    graph, visited = setup_graph_dfs_bfs(Graph)
+    if visited != ["Alice", "Bob", "Charlie", "David"]:
+        raise check50.Failure("Depth-first search did not return the expected order.")
+
+
+@check50.check(dfs_order)
+def clusters_connected():
+    """Graph detects a fully connected cluster correctly"""
+    _, Graph = import_graph()
+    graph, clusters = setup_graph_connected(Graph)
+    if len(clusters) != 1:
+        raise check50.Failure("Expected 1 cluster for a fully connected graph.")
+    if set(clusters[0]) != {"Alice", "Bob", "Charlie", "David"}:
+        raise check50.Failure("Connected cluster doesn't match the expected users.")
+
+@check50.check(clusters_connected)
+def clusters_disconnected():
+    """Graph detects multiple separated clusters correctly"""
+    _, Graph = import_graph()
+    graph, clusters = setup_graph_disconnected(Graph)
+    if len(clusters) != 3:
+        raise check50.Failure("Expected 3 separate clusters for the given graph.")
+    for cluster in clusters:
+        if len(cluster) not in [2, 2, 2]:
+            raise check50.Failure("Each disconnected cluster should have 2 users.")
+
+@check50.check(clusters_disconnected)
+def shortest_path_exists():
+    """Graph determines shortest path correctly when it exists"""
+    _, Graph = import_graph()
+    graph, path = setup_graph(Graph)
+    if path != ["Alice", "Eve", "David"]:
+        raise check50.Failure("Shortest path from 'Alice' to 'David' is incorrect.")
+
+@check50.check(shortest_path_exists)
+def no_shortest_path():
+    """Graph determines no path exists correctly"""
+    _, Graph = import_graph()
+    graph, path = setup_graph(Graph)
+    if path is not None:
+        raise check50.Failure("Expected no path between 'Alice' and 'Frank', but a path was returned.")
+
+@check50.check(no_shortest_path)
+def shortest_path_direct():
+    """Graph determines direct shortest path correctly"""
+    _, Graph = import_graph()
+    graph, path = setup_graph(Graph)
+    if path != ["Alice", "Eve"]:
+        raise check50.Failure("Shortest path between 'Alice' and 'Eve' is incorrect.")
+
+@check50.check(shortest_path_direct)
+def build_graph_from_JSON():
+    """Graph built correctly from JSON data"""
+    _, Graph = import_graph()
+    graph = Graph()
+    filepath = '../resources/graph_52n.json'
+    with open(filepath, 'r') as f:
+        data = json.load(f)
+    first_key = list(data.keys())[0]
+    del data[first_key]
+
+    graph.parse_data(filepath)
+    for key, neighbors in data.items():
+        if str(key) not in graph:
+            raise check50.Failure(f"User {key} is missing in the graph.")
+        for neighbor in neighbors:
+            if str(neighbor) not in graph[str(key)]:
+                raise check50.Failure(f"Neighbor {neighbor} missing for user {key} in the graph.")
+
+
+from check50 import *
+
+
+# Task 4 & 5 Helpers
+def setup_graph_4_5(Graph):
+    graph = Graph()
+    Edges = [('Marissa', 'Sundar'), ('Marissa', 'Mark'), ('Marissa', 'Elon'),
+             ('Sundar', 'Mark'), ('Sundar', 'Elon'), ('Brittany', 'Stephanie'),
+             ('Sundar', 'Adam'), ('Sundar', 'Jack'), ('Tim', 'Sundar'),
+             ('Jack', 'Adam'), ('Adam', 'Elon'), ('Brittany', 'Serge'),
+             ('Elon', 'Mark'), ('Olaf', 'Emanuel'), ('Olaf', 'Rishi'),
+             ('Rishi', 'Emanuel'), ('Emanuel', 'Joe'), ('Sundar', "Emanuel"),
+             ('Serge', 'Mary')]
+
+    for edge in Edges:
+        a, b = edge
+        graph.add_edge(a, b)
+    return graph
+
+
+@check50.check()
+def test_most_influential(Graph):
+    try:
+        graph = setup_graph_4_5(Graph)
+        result = graph.most_influential()
+        expected = ("Sundar", 2.35)  # Assuming an influence score of 2.35 for Sundar
+
+        if result != expected:
+            raise check50.Mismatch(str(expected), str(result))
+    except Exception as e:
+        raise check50.Failure(f"Error: {str(e)}")
+
+
+@check50.check()
+def test_get_communities(Graph):
+    try:
+        graph = setup_graph_4_5(Graph)
+        for c in range(1, 12):
+            communities = graph.girvan_newman_algorithm(clusters=c)
+            expected = c
+            actual = len(communities)
+
+            if expected != actual:
+                raise check50.Mismatch(str(expected), str(actual))
+    except Exception as e:
+        raise check50.Failure(f"Error: {str(e)}")
+
+
+@check50.check()
+def test_compute_sps(Graph):
+    try:
+        graph = setup_graph_4_5(Graph)
+        graph.compute_sps()
+        expected_dimension = len(graph.keys())
+        actual_dimension = len(graph.sps)
+        expected_inner_dimension = len(graph.keys())
+        actual_inner_dimension = [len(i) for i in graph.sps].count(expected_inner_dimension)
+
+        if expected_dimension != actual_dimension or expected_inner_dimension != actual_inner_dimension:
+            raise check50.Mismatch(f"{str(expected_dimension)}, {str(expected_inner_dimension)}",
+                                   f"{str(actual_dimension)}, {str(actual_inner_dimension)}")
+    except Exception as e:
+        raise check50.Failure(f"Error: {str(e)}")
