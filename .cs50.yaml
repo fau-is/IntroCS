@@ -2,9 +2,9 @@ submit50:
   files:
     - !exclude "*"
     - !require test.py
-    - !require Mastodon.py
+    - !require MastodonOOP.py
 check50:
   files:
     - !exclude "*"
     - !require test.py
-    - !require Mastodon.py
+    - !require MastodonOOP.py
