@@ -246,7 +246,7 @@ class Graph(dict):
         Generates and displays a visual representation of the graph.
         """
         # Initialize a Graphviz graph
-        graph = graphviz.Graph(format='png', strict=True, filename='network')
+        graph = graphviz.Graph(format='png', strict=True, filename='')
 
         # Add nodes to the Graphviz graph
         for node in self.keys():
@@ -261,4 +261,4 @@ class Graph(dict):
         graph.render()
 
         # Remove temporary files if needed
-        os.remove('network')
+        os.remove('')

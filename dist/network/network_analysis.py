@@ -1,6 +1,5 @@
 from solutions.graph_sol import Graph
-import graphviz
-import os
+
 
 def print_banner(text: str, symbol: str = "="):
     print(symbol * len(text))
