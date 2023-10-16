@@ -1,6 +1,6 @@
 import check50
 import check50.py
-from binary_search_tree import BST
+#from binary_search_tree import BST
 
 @check50.check()
 def exists():
