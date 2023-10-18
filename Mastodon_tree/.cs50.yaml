@@ -1,0 +1,8 @@
+submit50:
+  files:
+    - !exclude "*"
+    - !require "binary_search_tree.py"
+check50:
+  files:
+    - !exclude "*"
+    - !require "binary_search_tree.py"

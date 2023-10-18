@@ -31,7 +31,7 @@ class BST:
     @staticmethod
     def add(username: str) -> None:
         """
-        Creates a root if the BST does not have one yet, otherwise adds a new BST object at the right place in the tree.
+        Creates a root if the BST does not have one yet, otherwise adds a new BST object at the right place in the Mastodon_tree.
 
         Parameters:
         ----------

@@ -133,7 +133,7 @@ class TestGraphMethods(unittest.TestCase):
     # Task 4
     def setUp_JSON_data(self):
         self.graph = Graph()
-        self.filepath = '../ressources/graph_52n.json'
+        self.filepath = '../dist/network/ressources/graph_52n.json'
         with open(self.filepath, 'r') as f:
             self.data = json.load(f)
         # Remove the first key-item pair as per the build_graph method

@@ -50,22 +50,22 @@ if __name__ == '__main__':
     # 3.3 Find the most influential user based on „Closeness“
     # average length of the shortest paths (bfs implementation from above or dijkstra) between that node and all other nodes in the graph)
     # In case of unweighted graph (which is likely) BFS should find shortest path
-    # example: Variant can answer the question "On average, through how many corners are you connected to every other person in the network?
+    # example: Variant can answer the question "On average, through how many corners are you connected to every other person in the Mastodon_network?
 
     g.most_influential_3()
 
-    # Todo: 4.1 Cycle detection: DFS can be used to detect cycles in a social network graph.
-    #       This could be useful in identifying circular relationships or loops within the network.
+    # Todo: 4.1 Cycle detection: DFS can be used to detect cycles in a social Mastodon_network graph.
+    #       This could be useful in identifying circular relationships or loops within the Mastodon_network.
     #       Users are nodes and there exist a connection if node a has retweeted a post of person b
 
     # Todo: 4.2 Community detection via Density measure: BFS can be used to find nodes in close proximity to a specific node.
-    #       This can be used to detect communities or groups in a social network.
+    #       This can be used to detect communities or groups in a social Mastodon_network.
     #       - Density: This measures the number of existing links over the possible number of links within a group of nodes. A higher density indicates a stronger community
     #
     # 4.3 Community detection via Girvan Newman Algorithm: progressively removing edges with high betweenness centrality
-    # from the network, which are considered as "bridges" connecting different communities.
+    # from the Mastodon_network, which are considered as "bridges" connecting different communities.
     # Steps:
-    #   1. The betweenness of all existing edges in the network is calculated first.
+    #   1. The betweenness of all existing edges in the Mastodon_network is calculated first.
     #   2. The edge(s) with the highest betweenness are removed.
     #   3. The betweenness of all edges affected by the removal is recalculated.
     #   4. Steps 2 and 3 are repeated until no edges remain
@@ -76,7 +76,7 @@ if __name__ == '__main__':
     # print_graph(g)
 
     # print(" ------------ Mastodon (weighted) Status Network -------------- ")
-    # TODO: BFS/DFS Use cases for this type of network rather limited, therefore not of priority
+    # TODO: BFS/DFS Use cases for this type of Mastodon_network rather limited, therefore not of priority
     # print()
     # s = Graph()
     #
@@ -103,7 +103,7 @@ if __name__ == '__main__':
     #
     # # TODO: Implement DFS/BFS exercise that filters out pairs that have been tweeted at least 100 times
     #
-    # # TODO: Idea to store together mentioned tags in tree. first level single tags, second level second tag storing tweets with both tags and so on...
+    # # TODO: Idea to store together mentioned tags in Mastodon_tree. first level single tags, second level second tag storing tweets with both tags and so on...
 
     print(" ------------ Mastodon Followers storing BST ------------------------ ")
 
@@ -122,11 +122,11 @@ if __name__ == '__main__':
         url = response.links['next']['url'] if 'next' in response.links else None
 
 
-    # 1. Implement a binary search tree class, that stores all the followers of a user alphabetically.
+    # 1. Implement a binary search Mastodon_tree class, that stores all the followers of a user alphabetically.
     for user in followers:
         BST.add(user)
 
-    # 2. Implement the recursive binary search algorithm to check wether a username is listed in the user tree.
+    # 2. Implement the recursive binary search algorithm to check wether a username is listed in the user Mastodon_tree.
     # iterative
     # found = BST.find("alextee")
     # if found:
@@ -141,12 +141,12 @@ if __name__ == '__main__':
     else:
         print("user was not found among the users.")
 
-    # 3. In order to display all of the followers, use the DFS algorithm from the previous exercise and make slight changes to it, such that it can traverse over the tree in a Pre-, In-, and Postorder.
+    # 3. In order to display all of the followers, use the DFS algorithm from the previous exercise and make slight changes to it, such that it can traverse over the Mastodon_tree in a Pre-, In-, and Postorder.
     print('3. DFS (preorder): ', BST.preorder())
     print_tree(BST.root)
     # TODO: inorder and postorder implementations
 
-    # 4. Implement another suitable data structure of your choice, e.g. hash-table, trie, avl-tree, that beats our BST implementation in terms of search runtime.
+    # 4. Implement another suitable data structure of your choice, e.g. hash-table, trie, avl-Mastodon_tree, that beats our BST implementation in terms of search runtime.
     # Parse the followers onto it and compare the runtime for searching using pythons time library.
     to_find = "xolotl"
     # Data structure List: Linear search

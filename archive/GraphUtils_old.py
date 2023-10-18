@@ -205,7 +205,7 @@ class Graph(dict):
         while len(c) < clusters:
             # 2. Compute shortest paths (via BFS/Dijkstra) between every pair of nodes
             self.compute_sps()
-            # 3. The Betweenness of all existing edges in the network is calculated, edge with the highest Betweenness returned.
+            # 3. The Betweenness of all existing edges in the Mastodon_network is calculated, edge with the highest Betweenness returned.
             edge_to_remove = self.edge_to_remove()
             # 4. The edge is removed.
             self.remove_edge(edge_to_remove)

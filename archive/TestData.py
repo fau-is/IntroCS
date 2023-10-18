@@ -9,7 +9,7 @@ import copy
 
 
 def print_graph(g):
-    graph = graphviz.Graph(format='png', strict=True, filename='network')
+    graph = graphviz.Graph(format='png', strict=True, filename='Mastodon_network')
     for n in g.keys():
         graph.node(n, n)
 
@@ -17,7 +17,7 @@ def print_graph(g):
         for t in g[n]:
             graph.edge(n, t)
     graph.render()
-    os.remove('network')
+    os.remove('Mastodon_network')
 
 # define mode (fetch data/draw graph)
 # 'fetch' or 'draw'

@@ -42,14 +42,14 @@ execute each of the below
 2. Execute `mkdir Graphs_Trees` to make (i.e., create) a directory called `Graphs_Trees` in
 your home directory.
 3. Execute `cd Graphs_Trees` to change into that directory
-4. Execute `wget introcs.is.rw.fau.de/assets/pdfs/network.zip` to download a (compressed)
+4. Execute `wget introcs.is.rw.fau.de/assets/pdfs/mastodon_network.zip` to download a (compressed)
 ZIP file with this problem's distribution.
 5. Execute `unzip network.zip` to uncompress that file.
 6. Execute `rm network.zip` followed by `yes` or `y` to delete that ZIP file.
-7. Execute `ls`. You should see this problem's distribution: `graph.py, graph_tests.py and network_analysis.py`
+7. Execute `ls`. You should see this problem's distribution: `graph.py, network_analysis.py and a ressources directory`
 8. In order to run the `network_analysis.py` file you will have to execute the following command first in your command line: `pip3 install graphviz`
 
-**Do not change anything in `network_analysis.py`.**
+**Do not change anything in `network_analysis.py`. This is a script that you can use to test your graph.py implementation. Do also not change anything the ressources directory.**
 
 ## Specification
 
@@ -195,7 +195,7 @@ We therefore ask you to implement the following functions:
 
 To check your program you can run this line in your terminal.
 ~~~
-check50 fau-is/IntroCS/PyGraphsTrees/Network
+check50 fau-is/IntroCS/Mastodon_GT/mastodon_network
 ~~~
 
 # submit50
@@ -203,5 +203,5 @@ check50 fau-is/IntroCS/PyGraphsTrees/Network
 To submit your program use this line of code.
 
 ~~~
-submit50 fau-is/IntroCS/PyGraphsTrees/Network
+submit50 fau-is/IntroCS/Mastodon_GT/mastodon_network
 ~~~

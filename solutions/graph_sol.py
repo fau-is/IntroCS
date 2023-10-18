@@ -328,7 +328,7 @@ class Graph(dict):
 
         Pseudocode for the Girvan-Newman algorithm:
         -------------------------------------------
-        1. Calculate the betweenness of all existing edges in the network.
+        1. Calculate the betweenness of all existing edges in the Mastodon_network.
         2. Remove the edge with the highest betweenness.
         3. Calculate the number of disconnected subgraphs.
         4. Repeat steps 1-3 until the number of disconnected subgraphs equals the predefined number of clusters.
@@ -395,7 +395,7 @@ class Graph(dict):
         Generates and displays a visual representation of the graph.
         """
         # Initialize a Graphviz graph
-        graph = graphviz.Graph(format='png', strict=True, filename='network')
+        graph = graphviz.Graph(format='png', strict=True, filename='Mastodon_network')
 
         # Add nodes to the Graphviz graph
         for node in self.keys():
@@ -410,4 +410,4 @@ class Graph(dict):
         graph.render()
 
         # Remove temporary files if needed
-        os.remove('network')
+        os.remove('Mastodon_network')

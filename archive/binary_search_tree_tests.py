@@ -35,7 +35,7 @@ class TestBST(unittest.TestCase):
         self.assertIsNone(BST.root.right.left, "Left child of the THD_IT node should be None.")
 
     def test_tree_structure(self):
-        # Tests that the entire tree adheres to the BST properties: left child < parent and right child > parent.
+        # Tests that the entire Mastodon_tree adheres to the BST properties: left child < parent and right child > parent.
         def is_bst(node):
             if not node:
                 return True

@@ -66,7 +66,7 @@ def draw_edges(g, root):
 
 
 def print_tree(root):
-    g = graphviz.Graph(format='png', strict=True, filename='tree')
+    g = graphviz.Graph(format='png', strict=True, filename='Mastodon_tree')
     draw_vertices(g, root)
     draw_edges(g, root)
     # graph.node(root.left, root.left)
@@ -76,7 +76,7 @@ def print_tree(root):
     #     for t, w in g[n]:
     #         graph.edge(n, t, label=str(w))
     g.render()
-    os.remove('tree')
+    os.remove('Mastodon_tree')
 
 
 class BST:
@@ -100,7 +100,7 @@ class BST:
     def add(username):
         """
         The method creates a root if the BST does not have one yet, otherwise it adds a new BST object at the right
-        place in the tree
+        place in the Mastodon_tree
         :param domain: The username of the added node (vertex)
         :return:
         """
@@ -240,7 +240,7 @@ class BST:
             return False
 
 if __name__ == '__main__':
-    # TODO: 1. Implement a binary search tree class, that stores all the followers of a user alphabetically. Implement the recursive binary search algorithm to check wether a username is listed in the user tree.
+    # TODO: 1. Implement a binary search Mastodon_tree class, that stores all the followers of a user alphabetically. Implement the recursive binary search algorithm to check wether a username is listed in the user Mastodon_tree.
     for user in followers:
         BST.add(user)
     # iterative
@@ -257,10 +257,10 @@ if __name__ == '__main__':
     else:
         print("user was not found among the users.")
 
-    # TODO: 2. In order to display all of the followers, use the DFS algorithm from the previous exercise and make slight changes to it, such that it can traverse over the tree in a Pre-, In-, and Postorder.
+    # TODO: 2. In order to display all of the followers, use the DFS algorithm from the previous exercise and make slight changes to it, such that it can traverse over the Mastodon_tree in a Pre-, In-, and Postorder.
     print('DFS (preorder): ', BST.preorder())
     print_tree(BST.root)
-    # TODO: 3. Implement another suitable data structure of your choice, e.g. hash-table, trie, avl-tree, parse the followers onto it and compare the runtime for searching using pythons time library.
+    # TODO: 3. Implement another suitable data structure of your choice, e.g. hash-table, trie, avl-Mastodon_tree, parse the followers onto it and compare the runtime for searching using pythons time library.
     to_find = "xolotl"
     # Data structure List: Linear search
     data_list = BST.preorder()
