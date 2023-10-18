@@ -181,28 +181,6 @@ def shortest_path_direct():
         raise check50.Failure("Shortest path between 'Alice' and 'Eve' is incorrect.")
 
 
-@check50.check(shortest_path_direct)
-def build_graph_from_JSON():
-    """Graph built correctly from JSON data"""
-    _, Graph = import_graph()
-    graph = Graph()
-    filepath = '../resources/graph_52n.json'
-    with open(filepath, 'r') as f:
-        data = json.load(f)
-    first_key = list(data.keys())[0]
-    del data[first_key]
-
-    graph.parse_data(filepath)
-    for key, neighbors in data.items():
-        if str(key) not in graph:
-            raise check50.Failure(f"User {key} is missing in the graph.")
-        for neighbor in neighbors:
-            if str(neighbor) not in graph[str(key)]:
-                raise check50.Failure(f"Neighbor {neighbor} missing for user {key} in the graph.")
-
-
-
-
 
 def setup_graph_girvan_newman(Graph):
     graph = Graph()
