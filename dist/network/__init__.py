@@ -165,9 +165,11 @@ def shortest_path_exists():
 def no_shortest_path():
     """Graph determines no path exists correctly"""
     _, Graph = import_graph()
-    graph, path = setup_graph(Graph)
+    graph, _ = setup_graph(Graph)
+    path = graph.shortest_path("Alice", "Frank")
     if path is not None:
         raise check50.Failure("Expected no path between 'Alice' and 'Frank', but a path was returned.")
+
 
 @check50.check(no_shortest_path)
 def shortest_path_direct():
