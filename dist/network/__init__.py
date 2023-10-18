@@ -175,9 +175,11 @@ def no_shortest_path():
 def shortest_path_direct():
     """Graph determines direct shortest path correctly"""
     _, Graph = import_graph()
-    graph, path = setup_graph(Graph)
+    graph, _ = setup_graph(Graph)
+    path = graph.shortest_path("Alice", "Eve")
     if path != ["Alice", "Eve"]:
         raise check50.Failure("Shortest path between 'Alice' and 'Eve' is incorrect.")
+
 
 @check50.check(shortest_path_direct)
 def build_graph_from_JSON():
