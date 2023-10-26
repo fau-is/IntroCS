@@ -1,3 +1,7 @@
+---
+files: [maht.c]
+window: [terminal]
+---
 # Some Math in C
 
 The programming language C provides all basic Math operators.
