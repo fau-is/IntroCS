@@ -1,3 +1,7 @@
+---
+files: [decorators.py]
+window: [terminal]
+---
 # Decorators
 
 ## Sytax
