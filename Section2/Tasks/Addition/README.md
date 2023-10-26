@@ -1,3 +1,7 @@
+---
+files: [addition.c]
+window: [terminal]
+---
 # Addition
 
 Write a program addition.c that sums up two numbers provided as command-line arguments.
