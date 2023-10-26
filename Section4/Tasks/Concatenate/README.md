@@ -1,3 +1,7 @@
+---
+files: [concatenate.c]
+window: [terminal]
+---
 # String concatenation
 Write a function concatenate that takes two strings and returns a concatenated version of the two strings.
 
