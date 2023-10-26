@@ -1,3 +1,7 @@
+---
+files: [lecture.c; lecture_register.c]
+window: [terminal]
+---
 # Lecture Registry
 
 ## In lecture.c
