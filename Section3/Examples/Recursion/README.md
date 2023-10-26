@@ -1,3 +1,7 @@
+---
+files: [recursion.c]
+window: [terminal]
+---
 # Recursive Countdown
 
 Recursion is a concept in programming where a function calls itself again.
