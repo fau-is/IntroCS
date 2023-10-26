@@ -1,3 +1,7 @@
+---
+files: [palindrome.c]
+window: [terminal]
+---
 # Palindrome
 
 Write a program palindrome.c that takes a string as input, and determines whether it is a palindrome. This can often be a useful follow-up to reverse.c
