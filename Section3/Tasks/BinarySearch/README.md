@@ -1,3 +1,7 @@
+---
+files: [binary.c]
+window: [terminal]
+---
 # Recursive Binary Search
 
 Finalize the function binary_search to the right.
