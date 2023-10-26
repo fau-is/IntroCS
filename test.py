@@ -1,5 +1,5 @@
 import unittest
-import MastodonOOPsolution
+import MastodonOOP as MastodonOOPsolution
 from mastodon import Mastodon
 from bs4 import BeautifulSoup
 import openpyxl
