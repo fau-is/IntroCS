@@ -1,3 +1,7 @@
+---
+files: [coordinate.py]
+window: [terminal]
+---
 # Coordinates
 ## Coordinate Class
 In coordinate.py, create a class _Coordinate_.
