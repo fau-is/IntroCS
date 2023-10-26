@@ -1,3 +1,8 @@
+---
+files: [copy.c]
+window: [terminal]
+---
+# Copy
 Write a program that copies a text file. Users should be able to run
 
 $ ./copy file1 file2
