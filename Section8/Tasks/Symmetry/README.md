@@ -1,3 +1,7 @@
+---
+files: [symmetry.py]
+window: [terminal]
+---
 # Graph Drawing
 
 ## Lab Setup
