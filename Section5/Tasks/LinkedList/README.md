@@ -1,3 +1,7 @@
+---
+files: [linked_list.c]
+window: [terminal]
+---
 # Linked Lists
 
 In this program, implement a linked list which reads some numbers from a text-file.
