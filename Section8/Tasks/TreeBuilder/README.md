@@ -1,3 +1,7 @@
+---
+files: [tree.py]
+window: [terminal]
+---
 # TreeBuilder
 ## Lab Setup
 
