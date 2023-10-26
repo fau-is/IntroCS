@@ -1,3 +1,7 @@
+---
+files: [average.c]
+window: [terminal]
+---
 # Average
 
 Prompt a user for 10 Integer numbers. Afterwards, calculate the average out of those 10 numbers and print it to the commandline.
