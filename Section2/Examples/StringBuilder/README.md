@@ -1,3 +1,7 @@
+---
+files: [string_builder.c]
+window: [terminal]
+---
 # String builder
 If strings are arrays of characters, we should be able to rebuild a string using our own char array.
 
