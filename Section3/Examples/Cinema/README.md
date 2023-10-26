@@ -1,3 +1,7 @@
+---
+files: [cinema.c]
+window: [terminal]
+---
 # Cinema
 
 Imagine you run a small cinema in your backyard with just 16 seats (4 rows of 4 seats).
