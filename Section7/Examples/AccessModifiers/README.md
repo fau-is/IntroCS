@@ -1,3 +1,7 @@
+---
+files: [access_modifiers.py]
+window: [terminal]
+---
 # Demonstration of access modifieres
 Python features access modifiers for its objects.
 In general, there are three access modifiers for attributes:
