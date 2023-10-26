@@ -1,3 +1,7 @@
+---
+files: [101.c]
+window: [terminal]
+---
 # Double For-Loop (101.c)
 
 Write that prints out the small multiplication table.
