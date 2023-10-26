@@ -1,3 +1,9 @@
+---
+files: [intials.c]
+window: [terminal]
+---
+# Initials
+
 Write a program initials.c that takes a user’s full name as input, and outputs their initials.
 
 Specs:
