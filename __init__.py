@@ -2,6 +2,16 @@ import check50
 import check50.py
 
 @check50.check()
+def test_file_exists():
+    """test.py exists"""
+    check50.exists("test.py")
+
+@check50.check()
+def mastodonOOP_exists():
+    """MastodonOOP.py exists"""
+    check50.exists("MastodonOOP.py")
+
+@check50.check()
 def test_API():
     """testAPI"""
     check50.run("python3 -m unittest test.Mastodon_test.test_API").exit(0)
