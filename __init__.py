@@ -19,8 +19,7 @@ def test_API():
     
     if not result.exit(1):
         check50.log("Your API-Initiation does not correctly work, check again if you are missing anything!")
-        
-    else exit(0):
+    else:
         check50.log("Your API-Initiation works correctly.")
 
 @check50.check()
