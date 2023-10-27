@@ -3,7 +3,6 @@ submit50:
     - beautifulsoup4
     - Mastodon.py
     - openpyxl
-    - string
   files:
     - !exclude "*"
     - !require test.py
@@ -13,7 +12,6 @@ check50:
     - beautifulsoup4
     - Mastodon.py
     - openpyxl
-    - string
   files:
     - !exclude "*"
     - !require test.py
