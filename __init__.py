@@ -17,11 +17,10 @@ def test_API():
     """testAPI"""
     result = check50.run("python3 -m unittest test.Mastodon_test.test_API")
     
-    if not result.exit(1):
+    if result.exit(0):
+        check50.log("Your API-Initiation works correctly.")
+    else:
         check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!")
-        #log("Your API-Initiation works correctly.")
-    #else:
-       # check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!")
 
 @check50.check()
 def test_Toot():
