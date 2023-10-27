@@ -5,6 +5,7 @@ import check50.py
 def test_file_exists():
     """test.py exists"""
     check50.exists("test.py")
+    
 
 @check50.check()
 def mastodonOOP_exists():
@@ -14,7 +15,12 @@ def mastodonOOP_exists():
 @check50.check()
 def test_API():
     """testAPI"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_API").exit(0)
+    result = check50.run("python3 -m unittest test.Mastodon_test.test_API")
+    
+    if result.exit(0):
+        check50.log("Your API-Initiation works correctly.")
+    else:
+        check50.fail("Your API-Initiation does not correctly work, check again if you are missing anything!")
 
 @check50.check()
 def test_Toot():
