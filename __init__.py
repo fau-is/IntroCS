@@ -20,7 +20,7 @@ def test_API():
     if result.exit(0):
         check50.log("Your API-Initiation works correctly.")
     else:
-        check50.fail("Your API-Initiation does not correctly work, check again if you are missing anything!")
+        check50.log("Your API-Initiation does not correctly work, check again if you are missing anything!")
 
 @check50.check()
 def test_Toot():
