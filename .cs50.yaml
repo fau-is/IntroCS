@@ -2,6 +2,8 @@ submit50:
   dependencies:
     - beautifulsoup4
     - Mastodon.py
+    - openpyxl
+    - string
   files:
     - !exclude "*"
     - !require test.py
@@ -10,6 +12,8 @@ check50:
   dependencies:
     - beautifulsoup4
     - Mastodon.py
+    - openpyxl
+    - string
   files:
     - !exclude "*"
     - !require test.py
