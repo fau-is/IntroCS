@@ -1,7 +1,7 @@
 submit50:
   dependencies:
     - beautifulsoup4
-    - mastodon.py
+    - Mastodon.py
   files:
     - !exclude "*"
     - !require test.py
