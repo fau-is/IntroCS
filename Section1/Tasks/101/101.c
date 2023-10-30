@@ -1,3 +1,4 @@
+#include <stdio.h>
 // Program a small tool that prints out the small multiplication table.
 
 // $ ./101
@@ -5,16 +6,9 @@
 // 2    4   6   8   10  12  14  16  18  20
 // ...
 // 10   20  30  40  50  60  70  80  90  100
-#include <stdio.h>
+
 
 int main(void)
 {
-    for (int i = 1; i < 11; i++)
-    {
-        for (int j = 1; j < 11; j++)
-        {
-            printf("%i\t", i * j);
-        }
-        printf("\n");
-    }
+
 }

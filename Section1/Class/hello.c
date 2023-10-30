@@ -1,8 +1,2 @@
-#include <stdio.h>
-#include <cs50.h>
+// Everyone's first ever program hello.c
 
-int main(void)
-{
-    string name = get_string("Name? ");
-    printf("Hello, %s!\n", name);
-}

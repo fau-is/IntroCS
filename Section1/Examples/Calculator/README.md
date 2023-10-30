@@ -1,5 +1,5 @@
 ---
-files: [calculaor.c]
+files: [calculator.c]
 window: [terminal]
 ---
 # Let's have a look at a very basic program: A calculator

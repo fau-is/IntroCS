@@ -1,5 +1,5 @@
 ---
-files: [maht.c]
+files: [math.c]
 window: [terminal]
 ---
 # Some Math in C
