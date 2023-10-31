@@ -18,7 +18,7 @@ def test_API():
     result = check50.run("python3 -m unittest test.Mastodon_test.test_API")#.exit(0)#.log("API-Initiation works", regex=True).exit(0)
     expected = ""
     
-    if not result:
+    if result:
         raise check50.Mismatch(result, expected, "Your API-Initiation does not correctly work, check again if you are missing anything!").exit(1)
     
     check50.log("Your API-Initiation works correctly!")
