@@ -15,10 +15,11 @@ def mastodonOOP_exists():
 @check50.check()
 def test_API():
     """testAPI"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_API").stdout().exit(0)#.log("API-Initiation works", regex=True).exit(0)
+    result = check50.run("python3 -m unittest test.Mastodon_test.test_API").stdout()#.exit(0)#.log("API-Initiation works", regex=True).exit(0)
+    expected = "Your API-Initiation does not correctly work, check again if you are missing anything!"
     
-    #if result:
-        #check50.log("Your API-Initiation works correctly.")
+    if result != expected:
+        raise check50.Mismatch(expected, result, "Your API-Initiation does not correctly work, check again if you are missing anything!")
     #else:
         #check50.log("Your API-Initiation does not correctly work, check again if you are missing anything!")
 
