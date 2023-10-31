@@ -20,7 +20,7 @@ def test_API():
     #failed = "Your API-Initiation does not correctly work, check again if you are missing anything!"
     result = check50.run("python3 -m unittest test.Mastodon_test.tets_API")
     if not result:
-        raise check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!").exit(1)
+        raise check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!")
     check50.log("Your API-Initiation works correctly!")
         
         
