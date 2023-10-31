@@ -20,7 +20,7 @@ def test_API():
     failed = "Your API-Initiation does not correctly work, check again if you are missing anything!"
     
     if output == failed:
-        raise check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!").exit(0)
+        raise check50.Mismatch("Your API-Initiation does not correctly work, check again if you are missing anything!").exit(0)
     else:
         check50.log ("Your API-Initiation works correctly!")
         
