@@ -1,5 +1,7 @@
 import check50
 import check50.py
+import MastodonOOP as MastodonOOPsolution
+from mastodon import Mastodon
 
 @check50.check()
 def test_file_exists():
@@ -15,12 +17,9 @@ def mastodonOOP_exists():
 @check50.check()
 def test_API():
     """testAPI"""
-    result = check50.run("python3 -m unittest test.Mastodon_test.test_API")#.exit(0)#.log("API-Initiation works", regex=True).exit(0)
-    expected = ""
-    
-    if result:
-        raise check50.Mismatch(result, expected, "Your API-Initiation does not correctly work, check again if you are missing anything!")
-    
+    if not isinstance(MastodonOOPsolution.mastodon, Mastodon):
+        raise check50.Mismatch("Not an instance of Mastodon")
+
     check50.log("Your API-Initiation works correctly!")
 
 @check50.check()
