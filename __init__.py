@@ -19,7 +19,7 @@ def test_API():
     expected = ""
     
     if result:
-        raise check50.Mismatch(result, expected, "Your API-Initiation does not correctly work, check again if you are missing anything!").exit(1)
+        raise check50.Mismatch(result, expected, "Your API-Initiation does not correctly work, check again if you are missing anything!")
     
     check50.log("Your API-Initiation works correctly!")
 
