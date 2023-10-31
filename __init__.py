@@ -16,8 +16,15 @@ def mastodonOOP_exists():
 @check50.check()
 def test_API():
     """testAPI"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_API").stdout().exit(0)
-
+    output = check50.run("python3 -m unittest test.Mastodon_test.test_API").stdout()
+    failed = "Your API-Initiation does not correctly work, check again if you are missing anything!"
+    
+    if output == failed:
+        raise check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!")
+    else:
+        check50.log ("Your API-Initiation works correctly!")
+        
+        
 @check50.check()
 def test_Toot():
     """testToot"""
