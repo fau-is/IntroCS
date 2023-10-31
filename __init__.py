@@ -21,7 +21,7 @@ def test_API():
     if not result:
         raise check50.Mismatch(expected, result, "Your API-Initiation does not correctly work, check again if you are missing anything!")
     
-    raise check50.Mismatch(expected, result, "Your API-Initiation works correctly!")
+    raise check50.log(expected, result, "Your API-Initiation works correctly!")
 
 @check50.check()
 def test_Toot():
