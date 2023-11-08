@@ -9,7 +9,15 @@ int main(void)
     {
         char c = get_char("C: ");
 
+        if (isupper(c))
+        {
+            printf("%i\n", c - 'A');
+            c + 1000 % 26
+        }
+        if (islower(c))
+            printf("%i\n", c - 'a');
+
         // Let's write a program that returns the alphabetical index
-        // of a letter: e.g. A = 0, B = 1, C = 2, ...
+        // of a letter: e.g. A | a = 0, B = 1, C = 2, ...
     }
 }

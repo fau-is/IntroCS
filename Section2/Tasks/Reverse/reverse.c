@@ -4,7 +4,12 @@
 
 int main(void)
 {
-    string s = get_string("Text");
+    string s = get_string("Text: ");
+
+    for (int i = 0, n = strlen(s); i < n; i++)
+        printf("%c", s[n-i-1]);
+    printf("\n");
+
 
     return 0;
 }

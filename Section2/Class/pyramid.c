@@ -4,7 +4,7 @@ int main(void)
 {
     int breadth = 8;
 
-    for (int i = 1, spaces = breadth / 2 ; i <= breadth; i *= 2)
+    for (int i = 1, spaces = breadth / 2 - 1; i <= breadth; i += 2, spaces--)
     {
         for (int j = 0; j < spaces; j++)
         {
