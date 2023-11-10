@@ -3,72 +3,6 @@ import check50.py
 from mastodon import Mastodon
 
 
-
-def import_mastodon():
-    mastodon = check50.py.import_("MastodonOOP.py")
-    if mastodon is None:
-        raise check50.Failure("Mastodon Import failed")
-    return mastodon
-
-class Toot:
-    def __init__(self, content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies, pubdate, mentions, media, language, poll):
-        self.content = content
-        self.account = account
-        self.user_id = user_id
-        self.hashtags = hashtags
-        self.bookmark = bookmark
-        self.no_replies = no_replies
-        self.url = url
-        self.toot_id = toot_id
-        self.count_replies = count_replies
-        self.pubdate = pubdate
-        self.mentions = mentions
-        self.media = media
-        self.language = language
-        self.poll = poll
-
-def import_toots():
-    toot_true =Toot(
-            account = [{"id": 123, "username": "Marco"}],
-            toot_id = True,
-            content = '<p>Hello from Python, dog</p>',
-            user_id = True,
-            hashtags = [{'name': 'dog', 'url': True, 'history': ''}],
-            bookmark = True,
-            no_replies = True,
-            url = True,
-            count_replies = True,
-            pubdate = '2022-07-22 09:37:34+00:00',
-            mentions = True,
-            media = [{"id": 123,"type":"image"},
-                     {"id": 1234,"type":"video"},
-                     {"id": 12345,"type":"gifv"},
-                     {"id": 123456,"type":"audio"},
-                     {"id": 1234567,"type":"unknown"} 
-                     ],
-            language = 'en',
-            poll = True        
-        )
-
-    toot_false =Toot(
-            account = '',
-            toot_id = '',
-            content = 'sun',
-            user_id = '',
-            hashtags = '',
-            bookmark = '',
-            no_replies = '',
-            url = '',
-            count_replies = '',
-            pubdate = '2024-07-22 09:37:34+00:00',
-            mentions = False,
-            media = '',
-            language = '',
-            poll = False        
-        )
-        
-    return toot_true, toot_false
-
 @check50.check()
 def test_file_exists():
     """test.py exists"""
@@ -83,145 +17,184 @@ def mastodonOOP_exists():
 @check50.check()
 def test_API():
     """testAPI"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_API").exit(0)
-    #Masto = import_mastodon()
-    #if not isinstance(Masto.mastodon, Mastodon):
-        #raise check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!")
-    
-        
-    # IsInstance(MastodonOOPsolution.mastodon, Mastodon, "Your API-Initiation does not correctly work, check again if you are missing anything!")    #output = check50.run("python3 -m unittest test.Mastodon_test.test_API")
-    #failed = "Your API-Initiation does not correctly work, check again if you are missing anything!"
-    # result = check50.run("python3 -m unittest test.Mastodon_test.tets_API")
-    # if not result:
-        # raise check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!")
-    # check50.log("Your API-Initiation works correctly!")
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_API").exit(0)
+    except:
+        raise check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!")
+
         
 @check50.check()
 def test_Toot():
     """testToot"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_Toot").exit(0)
-    
-            
-#@check50.check()
-#def test_Toot():
- #   """testToot"""
-  #  Masto = import_mastodon()
-   # toot = Masto.Toot
-    #for attr in ["content", "account", "toot_id", "user_id", "hashtags", "bookmark", "no_replies", "url", "count_replies", "pubdate", "mentions", "media", "language", "poll"]:
-     #   if not hasattr(true, attr):
-      #      raise check50.Failure("Your Toot-Class does not correctly work, check again if you are missing one or more attributes")
-    #if not (toot = Toot(account = toot['account'], toot_id = toot['id'], content = content_text, user_id = toot['account']['id'], hashtags = toot['tags'], bookmark = toot['bookmarked'], no_replies = toot['reblogs_count'], url = toot['url'], count_replies = toot['replies_count'], pubdate = toot['created_at'], mentions = toot['mentions'], media = toot['media_attachments'], language = toot['language'],  poll = toot['poll'] )):
-        #raise check50.Failure("Your Toot-Class does not correctly work, check again if you are missing one or more attributes")
-    #check50.run("python3 -m unittest test.Mastodon_test.test_Toot").exit(0)
-
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_Toot").exit(0)
+    except:
+        raise check50.Failure("The object Toot did not get inizalized as required.")
 
 @check50.check()
 def test_load():
     """testLoadFunction"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_load").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_load").exit(0)
+    except:
+        raise check50.Failure("The download of toots does not work correct.")
     
 @check50.check()
 def test_GetTextContent():
     """testGetTextContent"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_GetTextContent").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_GetTextContent").exit(0)
+    except:
+        raise check50.Failure("Your GetTextContent-Function does not work correctly, check again if only the text remains and no HTML is left!")
     
-#@check50.check()
-#def test_MediaTrigger():
- #   """testMediaTrigger"""
-  #  check50.run("python3 -m unittest test.Mastodon_test.test_MediaTrigger").exit(0)
-
 @check50.check()
 def test_MediaTrigger():
     """testMediaTrigger"""
     try:
         check50.run("python3 -m unittest test.Mastodon_test.test_MediaTrigger").exit(0)
     except:
-        raise check50.Failure("MediaTrigger works not accordingly.x")
-   # else:
-        
+        raise check50.Failure("MediaTrigger works not accordingly.")
 
-   # if result.exit(0):
-    #    check50.py.passed()
-    #else:
-        # Print the error message from stderr
-     #   check50.py.Mismatch(result.stdout)
     
 @check50.check()
 def test_ImageMediaTrigger():
     """testImageMediaTrigger"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_ImageMediaTrigger").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_ImageMediaTrigger").exit(0)
+    except:
+        raise check50.Failure("ImageMediaTrigger works not accordingly.")
+        
     
 @check50.check()
 def test_VideoMediaTrigger():
     """testVideoMediaTrigger"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_VideoMediaTrigger").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_VideoMediaTrigger").exit(0)
+    except:
+        raise check50.Failure("VideoMediaTrigger works not accordingly.")
     
 @check50.check()
 def test_GifMediaTrigger():
     """testGifMediaTrigger"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_GifMediaTrigger").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_GifMediaTrigger").exit(0)
+    except:
+        raise check50.Failure("GifMediaTrigger works not accordingly.")
+        
     
 @check50.check()
 def test_AudioMediaTrigger():
     """testAudioMediaTrigger"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_AudioMediaTrigger").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_AudioMediaTrigger").exit(0)
+    except:
+        raise check50.Failure("AudioMediaTrigger works not accordingly.")
+        
     
 @check50.check()
 def test_LanguageTrigger():
     """testLanguageTrigger"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_LanguageTrigger").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_LanguageTrigger").exit(0)
+    except:
+        raise check50.Failure("LanguageTrigger works not accordingly.")
+        
     
 @check50.check()
 def test_PollTrigger():
     """testPollTrigger"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_PollTrigger").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_PollTrigger").exit(0)
+    except:
+        raise check50.Failure("PollTrigger works not accordingly.")
+        
 
 @check50.check()
 def test_MentionsTrigger():
     """testMentionsTrigger"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_MentionsTrigger").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_MentionsTrigger").exit(0)
+    except:
+        raise check50.Failure("MentionsTrigger works not accordingly.")
+        
     
 @check50.check()
 def test_PhraseTrigger():
     """testPhraseTrigger"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_PhraseTrigger").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_PhraseTrigger").exit(0)
+    except:
+        raise check50.Failure("PhraseTrigger works not accordingly.")
+        
     
 @check50.check()
 def test_TimeTrigger():
     """testTimeTrigger"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_TimeTrigger").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_TimeTrigger").exit(0)
+    except:
+        raise check50.Failure("TimeTrigger works not accordingly.")
+        
     
 @check50.check()
 def test_BeforeTrigger():
     """testBeforeTrigger"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_BeforeTrigger").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_BeforeTrigger").exit(0)
+    except:
+        raise check50.Failure("BeforeTrigger works not accordingly.")
+        
     
 @check50.check()
 def test_AfterTrigger():
     """testAfterTrigger"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_AfterTrigger").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_AfterTrigger").exit(0)
+    except:
+        raise check50.Failure("AfterTrigger works not accordingly.")
+        
     
 @check50.check()
 def test_NotTrigger():
     """testNotTrigger"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_NotTrigger").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_NotTrigger").exit(0)
+    except:
+        raise check50.Failure("NotTrigger works not accordingly.")
+        
     
 @check50.check()
 def test_AndTrigger():
     """testAndTrigger"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_AndTrigger").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_AndTrigger").exit(0)
+    except:
+        raise check50.Failure("Andrigger works not accordingly.")
+        
     
 @check50.check()
 def test_OrTrigger():
     """testOrTrigger"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_OrTrigger").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_OrTrigger").exit(0)
+    except:
+        raise check50.Failure("OrTrigger works not accordingly.")
+        
     
 @check50.check()
 def test_Filter():
     """testFilter"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_Filter").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_Filter").exit(0)
+    except:
+        raise check50.Failure("The Filter function is not working as required.")
+        
     
 @check50.check()
 def test_Load_to_Workbook():
     """testLoad_to_Workbook"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_Load_to_Workbook").exit(0)
+    try:
+        check50.run("python3 -m unittest test.Mastodon_test.test_Load_to_Workbook").exit(0)
+    except:
+        raise check50.Failure("Loading to the workbook was not succesful. Make sure to read the openpyxl documentation.")
+        
