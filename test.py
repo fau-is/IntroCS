@@ -130,117 +130,102 @@ class Mastodon_test(unittest.TestCase):
     
     def test_MediaTrigger(self):
         media = MastodonOOPsolution.MediaTrigger()
-        #trigger = MastodonOOPsolution.Trigger()
         
-        #self.assertIsInstance(media, trigger, "The filter does not inherit from MediaTrigger")
+        self.assertTrue(issubclass(MastodonOOPsolution.MediaTrigger, MastodonOOPsolution.Trigger),"MediaTrigger should be a subclass of Trigger")
         self.assertTrue(media.evaluate(self.toot_true), "Media-Trigger: Expected True but Output is False.")
         self.assertFalse(media.evaluate(self.toot_false), "Media-Trigger: Expected False but Output is True.")
             
     def test_ImageMediaTrigger(self):
-        media = MastodonOOPsolution.MediaTrigger()
         image = MastodonOOPsolution.ImageMediaTrigger()
         
-        #self.assertIsInstance(image, media, "The filter does not inherit from MediaTrigger")
         self.assertTrue(issubclass(MastodonOOPsolution.ImageMediaTrigger, MastodonOOPsolution.MediaTrigger),"ImageMediaTrigger should be a subclass of MediaTrigger")
         self.assertTrue(image.evaluate(self.toot_true), "Image-Media-Trigger: Expected True but Output is False.")
         self.assertFalse(image.evaluate(self.toot_false), "Image-Media-Trigger: Expected False but Output is True.")
 
     def test_VideoMediaTrigger(self):
-        media = MastodonOOPsolution.MediaTrigger()
         video = MastodonOOPsolution.VideoMediaTrigger()
         
-        self.assertIsInstance(video, media, "The filter does not inherit from MediaTrigger")
+        self.assertTrue(issubclass(MastodonOOPsolution.VideoMediaTrigger, MastodonOOPsolution.MediaTrigger),"VideoMediaTrigger should be a subclass of MediaTrigger")
         self.assertTrue(video.evaluate(self.toot_true), "Video-Media-Trigger: Expected True but Output is False.")   
         self.assertFalse(video.evaluate(self.toot_false), "Video-Media-Trigger: Expected False but Output is True.")
         
     def test_GifMediaTrigger(self):
-        media = MastodonOOPsolution.MediaTrigger()
         gif = MastodonOOPsolution.GifMediaTrigger()
         
-        self.assertIsInstance(gif, media, "The filter does not inherit from MediaTrigger")
+        self.assertTrue(issubclass(MastodonOOPsolution.GifMediaTrigger, MastodonOOPsolution.MediaTrigger),"GifMediaTrigger should be a subclass of MediaTrigger")
         self.assertTrue(gif.evaluate(self.toot_true), "GIF-Media-Trigger: Expected True but Output is False.")   
         self.assertFalse(gif.evaluate(self.toot_false), "GIF-Media-Trigger: Expected False but Output is True.")
         
     def test_AudioMediaTrigger(self):
-        media = MastodonOOPsolution.MediaTrigger()
         audio = MastodonOOPsolution.AudioMediaTrigger()
         
-        self.assertIsInstance(audio, media, "The filter does not inherit from MediaTrigger")
+        self.assertTrue(issubclass(MastodonOOPsolution.AudioMediaTrigger, MastodonOOPsolution.MediaTrigger),"AudioMediaTrigger should be a subclass of MediaTrigger")
         self.assertTrue(audio.evaluate(self.toot_true), "Audio-Media-Trigger: Expected True but Output is False.")   
         self.assertFalse(audio.evaluate(self.toot_false), "Audio-Media-Trigger: Expected False but Output is True.")
         
     def test_LanguageTrigger(self):
-        trigger = MastodonOOPsolution.Trigger()
         english = MastodonOOPsolution.LanguageTrigger("en")
         
-        self.assertIsInstance(english, trigger)
+        self.assertTrue(issubclass(MastodonOOPsolution.LanguageTrigger, MastodonOOPsolution.Trigger),"LanguageTrigger should be a subclass of Trigger")
         self.assertTrue(english.evaluate(self.toot_true), "Language-Trigger: Expected True but Output is False.")
         self.assertFalse(english.evaluate(self.toot_false), "Language-Trigger: Expected False but Output is True.")  
     
     def test_PollTrigger(self):
-        trigger = MastodonOOPsolution.Trigger()
         poll_filter = MastodonOOPsolution.PollTrigger()
         
-        self.assertIsInstance(poll_filter, trigger)
+        self.assertTrue(issubclass(MastodonOOPsolution.PollTrigger, MastodonOOPsolution.Trigger),"PollTrigger should be a subclass of Trigger")
         self.assertTrue(poll_filter.evaluate(self.toot_true), "Poll-Trigger: Expected True but Output is False.")
         self.assertFalse(poll_filter.evaluate(self.toot_false), "Poll-Trigger: Expected False but Output is True.")
         
     def test_MentionsTrigger(self):
-        trigger = MastodonOOPsolution.Trigger()
         mentions = MastodonOOPsolution.MentionsTrigger()
         
-        self.assertIsInstance(mentions, trigger)
+        self.assertTrue(issubclass(MastodonOOPsolution.MentionsTrigger, MastodonOOPsolution.Trigger),"MentionsTrigger should be a subclass of Trigger")
         self.assertTrue(mentions.evaluate(self.toot_true), "Mentions-Trigger: Expected True but Output is False.")
         self.assertFalse(mentions.evaluate(self.toot_false), "Mentions-Trigger: Expected False but Output is True.")
         
     def test_PhraseTrigger(self):
-        trigger = MastodonOOPsolution.Trigger()
         phrase = MastodonOOPsolution.PhraseTrigger("dog")
         
-        self.assertIsInstance(phrase, trigger)
+        self.assertTrue(issubclass(MastodonOOPsolution.PhraseTrigger, MastodonOOPsolution.Trigger),"PhraseTrigger should be a subclass of Trigger")
         self.assertTrue(phrase.evaluate(self.toot_true), "Phrase-Trigger: Expected True but Output is False.")
         self.assertFalse(phrase.evaluate(self.toot_false), "Phrase-Trigger: Expected False but Output is True.")
         
         
     def test_TimeTrigger(self):
-        trigger = MastodonOOPsolution.Trigger()
         formatted_time = datetime.datetime.strptime('2023-07-22 09:37:34-05:00', "%Y-%m-%d %H:%M:%S%z")
         triggered_time = MastodonOOPsolution.TimeTrigger(self.clock)
         
-        self.assertIsInstance(triggered_time, trigger)
+        self.assertTrue(issubclass(MastodonOOPsolution.TimeTrigger, MastodonOOPsolution.Trigger),"TimeTrigger should be a subclass of Trigger")
         self.assertEqual(triggered_time.ptime, formatted_time, "Time-Trigger: The format of the trigger does not fit the wanted format YYYY-MM-DD hh:mm:ss+TZ'!")
             
     def test_BeforeTrigger(self):
-        trigger = MastodonOOPsolution.Trigger()
         toot_true = self.toot_true
         toot_false = self.toot_false
         before = MastodonOOPsolution.BeforeTrigger(ptime= self.clock)
 
-        self.assertIsInstance(before, trigger)
+        self.assertTrue(issubclass(MastodonOOPsolution.BeforeTrigger, MastodonOOPsolution.TimeTrigger),"BeforeTrigger should be a subclass of TimeTrigger")
         self.assertTrue(before.evaluate(toot_true), "Before-Trigger: Expected True but Output is False.")
         self.assertFalse(before.evaluate(toot_false), "Before-Trigger: Expected False but Output is True.")
 
     def test_AfterTrigger(self):
-        trigger = MastodonOOPsolution.Trigger()
         test_clock = datetime.datetime.strptime(self.clock, "%Y-%m-%d %H:%M:%S%z")
         time = test_clock < self.toot_false.pubdate
         time2 = test_clock < self.toot_true.pubdate
         after = MastodonOOPsolution.AfterTrigger(self.clock)
         
-        self.assertIsInstance(after, trigger)
+        self.assertTrue(issubclass(MastodonOOPsolution.AfterTrigger, MastodonOOPsolution.TimeTrigger),"AfterTrigger should be a subclass of TimeTrigger")
         self.assertEqual(after.evaluate(self.toot_false), time, "After-Trigger: Expected True but Output is False.")
         self.assertEqual(after.evaluate(self.toot_true), time2, "After-Trigger: Expected False but Output is True.")
         
     def test_NotTrigger(self):
-        trigger = MastodonOOPsolution.Trigger()
         nottrigger = MastodonOOPsolution.NotTrigger( MastodonOOPsolution.MediaTrigger() )
         
-        self.assertIsInstance(nottrigger, trigger)
+        self.assertTrue(issubclass(MastodonOOPsolution.NotTrigger, MastodonOOPsolution.Trigger),"NotTrigger should be a subclass of Trigger")
         self.assertTrue(nottrigger.evaluate(self.toot_false), "Not-Trigger: Expected True but Output is False.")
         self.assertFalse(nottrigger.evaluate(self.toot_true), "Not-Trigger: Expected False but Output is True.")   
             
-    def test_AndTrigger(self): 
-        #trigger = MastodonOOPsolution.Trigger()       
+    def test_AndTrigger(self):       
         media = MastodonOOPsolution.MediaTrigger()
         gif = MastodonOOPsolution.GifMediaTrigger()
         andtrigger = MastodonOOPsolution.AndTrigger(
@@ -248,12 +233,11 @@ class Mastodon_test(unittest.TestCase):
             trigger2 = gif
             )
         
-        #self.assertIsInstance(andtrigger, trigger)
+        self.assertTrue(issubclass(MastodonOOPsolution.AndTrigger, MastodonOOPsolution.Trigger),"AndTrigger should be a subclass of Trigger")
         self.assertTrue(andtrigger.evaluate(self.toot_true), "And-Trigger: Expected True but Output is False.")
         self.assertFalse(andtrigger.evaluate(self.toot_false), "And-Trigger: Expected False but Output is True.")
         
     def test_OrTrigger(self):
-        trigger = MastodonOOPsolution.Trigger()
         poll = MastodonOOPsolution.PollTrigger()
         mentions = MastodonOOPsolution.MentionsTrigger()
         ortrigger = MastodonOOPsolution.OrTrigger(
@@ -261,7 +245,7 @@ class Mastodon_test(unittest.TestCase):
             trigger2 = mentions
             )
         
-        self.assertIsInstance(ortrigger, trigger)
+        self.assertTrue(issubclass(MastodonOOPsolution.OrTrigger, MastodonOOPsolution.Trigger),"orTrigger should be a subclass of Trigger")
         self.assertTrue(ortrigger.evaluate(self.toot_true), "Or-Trigger: Expected True but Output is False.")
         self.assertFalse(ortrigger.evaluate(self.toot_false), "Or-Trigger: Expected False but Output is True.")
         
