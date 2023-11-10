@@ -139,7 +139,7 @@ def test_MediaTrigger():
         check50.py.passed()
     else:
         # Print the error message from stderr
-        check50.py.fail(result.stderr)
+        check50.py.Failure(result.stderr)
     
 @check50.check()
 def test_ImageMediaTrigger():
