@@ -10,7 +10,7 @@ def import_mastodon():
         raise check50.Failure("Mastodon Import failed")
     return mastodon
 
-def import_toots(import_mastodon):
+def import_toots():
     Masto = import_mastodon()
     toot_true = Masto.Toot (
             account = [{"id": 123, "username": "Marco"}],
