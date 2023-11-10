@@ -247,7 +247,7 @@ class Mastodon_test(unittest.TestCase):
             trigger2 = gif
             )
         
-        self.assertIsInstance(andtrigger, MastodonOOPsolution.Trigger)
+        self.assertIsInstance(andtrigger, trigger)
         self.assertTrue(andtrigger.evaluate(self.toot_true), "And-Trigger: Expected True but Output is False.")
         self.assertFalse(andtrigger.evaluate(self.toot_false), "And-Trigger: Expected False but Output is True.")
         
