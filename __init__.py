@@ -28,9 +28,10 @@ def mastodonOOP_exists():
 @check50.check()
 def test_API():
     """testAPI"""
-    Masto = import_mastodon()
-    if not isinstance(Masto.mastodon, Mastodon):
-        raise check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!")
+    check50.run("python3 -m unittest test.Mastodon_test.test_API").exit(0)
+    #Masto = import_mastodon()
+    #if not isinstance(Masto.mastodon, Mastodon):
+        #raise check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!")
     
         
     # IsInstance(MastodonOOPsolution.mastodon, Mastodon, "Your API-Initiation does not correctly work, check again if you are missing anything!")    #output = check50.run("python3 -m unittest test.Mastodon_test.test_API")

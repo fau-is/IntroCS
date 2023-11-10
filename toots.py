@@ -22,8 +22,7 @@ toot_true = MastodonOOPsolution.Toot (
             poll = True        
         )
 
-
-self.toot_false = MastodonOOPsolution.Toot (
+toot_false = MastodonOOPsolution.Toot (
             account = '',
             toot_id = '',
             content = 'sun',
