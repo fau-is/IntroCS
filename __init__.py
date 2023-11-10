@@ -96,15 +96,20 @@ def test_API():
         # raise check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!")
     # check50.log("Your API-Initiation works correctly!")
         
-        
 @check50.check()
 def test_Toot():
     """testToot"""
-    Masto = import_mastodon()
-    toot = Masto.Toot
-    for attr in ["content", "account", "toot_id", "user_id", "hashtags", "bookmark", "no_replies", "url", "count_replies", "pubdate", "mentions", "media", "language", "poll"]:
-        if not hasattr(true, attr):
-            raise check50.Failure("Your Toot-Class does not correctly work, check again if you are missing one or more attributes")
+    check50.run("python3 -m unittest test.Mastodon_test.test_Toot").exit(0)
+    
+            
+#@check50.check()
+#def test_Toot():
+ #   """testToot"""
+  #  Masto = import_mastodon()
+   # toot = Masto.Toot
+    #for attr in ["content", "account", "toot_id", "user_id", "hashtags", "bookmark", "no_replies", "url", "count_replies", "pubdate", "mentions", "media", "language", "poll"]:
+     #   if not hasattr(true, attr):
+      #      raise check50.Failure("Your Toot-Class does not correctly work, check again if you are missing one or more attributes")
     #if not (toot = Toot(account = toot['account'], toot_id = toot['id'], content = content_text, user_id = toot['account']['id'], hashtags = toot['tags'], bookmark = toot['bookmarked'], no_replies = toot['reblogs_count'], url = toot['url'], count_replies = toot['replies_count'], pubdate = toot['created_at'], mentions = toot['mentions'], media = toot['media_attachments'], language = toot['language'],  poll = toot['poll'] )):
         #raise check50.Failure("Your Toot-Class does not correctly work, check again if you are missing one or more attributes")
     #check50.run("python3 -m unittest test.Mastodon_test.test_Toot").exit(0)
