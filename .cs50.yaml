@@ -4,7 +4,6 @@ submit50:
     - Mastodon.py
     - openpyxl
     - mastodon
-    - toots.py
   files:
     - !exclude "*"
     - !require test.py
@@ -15,7 +14,6 @@ check50:
     - Mastodon.py
     - openpyxl
     - mastodon
-    - toots.py
   files:
     - !exclude "*"
     - !require test.py
