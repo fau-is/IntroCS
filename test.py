@@ -140,7 +140,8 @@ class Mastodon_test(unittest.TestCase):
         media = MastodonOOPsolution.MediaTrigger()
         image = MastodonOOPsolution.ImageMediaTrigger()
         
-        self.assertIsInstance(image, media, "The filter does not inherit from MediaTrigger")
+        #self.assertIsInstance(image, media, "The filter does not inherit from MediaTrigger")
+        self.assertTrue(issubclass(MastodonOOPsolution.ImageMediaTrigger, MastodonOOPsolution.MediaTrigger),"ImageMediaTrigger should be a subclass of MediaTrigger")
         self.assertTrue(image.evaluate(self.toot_true), "Image-Media-Trigger: Expected True but Output is False.")
         self.assertFalse(image.evaluate(self.toot_false), "Image-Media-Trigger: Expected False but Output is True.")
 
