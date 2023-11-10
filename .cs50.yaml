@@ -3,18 +3,21 @@ submit50:
     - beautifulsoup4
     - Mastodon.py
     - openpyxl
+    - mastodon
+    - toots.py
   files:
     - !exclude "*"
     - !require test.py
     - !require MastodonOOP.py
-    - !require toots.py
 check50:
   dependencies:
     - beautifulsoup4
     - Mastodon.py
     - openpyxl
+    - mastodon
+    - toots.py
   files:
     - !exclude "*"
     - !require test.py
     - !require MastodonOOP.py
-    - !require toots.py
+
