@@ -135,11 +135,11 @@ def test_MediaTrigger():
     """testMediaTrigger"""
     result = check50.run("python3 -m unittest test.Mastodon_test.test_MediaTrigger").stdout()
 
-    if result == True:
+    if result == 0:
         check50.py.passed()
     else:
         # Print the error message from stderr
-        check50.py.Failure(result)
+        check50.py.Failure(print(result))
     
 @check50.check()
 def test_ImageMediaTrigger():
