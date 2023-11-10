@@ -17,7 +17,7 @@ def mastodonOOP_exists():
 def test_API():
     """testAPI"""
     result = check50.run("python3 -m unittest test.Mastodon_test.test_API")
-    if "OK" not in result:
+    if result == 1:
         raise check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!")
     #output = check50.run("python3 -m unittest test.Mastodon_test.test_API")
     #failed = "Your API-Initiation does not correctly work, check again if you are missing anything!"
