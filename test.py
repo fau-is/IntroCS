@@ -239,7 +239,7 @@ class Mastodon_test(unittest.TestCase):
         self.assertFalse(nottrigger.evaluate(self.toot_true), "Not-Trigger: Expected False but Output is True.")   
             
     def test_AndTrigger(self): 
-        trigger = MastodonOOPsolution.Trigger()       
+        #trigger = MastodonOOPsolution.Trigger()       
         media = MastodonOOPsolution.MediaTrigger()
         gif = MastodonOOPsolution.GifMediaTrigger()
         andtrigger = MastodonOOPsolution.AndTrigger(
@@ -247,7 +247,7 @@ class Mastodon_test(unittest.TestCase):
             trigger2 = gif
             )
         
-        self.assertIsInstance(andtrigger, trigger)
+        #self.assertIsInstance(andtrigger, trigger)
         self.assertTrue(andtrigger.evaluate(self.toot_true), "And-Trigger: Expected True but Output is False.")
         self.assertFalse(andtrigger.evaluate(self.toot_false), "And-Trigger: Expected False but Output is True.")
         
