@@ -44,7 +44,11 @@ def test_API():
 @check50.check()
 def test_Toot():
     """testToot"""
-    check50.run("python3 -m unittest test.Mastodon_test.test_Toot").exit(0)
+    true, _ = import_toots()
+    for attr in ["content", "account", "toot_id", "user_id", "hashtags", "bookmark", "no_replies", "url", "count_replies", "pubdate", "mentions", "media", "language", "poll"]:
+        if not hasattr(true, attr):
+            raise check50.Failure("Your Toot-Class does not correctly work, check again if you are missing one or more attributes")
+    #check50.run("python3 -m unittest test.Mastodon_test.test_Toot").exit(0)
 
 
 @check50.check()
