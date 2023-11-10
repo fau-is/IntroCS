@@ -134,8 +134,10 @@ class Mastodon_test(unittest.TestCase):
         self.assertFalse(media.evaluate(self.toot_false), "Media-Trigger: Expected False but Output is True.")
             
     def test_ImageMediaTrigger(self):
+        media = MastodonOOPsolution.MediaTrigger()
         video = MastodonOOPsolution.ImageMediaTrigger()
         
+        self.assertIsInstance(video, media, "The filter does not inherit from MediaTrigger")
         self.assertTrue(video.evaluate(self.toot_true), "Image-Media-Trigger: Expected True but Output is False.")
         self.assertFalse(video.evaluate(self.toot_false), "Image-Media-Trigger: Expected False but Output is True.")
 
