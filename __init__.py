@@ -1,5 +1,6 @@
 import check50
 import check50.py
+from mastodon import Mastodon
 
 def import_toots():
     toots = check50.py.import_("toots.py")
@@ -27,10 +28,12 @@ def mastodonOOP_exists():
 @check50.check()
 def test_API():
     """testAPI"""
-    result = check50.run("python3 -m unittest test.Mastodon_test.test_API")
-    if result == :
+    Masto = import_mastodon()
+    if not isinstance(Masto.mastodon, Mastodon):
         raise check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!")
-    #output = check50.run("python3 -m unittest test.Mastodon_test.test_API")
+    
+        
+    # IsInstance(MastodonOOPsolution.mastodon, Mastodon, "Your API-Initiation does not correctly work, check again if you are missing anything!")    #output = check50.run("python3 -m unittest test.Mastodon_test.test_API")
     #failed = "Your API-Initiation does not correctly work, check again if you are missing anything!"
     # result = check50.run("python3 -m unittest test.Mastodon_test.tets_API")
     # if not result:
