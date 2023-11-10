@@ -136,7 +136,7 @@ def test_MediaTrigger():
     try:
         check50.run("python3 -m unittest test.Mastodon_test.test_MediaTrigger").exit(0)
     except:
-        raise check50.Mismatch("MediaTrigger works not accordingly.x")
+        raise check50.Failure("MediaTrigger works not accordingly.x")
    # else:
         
 
