@@ -10,9 +10,25 @@ def import_mastodon():
         raise check50.Failure("Mastodon Import failed")
     return mastodon
 
+class Toot:
+    def __init__(self, content, account, user_id, hashtags, bookmark, no_replies, url, toot_id, count_replies, pubdate, mentions, media, language, poll):
+        self.content = content
+        self.account = account
+        self.user_id = user_id
+        self.hashtags = hashtags
+        self.bookmark = bookmark
+        self.no_replies = no_replies
+        self.url = url
+        self.toot_id = toot_id
+        self.count_replies = count_replies
+        self.pubdate = pubdate
+        self.mentions = mentions
+        self.media = media
+        self.language = language
+        self.poll = poll
+
 def import_toots():
-    Masto = import_mastodon()
-    toot_true = Masto.Toot (
+    toot_true =Toot(
             account = [{"id": 123, "username": "Marco"}],
             toot_id = True,
             content = '<p>Hello from Python, dog</p>',
@@ -34,7 +50,7 @@ def import_toots():
             poll = True        
         )
 
-    toot_false = Masto.Toot (
+    toot_false =Toot(
             account = '',
             toot_id = '',
             content = 'sun',
