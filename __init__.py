@@ -1,6 +1,17 @@
 import check50
 import check50.py
 
+def import_toots():
+    toots = check50.py.import_("toots.py")
+    if toots is None:
+        raise check50.Failure("Toot Import failed")
+    return toots.toot_true, toots.toot_false
+
+def import_mastodon():
+    mastodon = check50.py.import_("MastodonOOP.py")
+    if mastodon is None:
+        raise check50.Failure("Mastodon Import failed")
+    return mastodon
 
 @check50.check()
 def test_file_exists():
@@ -17,7 +28,7 @@ def mastodonOOP_exists():
 def test_API():
     """testAPI"""
     result = check50.run("python3 -m unittest test.Mastodon_test.test_API")
-    if result == 1:
+    if result == :
         raise check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!")
     #output = check50.run("python3 -m unittest test.Mastodon_test.test_API")
     #failed = "Your API-Initiation does not correctly work, check again if you are missing anything!"
