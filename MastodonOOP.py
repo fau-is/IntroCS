@@ -226,7 +226,7 @@ def load_to_workbook(dictionary, workbook):
     
     # Choose the existing worksheet you want to write data into
 
-    # Get the data in 'probe' list and write it to the existing worksheet
+    # Get the data from the list and write it to the existing worksheet
 
     # Save the modified workbook
     pass
