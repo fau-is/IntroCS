@@ -18,6 +18,31 @@ int main(int argc, string argv[])
     {
         arr[i - 1] = atoi(argv[i]);
     }
-    // TODO
+
+    bool swap = true;
+    int red = 1;
+
+    while (swap)
+    {
+        swap = false;
+        for (int i = 0; i < arr_len - red; i++)
+        {
+            if (arr[i] > arr[i + 1])
+            {
+                swap = true;
+                int tmp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = tmp;
+            }
+        }
+        red++;
+    }
+    for (int i = 0; i < arr_len; i++)
+    {
+        printf("%i ", arr[i]);
+    }
+    printf("\n");
+
+        // TODO
 
 }
