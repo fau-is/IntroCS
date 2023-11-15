@@ -3,7 +3,6 @@
 
 #define N 11
 
-
 int main(void)
 {
     int table[N][N];
