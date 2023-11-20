@@ -13,6 +13,11 @@ def test_file_exists():
 def mastodonOOP_exists():
     """MastodonOOP.py exists"""
     check50.exists("MastodonOOP.py")
+    
+@check50.check()
+def group_members_exists():
+    """group_members exists"""
+    check50.exists("group_members.txt")
 
 @check50.check()
 def test_API():
