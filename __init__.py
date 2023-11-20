@@ -16,7 +16,7 @@ def mastodonOOP_exists():
     
 @check50.check()
 def group_members_exists():
-    """group_members exists"""
+    """group_members.txt exists"""
     check50.exists("group_members.txt")
 
 @check50.check()
