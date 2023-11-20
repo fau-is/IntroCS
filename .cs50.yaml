@@ -7,7 +7,7 @@ submit50:
     - !exclude "*"
     - !require test.py
     - !require MastodonOOP.py
-    - !require group_members.text
+    - !require group_members.txt
 check50:
   dependencies:
     - beautifulsoup4
@@ -17,5 +17,5 @@ check50:
     - !exclude "*"
     - !require test.py
     - !require MastodonOOP.py
-    - !require group_members.text
+    - !require group_members.txt
 
