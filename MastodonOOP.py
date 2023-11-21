@@ -16,7 +16,10 @@ from bs4 import BeautifulSoup
 # Problem 0
 
 mastodon = Mastodon(
-
+    client_id= "",
+    client_secret= "",
+    access_token= "",
+    api_base_url= ""
 )
 
 
