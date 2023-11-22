@@ -18,5 +18,23 @@ int main(void)
 // "Hello " "World" => "Hello World"
 char *concatenate(char *s1, char *s2)
 {
-    return "";
+    int size = strlen(s1) + strlen(s2) + 1;
+
+    char *p = malloc(size * sizeof(char));
+
+    if (p == NULL)
+    {
+        return "";
+    }
+
+    for (int i = 0, j = strlen(s1); i < j; i++)
+        p[i] = s1[i];
+
+    for (int i = 0, j = strlen(s1); j < size - 1; i++, j++)
+        p[j] = s2[i];
+
+    p[size] = '\0';
+
+
+    return p;
 }

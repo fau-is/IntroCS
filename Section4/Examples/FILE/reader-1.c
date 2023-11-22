@@ -24,13 +24,13 @@ int main(int argc, char **argv)
     while(!feof(file))
     {
         char buffer[500];
-        int len = fread(buffer, 1, 500, file);
+        int len = fread(buffer, sizeof(char), 500, file);
         if (len < 1)
             break;
         // buffer[len-1] = '\0';
         printf("%s", buffer);
     }
-    
+
     fclose(file);
     printf("\n");
 }

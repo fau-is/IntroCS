@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
         }
         printf("%c", c);
     }
-    
+
     fclose(file);
     printf("\n");
 }
