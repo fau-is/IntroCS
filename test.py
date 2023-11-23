@@ -13,7 +13,6 @@ class Mastodon_api(unittest.TestCase):
         self.assertIsInstance(MastodonOOPsolution.mastodon, Mastodon, "Your API-Initiation does not correctly work, check again if you are missing anything!")
 
     
-    
 class Mastodon_test(unittest.TestCase):
     
     def setUp(self):
@@ -70,11 +69,12 @@ class Mastodon_test(unittest.TestCase):
         toots_dict = []
         hashtag = "Moin"
         mastodon = Mastodon(
-            client_id="SOXp3afnWgFJrQf2_UIlqgPva--ZhdBZHS9fyik8Rvg",
-            client_secret="HW8bhQJlzAx1eGmLGUvK-qxi4ej8QRDylPFro0El6To",
-            access_token="eJpW5z5P82AYIHSzcd6oeHEPaSrP4SMGYn_nxoICLEE",
-            api_base_url="https://mastodon.social"
+            client_id=MastodonOOPsolution.mastodon.client_id,
+            client_secret=MastodonOOPsolution.mastodon.client_secret,
+            access_token=MastodonOOPsolution.mastodon.access_token,
+            api_base_url=MastodonOOPsolution.mastodon.api_base_url
         )
+        
         # Load all toots with a specific hashtag into a dictionary, limit to 10 toots
         toots = mastodon.timeline_hashtag(hashtag, limit=10)
         result = MastodonOOPsolution.load(hashtag)
