@@ -6,6 +6,14 @@ import openpyxl
 import os
 import datetime
 
+
+class Mastodon_api(unittest.TestCase):
+    
+    def test_API(self):
+        self.assertIsInstance(MastodonOOPsolution.mastodon, Mastodon, "Your API-Initiation does not correctly work, check again if you are missing anything!")
+
+    
+    
 class Mastodon_test(unittest.TestCase):
     
     def setUp(self):
@@ -54,9 +62,6 @@ class Mastodon_test(unittest.TestCase):
     
     def tearDown(self):
         pass
-
-    def test_API(self):
-        self.assertIsInstance(MastodonOOPsolution.mastodon, Mastodon, "Your API-Initiation does not correctly work, check again if you are missing anything!")
 
     def test_Toot(self):        
         assert all(hasattr(self.toot_true, attr) for attr in ["content", "account", "toot_id", "user_id", "hashtags", "bookmark", "no_replies", "url", "count_replies", "pubdate", "mentions", "media", "language", "poll"]), "Your Toot-Class does not correctly work, check again if you are missing one or more attributes!"

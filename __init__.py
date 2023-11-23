@@ -23,7 +23,7 @@ def group_members_exists():
 def test_API():
     """testAPI"""
     try:
-        check50.run("python3 -m unittest test.Mastodon_test.test_API").exit(0)
+        check50.run("python3 -m unittest test.Mastodon_api.test_API").exit(0)
     except:
         raise check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!")
 
