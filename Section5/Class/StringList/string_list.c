@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -54,15 +55,20 @@ int main(int argc, char **argv)
 node *create(char *value)
 {
     node *n = malloc(sizeof(node));
-    node->value = malloc(strlen(value));
-    strcpy(value, node->value);
-
     if (n == NULL)
     {
         return NULL;
     }
 
-    n->value = value;
+    n->value = malloc(strlen(value));
+    if (n->value == NULL)
+    {
+        free(n);
+        return NULL;
+    }
+
+    strcpy(n->value, value);
+
     n->next = NULL;
 
     return n;
