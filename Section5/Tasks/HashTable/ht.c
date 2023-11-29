@@ -56,11 +56,11 @@ void find(char *word)
 {
     int bucket = hash_function(word);
     int counter = 0;
-    while(hashtable[bucket]==NULL || strcmp(hashtable[bucket], word) != 0)
+    while(hashtable[bucket] == NULL || strcmp(hashtable[bucket], word) != 0)
     {
         bucket = (bucket + 1) % 15;
         counter++;
-        if (counter > 14)
+        if (counter > 15)
         {
             printf("Not found\n");
             return;

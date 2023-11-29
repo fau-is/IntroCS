@@ -34,21 +34,21 @@ int main(int argc, char **argv)
     }
 
     int i;
-    node *list;
+    node *list = NULL;
 
     while(fscanf(f, "%i", &i) == 1)
     {
         list = add(list, i);
         if (list == NULL)
         {
+            delete(list);
             break;
         }
     }
-
     fclose(f);
-    // print_list(list);
+    print_list(list);
     printf("%i numbers were read.\n", size(list));
-    // delete(list);
+    delete(list);
 }
 
 node *create(int value)

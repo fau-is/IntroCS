@@ -38,6 +38,7 @@ int main(int argc, char **argv)
 
     while(fscanf(f, "%i", &i) == 1)
     {
+        printf("%i\n", i);
         list = add(list, i);
         if (list == NULL)
         {
