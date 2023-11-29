@@ -67,19 +67,8 @@ node *create(int value)
 
 node *add(node *list, int value)
 {
-    node *new = create(value);
-
-    if (new == NULL)
-        return list;
-    if (list == NULL)
-    {
-        return new;
-    }
-    else
-    {
-        new->next = list;
-    }
-    return new;
+    // TODO
+    return NULL;
 }
 
 
@@ -90,22 +79,13 @@ bool find(node *list, int value)
 
 void delete(node *list)
 {
-    if (list != NULL)
-    {
-        delete(list->next);
-        free(list);
-    }
-    return;
+    // TODO
 }
 
 int size(node *list)
 {
-    int size = 0;
-    for (node *cursor = list; cursor != NULL; cursor = cursor->next)
-    {
-        size++;
-    }
-    return size;
+    // TODO
+    return -1;
 }
 
 

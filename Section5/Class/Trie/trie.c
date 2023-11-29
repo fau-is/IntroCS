@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    char *word = "Lorem";
+    char *word = "Hello";
 
     if(find(trie, word, strlen(word), 0))
         printf("Works\n");
