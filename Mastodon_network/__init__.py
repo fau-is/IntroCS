@@ -202,16 +202,16 @@ def test_most_influential_single_path():
 
 @check50.check(test_most_influential_single_path)
 def test_equally_influential_users_two_winners():
-    """Users 2 and 3 identified as the most influential with the shortest equal lengths"""
+    """Multiple users identified as the most influential with the shortest equal lengths"""
     _, Graph = import_graph()
     graph = Graph()
     graph.add_edge("User1", "User2")
     graph.add_edge("User1", "User3")
-    graph.add_edge("User2", "User3")  # User2 and User3 are connected to each other
+    graph.add_edge("User2", "User3")
     graph.add_edge("User2", "User4")
     graph.add_edge("User3", "User4")
-    graph.add_edge("User1", "User5")  # Additional user connected only to User1
-    graph.add_edge("User4", "User5")  # Additional user connected only to User4
+    graph.add_edge("User2", "User5")
+    graph.add_edge("User3", "User5")
 
     influential_users = graph.most_influential()
 
