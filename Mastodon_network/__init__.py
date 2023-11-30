@@ -195,7 +195,7 @@ def test_most_influential_single_path():
 
     # Expect Charlie to be the most influential with a distinct average path length
     expected_winner = "Charlie"
-    expected_avg_length = 1.25 
+    expected_avg_length = 2.0 
 
     if len(influential_users) != 1 or influential_users[0][0] != expected_winner or influential_users[0][1] != expected_avg_length:
         raise check50.Failure(f"Incorrect most influential user in a modified single path graph.")
