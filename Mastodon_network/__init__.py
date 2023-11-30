@@ -200,34 +200,48 @@ def test_most_influential_single_path():
     if len(influential_users) != 1 or influential_users[0][0] != expected_winner or influential_users[0][1] != expected_avg_length:
         raise check50.Failure(f"Incorrect most influential user in a modified single path graph.")
 
-
 @check50.check(test_most_influential_single_path)
-def test_most_influential_star_graph():
-    """Most influential user in a star graph correctly identified"""
-    _, Graph = import_graph()
-    graph = Graph()
-    graph.add_edge("Center", "Node1")
-    graph.add_edge("Center", "Node2")
-    graph.add_edge("Center", "Node3")
-
-    influential_users = graph.most_influential()
-    expected_users = [("Center", 1.0)]  # Center is the only most influential user
-    if influential_users != expected_users:
-        raise check50.Failure("Incorrect most influential user in a star graph.")
-
-@check50.check(test_most_influential_single_path)
-def test_equally_influential_users():
-    """Multiple equally influential users correctly identified"""
+def test_equally_influential_users_two_winners():
+    """Users 2 and 3 identified as the most influential with the shortest equal lengths"""
     _, Graph = import_graph()
     graph = Graph()
     graph.add_edge("User1", "User2")
-    graph.add_edge("User2", "User3")
-    graph.add_edge("User3", "User1")  # Creating a cycle
+    graph.add_edge("User1", "User3")
+    graph.add_edge("User2", "User3")  # User2 and User3 are connected to each other
+    graph.add_edge("User2", "User4")
+    graph.add_edge("User3", "User4")
+    graph.add_edge("User1", "User5")  # Additional user connected only to User1
+    graph.add_edge("User4", "User5")  # Additional user connected only to User4
 
     influential_users = graph.most_influential()
-    expected_users = [("User1", 1.5), ("User2", 1.5), ("User3", 1.5)]  # All users are equally influential
-    if influential_users != expected_users:
-        raise check50.Failure("Incorrect identification of equally influential users.")
+
+    # Expect User2 and User3 to be the most influential
+    expected_users = [("User2", 2.0), ("User3", 2.0)]
+    if not all(user in influential_users for user in expected_users) or len(influential_users) != len(expected_users):
+        raise check50.Failure("Incorrect identification of two most influential users.")
+
+@check50.check(test_equally_influential_users_two_winners)
+def test_influential_users_with_separate_component():
+    """Identifies all equally influential users in a graph with separate components"""
+    _, Graph = import_graph()
+    graph = Graph()
+    graph.add_edge("User1", "User2")
+    graph.add_edge("User1", "User3")
+    graph.add_edge("User4", "User1")
+    graph.add_edge("User4", "User2")
+    graph.add_edge("User4", "User3")
+    # Disconnected component
+    graph.add_edge("User5", "User6")
+
+    influential_users = graph.most_influential()
+
+    # Expect User4, User5, and User6 to be the most influential
+    expected_users = [("User4", 2.0), ("User5", 2.0), ("User6", 2.0)]
+    if not all(user in influential_users for user in expected_users) or len(influential_users) != len(expected_users):
+        raise check50.Failure("Incorrect identification of equally influential users in a graph with separate components.")
+
+
+
 
 
 def setup_graph_girvan_newman(Graph):
