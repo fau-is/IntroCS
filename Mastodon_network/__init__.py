@@ -181,6 +181,64 @@ def shortest_path_direct():
         raise check50.Failure("Shortest path between 'Alice' and 'Eve' is incorrect.")
 
 
+@check50.check(shortest_path_direct)
+def test_most_influential_single_path():
+    """Most influential user in a modified single path graph correctly identified"""
+    _, Graph = import_graph()
+    graph = Graph()
+    graph.add_edge("Alice", "Bob")
+    graph.add_edge("Bob", "Charlie")
+    graph.add_edge("Charlie", "David")
+    graph.add_edge("Alice", "Charlie")
+
+    influential_users = graph.most_influential()
+
+    # Expect Charlie to be the most influential with a distinct average path length
+    expected_winner = "Charlie"
+    expected_avg_length = 2.0 
+
+    if len(influential_users) != 1 or influential_users[0][0] != expected_winner or influential_users[0][1] != expected_avg_length:
+        raise check50.Failure(f"Incorrect most influential user in a modified single path graph.")
+
+@check50.check(test_most_influential_single_path)
+def test_equally_influential_users_two_winners():
+    """Multiple users identified as the most influential with the shortest equal lengths"""
+    _, Graph = import_graph()
+    graph = Graph()
+    graph.add_edge("User1", "User2")
+    graph.add_edge("User1", "User3")
+    graph.add_edge("User2", "User3")
+    graph.add_edge("User2", "User4")
+    graph.add_edge("User3", "User4")
+    graph.add_edge("User2", "User5")
+    graph.add_edge("User3", "User5")
+
+    influential_users = graph.most_influential()
+
+    expected_users = [("User2", 2.0), ("User3", 2.0)]
+    if not all(user in influential_users for user in expected_users) or len(influential_users) != len(expected_users):
+        raise check50.Failure("Incorrect identification of two most influential users.")
+
+@check50.check(test_equally_influential_users_two_winners)
+def test_influential_users_with_separate_component():
+    """Identifies all equally influential users in a graph with separated clusters"""
+    _, Graph = import_graph()
+    graph = Graph()
+    graph.add_edge("User4", "User1")
+    graph.add_edge("User4", "User2")
+    graph.add_edge("User4", "User3")
+    # Disconnected component
+    graph.add_edge("User5", "User6")
+
+    influential_users = graph.most_influential()
+
+    expected_users = [("User4", 2.0), ("User5", 2.0), ("User6", 2.0)]
+    if not all(user in influential_users for user in expected_users) or len(influential_users) != len(expected_users):
+        raise check50.Failure("Incorrect identification of equally influential users in a graph with separate components.")
+
+
+
+
 
 def setup_graph_girvan_newman(Graph):
     graph = Graph()
@@ -219,6 +277,7 @@ def _test_subgraphs(graph, result):
     for user in graph.keys():
         if users_all.count(user) != 1:
             raise check50.Failure(f"User {user} is not unique across the subgraphs.")
+
 
 @check50.check(test_get_communities)
 def test_compute_sps():

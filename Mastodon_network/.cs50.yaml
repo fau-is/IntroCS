@@ -1,8 +1,12 @@
 submit50:
+  dependencies:
+    - graphviz
   files:
     - !exclude "*"
     - !require "graph.py"
 check50:
+  dependencies:
+    - graphviz
   files:
     - !exclude "*"
     - !require "graph.py"
