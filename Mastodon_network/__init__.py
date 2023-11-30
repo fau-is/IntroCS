@@ -215,18 +215,15 @@ def test_equally_influential_users_two_winners():
 
     influential_users = graph.most_influential()
 
-    # Expect User2 and User3 to be the most influential
     expected_users = [("User2", 2.0), ("User3", 2.0)]
     if not all(user in influential_users for user in expected_users) or len(influential_users) != len(expected_users):
         raise check50.Failure("Incorrect identification of two most influential users.")
 
 @check50.check(test_equally_influential_users_two_winners)
 def test_influential_users_with_separate_component():
-    """Identifies all equally influential users in a graph with separate components"""
+    """Identifies all equally influential users in a graph with separated clusters"""
     _, Graph = import_graph()
     graph = Graph()
-    graph.add_edge("User1", "User2")
-    graph.add_edge("User1", "User3")
     graph.add_edge("User4", "User1")
     graph.add_edge("User4", "User2")
     graph.add_edge("User4", "User3")
@@ -235,7 +232,6 @@ def test_influential_users_with_separate_component():
 
     influential_users = graph.most_influential()
 
-    # Expect User4, User5, and User6 to be the most influential
     expected_users = [("User4", 2.0), ("User5", 2.0), ("User6", 2.0)]
     if not all(user in influential_users for user in expected_users) or len(influential_users) != len(expected_users):
         raise check50.Failure("Incorrect identification of equally influential users in a graph with separate components.")
