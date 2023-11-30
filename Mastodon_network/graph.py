@@ -113,13 +113,13 @@ class Graph(dict):
         """
         pass
 
-    def most_influential(self) -> Tuple[str, float]:
+    def most_influential(self) -> List[Tuple[str, float]]:
         """
-        Identifies the most influential user based on average shortest path length.
+        Identifies the most influential users based on average shortest path length.
 
         Returns:
         ----------
-        Tuple containing the most influential user and its average shortest path length.
+        List of tuples containing the most influential users and their average shortest path length.
         """
         # Initialize a matrix to store shortest paths between nodes with 'None' values
 
@@ -127,7 +127,8 @@ class Graph(dict):
 
         # Calculate the average shortest path length for each node
 
-        # Identify the most influential node based on minimum average shortest path length and return both
+        # Identify the most influential nodes based on minimum average shortest path length and return one list of
+        # properties for each most influential node
 
 
     def edge_in_sp(self, pair: Tuple[str, str], sp: List[str]) -> bool:
@@ -258,7 +259,4 @@ class Graph(dict):
                 graph.edge(str(node), str(target))
 
         # Render the graph and create a PNG file
-        graph.render()
-
-        # Remove temporary files if needed
-        os.remove('')
+        graph.render('network_visualisation/network_display', view=False, format='png')

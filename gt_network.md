@@ -105,7 +105,7 @@ as the target. **Important**: You should sort your edges alphabetically when add
 ### remove_edge()
 
 We need this method to delete the connections between our users, i.e. the vertices in our network. This method will play a significant role when we detect communities in our network. 
-This method should be designed analogous to the _add_vertex()_ funtion. It receives two parameters while the order of the parameters does not matter.
+This method should be designed analogous to the _add_edge()_ funtion. It receives two parameters while the order of the parameters does not matter.
 
 ### remove_vertex()
 
@@ -113,18 +113,12 @@ Like for edges we also need a method that removes a vertex from the graph. Make 
 
 **Hint: You can now check the correct implementation of the add- and remove-functions by using the check50 command in your terminal:**
 ~~~
-check50 fau-is/IntroCS/PyGraphsTrees/Network
+check50 fau-is/IntroCS/Mastodon_GT/Mastodon_network
 ~~~
 **With these four methods we are now able to populate the graph with our provided network in the json format. Exercise 1.1 in network_analysis.py should run properly and generate a png file of the Mastodon network.**
 
 ## 2. Network Connectivity (DFS)
 
-**Social-Network-Analysis:** Using the DFS algorithm we want to determine how many "sub"-networks exists in our graph. As we deal with a personal network
-of an individual Mastodon user, we can thereby answer the question if that user is part of one big community or connects separate subnetworks (networks that are not connected with each other).
-
-Implement the get_subgraphs() method that finds disconnected subgraphs (clusters) in the graph. This method should return a list of subgraphs, where each subgraph is a list of vertices that can be reached from each other.
-If there exists no detached vertex or subgraph than the returned list only includes one list of all vertices present in the graph.
-For the implementation of this method you will first need to implement the following dfs()-method.
 
 ### Depht-First-Search (DFS)
 
@@ -138,6 +132,24 @@ For our example, if we started our pre-order DFS at _Mark_, the returned list �
 ~~~
 ['Mark', 'Elon', 'Adam', 'Jack', 'Sundar', 'Emanuel', 'Joe', 'Olaf', 'Rishi', 'Marissa', 'Tim']
 ~~~
+
+**Sub-Networks: Identifying Disconnected Clusters**
+
+In this section, your task is to use the Depth-First Search (DFS) algorithm to figure out how many separate "sub-networks"
+or clusters are in our graph. These sub-networks represent groups of vertices that are connected to each other but not to
+vertices in other sub-networks. This is important in understanding whether a Mastodon user's network forms one large interconnected community or consists of several smaller, isolated groups.
+
+Your task is to write the get_subgraphs() method. This method should identify and return all the disconnected clusters within the graph.
+Each cluster (or sub-network) is represented as a list of vertices that are connected to each other.
+If the graph is fully connected (meaning there are no isolated clusters), your method should return a list containing
+just one item, which is a list of all vertices in the graph.
+
+To achieve this, you'll first need to implement a DFS method as described earlier. Then, using this DFS method, you can
+explore the graph from each vertex that hasn't been visited yet, finding all vertices that are part of the same cluster.
+Each time you find a new cluster, add it to your list of subgraphs. This way, you'll end up with a list of all the separate 
+clusters in the graph.
+
+Hint: We recommend using the python's set() built-in.
 
 
 ### BFS
@@ -153,21 +165,6 @@ So take once again our starting point _Mark_ and the end vertex _Jack_ the short
 ['Mark', 'Sundar', 'Jack']
 ~~~
 
-### Djikstra (needs yet a use case, weighted user network regarding no of overlapping friends? Or regarding mean_time_to_next_login)
-
-Djikstra’s algorithm allows us to calculate the shortest path between one vertex or router and any other vertex in our graph. Let us look at how the algorithm works in general.
-1. For Djikstra to work, we mark our initial vertex, the one we are starting from, with a current distance of 0. The rest of the vertices are assigned distance infinity. For simplicity sakes, you can also set a value such as 9999; this suffices in our case.  
-2. We now set the non-visited vertex with the smallest current distance as the current vertex X. 
-3. For each neighbor N of our current vertex X, we add the current distance of our current vertex together with the weight of the edge between N and X. If the weight is smaller than the current distance to N, we set the weight as the new current distance of N. 
-4. We need to mark our current vertex X as visited. 
-5. If we have vertices left that are not yet visited, we go back to step ‘2’ and repeat. 
-
-Watch this [video](https://www.youtube.com/watch?v=GazC3A4OQTE&t=362s) by Computerphile with Dr. Mike Pound of the Computer Science Department at the University of Nottingham to understand Dijkstra’s algorithm. 
-
-Now how should Djikstra work in our graph? We want your Djikstra implementation to take a ‘start’ point and an ‘end’ point. The method should then return a tuple(x, y) with x being the shortest distance between ‘start’ and ‘end’ and y being the path you need to take from ‘start’ to ‘end’ shortest. Take as an example ‘facebook.com’ and ‘reddit.com’, which are farthest apart from one another in terms of relative distance. The return of your program should look like this:
-~~~
-(3, [‘facebook.com’, ‘twitter.com’, ‘instagram.com’, ‘reddit.com’])
-~~~
 
 ### Most influential user
 Next we want to identify the most influential user in a network. There are many interpretations of influential and even more techniques to calculate them. In this task we determine the degree of influence based on a "Closeness" measure.

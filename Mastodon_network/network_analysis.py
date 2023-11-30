@@ -1,4 +1,4 @@
-from solutions.graph_sol import Graph
+from graph import Graph
 
 
 def print_banner(text: str, symbol: str = "="):
@@ -42,12 +42,14 @@ if __name__ == "__main__":
     else:
         print(f"There exists no connection between {user1} and {user2}.\n")
 
+    # ---- Exercise 1.4: Find the most influential users ----
+    print_banner("Exercise 1.4: Most Influential Users (Closeness)", "-")
 
-    # ---- Exercise 1.4: Find the most influential user ----
-    print_banner("Exercise 1.4: Most Influential User (Closeness)", "-")
-
-    mip, min_avg_length = g.most_influential()
-    print(f"{mip} is the most influential person in the Mastodon_network with an avg shortest path length of {min_avg_length} to all other users.\n")
+    most_influential_users = g.most_influential()
+    print("The most influential users in the mastodon_network are:")
+    for user, avg_length in most_influential_users:
+        print(f"- {user}, with an average shortest path length of {avg_length} to all other users.")
+    print()
     # Optionally: let self.most_influential() print out the average length of all average shortest path lengths.
 
     # ---- Exercise 1.5: Detect communities within the Mastodon_network ----
