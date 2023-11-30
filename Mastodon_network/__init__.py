@@ -180,19 +180,26 @@ def shortest_path_direct():
     if path != ["Alice", "Eve"]:
         raise check50.Failure("Shortest path between 'Alice' and 'Eve' is incorrect.")
 
+
 @check50.check(shortest_path_direct)
-def test_most_influential_single_path():
-    """Most influential user(s) in a single path graph correctly identified"""
+def test_most_influential_single_path_one_winner():
+    """Most influential user in a modified single path graph correctly identified"""
     _, Graph = import_graph()
     graph = Graph()
     graph.add_edge("Alice", "Bob")
     graph.add_edge("Bob", "Charlie")
     graph.add_edge("Charlie", "David")
+    graph.add_edge("Alice", "Charlie")
 
     influential_users = graph.most_influential()
-    expected_users = [("Bob", 1.33), ("Charlie", 1.33)]  # Adjusted expected result
-    if influential_users != expected_users:
-        raise check50.Failure("Incorrect most influential users in a single path graph.")
+
+    # Expect Charlie to be the most influential with a distinct average path length
+    expected_winner = "Charlie"
+    expected_avg_length = 1.25 
+
+    if len(influential_users) != 1 or influential_users[0][0] != expected_winner or not math.isclose(influential_users[0][1], expected_avg_length, rel_tol=1e-2):
+        raise check50.Failure(f"Incorrect most influential user in a modified single path graph.")
+
 
 @check50.check(test_most_influential_single_path)
 def test_most_influential_star_graph():
