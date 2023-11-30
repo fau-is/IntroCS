@@ -182,7 +182,7 @@ def shortest_path_direct():
 
 
 @check50.check(shortest_path_direct)
-def test_most_influential_single_path_one_winner():
+def test_most_influential_single_path():
     """Most influential user in a modified single path graph correctly identified"""
     _, Graph = import_graph()
     graph = Graph()
