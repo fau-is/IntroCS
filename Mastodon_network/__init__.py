@@ -180,6 +180,35 @@ def shortest_path_direct():
     if path != ["Alice", "Eve"]:
         raise check50.Failure("Shortest path between 'Alice' and 'Eve' is incorrect.")
 
+@check50.check(shortest_path_direct)
+def test_most_influential_single_path():
+    """Most influential user in a single path graph correctly identified"""
+    _, Graph = import_graph()
+    graph = Graph()
+    graph.add_edge("Alice", "Bob")
+    graph.add_edge("Bob", "Charlie")
+    graph.add_edge("Charlie", "David")
+
+    influential_user, avg_length = graph.most_influential()
+    if influential_user != "Bob":
+        raise check50.Failure("Incorrect most influential user in a single path graph.")
+    if avg_length != 2.0:
+        raise check50.Failure("Incorrect average shortest path length for most influential user.")
+
+@check50.check(test_most_influential_single_path)
+def test_most_influential_star_graph():
+    """Most influential user in a star graph correctly identified"""
+    _, Graph = import_graph()
+    graph = Graph()
+    graph.add_edge("Center", "Node1")
+    graph.add_edge("Center", "Node2")
+    graph.add_edge("Center", "Node3")
+
+    influential_user, avg_length = graph.most_influential()
+    if influential_user != "Center":
+        raise check50.Failure("Incorrect most influential user in a star graph.")
+    if avg_length != 1.0:
+        raise check50.Failure("Incorrect average shortest path length for most influential user.")
 
 
 def setup_graph_girvan_newman(Graph):
@@ -219,36 +248,6 @@ def _test_subgraphs(graph, result):
     for user in graph.keys():
         if users_all.count(user) != 1:
             raise check50.Failure(f"User {user} is not unique across the subgraphs.")
-
-@check50.check(most_influential)
-def test_most_influential_single_path():
-    """Most influential user in a single path graph correctly identified"""
-    _, Graph = import_graph()
-    graph = Graph()
-    graph.add_edge("Alice", "Bob")
-    graph.add_edge("Bob", "Charlie")
-    graph.add_edge("Charlie", "David")
-
-    influential_user, avg_length = graph.most_influential()
-    if influential_user != "Bob":
-        raise check50.Failure("Incorrect most influential user in a single path graph.")
-    if avg_length != 2.0:
-        raise check50.Failure("Incorrect average shortest path length for most influential user.")
-
-@check50.check(most_influential)
-def test_most_influential_star_graph():
-    """Most influential user in a star graph correctly identified"""
-    _, Graph = import_graph()
-    graph = Graph()
-    graph.add_edge("Center", "Node1")
-    graph.add_edge("Center", "Node2")
-    graph.add_edge("Center", "Node3")
-
-    influential_user, avg_length = graph.most_influential()
-    if influential_user != "Center":
-        raise check50.Failure("Incorrect most influential user in a star graph.")
-    if avg_length != 1.0:
-        raise check50.Failure("Incorrect average shortest path length for most influential user.")
 
 
 @check50.check(test_get_communities)
