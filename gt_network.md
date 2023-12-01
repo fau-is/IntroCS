@@ -42,14 +42,14 @@ execute each of the below
 2. Execute `mkdir Graphs_Trees` to make (i.e., create) a directory called `Graphs_Trees` in
 your home directory.
 3. Execute `cd Graphs_Trees` to change into that directory
-4. Execute `wget introcs.is.rw.fau.de/assets/pdfs/mastodon_network.zip` to download a (compressed)
+4. Execute `wget https://introcs.is.rw.fau.de/assets/pdfs/mastodon_network.zip` to download a (compressed)
 ZIP file with this problem's distribution.
 5. Execute `unzip network.zip` to uncompress that file.
 6. Execute `rm network.zip` followed by `yes` or `y` to delete that ZIP file.
 7. Execute `ls`. You should see this problem's distribution: `graph.py, network_analysis.py and a ressources directory`
 8. In order to run the `network_analysis.py` file you will have to execute the following command first in your command line: `pip3 install graphviz`
 
-**Do not change anything in `network_analysis.py`. This is a script that you can use to test your graph.py implementation. Do also not change anything the ressources directory.**
+**You only have to code in `graph.py`. Do not change anything in the directory `ressources`. You can use `network_analysis.py` to test and debug your graph.py implementation on a real dataset.**
 
 ## Specification
 
@@ -70,6 +70,8 @@ dictionary that somewhat looks like this:
 We divided this exercise into 5 separate logical chapters which together require the implementation of **12 methods** in total. Notice that 2 auxiliary methods are already given to you.
 - **parse_data()**: parses real world data from Mastodon to your graph implementation
 - **show()**: uses the graphviz library to visualizes your graph by creating a png-file. You can always execute this method to check the current state of your graph.
+
+For each function, we added type hints. Type hints in Python are annotations that specify the expected data types of function arguments and return values. For example, in def add_vertex(self, user: object) -> None:, the type hint user: object indicates that the user parameter should be an object, and -> None specifies that the function is not expected to return any value.
 
 Let us now start with the first chapter...
 

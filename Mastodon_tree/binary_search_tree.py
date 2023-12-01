@@ -1,4 +1,4 @@
-from typing import Tuple, List
+from typing import Tuple, List, Union
 
 class BST:
     """
@@ -37,9 +37,8 @@ class BST:
             The username of the added node (vertex).
         """
 
-
     @staticmethod
-    def linear_search(to_find: str) -> Tuple['BST', bool]:
+    def linear_search(to_find: str) -> Union['BST', False]:
         """
         Searches for a node in the BST using a linear approach.
 
@@ -50,14 +49,14 @@ class BST:
 
         Returns:
         -------
-        Tuple[BST, bool]
+        Union[BST, False]
             The found BST node or False if not found.
         """
 
 
 
     @staticmethod
-    def binary_search(root: 'BST', to_find: str) -> Tuple['BST', bool]:
+    def binary_search(root: 'BST', to_find: str) -> Union['BST', False]:
         """
         Searches for a node in the BST using a binary search approach.
 
@@ -70,7 +69,7 @@ class BST:
 
         Returns:
         -------
-        Tuple[BST, bool]
+        Union[BST, False]
             The found BST node or False if not found.
         """
 
