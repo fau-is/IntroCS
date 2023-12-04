@@ -25,7 +25,7 @@ def test_API():
     try:
         check50.run("python3 -m unittest test.Mastodon_api.test_API").exit(0)
     except:
-        raise check50.Failure("Your API-Initiation does not correctly work, check again if you are missing anything!")
+        raise check50.Failure("Your API-Initiation does not work correctly, check again if you are missing anything!")
 
         
 @check50.check()
@@ -42,7 +42,7 @@ def test_load():
     try:
         check50.run("python3 -m unittest test.Mastodon_test.test_load").exit(0)
     except:
-        raise check50.Failure("The download of toots does not work correct.")
+        raise check50.Failure("The download of toots does not work correctly.")
     
 @check50.check()
 def test_GetTextContent():
