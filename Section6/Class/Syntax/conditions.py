@@ -16,6 +16,9 @@ if null is None:
 if s1 == s2:
     print("Strings are equal")
 
+if s3 === s1:
+    print("Strings are exactly the same")
+
 if x > y:
     print(f"{x} is greater than {y}")
 elif x < y:
