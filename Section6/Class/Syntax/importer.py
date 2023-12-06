@@ -1,0 +1,3 @@
+from function import *
+
+main()

@@ -1,9 +1,10 @@
-dictionary = {}
+dictionary = dict()
 
 d = {
     "key":"value",
     5:"value2"
 }
+
 condition = d["key"] == "value"
 
 d[3.3] = "value3"
