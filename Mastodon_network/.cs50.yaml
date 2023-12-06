@@ -4,9 +4,11 @@ submit50:
   files:
     - !exclude "*"
     - !require "graph.py"
+    - !require group_members.txt
 check50:
   dependencies:
     - graphviz
   files:
     - !exclude "*"
     - !require "graph.py"
+    - !require group_members.txt
