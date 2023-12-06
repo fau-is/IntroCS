@@ -4,7 +4,7 @@ def main():
     if len(argv) != 2:
         print(f"Usage: python {argv[0]} filepath")
 
-    with open("numbers.txt", "r") as f:
+    with open(argv[1], "r") as f:
         longest_sequence = ""
         len_longest_sequence = 0
         tmp_sequence = []
