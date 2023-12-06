@@ -38,7 +38,7 @@ class BST:
         """
 
     @staticmethod
-    def linear_search(to_find: str) -> Union['BST', False]:
+    def linear_search(to_find: str) -> Union['BST', bool]:
         """
         Searches for a node in the BST using a linear approach.
 
@@ -49,14 +49,14 @@ class BST:
 
         Returns:
         -------
-        Union[BST, False]
+        Union[BST, bool]
             The found BST node or False if not found.
         """
 
 
 
     @staticmethod
-    def binary_search(root: 'BST', to_find: str) -> Union['BST', False]:
+    def binary_search(root: 'BST', to_find: str) -> Union['BST', bool]:
         """
         Searches for a node in the BST using a binary search approach.
 
@@ -69,7 +69,7 @@ class BST:
 
         Returns:
         -------
-        Union[BST, False]
+        Union[BST, bool]
             The found BST node or False if not found.
         """
 
