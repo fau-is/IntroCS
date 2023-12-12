@@ -19,7 +19,7 @@ class NonFoodItem(Item):
         super().__init__(name, ppp, quantity)
 
     def price(self):
-        return super().price() * 1.16
+        return super().price() * 1.19
 
 class SpecialOfferItem(Item):
     def __init__(self, name, ppp, quantity):
@@ -28,7 +28,7 @@ class SpecialOfferItem(Item):
         super().__init__(name, ppp, quantity)
 
     def price(self):
-        return self.ppp * (self.quantity / 2) * 1.16
+        return (super().price / 2) * 1.19
 
 
 if __name__ == "__main__":
