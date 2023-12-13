@@ -10,11 +10,13 @@ class Name:
 
 
 def main():
+    global_attribute = []
     name_1 = Name("IntroCS")
     name_2 = Name("NewName")
-    print(name_1.attribute)
-    print(name_2.attribute)
-    print(Name.attribute)
+    global_attribute.append(name_1.text)
+    global_attribute.append(name_2.text)
+    print("bad way: ", global_attribute)
+    print("better way: ", Name.attribute)
 
 
 if __name__ == "__main__":
