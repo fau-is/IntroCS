@@ -1,5 +1,8 @@
-person_name = "peter"
-person_order = "pizza"
+
+class customer:
+    def __init__(self, name, order):
+
+        
 
 
 if __name__ == "__main__":
