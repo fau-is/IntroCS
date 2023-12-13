@@ -30,8 +30,8 @@ class Smartphone(Camera, Telephone, Radio):
         elif a == "camera":
             self.take_picture()
 
-    def shut_down(self):
-        print("all shutting down")
+    def take_picture(self):
+        print("Taking a picture with smartphone camera")
 
 
 if __name__ == "__main__":
@@ -39,7 +39,8 @@ if __name__ == "__main__":
     '''
     smart.user_action("call", "+49 911 1234567")
     smart.user_action("radio")
-    smart.user_action("camera")'''
+    '''
+    smart.take_picture()
     smart.shut_down()
 
 
