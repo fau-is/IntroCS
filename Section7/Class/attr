@@ -1,10 +1,12 @@
 
 class customer:
     def __init__(self, name, order):
+        self.name = name
+        self.order = order
 
-        
 
 
 if __name__ == "__main__":
-    print(person_name)
+    customer1 = customer("peter", "pizza")
+    print(customer1.name)
 
