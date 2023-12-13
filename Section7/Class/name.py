@@ -4,7 +4,8 @@ class Name:
     # Special Method: Constructor
     def __init__(self, params):
         self.something = params
-        Name.attribute.append(self)
+        Name.attribute.append(1)
+        self.attribute.append(1)
 
     # Method
     def method_name(self):
