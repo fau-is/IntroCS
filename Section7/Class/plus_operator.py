@@ -9,6 +9,8 @@ class person:
         if type(person) is type(self):
             return self.__name + person.get_name()
 
+    def __mul__(sel)
+
 
 if __name__ == "__main__":
     a1 = ["list1"]
