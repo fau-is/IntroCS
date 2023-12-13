@@ -16,7 +16,7 @@ class Number():
             self.__value = a
 
 
-class Math:
+class Math():
     @staticmethod
     def sum(x, y, z=0, a=0, b=0):
         return x + y + z + a + b
@@ -25,7 +25,7 @@ class Math:
     def multiply(x, y):
         return x * y
 
-   
+    @staticmethod
     def divide(x, y):
         return x / y
 
@@ -40,10 +40,11 @@ if __name__ == '__main__':
     # Constructor using a class method
     y = Number.create_from_sum(3, 2)
 
+    math1 = Math()
     # Show Usage of static methods and getter (property) calls
     print(f"Sum: {Math.sum(x.number, y.number)}")
     print(f"Prod: {Math.multiply(x.number, y.number)}")
-    print(f"Div: {Math.divide(x.number, y.number)}")
+    print(f"Div: {math1.divide(x.number, y.number)}")
 
     # Show setter call
     x.number = 5
