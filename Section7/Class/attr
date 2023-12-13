@@ -1,20 +1,21 @@
 
 class customer:
     def __init__(self, name, order):
-        self.name = name
-        self.order = order
+        self.__name = name
+        self.__order = order
 
-    
+    def change_order(self, new_order):
+        self.__order = new_order
 
-
-
+    def display_order(self):
+        return self.__order
 
 
 if __name__ == "__main__":
     customer1 = customer("peter", "pizza")
-    print("order before change: ", customer1.order)
-    customer1.order = "ice-cream"
-    print("order after change: ", customer1.order)
-    customer1.order = 10000
-    print("order after change in a bad way: ", customer1.order)
+    print("order before change: ", customer1.display_order())
+    customer1.change_order("ice-cream")
+    print("order after change: ", customer1.display_order())
+    customer1.change_order(10000)
+    print("order after change in a bad way: ", customer1.display_order())
 
