@@ -1,15 +1,7 @@
-
-
-
-class test_class1():
-    def __init__(self, n=1):
-        self.n = n
-
-    def get_attr(self):
-        return self.attr
+person_name = "peter"
+person_order = "pizza"
 
 
 if __name__ == "__main__":
-    t1 = test_class1(2)
-    t1.get_attr()
+    print(person_name)
 
