@@ -16,7 +16,7 @@ class Number():
             self.__value = a
 
 
-class Math():
+class Math:
     @staticmethod
     def sum(x, y, z=0, a=0, b=0):
         return x + y + z + a + b
@@ -25,7 +25,7 @@ class Math():
     def multiply(x, y):
         return x * y
 
-    @staticmethod
+    #@staticmethod
     def divide(x, y):
         return x / y
 
