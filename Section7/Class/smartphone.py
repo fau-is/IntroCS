@@ -21,7 +21,7 @@ class Telephone(object):
         print("phone shut down")
 
 
-class Smartphone(Telephone, Radio, Camera):
+class Smartphone(Camera, Telephone, Radio):
     def user_action(self, a, n=None):
         if a == "call" and n != None:
             self.call(n)
