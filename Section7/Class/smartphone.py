@@ -30,6 +30,8 @@ class Smartphone(Camera, Telephone, Radio):
         elif a == "camera":
             self.take_picture()
 
+    def sa
+
 
 if __name__ == "__main__":
     smart = Smartphone()
