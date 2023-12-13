@@ -9,7 +9,7 @@ class Item():
 
 class FoodItem(Item):
     def __init__(self, name, ppp, quantity):
-        super.__init__(name, ppp, quantity)
+        super().__init__(name, ppp, quantity)
 
     def price(self):
         return super().price() * 1.07
