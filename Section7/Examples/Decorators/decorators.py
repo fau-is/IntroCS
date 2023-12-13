@@ -26,7 +26,7 @@ class Math:
         return x * y
 
     #@staticmethod
-    def divide(x, y):
+    def divide(self, x, y):
         return x / y
 
     # ...
