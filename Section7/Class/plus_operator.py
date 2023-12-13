@@ -1,3 +1,6 @@
+class person:
+
+
 if __name__ == "__main__":
     a1 = ["list1"]
     a2 = ["list2"]
@@ -13,6 +16,7 @@ if __name__ == "__main__":
     n2 = 2
     n3 = n1 + n2
     print("n3: ", n3)
+
 
     test = s1 + n2
     print("test: ", test)
