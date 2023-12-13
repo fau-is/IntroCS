@@ -25,7 +25,7 @@ class Math:
     def multiply(x, y):
         return x * y
 
-    #@staticmethod
+    @staticmethod
     def divide(x, y):
         return x / y
 
