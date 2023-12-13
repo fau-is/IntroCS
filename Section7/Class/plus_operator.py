@@ -42,4 +42,6 @@ if __name__ == "__main__":
     p2 = person("Marie", 175, 160)
     test = p1 * p2
     print("test: ", test)
+    test = p2 * p1
+    print("test: ", test)
 
