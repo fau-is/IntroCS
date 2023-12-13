@@ -1,4 +1,11 @@
 class person:
+    def __init__(self, name):
+        self.__name = name
+
+    def get_name(self):
+        return self.__name
+
+    def __
 
 
 if __name__ == "__main__":
