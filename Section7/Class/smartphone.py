@@ -2,13 +2,24 @@ class Radio(object):
     def play(self):
         print("Playing a radio station")
 
+    def shut_down(self):
+        print("radio shut down")
+
 class Camera(object):
     def take_picture(self):
         print("Taking a picture")
 
+    def shut_down(self):
+        print("camera shut down")
+
+
 class Telephone(object):
     def call(self, number):
         print(f"Calling: {number}")
+
+    def shut_down(self):
+        print("phone shut down")
+
 
 class Smartphone(Telephone, Radio, Camera):
     def user_action(self, a, n=None):
@@ -19,10 +30,15 @@ class Smartphone(Telephone, Radio, Camera):
         elif a == "camera":
             self.take_picture()
 
+
 if __name__ == "__main__":
     smart = Smartphone()
+    '''
     smart.user_action("call", "+49 911 1234567")
     smart.user_action("radio")
-    smart.user_action("camera")
+    smart.user_action("camera")'''
+    smart.shut_down()
+
+
 
 
