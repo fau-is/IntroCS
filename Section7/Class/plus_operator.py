@@ -5,7 +5,8 @@ class person:
     def get_name(self):
         return self.__name
 
-    def __
+    def __add__(self, person):
+        
 
 
 if __name__ == "__main__":
