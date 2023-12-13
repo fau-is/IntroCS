@@ -4,11 +4,13 @@ class customer:
         self.name = name
         self.order = order
 
-    
+
 
 
 
 if __name__ == "__main__":
     customer1 = customer("peter", "pizza")
-    print(customer1.name)
+    print("order before change: ", customer1.order)
+    customer1.order = "ice-cream"
+    print("order after change: ", customer1.order)
 
