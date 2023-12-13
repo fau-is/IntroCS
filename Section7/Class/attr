@@ -13,4 +13,6 @@ if __name__ == "__main__":
     print("order before change: ", customer1.order)
     customer1.order = "ice-cream"
     print("order after change: ", customer1.order)
+    customer1.order = 10000
+    print("order after change in a bad way: ", customer1.order)
 
