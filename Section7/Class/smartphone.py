@@ -30,7 +30,8 @@ class Smartphone(Camera, Telephone, Radio):
         elif a == "camera":
             self.take_picture()
 
-    def sa
+    def shut_down(self):
+        print("all shutting down")
 
 
 if __name__ == "__main__":
