@@ -6,7 +6,8 @@ class person:
         return self.__name
 
     def __add__(self, person):
-        
+        if type(person) is type(self):
+            return self.__name + person.get_name()
 
 
 if __name__ == "__main__":
@@ -25,7 +26,8 @@ if __name__ == "__main__":
     n3 = n1 + n2
     print("n3: ", n3)
 
-
-    test = s1 + n2
+    p1 = person("Peter")
+    p2 = person("Lucas")
+    test = p1 + p2
     print("test: ", test)
 
