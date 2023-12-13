@@ -5,7 +5,8 @@ class customer:
         self.__order = order
 
     def change_order(self, new_order):
-        self.__order = new_order
+        if type(new_order) is str:
+            self.__order = new_order
 
     def display_order(self):
         return self.__order
