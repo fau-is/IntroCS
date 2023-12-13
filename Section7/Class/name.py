@@ -2,22 +2,18 @@
 class Name:
     attribute = []
     # Special Method: Constructor
-    def __init__(self, params):
-        self.something = params
-        Name.attribute.append(1)
-        self.attribute.append(1)
+    def __init__(self, name):
+        self.text = name
+        self.attribute = []
+        Name.attribute.append(self.text)
+        self.attribute.append(self.text)
 
-    # Method
-    def method_name(self):
-        print(self.something)
 
 def main():
     name_1 = Name("IntroCS")
     name_2 = Name("NewName")
-
-
-    name_1.method_name()
-
+    print(name_1.attribute)
+    print(name_2.attribute)
     print(Name.attribute)
 
 
