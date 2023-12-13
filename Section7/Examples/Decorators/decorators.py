@@ -44,7 +44,7 @@ if __name__ == '__main__':
     # Show Usage of static methods and getter (property) calls
     print(f"Sum: {Math.sum(x.number, y.number)}")
     print(f"Prod: {Math.multiply(x.number, y.number)}")
-    print(f"Div: {math1.divide(x.number, y.number)}")
+    print(f"Div: {Math.divide(x.number, y.number)}")
 
     # Show setter call
     x.number = 5
