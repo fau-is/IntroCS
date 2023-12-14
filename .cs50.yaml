@@ -6,6 +6,7 @@ submit50:
   files:
     - !exclude "*"
     - !require MastodonOOP.py
+    - !require test.py
     - !require group_members.txt
 check50:
   dependencies:
@@ -15,5 +16,6 @@ check50:
   files:
     - !exclude "*"
     - !require MastodonOOP.py
+    - !require test.py
     - !require group_members.txt
 
