@@ -21,7 +21,7 @@ class Camera(object):
 
 class Telephone(object):
     def __init__(self, isp):
-        self.__isp == isp
+        self.__isp = isp
 
     def call(self, number):
         print(f"Calling: {number} using ", self.__isp, " service")
