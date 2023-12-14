@@ -1,19 +1,26 @@
 class Radio(object):
+    def __init__(self, frequency):
+        self.__frequency = frequency
+
     def play(self):
-        print("Playing a radio station")
+        print("Playing a radio station with freq: ", self.__frequency)
 
     def shut_down(self):
         print("radio shut down")
 
 class Camera(object):
+    def __init__(self, iso):
+        self.__iso = iso
+
     def take_picture(self):
-        print("Taking a picture")
+        print("Taking a picture with iso: ", self.__iso)
 
     def shut_down(self):
         print("camera shut down")
 
 
 class Telephone(object):
+    def __init__(self, )
     def call(self, number):
         print(f"Calling: {number}")
 
