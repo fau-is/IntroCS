@@ -20,15 +20,23 @@ class Camera(object):
 
 
 class Telephone(object):
-    def __init__(self, )
+    def __init__(self, isp):
+        self.__isp == isp
+
     def call(self, number):
-        print(f"Calling: {number}")
+        print(f"Calling: {number} using ", self.__isp, " service")
 
     def shut_down(self):
         print("phone shut down")
 
 
 class Smartphone(Camera, Telephone, Radio):
+    def __init__(self, frequency, iso, isp):
+        Radio.__init__(frequency)
+        Camera.__init__(iso)
+        Telephone.__init__(isp)
+
+
     def user_action(self, a, n=None):
         if a == "call" and n != None:
             self.call(n)
