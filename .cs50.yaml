@@ -5,7 +5,6 @@ submit50:
     - openpyxl
   files:
     - !exclude "*"
-    - !require test.py
     - !require MastodonOOP.py
     - !require group_members.txt
 check50:
@@ -15,7 +14,6 @@ check50:
     - openpyxl
   files:
     - !exclude "*"
-    - !require test.py
     - !require MastodonOOP.py
     - !require group_members.txt
 
