@@ -45,3 +45,7 @@ if __name__ == "__main__":
     test = p2 * p1
     print("test: ", test)
 
+s4 = s1 + s3
+print(s4)
+
+
