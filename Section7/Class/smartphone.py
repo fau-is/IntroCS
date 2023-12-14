@@ -32,9 +32,9 @@ class Telephone(object):
 
 class Smartphone(Camera, Telephone, Radio):
     def __init__(self, frequency, iso, isp):
-        Radio.__init__(frequency)
-        Camera.__init__(iso)
-        Telephone.__init__(isp)
+        Radio.__init__(self, frequency)
+        Camera.__init__(self, iso)
+        Telephone.__init__(self, isp)
 
 
     def user_action(self, a, n=None):
@@ -44,19 +44,16 @@ class Smartphone(Camera, Telephone, Radio):
             self.play()
         elif a == "camera":
             self.take_picture()
-
+    '''
     def take_picture(self):
-        print("Taking a picture with smartphone camera")
+        print("Taking a picture with smartphone camera")'''
 
 
 if __name__ == "__main__":
-    smart = Smartphone()
-    '''
+    smart = Smartphone("FM101", "800", "Telecom")
     smart.user_action("call", "+49 911 1234567")
     smart.user_action("radio")
-    '''
-    smart.take_picture()
-    smart.shut_down()
+    smart.user_action("camera")
 
 
 
