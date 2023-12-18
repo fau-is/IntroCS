@@ -10,6 +10,8 @@ class Graph(dict):
     def add_edge(self, a: str, b: str):
         if a not in self:
             self.add_node(a)
+        if b not in self:
+            self.add_node(b)
 
         self[a].append(b)
         self[a] = sorted(self[a])
@@ -42,7 +44,7 @@ if __name__ == "__main__":
 
     g.dfs("a")
 
-    GraphDrawer.draw_graph_from_list(self)
+    GraphDrawer.draw_graph_from_list(g)
 
 
 
