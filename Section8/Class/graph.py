@@ -1,10 +1,10 @@
-from graphviz import Digraph
+from graph_drawer import Graph as GraphDrawer
 
-class Graph(dict)
-    def __init__():
+class Graph(dict):
+    def __init__(self):
         super().__init__()
 
-    def add_node(n):
+    def add_node(self, n):
         self[n] = []
 
     def add_edge(self, a: str, b: str):
@@ -27,10 +27,24 @@ class Graph(dict)
             visited.append(node)
             for neighbor in self[node]:
                 stack.append(neighbor)
-                
+            print(node)
+
+    def bfs(self):
+        pass
+
+if __name__ == "__main__":
+    g = Graph()
+
+    g.add_edge("a", "b")
+    g.add_edge("a", "c")
+    g.add_edge("b", "d")
+    g.add_edge("d", "e")
+
+    g.dfs("a")
+
+    GraphDrawer.draw_graph_from_list(self)
 
 
-    def bfs()
 
 
 
