@@ -1,0 +1,12 @@
+digraph {
+	node [border=black fillcolor=black fontcolor=white shape=rectangle style=filled]
+	a [label=a]
+	b [label=b]
+	c [label=c]
+	d [label=d]
+	e [label=e]
+	a -> b
+	a -> c
+	b -> d
+	d -> e
+}

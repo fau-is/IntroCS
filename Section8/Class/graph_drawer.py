@@ -32,11 +32,11 @@ class Graph:
             g.node(str(name), str(name))
         edges = set()
         for name in adj:
-            for dom, dist in adj[name]:
-                if (str(dom), str(name), str(dist)) in edges:
+            for dom in adj[name]:
+                if (str(dom), str(name)) in edges:
                     continue
-                g.edge(str(name), str(dom), str(dist))
-                edges.add((str(name), str(dom), str(dist)))
+                g.edge(str(name), str(dom))
+                edges.add((str(name), str(dom)))
 
         g.render(filename="list", format="png")
 

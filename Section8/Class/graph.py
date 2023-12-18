@@ -29,7 +29,9 @@ class Graph(dict):
             visited.append(node)
             for neighbor in self[node]:
                 stack.append(neighbor)
-            print(node)
+            print(node, end=" ")
+
+        print()
 
     def bfs(self):
         pass
