@@ -31,39 +31,48 @@ class BST:
             else:
                 self.right.add_node(value)
 
-        def __remove_two(self)
-
-        def remove_node(self, value):
-            current = self
-            found = None
-            parent = None
-            while not found:
-                if self.value == value:
-                    found = current
-                else:
-                    parent = current
-                    if self.value < value and current.left:
-                        current = current.left
-                    elif self.value > value and current.right:
-                        current = current.right
-                    else:
-                        return
-            if found.left and found.right:
-                self.__remove_two()
-            elif found.left or found.right:
-                self.__remove_one(found, parent)
+    def remove_node(self, value):
+        current = self
+        found = None
+        parent = None
+        while not found:
+            if self.value == value:
+                found = current
             else:
-                if found == parent.left:
-                    parent.left = None
+                parent = current
+                if self.value < value and current.left:
+                    current = current.left
+                elif self.value > value and current.right:
+                    current = current.right
                 else:
-                    parent.right = None
+                    return
+        if found.left and found.right:
+            self.__remove_two(found, parent)
+        elif found.left or found.right:
+            self.__remove_one(found, parent)
+        else:
+            if found == parent.left:
+                parent.left = None
+            else:
+                parent.right = None
+
+    def __remove_two(self, found, parent):
+        pass
 
 
 
 
-
-
-
+    def __remove_one(self, found, parent):
+        if parent.left == found:
+            if found.right:
+                parent.left = found.right
+            else:
+                parent.left = found.left
+        else:
+            if found.right:
+                parent.right = found.right
+            else:
+                parent.right = found.left
 
 
 def draw_bst(root):
@@ -97,8 +106,8 @@ if __name__ == '__main__':
     root.add_node(7)
     root.add_node(9)
     root.add_node(6)
-    root.rem_node(3)
-    root.rem_node(8)
+    root.remove_node(1)
+    # root.remove_node(8)
     draw_bst(root)
 
 

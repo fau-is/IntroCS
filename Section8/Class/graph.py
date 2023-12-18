@@ -28,6 +28,8 @@ class Graph(dict):
             node = stack.pop()
             visited.append(node)
             for neighbor in self[node]:
+                if neighbor in visited:
+                    continue
                 stack.append(neighbor)
             print(node, end=" ")
 
@@ -42,7 +44,9 @@ if __name__ == "__main__":
     g.add_edge("a", "b")
     g.add_edge("a", "c")
     g.add_edge("b", "d")
+    g.add_edge("b", "c")
     g.add_edge("d", "e")
+    g.add_edge("c", "e")
 
     g.dfs("a")
 

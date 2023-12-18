@@ -1,0 +1,20 @@
+graph {
+	node [border=black fillcolor=white fontcolor=black shape=circle style=filled]
+	5 [label=5]
+	3 [label=3]
+	5 -- 3
+	8 [label=8]
+	5 -- 8
+	7 [label=7]
+	8 -- 7
+	9 [label=9]
+	8 -- 9
+	6 [label=6]
+	7 -- 6
+	2 [label=2]
+	3 -- 2
+	4 [label=4]
+	3 -- 4
+	1 [label=1]
+	2 -- 1
+}
