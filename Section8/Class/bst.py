@@ -33,6 +33,9 @@ class BST:
 
 
         def rem_node(self, value):
+            found = None
+            while not found:
+                self.
 
 
 
