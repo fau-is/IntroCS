@@ -33,9 +33,21 @@ class BST:
 
 
         def rem_node(self, value):
+            current = self
             found = None
+            parent = None
             while not found:
-                self.
+                if self.value == value:
+                    found = current
+                else:
+                    parent = current
+                    if self.value < value and current.left:
+                        current = current.left
+                    elif self.value > value and current.right:
+                        current = current.right
+                
+
+
 
 
 
