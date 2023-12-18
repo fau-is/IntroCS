@@ -31,8 +31,9 @@ class BST:
             else:
                 self.right.add_node(value)
 
+        def __remove_two(self)
 
-        def rem_node(self, value):
+        def remove_node(self, value):
             current = self
             found = None
             parent = None
@@ -50,14 +51,14 @@ class BST:
             if found.left and found.right:
                 self.__remove_two()
             elif found.left or found.right:
-                self.__remove_one()
+                self.__remove_one(found, parent)
             else:
                 if found == parent.left:
                     parent.left = None
                 else:
                     parent.right = None
 
-                
+
 
 
 
