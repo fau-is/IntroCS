@@ -9,11 +9,27 @@ class Node:
 
 class Graph:
     @staticmethod
-    def draw_graph_from_list(adj):
+    def draw_graph_from_list_weighted(adj):
         g = Digraph(engine="circo")
         g.attr('node', fillcolor='black', fontcolor='white', shape='rectangle', style='filled', border='black')
         for name in adj:
             g.node(str(name),str(name))
+        edges = set()
+        for name in adj:
+            for dom, dist in adj[name]:
+                if (str(dom), str(name), str(dist)) in edges:
+                    continue
+                g.edge(str(name), str(dom), str(dist))
+                edges.add((str(name), str(dom), str(dist)))
+
+        g.render(filename="list", format="png")
+
+    @staticmethod
+    def draw_graph_from_list(adj):
+        g = Digraph(engine="circo")
+        g.attr('node', fillcolor='black', fontcolor='white', shape='rectangle', style='filled', border='black')
+        for name in adj:
+            g.node(str(name), str(name))
         edges = set()
         for name in adj:
             for dom, dist in adj[name]:
