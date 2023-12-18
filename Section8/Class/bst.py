@@ -74,9 +74,6 @@ class BST:
         maximum.right = found.right
 
 
-
-
-
     def __remove_one(self, found, parent):
         if parent.left == found:
             if found.right:
