@@ -77,10 +77,17 @@ class BST:
         maximum.left = found.left
         maximum.right = found.right
 
+        if not parent:
+            BST.root = maximum
+        elif 
+
 
     def __remove_one(self, found, parent):
         if not parent:
-            
+            if found.right:
+                BST.root = found.right
+            else:
+                BST.root = found.left
         elif parent.left == found:
             if found.right:
                 parent.left = found.right
