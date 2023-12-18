@@ -57,7 +57,7 @@ class BST:
                 parent.right = None
 
     def __remove_two(self, found, parent):
-        pass
+        found.
 
 
 
