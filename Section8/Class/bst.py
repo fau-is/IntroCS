@@ -49,13 +49,15 @@ class BST:
                     current = current.right
                 else:
                     return
-        if found == BST.root:
-            
+
+
         if found.left and found.right:
             self.__remove_two(found, parent)
         elif found.left or found.right:
             self.__remove_one(found, parent)
         else:
+            if found == BST.root:
+                BST.root = None
             if found == parent.left:
                 parent.left = None
             else:
@@ -77,7 +79,9 @@ class BST:
 
 
     def __remove_one(self, found, parent):
-        if parent.left == found:
+        if not parent:
+            
+        elif parent.left == found:
             if found.right:
                 parent.left = found.right
             else:
