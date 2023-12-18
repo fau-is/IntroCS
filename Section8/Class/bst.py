@@ -36,7 +36,7 @@ class BST:
         found = None
         parent = None
         while not found:
-            if self.value == value:
+            if current.value == value:
                 found = current
             else:
                 parent = current
