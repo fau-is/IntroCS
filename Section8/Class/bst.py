@@ -2,7 +2,7 @@ from graphviz import Graph
 
 
 class BST:
-    root =
+    root = None
     def __init__(self, value):
         self.value = value
         self.left = None
@@ -50,20 +50,19 @@ class BST:
                 else:
                     return
 
-
         if found.left and found.right:
             self.__remove_two(found, parent)
         elif found.left or found.right:
             self.__remove_one(found, parent)
         else:
-            if found == BST.root:
+            if parent == None:
                 BST.root = None
             if found == parent.left:
                 parent.left = None
             else:
                 parent.right = None
 
-    def __find_max(node):
+    def __find_max(self, node):
         if not node.right:
             return node
         else:
@@ -71,15 +70,19 @@ class BST:
 
 
     def __remove_two(self, found, parent):
-        maximum = __find_max(found.left)
-
+        """
+        """
+        maximum = self.__find_max(found.left)
         found.left.remove_node(maximum.value)
         maximum.left = found.left
         maximum.right = found.right
 
         if not parent:
             BST.root = maximum
-        elif 
+        elif found == parent.left:
+            parent.left = maximum
+        else:
+            parent.right = maximum
 
 
     def __remove_one(self, found, parent):
@@ -133,7 +136,8 @@ if __name__ == '__main__':
     BST.root.add_node(6)
     BST.root.remove_node(1)
     BST.root.remove_node(7)
-    draw_bst(root)
+    BST.root.remove_node(3)
+    draw_bst(BST.root)
 
 
 
