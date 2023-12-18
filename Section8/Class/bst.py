@@ -40,9 +40,9 @@ class BST:
                 found = current
             else:
                 parent = current
-                if value < self.value and current.left is not None:
+                if value < current.value and current.left is not None:
                     current = current.left
-                elif value > self.value and current.right is not None:
+                elif value > current.value and current.right is not None:
                     current = current.right
                 else:
                     return

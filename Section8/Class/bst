@@ -5,12 +5,10 @@ graph {
 	5 -- 3
 	8 [label=8]
 	5 -- 8
-	7 [label=7]
-	8 -- 7
+	6 [label=6]
+	8 -- 6
 	9 [label=9]
 	8 -- 9
-	6 [label=6]
-	7 -- 6
 	2 [label=2]
 	3 -- 2
 	4 [label=4]
