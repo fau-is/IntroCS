@@ -2,10 +2,13 @@ from graphviz import Graph
 
 
 class BST:
+    root =
     def __init__(self, value):
         self.value = value
         self.left = None
         self.right = None
+        if BST.root is None:
+            BST.root = self
 
     def find(self, value):
         if self.value == value:
@@ -69,7 +72,7 @@ class BST:
         found.left.remove_node(maximum.value)
         maximum.left = found.left
         maximum.right = found.right
-        
+
 
 
 
