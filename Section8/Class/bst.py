@@ -45,6 +45,18 @@ class BST:
                         current = current.left
                     elif self.value > value and current.right:
                         current = current.right
+                    else:
+                        return
+            if found.left and found.right:
+                self.__remove_two()
+            elif found.left or found.right:
+                self.__remove_one()
+            else:
+                if found == parent.left:
+                    parent.left = None
+                else:
+                    parent.right = None
+
                 
 
 
