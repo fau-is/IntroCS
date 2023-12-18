@@ -107,7 +107,7 @@ if __name__ == '__main__':
     root.add_node(9)
     root.add_node(6)
     root.remove_node(1)
-    # root.remove_node(8)
+    root.remove_node(7)
     draw_bst(root)
 
 
