@@ -73,7 +73,7 @@ class BST:
         """
         """
         maximum = self.__find_max(found.left)
-        found.left.remove_node(maximum.value)
+        BST.root.remove_node(maximum.value)
         maximum.left = found.left
         maximum.right = found.right
 
@@ -101,7 +101,6 @@ class BST:
                 parent.right = found.right
             else:
                 parent.right = found.left
-
 
 def draw_bst(root):
     g = Graph()
@@ -137,6 +136,7 @@ if __name__ == '__main__':
     BST.root.remove_node(1)
     BST.root.remove_node(7)
     BST.root.remove_node(3)
+    BST.root.remove_node(8)
     draw_bst(BST.root)
 
 

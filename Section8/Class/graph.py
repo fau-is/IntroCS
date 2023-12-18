@@ -28,15 +28,28 @@ class Graph(dict):
             node = stack.pop()
             visited.append(node)
             for neighbor in self[node]:
-                if neighbor in visited:
+                if neighbor in (visited + stack):
                     continue
                 stack.append(neighbor)
             print(node, end=" ")
-
         print()
 
-    def bfs(self):
-        pass
+    def bfs(self, s: str):
+        if s not in self:
+            raise ValueError("Node does not exist")
+
+        queue = [s]
+        visited = []
+
+        while queue:
+            node = queue.pop(0)
+            visited.append(node)
+            for neighbor in self[node]:
+                if neighbor in (visited + queue):
+                    continue
+                queue.append(neighbor)
+            print(node, end=" ")
+        print()
 
 if __name__ == "__main__":
     g = Graph()
@@ -49,6 +62,7 @@ if __name__ == "__main__":
     g.add_edge("c", "e")
 
     g.dfs("a")
+    g.bfs("a")
 
     GraphDrawer.draw_graph_from_list(g)
 
