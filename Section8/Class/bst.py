@@ -112,17 +112,17 @@ def draw_bst(root):
 
 
 if __name__ == '__main__':
-    root = BST(5)
-    root.add_node(3)
-    root.add_node(4)
-    root.add_node(2)
-    root.add_node(1)
-    root.add_node(8)
-    root.add_node(7)
-    root.add_node(9)
-    root.add_node(6)
-    root.remove_node(1)
-    root.remove_node(7)
+    BST(5)
+    BST.root.add_node(3)
+    BST.root.add_node(4)
+    BST.root.add_node(2)
+    BST.root.add_node(1)
+    BST.root.add_node(8)
+    BST.root.add_node(7)
+    BST.root.add_node(9)
+    BST.root.add_node(6)
+    BST.root.remove_node(1)
+    BST.root.remove_node(7)
     draw_bst(root)
 
 
