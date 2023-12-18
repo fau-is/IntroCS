@@ -32,6 +32,10 @@ class BST:
                 self.right.add_node(value)
 
 
+        def rem_node(self, value):
+
+
+
 
 
 def draw_bst(root):
