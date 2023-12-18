@@ -55,7 +55,7 @@ class BST:
         elif found.left or found.right:
             self.__remove_one(found, parent)
         else:
-            if parent == None:
+            if found == BST.root:
                 BST.root = None
             if found == parent.left:
                 parent.left = None
