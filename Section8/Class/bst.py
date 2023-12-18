@@ -56,8 +56,20 @@ class BST:
             else:
                 parent.right = None
 
+    def __find_max(node):
+        if not node.right:
+            return node
+        else:
+            return node.__find_max(node.right)
+
+
     def __remove_two(self, found, parent):
-        maximum = find_max(found.left)
+        maximum = __find_max(found.left)
+
+        found.left.remove_node(maximum.value)
+        maximum.left = found.left
+        maximum.right = found.right
+        
 
 
 
