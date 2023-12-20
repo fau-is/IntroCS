@@ -82,8 +82,8 @@ def tree_structure():
         raise check50.Failure("Tree structure validation failed.")
 
 @check50.check(tree_structure)
-def iterative_search():
-    """Iterative search works correctly"""
+def linear_search():
+    """Linear search works correctly"""
     bst_module = import_bst()
     usernames = ['THD_IT', 'Harmonia_Amanda', 'Dju', 'GeoffreyDorne', 'Bram_Finkel',
                  'HyP', 'mistur', 'Zestryon', 'BrunoBellamy']
@@ -91,17 +91,17 @@ def iterative_search():
         bst_module.add("Lopinel")
         for username in usernames:
             bst_module.add(username)
-     	if bst_module.iterative_search(bst_module.root, 'Lopinel').username != 'Lopinel':
-            raise check50.Mismatch('Lopinel', bst_module.iterative_search(bst_module.root, 'Lopinel').username)
-        if bst_module.iterative_search(bst_module.root, 'mistur').username != 'mistur':
-            raise check50.Mismatch('mistur', bst_module.iterative_search(bst_module.root, 'mistur').username)
-        if bst_module.iterative_search(bst_module.root, 'NonExistingUser'):
+        if bst_module.linear_search('Lopinel').username != 'Lopinel':
+            raise check50.Mismatch('Lopinel', bst_module.linear_search('Lopinel').username)
+        if bst_module.linear_search('mistur').username != 'mistur':
+            raise check50.Mismatch('mistur', bst_module.linear_search('mistur').username)
+        if bst_module.linear_search('NonExistingUser'):
             raise check50.Mismatch('False', 'True')
         bst_module.root = None
-        if bst_module.iterative_search(bst_module.root, 'Lopinel'):
+        if bst_module.linear_search('Lopinel'):
             raise check50.Mismatch('False', 'True')
     except:
-        raise check50.Failure("Iterative search failed.")
+        raise check50.Failure("Linear search failed.")
 
 @check50.check(tree_structure)
 def recursive_search():
