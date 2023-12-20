@@ -91,12 +91,12 @@ def iterative_search():
         bst_module.add("Lopinel")
         for username in usernames:
             bst_module.add(username)
- 	if bst_module.iterative_search(bst_module.root, 'Lopinel').username != 'Lopinel':
+     	if bst_module.iterative_search(bst_module.root, 'Lopinel').username != 'Lopinel':
             raise check50.Mismatch('Lopinel', bst_module.iterative_search(bst_module.root, 'Lopinel').username)
         if bst_module.iterative_search(bst_module.root, 'mistur').username != 'mistur':
             raise check50.Mismatch('mistur', bst_module.iterative_search(bst_module.root, 'mistur').username)
         if bst_module.iterative_search(bst_module.root, 'NonExistingUser'):
-        raise check50.Mismatch('False', 'True')
+            raise check50.Mismatch('False', 'True')
         bst_module.root = None
         if bst_module.iterative_search(bst_module.root, 'Lopinel'):
             raise check50.Mismatch('False', 'True')
@@ -105,7 +105,7 @@ def iterative_search():
 
 @check50.check(tree_structure)
 def recursive_search():
-    """Binary search works correctly"""
+    """Recursive search works correctly"""
     bst_module = import_bst()
     usernames = ['THD_IT', 'Harmonia_Amanda', 'Dju', 'GeoffreyDorne', 'Bram_Finkel',
                  'HyP', 'mistur', 'Zestryon', 'BrunoBellamy']
