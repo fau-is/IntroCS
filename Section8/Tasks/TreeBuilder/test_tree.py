@@ -54,9 +54,6 @@ class TestTreeBuilder(unittest.TestCase):
         self.root_left_right_left_missing.add_node("RootLeftRightLeft")
         self.assertEqual("RootLeftRightLeft", self.root_left_right_left_missing.left.right.left.value)
 
-
-
-
 if __name__ == "__main__":
     unittest.main()
 
