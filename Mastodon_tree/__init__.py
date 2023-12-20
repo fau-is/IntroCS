@@ -91,6 +91,8 @@ def iterative_search():
         bst_module.add("Lopinel")
         for username in usernames:
             bst_module.add(username)
+        print(bst_module.root)
+        print(bst_module.root.username)
         if bst_module.iterative_search(bst_module.root, 'Lopinel').username != 'Lopinel':
             raise check50.Mismatch('Lopinel', bst_module.iterative_search(bst_module.root, 'Lopinel').username)
         if bst_module.iterative_search(bst_module.root, 'mistur').username != 'mistur':
