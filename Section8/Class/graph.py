@@ -65,10 +65,3 @@ if __name__ == "__main__":
     g.bfs("a")
 
     GraphDrawer.draw_graph_from_list(g)
-
-
-
-
-
-
-
