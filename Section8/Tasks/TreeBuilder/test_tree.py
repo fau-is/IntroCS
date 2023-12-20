@@ -1,5 +1,5 @@
 import unittest
-from tree import BinTree, BinTreeNode
+from tree_sol import BinTree, BinTreeNode
 
 def tree_builder_root_right_missing():
     root = BinTreeNode("Root")
