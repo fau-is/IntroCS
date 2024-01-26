@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Table</title>
+  </head>
+  <body>
+        <table border=1>
+ 		  {% for i in range(dim|int) %}
+          <tr>
+  		      {% for j in range(dim|int) %}
+              <td>
+   				 {{ (i + 1) * (j + 1) }}
+              </td>
+              {% endfor %}
+          </tr>
+  		  {% endfor %}
+        </table>
+  </body>
+</html>
