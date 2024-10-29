@@ -1,0 +1,3 @@
+submit50:
+  files:
+    - !require "python_file.py"
